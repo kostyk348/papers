@@ -1,0 +1,309 @@
+PROTORUN PORT RECORD — 2026-10-16T11:35:11Z
+===============================================================
+
+Task: kanban t_a67dbcfe (port the protocol harness from Python to Rust).
+Harness before the port: code/run_protocol.py + code/streams.py, frozen byte-identical
+in evidence/pre-port-runner/ (SHA256SUMS.txt).
+
+Rust toolchain: rustc 1.97.1 (8bab26f4f 2026-07-14), cargo 1.97.1 (c980f4866 2026-06-30)
+Crates: none (Cargo.toml lists no dependencies; the build fetches nothing).
+
+== 1. clean build (cold target directory, no network, no crates)
+$ CARGO_TARGET_DIR=<empty dir> cargo build --release
+   Compiling protorun v0.1.0 (C:\Users\Lab\AppData\Local\hermes\profiles\libraressa\workspace\papers\agent-memory-mcp\tools\protorun)
+    Finished `release` profile [optimized] target(s) in 30.73s
+exit code: 0 — no warnings (a warning would make the criterion 'cargo build --release without warnings' fail)
+
+binary: tools/protorun/target/release/protorun.exe  (1,2M)
+
+== 2. the generator is the Python generator: generated facts vs the recorded requests
+$ protorun parity streams --reference reports/sint-liquid-mcp-2026-10-16 --server sint-liquid-mcp
+stream parity: generated facts vs the recorded requests
+reference: reports/sint-liquid-mcp-2026-10-16
+server:    sint-liquid-mcp (tool liquid_belief)
+  seed=1 T1: MATCH (16 recorded write calls, arguments identical)
+  seed=1 T2: MATCH (12 recorded write calls, arguments identical)
+  seed=1 T3: MATCH (6 recorded write calls, arguments identical)
+  seed=1 T4: MATCH (6 recorded write calls, arguments identical)
+  seed=1 T5: MATCH (12 recorded write calls, arguments identical)
+  seed=1 T6: MATCH (8 recorded write calls, arguments identical)
+  seed=1 T7: MATCH (3 recorded write calls, arguments identical)
+  seed=1 T8: MATCH (8 recorded write calls, arguments identical)
+  seed=1 T9: MATCH (0 recorded write calls, arguments identical)
+  seed=1 T10: MATCH (8 recorded write calls, arguments identical)
+  seed=2 T1: MATCH (16 recorded write calls, arguments identical)
+  seed=2 T2: MATCH (12 recorded write calls, arguments identical)
+  seed=2 T3: MATCH (6 recorded write calls, arguments identical)
+  seed=2 T4: MATCH (6 recorded write calls, arguments identical)
+  seed=2 T5: MATCH (12 recorded write calls, arguments identical)
+  seed=2 T6: MATCH (8 recorded write calls, arguments identical)
+  seed=2 T7: MATCH (3 recorded write calls, arguments identical)
+  seed=2 T8: MATCH (8 recorded write calls, arguments identical)
+  seed=2 T9: MATCH (0 recorded write calls, arguments identical)
+  seed=2 T10: MATCH (8 recorded write calls, arguments identical)
+  seed=3 T1: MATCH (16 recorded write calls, arguments identical)
+  seed=3 T2: MATCH (12 recorded write calls, arguments identical)
+  seed=3 T3: MATCH (6 recorded write calls, arguments identical)
+  seed=3 T4: MATCH (6 recorded write calls, arguments identical)
+  seed=3 T5: MATCH (12 recorded write calls, arguments identical)
+  seed=3 T6: MATCH (8 recorded write calls, arguments identical)
+  seed=3 T7: MATCH (3 recorded write calls, arguments identical)
+  seed=3 T8: MATCH (8 recorded write calls, arguments identical)
+  seed=3 T9: MATCH (0 recorded write calls, arguments identical)
+  seed=3 T10: MATCH (8 recorded write calls, arguments identical)
+result: 237 write calls compared across the families and seeds above, 0 mismatch(es)
+STREAM PARITY OK
+exit code: 0
+      237 write calls over 3 seeds x 10 families; RNG, generated contents, confidences and
+      write order are the Python generator's, so the streams are the same streams.
+
+== 2b. the same check for the second subject (different adapter and tool surface)
+$ protorun parity streams --reference reports/sint-memory-mcp-2026-10-16 --server sint-memory-mcp
+  seed=2 T9: MATCH (0 recorded write calls, arguments identical)
+  seed=2 T10: MATCH (8 recorded write calls, arguments identical)
+  seed=3 T1: MATCH (16 recorded write calls, arguments identical)
+  seed=3 T2: MATCH (12 recorded write calls, arguments identical)
+  seed=3 T3: MATCH (6 recorded write calls, arguments identical)
+  seed=3 T4: MATCH (6 recorded write calls, arguments identical)
+  seed=3 T5: MATCH (12 recorded write calls, arguments identical)
+  seed=3 T6: MATCH (8 recorded write calls, arguments identical)
+  seed=3 T7: MATCH (3 recorded write calls, arguments identical)
+  seed=3 T8: MATCH (8 recorded write calls, arguments identical)
+  seed=3 T9: MATCH (0 recorded write calls, arguments identical)
+  seed=3 T10: MATCH (8 recorded write calls, arguments identical)
+result: 237 write calls compared across the families and seeds above, 0 mismatch(es)
+STREAM PARITY OK
+
+== 3. a real run of the same subjects on the same seeds and the same commits
+   (server SDK mcp 1.9.4 unpacked to tools/protorun/target/mcp-1.9.4-site and passed as
+    --server-pythonpath; nothing was installed into any shared environment)
+
+$ protorun run --server sint-liquid-mcp --server-root <refs> --server-python <venv python> \
+      --server-pythonpath <mcp 1.9.4 site dir> --seeds 1,2,3 --out reports/parity-rust \
+      --run-name sint-liquid-mcp-2026-10-16
+  sint-liquid-mcp seed=3 T9 done (203 calls so far, 6.6s)
+  sint-liquid-mcp seed=3 T10 done (227 calls so far, 6.9s)
+VALID   reports/parity-rust/sint-liquid-mcp-2026-10-16/report.json (subject=sint-liquid-mcp, families=10, metric entries=52)
+validated with: refslint report
+summary reports/parity-rust/sint-liquid-mcp-2026-10-16/summary.md
+calls per repetition: [227, 227, 227]
+exit code: 0
+
+$ protorun run --server sint-memory-mcp ... --out reports/parity-rust --run-name sint-memory-mcp-2026-10-16
+  sint-memory-mcp seed=3 T10 done (220 calls so far, 11.6s)
+VALID   reports/parity-rust/sint-memory-mcp-2026-10-16/report.json (subject=sint-memory-mcp, families=10, metric entries=52)
+validated with: refslint report
+summary reports/parity-rust/sint-memory-mcp-2026-10-16/summary.md
+calls per repetition: [220, 220, 220]
+exit code: 0
+
+== 4. the numbers: field-by-field comparison against the reports the Python harness produced
+$ protorun parity run-vs-report --reference reports/sint-liquid-mcp-2026-10-16 \
+      --run reports/parity-rust/sint-liquid-mcp-2026-10-16
+report parity: Python harness (reference) vs protorun (run)
+reference: reports/sint-liquid-mcp-2026-10-16
+run:       reports/parity-rust/sint-liquid-mcp-2026-10-16
+
+known_deviations: 9 of 9 reference items carried over verbatim (the harness-describing item is intentionally rewritten)
+
+fields compared exactly:            951
+fields equal by order of magnitude: 24 (timing)
+paths equal after normalisation:    31
+fields exempt as machine-specific:  4
+
+REPORT PARITY OK: every measured value, every note, every CI and the whole report structure are identical to the Python harness's report (timing metrics excepted)
+exit code: 0
+
+$ protorun parity run-vs-report --reference reports/sint-memory-mcp-2026-10-16 \
+      --run reports/parity-rust/sint-memory-mcp-2026-10-16
+report parity: Python harness (reference) vs protorun (run)
+reference: reports/sint-memory-mcp-2026-10-16
+run:       reports/parity-rust/sint-memory-mcp-2026-10-16
+
+known_deviations: 9 of 9 reference items carried over verbatim (the harness-describing item is intentionally rewritten)
+
+fields compared exactly:            951
+fields equal by order of magnitude: 24 (timing)
+paths equal after normalisation:    31
+fields exempt as machine-specific:  4
+
+REPORT PARITY OK: every measured value, every note, every CI and the whole report structure are identical to the Python harness's report (timing metrics excepted)
+exit code: 0 (both subjects)
+
+== 5. the two reports, read side by side
+
+The comparison above walks both JSON documents and compares every leaf. The strongest form of the
+same statement is a plain line diff, because it shows what is *not* equal and nothing else. For
+`summary.md` (the human-readable file, all 52 metric rows per subject) the whole diff is:
+
+```diff
+16,17c16,17
+< | environment | Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness Python 3.14.7 (stdlib only) |
+< | raw responses | reports/sint-liquid-mcp-2026-10-16/raw |
+---
+> | environment | windows; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness protorun (Rust, standard library only, no crates) |
+> | raw responses | reports/parity-rust/sint-liquid-mcp-2026-10-16/raw |
+29,30c29,30
+< | write_latency_p50_ms | 17.8175 | [17.0155, 18.4985] | 3 | harness | wall clock around tools/call; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+< | write_latency_p95_ms | 21.0234 | [19.3115, 21.8968] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+---
+> | write_latency_p50_ms | 16.9195 | [15.8135, 18.3145] | 3 | harness | wall clock around tools/call; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+> | write_latency_p95_ms | 19.8419 | [17.8588, 22.4833] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+45,46c45,46
+< | read_latency_p50_ms | 4.4998 | [4.1825, 4.9225] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+< | read_latency_p95_ms | 13.7778 | [12.8863, 14.3422] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+---
+> | read_latency_p50_ms | 4.3930 | [4.1045, 4.7705] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+> | read_latency_p95_ms | 13.2508 | [11.5535, 14.5420] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+146c146
+< - The harness is Python (code/run_protocol.py, code/streams.py). The package's standing policy (TOOLING.md) is that new utilities are written in Rust and the reference pipeline has been ported to the refslint binary; this harness is Python because the card that commissioned it names code/run_protocol.py, because it must interoperate with the Python MCP SDK that both subjects import, and because the validator it is required to pass is code/validate_report.py, invoked as 'python code/validate_report.py reports/<file>.json'. The two files are listed as to-port in TOOLING.md; the reports they produced are accepted by that validator and by refslint report, which is recorded in the run summary.
+---
+> - The harness is Rust (tools/protorun, standard library only, no crates). The pre-port Python harness (code/run_protocol.py, code/streams.py) is preserved unchanged in evidence/pre-port-runner/ and its reports are the ones the port is checked against: `protorun parity run-vs-report` compares the two field by field and `protorun parity streams` compares the generated facts with the recorded raw requests.
+155a156
+> - The Rust harness validates its report with `refslint report` (the ported schema validator) instead of importing code/validate_report.py; the two validators were shown to give identical verdicts in evidence/refslint-port-2026-10-16.txt. A family that raises inside a runner is recorded as a harness_fault failure and the family falls back to family_not_measured, as in the Python harness; the difference is that the Rust harness does not abort the run on a panic.
+161c162
+< python code/run_protocol.py --server sint-liquid-mcp --seeds 1,2,3
+---
+> tools/protorun/target/release/protorun run --server sint-liquid-mcp --seeds 1,2,3
+163,164c164,167
+< # validate it with both validators in this package
+< python code/validate_report.py reports/*/report.json
+---
+> # compare it field by field with a report produced by the Python harness
+> tools/protorun/target/release/protorun parity run-vs-report --run <new-run> --reference <python-run>
+> 
+> # validate it with the package validator
+```
+
+```
+$ diff reports/sint-liquid-mcp-2026-10-16/summary.md reports/parity-rust/sint-liquid-mcp-2026-10-16/summary.md
+```
+(23 changed lines out of 167; the same diff for sint-memory-mcp is below. Four families' latency
+rows, the environment line, the raw-responses directory and the disclosure/Reproduce text.)
+
+For `report.json` (1325 lines per subject) the diff is likewise only:
+
+| What differs | Lines | Why |
+|---|---|---|
+| `raw_log_paths` | 60 | the parity runs live in `reports/parity-rust/<run>`; every file name and the whole run structure are identical (the parity tool compares them after normalising the run directory) |
+| the four latency metrics (`write_latency_p50/p95_ms`, `read_latency_p50/p95_ms`), in the family blocks and again in the operations blocks | 48 | wall-clock measurements, which the card allows to differ; they agree within a factor of ~1.3, and the parity tool checks the order of magnitude |
+| `runner.harness_commit` | 2 | the hash names the Rust sources instead of the Python ones; it is the identity of the harness, not a measurement |
+| `disclosure.environment` | 2 | names `protorun (Rust, standard library only)` instead of `harness Python 3.14.7` |
+| `disclosure.known_deviations` | 4 | the one item that describes the harness is rewritten; the other nine are carried over verbatim (asserted by the parity tool: "9 of 9 reference items carried over verbatim") |
+
+Every other field — all 52 metric rows per subject, each with its `value`, its 1000-resample
+bootstrap 95 % CI, its `n`, its `computer`, its full `notes` string and its `kappa` where present,
+plus `families[].tasks`, `failures[]` (codes, counts, examples), `operations` (supported flags,
+pooled CIs) and every disclosure field — is byte-identical, and the timing values came out of the
+same order of magnitude:
+
+| metric (sint-liquid-mcp) | Python harness | protorun |
+|---|---|---|
+| T1 `write_precision` | 1.0 | 1.0 |
+| T1 `idempotency_violations` | 0 | 0 |
+| T2 `mrr` | 0.5 | 0.5 |
+| T2 `context_inflation` | 0.5 | 0.5 |
+| T5 `contradiction_detection_f1` | 0.0 | 0.0 |
+| T5 `revision_correctness` | 1.0 | 1.0 |
+| T8 `ece` | 0.366667 | 0.366667 |
+| T8 `discrimination_auroc` | 0.75 | 0.75 |
+| T8 `monitoring_accuracy` | 1.0 | 1.0 |
+| T9 `restart_survival` | 1.0 | 1.0 |
+| T9 `snapshot_reopen_survival` | 1.0 | 1.0 |
+| T10 `membership_inference_advantage` | 1.0 | 1.0 |
+| T1 `write_latency_p50_ms` | 17.8175 | 16.9195 |
+
+`calls per repetition` is 227 for `sint-liquid-mcp` and 220 for `sint-memory-mcp` in both harnesses,
+which is what makes the raw logs comparable file by file.
+
+== 6. what the port does not claim
+
+- The seconds are not the same and are not meant to be: `protorun` is a native binary and the
+  timing metrics measure the subject server, but the wall clock around each call also includes the
+  harness's own I/O. The card allows the timing fields to differ, and the parity tool treats them as
+  equal when the order of magnitude matches.
+- The port reproduces the *reports*, i.e. the measurement path. The two reports it reproduced were
+  produced by the earlier revision of `code/run_protocol.py` (0.3.0); the 0.4.0 change to that file
+  touches only how it validates its output, not how it measures, and the parity check is therefore
+  still a check of the measurement path.
+- `code/run_protocol.py` and `code/streams.py` were **not deleted**. They are named by
+  `protocol.md`, `README.md` §4b and the two committed `summary.md` files, so removing them means
+  rewriting those references; until that follow-up happens the frozen, byte-identical copy in
+  `evidence/pre-port-runner/` is the archival one and `tools/protorun` is the tool of record.
+- The Python SDK version pinned in the two committed reports is 1.9.4; the parity runs used the same
+  1.9.4 (unpacked into `tools/protorun/target/mcp-1.9.4-site`, never installed into a shared
+  environment), which is why the reports agree down to `serverInfo.version` in the raw logs.
+
+== 7. reproduce all of it
+
+```bash
+cd <package root>
+cd tools/protorun && cargo build --release && cd ../..          # no crates, no network, ~30 s
+
+PYP="<python that the server runs under>"                        # recorded in each report's disclosure
+PYPATH="tools/protorun/target/mcp-1.9.4-site"                    # mcp 1.9.4 site dir
+SR="<dir with the read-only server clones>"                      # refs/
+
+tools/protorun/target/release/protorun parity streams \
+    --reference reports/sint-liquid-mcp-2026-10-16 --server sint-liquid-mcp
+tools/protorun/target/release/protorun run --server sint-liquid-mcp \
+    --server-root "$SR" --server-python "$PYP" --server-pythonpath "$PYPATH" \
+    --seeds 1,2,3 --out reports/parity-rust --run-name sint-liquid-mcp-2026-10-16
+tools/protorun/target/release/protorun parity run-vs-report \
+    --reference reports/sint-liquid-mcp-2026-10-16 \
+    --run reports/parity-rust/sint-liquid-mcp-2026-10-16
+```
+
+The mcp 1.9.4 site directory is a `pip install --target` into the ignored build directory
+(`python -m pip install --target tools/protorun/target/mcp-1.9.4-site "mcp==1.9.4" "pydantic==2.13.4"`;
+pydantic 2.13.4 rather than the newest release, because mcp 1.9.4 imports
+`pydantic._internal._typing_extra.eval_type_backport`, which newer pydantic versions no longer
+export). Nothing was installed into a shared environment and nothing large was written outside
+`tools/protorun/target/`.
+
+== Appendix: the same summary.md diff for sint-memory-mcp
+
+```diff
+16,17c16,17
+< | environment | Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness Python 3.14.7 (stdlib only) |
+< | raw responses | reports/sint-memory-mcp-2026-10-16/raw |
+---
+> | environment | windows; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness protorun (Rust, standard library only, no crates) |
+> | raw responses | reports/parity-rust/sint-memory-mcp-2026-10-16/raw |
+29,30c29,30
+< | write_latency_p50_ms | 16.4423 | [15.1670, 17.2955] | 3 | harness | wall clock around tools/call; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+< | write_latency_p95_ms | 18.9019 | [17.3290, 20.2025] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+---
+> | write_latency_p50_ms | 18.6060 | [18.0490, 19.0040] | 3 | harness | wall clock around tools/call; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+> | write_latency_p95_ms | 22.8851 | [21.3448, 24.4217] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+45,46c45,46
+< | read_latency_p50_ms | 8.0937 | [7.6565, 8.5435] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+< | read_latency_p95_ms | 102.8932 | [101.5777, 104.9317] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+---
+> | read_latency_p50_ms | 8.9428 | [8.5450, 9.4735] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+> | read_latency_p95_ms | 139.7200 | [109.9360, 194.4255] | 3 | harness | mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
+146c146
+< - The harness is Python (code/run_protocol.py, code/streams.py). The package's standing policy (TOOLING.md) is that new utilities are written in Rust and the reference pipeline has been ported to the refslint binary; this harness is Python because the card that commissioned it names code/run_protocol.py, because it must interoperate with the Python MCP SDK that both subjects import, and because the validator it is required to pass is code/validate_report.py, invoked as 'python code/validate_report.py reports/<file>.json'. The two files are listed as to-port in TOOLING.md; the reports they produced are accepted by that validator and by refslint report, which is recorded in the run summary.
+---
+> - The harness is Rust (tools/protorun, standard library only, no crates). The pre-port Python harness (code/run_protocol.py, code/streams.py) is preserved unchanged in evidence/pre-port-runner/ and its reports are the ones the port is checked against: `protorun parity run-vs-report` compares the two field by field and `protorun parity streams` compares the generated facts with the recorded raw requests.
+155a156
+> - The Rust harness validates its report with `refslint report` (the ported schema validator) instead of importing code/validate_report.py; the two validators were shown to give identical verdicts in evidence/refslint-port-2026-10-16.txt. A family that raises inside a runner is recorded as a harness_fault failure and the family falls back to family_not_measured, as in the Python harness; the difference is that the Rust harness does not abort the run on a panic.
+161c162
+< python code/run_protocol.py --server sint-memory-mcp --seeds 1,2,3
+---
+> tools/protorun/target/release/protorun run --server sint-memory-mcp --seeds 1,2,3
+163,164c164,167
+< # validate it with both validators in this package
+< python code/validate_report.py reports/*/report.json
+---
+> # compare it field by field with a report produced by the Python harness
+> tools/protorun/target/release/protorun parity run-vs-report --run <new-run> --reference <python-run>
+> 
+> # validate it with the package validator
+```
+
+== 8. the artefacts in reports/parity-rust/ are from this run
+   (after the final 'cargo fmt' and rebuild; the builder's hash over the sources changed, which the
+    comparison exempts by design — it is the identity of the harness, not a measurement)
+
+$ cargo fmt && cargo build --release      # in tools/protorun, again without warnings

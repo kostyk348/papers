@@ -1,0 +1,307 @@
+Evidence: paper numbers generated from the protocol reports (card t_02d348b7)
+Host: MSYS_NT-10.0-26200, date (UTC): 2026-10-16T11:36:25Z
+refslint: refslint -- pipeline utility for the agent-memory-mcp paper package.
+
+==============================================================================
+== 1. generate tables, macros and ledger from the two reports
+== $ ./tools/refslint/target/release/refslint tables --root .
+==============================================================================
+wrote 14 generated files from 2 report(s): 2 subjects, 10 families, 8 operation profiles, 104 metric rows over families, 86 number lookups in tex/main.tex
+exit=0
+
+==============================================================================
+== 2. the generated files must equal what the reports produce, and every number
+==    lookup in tex/main.tex must resolve
+== $ ./tools/refslint/target/release/refslint tables --root . --check
+==============================================================================
+tables up to date: 2 subjects, 10 families, 104 metric rows over families, 86 number lookups in tex/main.tex all resolve
+exit=0
+
+==============================================================================
+== 3. the reports themselves are still valid
+== $ ./tools/refslint/target/release/refslint report --schema code/protocol_schema.json reports/*/report.json
+==============================================================================
+VALID   reports/sint-liquid-mcp-2026-10-16/report.json  (subject=sint-liquid-mcp, families=10, metric entries=52)
+VALID   reports/sint-memory-mcp-2026-10-16/report.json  (subject=sint-memory-mcp, families=10, metric entries=52)
+exit=0
+
+==============================================================================
+== 4. negative test: a hand-edited generated table must be detected
+==    (tex/tables/family-T9.tex was given a trailing '% simulated hand edit')
+== $ ./tools/refslint/target/release/refslint tables --root . --check
+==============================================================================
+refslint tables: STALE ./tex/tables/family-T9.tex (does not match the reports)
+1 problem(s) in the generated tables
+exit=1 (1 expected)
+
+== restore by regenerating, then check again
+== $ ./tools/refslint/target/release/refslint tables --root . && ./tools/refslint/target/release/refslint tables --root . --check
+wrote 14 generated files from 2 report(s): 2 subjects, 10 families, 8 operation profiles, 104 metric rows over families, 86 number lookups in tex/main.tex
+tables up to date: 2 subjects, 10 families, 104 metric rows over families, 86 number lookups in tex/main.tex all resolve
+exit=0
+
+==============================================================================
+== 5. negative test: a number with no report field must be detected
+==    (tex/main.tex temporarily carried \val{memory.T1.no_such_metric})
+== $ ./tools/refslint/target/release/refslint tables --root . --check
+==============================================================================
+refslint tables: UNKNOWN NUMBER \val{memory.T1.no_such_metric} in tex/main.tex (no such field in any report)
+1 problem(s) in the generated tables
+exit=1 (1 expected)
+
+== after reverting the probe:
+== $ ./tools/refslint/target/release/refslint tables --root . --check
+tables up to date: 2 subjects, 10 families, 104 metric rows over families, 86 number lookups in tex/main.tex all resolve
+exit=0
+
+==============================================================================
+== 6. the PDF builds from these sources
+== $ bash build.sh
+==============================================================================
+[build] using tools/tectonic/tectonic.exe
+[build] using tools/refslint/target/release/refslint.exe
+resolved 135 curated sources (0 unresolved)
+   artifact       6
+   cognition      18
+   epistemic      10
+   evaluation     12
+   infra          15
+   prospective    3
+   protocol       18
+   retrieval      8
+   revision       12
+   survey         9
+   systems        24
+key -> ref number map:
+   huan2026secondhalf         [1]
+   zhou2026agentnative        [2]
+   zhou2026externalization    [3]
+   zhang2024memorysurvey      [4]
+   gao2024ragsurvey           [5]
+   zhao2024aigcsurvey         [6]
+   xu2024conflictsurvey       [7]
+   wang2024editsurvey         [8]
+   moghadasi2026disclose      [9]
+   packer2023memgpt           [10]
+   park2023generative         [11]
+   zhong2023memorybank        [12]
+   wang2023scm                [13]
+   modarressi2023retllm       [14]
+   xu2025amem                 [15]
+   chhikara2025mem0           [16]
+   li2025memos                [17]
+   rasmussen2025zep           [18]
+   gutierrez2024hipporag      [19]
+   zhou2024structural         [20]
+   shu2024genaimalti          [21]
+   rezazadeh2025collabmem     [22]
+   li2025maas                 [23]
+   alake2026oracle            [24]
+   xu2026linkedin             [25]
+   wang2026emem               [26]
+   mody2026cranimem           [27]
+   feng2026baremem            [28]
+   song2026dmem               [29]
+   gaikwad2026routing         [30]
+   gallego2026feedback        [31]
+   lin2025sleeptime           [32]
+   mullick2026store           [33]
+   lewis2020rag               [34]
+   asai2023selfrag            [35]
+   liu2023lostmiddle          [36]
+   hseih2024foundmiddle       [37]
+   edge2024graphrag           [38]
+   wang2024awm                [39]
+   xia2026hits                [40]
+   xu2026contextpipe          [41]
+   su2024conflictbank         [42]
+   chen2026ragwrong           [43]
+   schuster2026sourcepref     [44]
+   meng2022rome               [45]
+   meng2022memit              [46]
+   falakh2021agm              [47]
+   falkenhainer2013belief     [48]
+   kassner2021belief          [49]
+   souza2025provagent         [50]
+   louck2026poisoning         [51]
+   sunil2026mempoison         [52]
+   chen2026mrmmia             [53]
+   lin2022uncertaintywords    [54]
+   kadavath2022know           [55]
+   tian2023justask            [56]
+   xiong2023confidence        [57]
+   cheng2024knownotknow       [58]
+   ni2024probabilistic        [59]
+   yang2024verbalized         [60]
+   matsnev2026uncertdec       [61]
+   guo2017calibration         [62]
+   lichtenstein1982calibration [63]
+   liu2026pmbench             [64]
+   zhao2026pmslm              [65]
+   einstein1990prospective    [66]
+   laird2012soar              [67]
+   laird2022actrsoar          [68]
+   anderson2004actr           [69]
+   innerebner2025actr         [70]
+   mohan2022analogical        [71]
+   atkinson1968human          [72]
+   miller1956magical          [73]
+   craik1972levels            [74]
+   tulving1973encoding        [75]
+   johnson1993source          [76]
+   cepeda2008spacing          [77]
+   roediger2006testing        [78]
+   walker2004sleep            [79]
+   whelan2021replay           [80]
+   kline2025forgetting        [81]
+   feng2026forever            [82]
+   wang2026simulating         [83]
+   pasukonis2022mazes         [84]
+   mcpspec2025                [85]
+   mcpspec2025mar             [86]
+   mcpintro                   [87]
+   anthropicmcp2024           [88]
+   mcpservers                 [89]
+   jsonrpc2                   [90]
+   luo2025mcpuniverse         [91]
+   fan2025mcptoolbench        [92]
+   luo2025mcpbench            [93]
+   zong2025mcpsafety          [94]
+   rodrigues2026mcppatterns   [95]
+   afsar2026registry          [96]
+   rashidi2026unicode         [97]
+   shi2025toolretrieval       [98]
+   lee2026citecheck           [99]
+   garzon2025did              [100]
+   chang2025anp               [101]
+   nie2026awcp                [102]
+   wu2024longmemeval          [103]
+   maharana2024locomo         [104]
+   kim2024dialsim             [105]
+   wu2025sgmem                [106]
+   zhang2026beyondstatic      [107]
+   du2026ifcmemory            [108]
+   lee2026aema                [109]
+   panda2026twist             [110]
+   wang2026rightmemory        [111]
+   song2026eviction           [112]
+   trashchenkov2026power      [113]
+   rassheed2024multieval      [114]
+   xu2025harmony              [115]
+   zhao2025diverse            [116]
+   bayer1972btree             [117]
+   sqlitefileformat           [118]
+   shannon1948communication   [119]
+   kalman1960filter           [120]
+   prov_o                     [121]
+   anthropicmemorytool        [122]
+   anthropiccontext           [123]
+   openaimemory2024           [124]
+   lettadocs                  [125]
+   zepdocs                    [126]
+   mem0docs                   [127]
+   graphiti                   [128]
+   microsoftgraphrag          [129]
+   sintrepo                   [130]
+   sintliquid                 [131]
+   sintepistemic              [132]
+   sintdream                  [133]
+   sintprospective            [134]
+   sintswarm                  [135]
+citation keys used: 135 unique
+curated keys never cited: 0
+wrote 14 generated files from 2 report(s): 2 subjects, 10 families, 8 operation profiles, 104 metric rows over families, 86 number lookups in tex/main.tex
+note: "version 2" Tectonic command-line interface activated
+note: Running TeX ...
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: main.tex:182: Underfull \hbox (badness 7081) in paragraph at lines 181--182
+warning: main.tex:187: Underfull \hbox (badness 1721) in paragraph at lines 184--187
+warning: main.tex:187: Underfull \hbox (badness 10000) in paragraph at lines 187--187
+note: Running BibTeX on main.aux ...
+note: warnings were issued by BibTeX; use --print and/or --keep-logs for details.
+note: Rerunning TeX because bibtex was run ...
+warning: main.tex:182: Underfull \hbox (badness 7081) in paragraph at lines 181--182
+warning: main.tex:187: Underfull \hbox (badness 1721) in paragraph at lines 184--187
+warning: main.tex:187: Underfull \hbox (badness 10000) in paragraph at lines 187--187
+warning: main.bbl:74: Underfull \hbox (badness 10000) in paragraph at lines 71--74
+warning: main.bbl:74: Underfull \hbox (badness 2012) in paragraph at lines 71--74
+warning: main.bbl:79: Underfull \hbox (badness 10000) in paragraph at lines 76--79
+warning: main.bbl:79: Underfull \hbox (badness 2012) in paragraph at lines 76--79
+warning: main.bbl:141: Underfull \hbox (badness 1383) in paragraph at lines 137--141
+note: Rerunning TeX because "main.aux" changed ...
+warning: main.tex:182: Underfull \hbox (badness 7081) in paragraph at lines 181--182
+warning: main.tex:187: Underfull \hbox (badness 1721) in paragraph at lines 184--187
+warning: main.tex:187: Underfull \hbox (badness 10000) in paragraph at lines 187--187
+warning: main.bbl:74: Underfull \hbox (badness 10000) in paragraph at lines 71--74
+warning: main.bbl:74: Underfull \hbox (badness 2012) in paragraph at lines 71--74
+warning: main.bbl:79: Underfull \hbox (badness 10000) in paragraph at lines 76--79
+warning: main.bbl:79: Underfull \hbox (badness 2012) in paragraph at lines 76--79
+warning: main.bbl:141: Underfull \hbox (badness 1383) in paragraph at lines 137--141
+note: Rerunning TeX because "main.aux" changed ...
+warning: main.tex:182: Underfull \hbox (badness 7081) in paragraph at lines 181--182
+warning: main.tex:187: Underfull \hbox (badness 1721) in paragraph at lines 184--187
+warning: main.tex:187: Underfull \hbox (badness 10000) in paragraph at lines 187--187
+warning: main.bbl:74: Underfull \hbox (badness 10000) in paragraph at lines 71--74
+warning: main.bbl:74: Underfull \hbox (badness 2012) in paragraph at lines 71--74
+warning: main.bbl:79: Underfull \hbox (badness 10000) in paragraph at lines 76--79
+warning: main.bbl:79: Underfull \hbox (badness 2012) in paragraph at lines 76--79
+warning: main.bbl:141: Underfull \hbox (badness 1383) in paragraph at lines 137--141
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `tex\main.blg` (983 B)
+note: Writing `tex\main.pdf` (122.5625 KiB)
+note: Writing `tex\main.log` (15.61328125 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)
+[build] ok -> tex/main.pdf
+exit=0
+
+== LaTeX log of that build:
+== $ grep -c Overfull tex/main.log; grep -c 'Missing character' tex/main.log; grep -c undefined tex/main.log; grep 'Output written' tex/main.log
+Overfull: 0
+Missing character: 0
+undefined refs/citations: 0
+Output written on main.xdv (22 pages, 126036 bytes).
+
+== no draft marker is left in the source:
+== $ grep -c 'Draft' tex/main.tex; grep -c 'todo\|draftmode\|claimc' tex/main.tex
+Draft in tex/main.tex: 0
+draft machinery in tex/main.tex: 0
+
+==============================================================================
+== 7. hashes and sizes of the artefacts this change is responsible for
+== $ sha256sum tex/main.tex tex/main.pdf tex/numbers.tex data/run-numbers.tsv tex/tables/*.tex tools/refslint/src/tables.rs
+==============================================================================
+a7f6a80ed635acc33a3656f6a3e402c73e02e273273347b7b0fe716f52d9cf8f *tex/main.tex
+e429fd83d34d0739681c2dccd20777cb1430a70f556d4c4dc1f858136d8b3a91 *tex/main.pdf
+656398eab6c87f0c6574807df9f1ea32fbc69d204ea675fd4f5ea17a53f5673f *tex/numbers.tex
+e08f29589492be1fe19886e8fd6b2be7b8483f86c68495a4d5abdb18703bd7f8 *data/run-numbers.tsv
+bd787e5aa607764c16d4d137934bf1126b966f80aa906e86b18b89040b286467 *tex/tables/family-T1.tex
+b855dfd4a43595a54a75b64f35592f57913476d26228f5243e6c33995f7d07ed *tex/tables/family-T10.tex
+403a7d0fd434f362a4b4ff0ed08f277fd6c635bb7da342e2976b0e24befc527f *tex/tables/family-T2.tex
+b179475cc44de66b31e9923dcb352601762f61608f748cc63cdc4077225f2124 *tex/tables/family-T3.tex
+6f4871d4fc3f93841224d361d025e4ee0295f4d9ce2b630722a971b15c3cad35 *tex/tables/family-T4.tex
+3f33584043d29e27f03d937d11f9e4d8a1d1b7466d9227ce3e10ecd3fac6edb7 *tex/tables/family-T5.tex
+152f60f78af9368878139faf44f2990100ba4147429c7891b6ad76d9698f8656 *tex/tables/family-T6.tex
+e0b88f404b688610513c6c4c87c7a438cc4e0d76331230174f87e232ab62129d *tex/tables/family-T7.tex
+8c131d09c9370606d4b758ea96480250c66a310a717e5f685351ac1915f842b9 *tex/tables/family-T8.tex
+d4079358ed8f430169866c9ccfffae684d83260b29fa90c13ac20184bec88851 *tex/tables/family-T9.tex
+a71b42ad56a4f47182fc0e1fff5b093ca36931801fcbf976de47a20fad8dc921 *tex/tables/operations.tex
+f10684d9882eb081e4c6a3a0416da1474c94ec0292d1d4c3e65b0a16954fe286 *tex/tables/run-identity.tex
+e8117b312f3ebc26529042ea06080cec52f13b5b0c5e784c2b6de63d37f6b1b9 *tools/refslint/src/tables.rs
+
+== $ wc -l data/run-numbers.tsv; wc -l tex/numbers.tex; wc -l tex/tables/*.tex
+   195 data/run-numbers.tsv
+  1286 tex/numbers.tex
+    22 tex/tables/family-T1.tex
+    18 tex/tables/family-T10.tex
+    23 tex/tables/family-T2.tex
+    16 tex/tables/family-T3.tex
+    17 tex/tables/family-T4.tex
+    21 tex/tables/family-T5.tex
+    19 tex/tables/family-T6.tex
+    18 tex/tables/family-T7.tex
+    21 tex/tables/family-T8.tex
+    17 tex/tables/family-T9.tex
+    57 tex/tables/operations.tex
+    33 tex/tables/run-identity.tex
+  1763 total

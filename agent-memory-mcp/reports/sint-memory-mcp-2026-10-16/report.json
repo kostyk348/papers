@@ -1,0 +1,1325 @@
+{
+  "protocol": {
+    "version": "0.1",
+    "taxonomy_version": "0.1",
+    "mcp_spec_revision": "2025-03-26",
+    "schema_uri": "https://github.com/kostyk348/agent-memory-mcp/schema/protocol-v0.1.json"
+  },
+  "subject": {
+    "name": "sint-memory-mcp",
+    "kind": "mcp_server",
+    "repo_url": "https://github.com/kostyk348/sint",
+    "commit_sha": "7554f7eef853cebafae34e6654acc9871fb01163",
+    "version": "MCP server as published in the repository snapshot (no release tag)",
+    "transport": "stdio",
+    "runtime": "Python 3.14.7, mcp 1.9.4 (mcp.server.fastmcp)",
+    "deployment": "local process, fresh data directory per repetition (USERPROFILE/HOME redirected)",
+    "storage_dir": "reports/sint-memory-mcp-2026-10-16/data/seed<seed>"
+  },
+  "runner": {
+    "harness_commit": "uncommitted working tree: sha256:9b79d0aa12ae1660 over code/run_protocol.py + code/streams.py + code/servers.json (this workspace has no git metadata, so there is no commit to name)",
+    "model": "none (store-only)",
+    "model_params": {},
+    "prompt_templates_hash": "not-applicable",
+    "repetitions": 3,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "hardware_class": "AMD64, 4 logical CPUs (workstation class, not a benchmark host)"
+  },
+  "budgets": {
+    "max_calls": 400,
+    "max_tokens": 0,
+    "wall_clock_s": 900,
+    "price_table": {
+      "date": "n/a — run of 2026-10-16; no hosted model or API is called",
+      "source": "store-only run: the memory server is exercised directly over MCP, so no per-token price applies",
+      "usd_per_1k_input": null,
+      "usd_per_1k_output": null
+    }
+  },
+  "families": [
+    {
+      "id": "T1",
+      "tasks": 12,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "write_precision",
+          "unit": "ratio",
+          "value": 0.75,
+          "computer": "harness",
+          "notes": "correct_written_records / written_records. A stored record counts as correct when it matches a generated fact and is not an extra copy of one; written_records is the store's own record count after the writes minus its count before them, so the duplication is charged here and reported separately as duplicate_rate; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.75,
+          "ci_high": 0.75,
+          "n": 3
+        },
+        {
+          "name": "write_recall",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "correct_written_records / generated_facts; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "duplicate_rate",
+          "unit": "ratio",
+          "value": 0.25,
+          "computer": "harness",
+          "notes": "extra_records_from_retries / written_records; a retry is the same content with the same intent; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.25,
+          "ci_high": 0.25,
+          "n": 3
+        },
+        {
+          "name": "idempotency_violations",
+          "unit": "count",
+          "value": 4.0,
+          "computer": "programmatic_check",
+          "notes": "retries that created an extra record (protocol.md section 3); mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 4.0,
+          "ci_high": 4.0,
+          "n": 3
+        },
+        {
+          "name": "write_latency_p50_ms",
+          "unit": "ms",
+          "value": 16.442333,
+          "computer": "harness",
+          "notes": "wall clock around tools/call; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 15.167,
+          "ci_high": 17.2955,
+          "n": 3
+        },
+        {
+          "name": "write_latency_p95_ms",
+          "unit": "ms",
+          "value": 18.901917,
+          "computer": "harness",
+          "notes": "mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 17.329,
+          "ci_high": 20.2025,
+          "n": 3
+        },
+        {
+          "name": "tokens_per_write",
+          "unit": "tokens",
+          "value": null,
+          "computer": "harness",
+          "notes": "null: no model is in the loop, so no token accounting exists; payload sizes are in the raw log; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "cost_per_1000_writes_usd",
+          "unit": "usd",
+          "value": null,
+          "computer": "harness",
+          "notes": "null: store-only run, no per-token price applies (see budgets.price_table); mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        }
+      ],
+      "failures": [],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T1.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T1.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T1.jsonl"
+      ]
+    },
+    {
+      "id": "T2",
+      "tasks": 6,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "recall_at_5",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "required record inside the top k returned; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "required_record_hit_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "required record anywhere in the returned list, ignoring k; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "mrr",
+          "unit": "ratio",
+          "value": 0.75,
+          "computer": "harness",
+          "notes": "mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.680556,
+          "ci_high": 0.805556,
+          "n": 3
+        },
+        {
+          "name": "key_query_hit_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "queries that repeat the record's content verbatim; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "topic_query_hit_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "queries that name only a shared topic token, so several records match; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "provenance_correctness",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "returned records whose source field matches the generated record; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "context_inflation",
+          "unit": "ratio",
+          "value": 2.5,
+          "computer": "harness",
+          "notes": "characters returned / characters of the records actually required (character ratio, not tokens: no tokenizer in the loop); mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 2.5,
+          "ci_high": 2.5,
+          "n": 3
+        },
+        {
+          "name": "read_latency_p50_ms",
+          "unit": "ms",
+          "value": 8.093667,
+          "computer": "harness",
+          "notes": "mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 7.6565,
+          "ci_high": 8.5435,
+          "n": 3
+        },
+        {
+          "name": "read_latency_p95_ms",
+          "unit": "ms",
+          "value": 102.893167,
+          "computer": "harness",
+          "notes": "mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 101.57775,
+          "ci_high": 104.93175,
+          "n": 3
+        }
+      ],
+      "failures": [],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T2.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T2.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T2.jsonl"
+      ]
+    },
+    {
+      "id": "T3",
+      "tasks": 4,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "temporal_correctness",
+          "unit": "ratio",
+          "value": null,
+          "computer": "harness",
+          "notes": "null / not_implemented: the server exposes no date-scoped read, so the as-of probe cannot be answered; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "temporal_metadata_exposed",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "programmatic_check",
+          "notes": "fraction of read-back records carrying a timestamp field (metadata exists, the query does not); mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        }
+      ],
+      "failures": [
+        {
+          "code": "not_implemented",
+          "count": 12,
+          "examples": [
+            "probe 'as of 2026-02-01' for t3-1-00: no tool accepts an as-of date",
+            "probe 'as of 2026-02-01' for t3-1-01: no tool accepts an as-of date",
+            "probe 'as of 2026-02-01' for t3-1-02: no tool accepts an as-of date",
+            "probe 'as of 2026-02-01' for t3-1-03: no tool accepts an as-of date",
+            "probe 'as of 2026-02-01' for t3-2-00: no tool accepts an as-of date"
+          ]
+        }
+      ],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T3.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T3.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T3.jsonl"
+      ]
+    },
+    {
+      "id": "T4",
+      "tasks": 6,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "admissibility_error_rate",
+          "unit": "ratio",
+          "value": 0.5,
+          "computer": "programmatic_check",
+          "notes": "returned records that belong to a different principal than the caller; the tool surface has no caller parameter, so this is a policy check over the responses; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.5,
+          "ci_high": 0.5,
+          "n": 3
+        },
+        {
+          "name": "lifecycle_state_exposed",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "programmatic_check",
+          "notes": "returned records exposing a lifecycle field (expiry/supersede marker); mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "principal_scoping_exposed",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "programmatic_check",
+          "notes": "fraction of tools whose input schema accepts a caller/principal argument; read from the tools/list inputSchema of this run; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        }
+      ],
+      "failures": [],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T4.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T4.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T4.jsonl"
+      ]
+    },
+    {
+      "id": "T5",
+      "tasks": 4,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "contradiction_detection_f1",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "harness",
+          "notes": "F1 of conflicts the store flags by itself after the contradicting writes; the harness never names a conflicting pair, so this measures detection, not registration; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "revision_correctness",
+          "unit": "ratio",
+          "value": null,
+          "computer": "programmatic_check",
+          "notes": "null / not_implemented: append-only store, no operation retires or rewrites a record; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "chain_completeness",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "programmatic_check",
+          "notes": "0.0: the append-only chain has no revision edge to resolve; every write is a new block; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "stale_read_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "post-conflict probes where the superseded content is still served by the read path; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "both_competing_contents_served_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "fraction of conflicts where both the kept and the superseded content are returned: the store holds no resolution; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "policy_winner_top_ranked_rate",
+          "unit": "ratio",
+          "value": 0.5,
+          "computer": "harness",
+          "notes": "top-ranked record for the conflict subject matching the stated policy winner; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.5,
+          "ci_high": 0.5,
+          "n": 3
+        },
+        {
+          "name": "collateral_change_rate",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "programmatic_check",
+          "notes": "fraction of unrelated records whose content hash changed during revision; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        }
+      ],
+      "failures": [
+        {
+          "code": "not_implemented",
+          "count": 12,
+          "examples": [
+            "the block store is append-only: no operation rewrites or retires a block"
+          ]
+        }
+      ],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T5.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T5.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T5.jsonl"
+      ]
+    },
+    {
+      "id": "T6",
+      "tasks": 4,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "probe_survival_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "identical probes answered identically before and after the maintenance pass; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "compression_ratio",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "items_before / items_after the pass; this pass audits records rather than merging them; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "derived_from_completeness",
+          "unit": "ratio",
+          "value": null,
+          "computer": "programmatic_check",
+          "notes": "null: no generalisations are produced, so there is no derived_from edge to resolve; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "abstraction_faithfulness",
+          "unit": "score_1_5",
+          "value": null,
+          "computer": "rubric_two_graders",
+          "notes": "null: no generalisations were produced, so nothing exists for two graders to score; no graders were engaged and kappa is not reported; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "kappa": null,
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "cost_per_consolidation_usd",
+          "unit": "usd",
+          "value": null,
+          "computer": "harness",
+          "notes": "null: store-only run, no per-token price applies; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        }
+      ],
+      "failures": [],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T6.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T6.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T6.jsonl"
+      ]
+    },
+    {
+      "id": "T7",
+      "tasks": 3,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "cue_hit_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "fraction of intentions surfaced by a query containing only the cue token; no dedicated intention tool exists, so firing is defined as cue retrieval across the session boundary; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "false_fire_rate",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "harness",
+          "notes": "non-cues at which an intention was returned; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "context_availability_at_fire",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "programmatic_check",
+          "notes": "fires where the stored context string is present in the returned record; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "fire_latency_calls",
+          "unit": "count",
+          "value": 0.0,
+          "computer": "harness",
+          "notes": "calls between issuing the cue and receiving the intention: 0, retrieval is a single call; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        }
+      ],
+      "failures": [],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T7.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T7.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T7.jsonl"
+      ]
+    },
+    {
+      "id": "T8",
+      "tasks": 12,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "abstention_correctness",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "out-of-coverage questions on which the system returned no record instead of an answer; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "in_coverage_answer_correctness",
+          "unit": "ratio",
+          "value": 0.75,
+          "computer": "harness",
+          "notes": "in-coverage questions whose top-ranked returned record is the required one (the answer the caller actually sees, not merely somewhere in the result list); mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.75,
+          "ci_high": 0.75,
+          "n": 3
+        },
+        {
+          "name": "key_question_correctness",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "in-coverage questions that repeat the required record's content verbatim; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "subject_question_correctness",
+          "unit": "ratio",
+          "value": 0.5,
+          "computer": "harness",
+          "notes": "in-coverage questions that name only the subject token; two records exist and the higher-confidence one is required; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.5,
+          "ci_high": 0.5,
+          "n": 3
+        },
+        {
+          "name": "ece",
+          "unit": "ratio",
+          "value": 0.433333,
+          "computer": "harness",
+          "notes": "operationalisation: the reported confidence of a probe is the highest confidence among returned records (0.0 when it abstains); 10 equal-width bins over that value; correctness of an in-coverage probe is top-1 answer correctness; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.433333,
+          "ci_high": 0.433333,
+          "n": 3
+        },
+        {
+          "name": "discrimination_auroc",
+          "unit": "ratio",
+          "value": 0.3,
+          "computer": "harness",
+          "notes": "AUROC of the same operationalised confidence against probe correctness; null when every probe landed in one class, which makes the ROC undefined; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.3,
+          "ci_high": 0.3,
+          "n": 3
+        },
+        {
+          "name": "monitoring_accuracy",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "programmatic_check",
+          "notes": "agreement between the store's self-reported counters and the harness's own write log; compared 2 self-reported counters; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        }
+      ],
+      "failures": [],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T8.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T8.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T8.jsonl"
+      ]
+    },
+    {
+      "id": "T9",
+      "tasks": 18,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "restart_survival",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "probes answered identically after a process restart against the same store directory; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "snapshot_reopen_survival",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "probes answered identically by a second process opened on a copy of the store files; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "repeat_query_equality",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "identical-input equality of the query set repeated inside one process; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        }
+      ],
+      "failures": [],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T9.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T9.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T9.jsonl"
+      ]
+    },
+    {
+      "id": "T10",
+      "tasks": 12,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {
+          "name": "poisoning_influence_rate",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "harness",
+          "notes": "trials where a query-only interaction changed the later answer for the target record; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "membership_tpr",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "membership_fpr",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "harness",
+          "notes": "mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "membership_inference_advantage",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "TPR - FPR for distinguishing a stored record; same principal as the writer, so this is store-level leakage, not cross-principal; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        }
+      ],
+      "failures": [],
+      "raw_log_paths": [
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed1.T10.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed2.T10.jsonl",
+        "reports/sint-memory-mcp-2026-10-16/raw/sint-memory-mcp.seed3.T10.jsonl"
+      ]
+    }
+  ],
+  "operations": {
+    "O1_WRITE": {
+      "supported": "partial",
+      "metrics": [
+        {
+          "name": "write_precision",
+          "unit": "ratio",
+          "value": 0.75,
+          "computer": "harness",
+          "notes": "correct_written_records / written_records. A stored record counts as correct when it matches a generated fact and is not an extra copy of one; written_records is the store's own record count after the writes minus its count before them, so the duplication is charged here and reported separately as duplicate_rate; pooled over the repetitions of T1,T5,T9",
+          "ci_low": 0.75,
+          "ci_high": 0.75,
+          "n": 3
+        },
+        {
+          "name": "write_recall",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "correct_written_records / generated_facts; pooled over the repetitions of T1,T5,T9",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "duplicate_rate",
+          "unit": "ratio",
+          "value": 0.25,
+          "computer": "harness",
+          "notes": "extra_records_from_retries / written_records; a retry is the same content with the same intent; pooled over the repetitions of T1,T5,T9",
+          "ci_low": 0.25,
+          "ci_high": 0.25,
+          "n": 3
+        },
+        {
+          "name": "write_latency_p50_ms",
+          "unit": "ms",
+          "value": 16.442333,
+          "computer": "harness",
+          "notes": "wall clock around tools/call; pooled over the repetitions of T1,T5,T9",
+          "ci_low": 15.167,
+          "ci_high": 17.2955,
+          "n": 3
+        },
+        {
+          "name": "write_latency_p95_ms",
+          "unit": "ms",
+          "value": 18.901917,
+          "computer": "harness",
+          "notes": "pooled over the repetitions of T1,T5,T9",
+          "ci_low": 17.329,
+          "ci_high": 20.2025,
+          "n": 3
+        },
+        {
+          "name": "tokens_per_write",
+          "unit": "tokens",
+          "value": null,
+          "computer": "harness",
+          "notes": "null: no model is in the loop, so no token accounting exists; payload sizes are in the raw log",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "cost_per_1000_writes_usd",
+          "unit": "usd",
+          "value": null,
+          "computer": "harness",
+          "notes": "null: store-only run, no per-token price applies (see budgets.price_table)",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "idempotency_violations",
+          "unit": "count",
+          "value": 4.0,
+          "computer": "programmatic_check",
+          "notes": "retries that created an extra record (protocol.md section 3); pooled over the repetitions of T1,T5,T9",
+          "ci_low": 4.0,
+          "ci_high": 4.0,
+          "n": 3
+        }
+      ],
+      "notes": "tasks exercised: T1,T5,T9 (6 of 8 metrics carry a value)"
+    },
+    "O2_READ": {
+      "supported": "yes",
+      "metrics": [
+        {
+          "name": "recall_at_5",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "required record inside the top k returned; pooled over the repetitions of T2,T3,T4",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "mrr",
+          "unit": "ratio",
+          "value": 0.75,
+          "computer": "harness",
+          "notes": "pooled over the repetitions of T2,T3,T4",
+          "ci_low": 0.680556,
+          "ci_high": 0.805556,
+          "n": 3
+        },
+        {
+          "name": "required_record_hit_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "required record anywhere in the returned list, ignoring k; pooled over the repetitions of T2,T3,T4",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "provenance_correctness",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "returned records whose source field matches the generated record; pooled over the repetitions of T2,T3,T4",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "admissibility_error_rate",
+          "unit": "ratio",
+          "value": 0.5,
+          "computer": "programmatic_check",
+          "notes": "returned records that belong to a different principal than the caller; the tool surface has no caller parameter, so this is a policy check over the responses; pooled over the repetitions of T2,T3,T4",
+          "ci_low": 0.5,
+          "ci_high": 0.5,
+          "n": 3
+        },
+        {
+          "name": "context_inflation",
+          "unit": "ratio",
+          "value": 2.5,
+          "computer": "harness",
+          "notes": "characters returned / characters of the records actually required (character ratio, not tokens: no tokenizer in the loop); pooled over the repetitions of T2,T3,T4",
+          "ci_low": 2.5,
+          "ci_high": 2.5,
+          "n": 3
+        },
+        {
+          "name": "read_latency_p50_ms",
+          "unit": "ms",
+          "value": 8.093667,
+          "computer": "harness",
+          "notes": "pooled over the repetitions of T2,T3,T4",
+          "ci_low": 7.6565,
+          "ci_high": 8.5435,
+          "n": 3
+        },
+        {
+          "name": "read_latency_p95_ms",
+          "unit": "ms",
+          "value": 102.893167,
+          "computer": "harness",
+          "notes": "pooled over the repetitions of T2,T3,T4",
+          "ci_low": 101.57775,
+          "ci_high": 104.93175,
+          "n": 3
+        }
+      ],
+      "notes": "tasks exercised: T2,T3,T4 (8 of 8 metrics carry a value)"
+    },
+    "O3_CONSOLIDATE": {
+      "supported": "partial",
+      "metrics": [
+        {
+          "name": "compression_ratio",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "items_before / items_after the pass; this pass audits records rather than merging them; pooled over the repetitions of T6",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "probe_survival_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "identical probes answered identically before and after the maintenance pass; pooled over the repetitions of T6",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "derived_from_completeness",
+          "unit": "ratio",
+          "value": null,
+          "computer": "programmatic_check",
+          "notes": "null: no generalisations are produced, so there is no derived_from edge to resolve",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "cost_per_consolidation_usd",
+          "unit": "usd",
+          "value": null,
+          "computer": "harness",
+          "notes": "null: store-only run, no per-token price applies",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        }
+      ],
+      "notes": "tasks exercised: T6 (2 of 4 metrics carry a value)"
+    },
+    "O4_REVISE": {
+      "supported": "partial",
+      "metrics": [
+        {
+          "name": "contradiction_detection_f1",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "harness",
+          "notes": "F1 of conflicts the store flags by itself after the contradicting writes; the harness never names a conflicting pair, so this measures detection, not registration; pooled over the repetitions of T5",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "revision_correctness",
+          "unit": "ratio",
+          "value": null,
+          "computer": "programmatic_check",
+          "notes": "null / not_implemented: append-only store, no operation retires or rewrites a record",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        },
+        {
+          "name": "chain_completeness",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "programmatic_check",
+          "notes": "0.0: the append-only chain has no revision edge to resolve; every write is a new block; pooled over the repetitions of T5",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "stale_read_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "post-conflict probes where the superseded content is still served by the read path; pooled over the repetitions of T5",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "collateral_change_rate",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "programmatic_check",
+          "notes": "fraction of unrelated records whose content hash changed during revision; pooled over the repetitions of T5",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        }
+      ],
+      "notes": "tasks exercised: T5 (4 of 5 metrics carry a value)"
+    },
+    "O5_INTEND": {
+      "supported": "yes",
+      "metrics": [
+        {
+          "name": "cue_hit_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "fraction of intentions surfaced by a query containing only the cue token; no dedicated intention tool exists, so firing is defined as cue retrieval across the session boundary; pooled over the repetitions of T7",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "false_fire_rate",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "harness",
+          "notes": "non-cues at which an intention was returned; pooled over the repetitions of T7",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "fire_latency_calls",
+          "unit": "count",
+          "value": 0.0,
+          "computer": "harness",
+          "notes": "calls between issuing the cue and receiving the intention: 0, retrieval is a single call; pooled over the repetitions of T7",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "context_availability_at_fire",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "programmatic_check",
+          "notes": "fires where the stored context string is present in the returned record; pooled over the repetitions of T7",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        }
+      ],
+      "notes": "tasks exercised: T7 (4 of 4 metrics carry a value)"
+    },
+    "O6_ASSERT": {
+      "supported": "yes",
+      "metrics": [
+        {
+          "name": "abstention_correctness",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "out-of-coverage questions on which the system returned no record instead of an answer; pooled over the repetitions of T8",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "in_coverage_answer_correctness",
+          "unit": "ratio",
+          "value": 0.75,
+          "computer": "harness",
+          "notes": "in-coverage questions whose top-ranked returned record is the required one (the answer the caller actually sees, not merely somewhere in the result list); pooled over the repetitions of T8",
+          "ci_low": 0.75,
+          "ci_high": 0.75,
+          "n": 3
+        },
+        {
+          "name": "key_question_correctness",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "in-coverage questions that repeat the required record's content verbatim; pooled over the repetitions of T8",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "subject_question_correctness",
+          "unit": "ratio",
+          "value": 0.5,
+          "computer": "harness",
+          "notes": "in-coverage questions that name only the subject token; two records exist and the higher-confidence one is required; pooled over the repetitions of T8",
+          "ci_low": 0.5,
+          "ci_high": 0.5,
+          "n": 3
+        },
+        {
+          "name": "ece",
+          "unit": "ratio",
+          "value": 0.433333,
+          "computer": "harness",
+          "notes": "operationalisation: the reported confidence of a probe is the highest confidence among returned records (0.0 when it abstains); 10 equal-width bins over that value; correctness of an in-coverage probe is top-1 answer correctness; pooled over the repetitions of T8",
+          "ci_low": 0.433333,
+          "ci_high": 0.433333,
+          "n": 3
+        },
+        {
+          "name": "discrimination_auroc",
+          "unit": "ratio",
+          "value": 0.3,
+          "computer": "harness",
+          "notes": "AUROC of the same operationalised confidence against probe correctness; null when every probe landed in one class, which makes the ROC undefined; pooled over the repetitions of T8",
+          "ci_low": 0.3,
+          "ci_high": 0.3,
+          "n": 3
+        },
+        {
+          "name": "monitoring_accuracy",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "programmatic_check",
+          "notes": "agreement between the store's self-reported counters and the harness's own write log; compared 2 self-reported counters; pooled over the repetitions of T8",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        }
+      ],
+      "notes": "tasks exercised: T8 (7 of 7 metrics carry a value)"
+    },
+    "PROVENANCE": {
+      "supported": "partial",
+      "metrics": [
+        {
+          "name": "provenance_correctness",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "returned records whose source field matches the generated record; pooled over the repetitions of T1,T2,T5,T6",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "derived_from_completeness",
+          "unit": "ratio",
+          "value": null,
+          "computer": "programmatic_check",
+          "notes": "null: no generalisations are produced, so there is no derived_from edge to resolve",
+          "ci_low": null,
+          "ci_high": null,
+          "n": 0
+        }
+      ],
+      "notes": "tasks exercised: T1,T2,T5,T6 (1 of 2 metrics carry a value)"
+    },
+    "LIFECYCLE": {
+      "supported": "yes",
+      "metrics": [
+        {
+          "name": "lifecycle_state_exposed",
+          "unit": "ratio",
+          "value": 0.0,
+          "computer": "programmatic_check",
+          "notes": "returned records exposing a lifecycle field (expiry/supersede marker); pooled over the repetitions of T3,T4,T5,T9",
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 3
+        },
+        {
+          "name": "admissibility_error_rate",
+          "unit": "ratio",
+          "value": 0.5,
+          "computer": "programmatic_check",
+          "notes": "returned records that belong to a different principal than the caller; the tool surface has no caller parameter, so this is a policy check over the responses; pooled over the repetitions of T3,T4,T5,T9",
+          "ci_low": 0.5,
+          "ci_high": 0.5,
+          "n": 3
+        },
+        {
+          "name": "stale_read_rate",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "post-conflict probes where the superseded content is still served by the read path; pooled over the repetitions of T3,T4,T5,T9",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "restart_survival",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "probes answered identically after a process restart against the same store directory; pooled over the repetitions of T3,T4,T5,T9",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        },
+        {
+          "name": "snapshot_reopen_survival",
+          "unit": "ratio",
+          "value": 1.0,
+          "computer": "harness",
+          "notes": "probes answered identically by a second process opened on a copy of the store files; pooled over the repetitions of T3,T4,T5,T9",
+          "ci_low": 1.0,
+          "ci_high": 1.0,
+          "n": 3
+        }
+      ],
+      "notes": "tasks exercised: T3,T4,T5,T9 (5 of 5 metrics carry a value)"
+    }
+  },
+  "statistics": {
+    "ci_method": "bootstrap_percentile",
+    "n_resamples": 1000,
+    "notes": "family metrics: mean over repetitions, percentile bootstrap 95% CI over the repetition axis. operation metrics: the same procedure pooled over the repetitions of the contributing families. Tool surface: 19 tools advertised (git_commit_info, git_link_blocks, git_timeline, git_trace_block, memory_apply_decay, memory_drift_check, memory_get_chain_tail, memory_heat_block, memory_read_block, memory_read_blocks, memory_read_state, memory_relevance_tiers, memory_search, memory_stats, memory_trace_provenance, memory_update_state, memory_verify_chain, memory_write_block, memory_write_session). Calls issued: 660 over 3 repetition(s)."
+  },
+  "failures": {
+    "counts_by_code": {
+      "not_implemented": 24
+    },
+    "examples": [
+      "T3: probe 'as of 2026-02-01' for t3-1-00: no tool accepts an as-of date",
+      "T3: probe 'as of 2026-02-01' for t3-1-01: no tool accepts an as-of date",
+      "T3: probe 'as of 2026-02-01' for t3-1-02: no tool accepts an as-of date",
+      "T3: probe 'as of 2026-02-01' for t3-1-03: no tool accepts an as-of date",
+      "T3: probe 'as of 2026-02-01' for t3-2-00: no tool accepts an as-of date",
+      "T5: the block store is append-only: no operation rewrites or retires a block"
+    ]
+  },
+  "disclosure": {
+    "server_selection_rule": "Candidate set = every memory-oriented MCP server in the SINT reference snapshot (six repositories listed in data/repo-facts.json, SHAs recorded there and re-verified with git rev-parse before the run), plus the second memory server inside the SINT core repository. A candidate was included when (a) it could be launched on this host with the pinned dependency set (mcp 1.9.4, the only MCP framework importable here because pip installs fail with Errno 28, disk full) and (b) its tool surface exposes a fact store (O1/O2), which T1/T2/T5 require for the profiles to be comparable. Every candidate and the ground for its decision is in code/servers.json and in candidate_servers below. The sample is a snapshot of one author's repositories: it selects for servers that run and it is not representative of the MCP ecosystem.",
+    "candidate_servers": [
+      {
+        "name": "sint-liquid-mcp",
+        "included": true,
+        "reason": "memory-oriented MCP server from the SINT reference set; executable on this host with the pinned dependency set (mcp 1.9.4); exposes the write/read/revise operations needed by T1/T2/T5"
+      },
+      {
+        "name": "sint-memory-mcp",
+        "included": true,
+        "reason": "hash-chained block memory inside the SINT core repository; executable on this host with the same pinned dependency set; a different storage design from sint-liquid-mcp (append-only chain with registers and provenance), so the two profiles are comparable but not duplicated"
+      },
+      {
+        "name": "sint-epistemic-mcp",
+        "included": false,
+        "reason": "imports the standalone fastmcp distribution, which could not be installed on this host in this pass (pip aborted with Errno 28, disk full: 0.12 GB free of 237 GB). Excluded for a host-capability reason, not a quality judgement"
+      },
+      {
+        "name": "sint-dream-mcp",
+        "included": false,
+        "reason": "same blocking dependency as sint-epistemic-mcp (standalone fastmcp not installable here); would be the natural subject for T6 consolidation once installable, because it exposes dream_consolidate"
+      },
+      {
+        "name": "sint-prospective-mcp",
+        "included": false,
+        "reason": "executable on this host and the right subject for T7 (intention stack), but it has no fact store, so T1/T2/T5 cannot be exercised on it; deferred to a follow-up card that measures O5_INTEND against it"
+      },
+      {
+        "name": "sint-llm-swarm",
+        "included": false,
+        "reason": "not a memory store (multi-agent orchestration over a cache directory) and blocked by the same fastmcp dependency"
+      },
+      {
+        "name": "sint-memory-mcp (mcp/working)",
+        "included": false,
+        "reason": "second memory server inside the same repository (mcp/working); excluded to keep the per-repository sample at one server and to avoid two subjects sharing a commit"
+      }
+    ],
+    "mcp_spec_revision": "2025-03-26",
+    "mcp_servers_sha": "7554f7eef853cebafae34e6654acc9871fb01163",
+    "transport": "stdio",
+    "model_under_test": "none (store-only)",
+    "model_params": {
+      "note": "no model is in the loop; the store is exercised directly over MCP stdio",
+      "temperature": null,
+      "top_p": null,
+      "max_tokens": null
+    },
+    "embedding_model": "server-internal, unspecified (neither server documents an embedding model; matching is literal: exact content for sint-liquid-mcp, substring for sint-memory-mcp)",
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "repetitions": 3,
+    "n_tasks_per_family": {
+      "T1": 12,
+      "T2": 6,
+      "T3": 4,
+      "T4": 6,
+      "T5": 4,
+      "T6": 4,
+      "T7": 3,
+      "T8": 12,
+      "T9": 18,
+      "T10": 12
+    },
+    "budgets": {
+      "max_calls": 400,
+      "max_tokens": 0,
+      "wall_clock_s": 900,
+      "price_table": {
+        "date": "n/a — run of 2026-10-16; no hosted model or API is called",
+        "source": "store-only run: the memory server is exercised directly over MCP, so no per-token price applies",
+        "usd_per_1k_input": null,
+        "usd_per_1k_output": null
+      }
+    },
+    "price_table": {
+      "date": "n/a — run of 2026-10-16; no hosted model or API is called",
+      "source": "store-only run: the memory server is exercised directly over MCP, so no per-token price applies",
+      "usd_per_1k_input": null,
+      "usd_per_1k_output": null
+    },
+    "grader_info": "no rubric metric was graded in this run: the only rubric row (T6 abstraction_faithfulness) carries value null because no generalisations were produced; no graders were engaged and no kappa is reported",
+    "prompt_templates_hash": "not-applicable (no model prompts in a store-only run)",
+    "environment": "Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness Python 3.14.7 (stdlib only)",
+    "known_deviations": [
+      "The harness is Python (code/run_protocol.py, code/streams.py). The package's standing policy (TOOLING.md) is that new utilities are written in Rust and the reference pipeline has been ported to the refslint binary; this harness is Python because the card that commissioned it names code/run_protocol.py, because it must interoperate with the Python MCP SDK that both subjects import, and because the validator it is required to pass is code/validate_report.py, invoked as 'python code/validate_report.py reports/<file>.json'. The two files are listed as to-port in TOOLING.md; the reports they produced are accepted by that validator and by refslint report, which is recorded in the run summary.",
+      "T3 (as-of-date reads) and T4 (principal-scoped reads) are not_implemented in both subjects: no tool accepts a date or a caller identity. What is measurable is still reported (timestamp exposure, lifecycle-field exposure, principal scoping across the advertised tool schemas, and the admissibility error rate over returned records).",
+      "T6 consolidation is not_implemented in both subjects. For sint-memory the closest offline operation available (memory_apply_decay) was executed and its probe survival recorded as maintenance_pass_probe_survival; the consolidation-specific metrics stay null.",
+      "T7 is operationalised as store-mediated cue retrieval: neither subject has an intention or cue surface, so firing is defined as a cue-only query that surfaces the stored intention after a process restart (the session boundary the family calls for).",
+      "T8 confidence is operationalised as the highest confidence among returned records, 0.0 when the system abstains. No model is in the loop, so verbalised confidence cannot be elicited the way protocol.md section 3 describes; the metric notes say so.",
+      "Token and USD metrics are null by construction: no model or hosted API is called, so there is no token accounting and no price table applies. Context inflation is reported as a character ratio and labelled as such.",
+      "Repetitions are 3 (the protocol minimum) and the reported 95% CIs are percentile bootstrap intervals over the repetition axis; with n=3 they are coarse. Dispersion is reported rather than claimed as task sampling variability.",
+      "T10 membership inference is measured with the same principal that wrote the records, because the MCP tool surface carries no caller identity. The number measures store-level inferability, not cross-principal leakage.",
+      "Both subjects come from one author's reference set (SINT). The candidate list and the host constraint that reduced it (pip installs fail with Errno 28, disk full) are disclosed; this is repository-snapshot bias, reported and not corrected.",
+      "Each subject's store directory is left inside the run directory (reports/<run>/data/seed<seed>) so that every number can be recomputed from the raw responses and from the store as it stood."
+    ]
+  }
+}

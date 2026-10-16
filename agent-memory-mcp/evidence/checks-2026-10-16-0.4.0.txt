@@ -1,0 +1,235 @@
+integrity checks, 2026-10-16T11:27:12Z, MSYS_NT-10.0-26200
+refslint: tools/refslint/target/release/refslint.exe
+
+==============================================================
+== reference base resolves, bibliography and verification table regenerate
+== $ tools/refslint/target/release/refslint.exe bib --root .
+==============================================================
+resolved 135 curated sources (0 unresolved)
+   artifact       6
+   cognition      18
+   epistemic      10
+   evaluation     12
+   infra          15
+   prospective    3
+   protocol       18
+   retrieval      8
+   revision       12
+   survey         9
+   systems        24
+key -> ref number map:
+   huan2026secondhalf         [1]
+   zhou2026agentnative        [2]
+   zhou2026externalization    [3]
+   zhang2024memorysurvey      [4]
+   gao2024ragsurvey           [5]
+   zhao2024aigcsurvey         [6]
+   xu2024conflictsurvey       [7]
+   wang2024editsurvey         [8]
+   moghadasi2026disclose      [9]
+   packer2023memgpt           [10]
+   park2023generative         [11]
+   zhong2023memorybank        [12]
+   wang2023scm                [13]
+   modarressi2023retllm       [14]
+   xu2025amem                 [15]
+   chhikara2025mem0           [16]
+   li2025memos                [17]
+   rasmussen2025zep           [18]
+   gutierrez2024hipporag      [19]
+   zhou2024structural         [20]
+   shu2024genaimalti          [21]
+   rezazadeh2025collabmem     [22]
+   li2025maas                 [23]
+   alake2026oracle            [24]
+   xu2026linkedin             [25]
+   wang2026emem               [26]
+   mody2026cranimem           [27]
+   feng2026baremem            [28]
+   song2026dmem               [29]
+   gaikwad2026routing         [30]
+   gallego2026feedback        [31]
+   lin2025sleeptime           [32]
+   mullick2026store           [33]
+   lewis2020rag               [34]
+   asai2023selfrag            [35]
+   liu2023lostmiddle          [36]
+   hseih2024foundmiddle       [37]
+   edge2024graphrag           [38]
+   wang2024awm                [39]
+   xia2026hits                [40]
+   xu2026contextpipe          [41]
+   su2024conflictbank         [42]
+   chen2026ragwrong           [43]
+   schuster2026sourcepref     [44]
+   meng2022rome               [45]
+   meng2022memit              [46]
+   falakh2021agm              [47]
+   falkenhainer2013belief     [48]
+   kassner2021belief          [49]
+   souza2025provagent         [50]
+   louck2026poisoning         [51]
+   sunil2026mempoison         [52]
+   chen2026mrmmia             [53]
+   lin2022uncertaintywords    [54]
+   kadavath2022know           [55]
+   tian2023justask            [56]
+   xiong2023confidence        [57]
+   cheng2024knownotknow       [58]
+   ni2024probabilistic        [59]
+   yang2024verbalized         [60]
+   matsnev2026uncertdec       [61]
+   guo2017calibration         [62]
+   lichtenstein1982calibration [63]
+   liu2026pmbench             [64]
+   zhao2026pmslm              [65]
+   einstein1990prospective    [66]
+   laird2012soar              [67]
+   laird2022actrsoar          [68]
+   anderson2004actr           [69]
+   innerebner2025actr         [70]
+   mohan2022analogical        [71]
+   atkinson1968human          [72]
+   miller1956magical          [73]
+   craik1972levels            [74]
+   tulving1973encoding        [75]
+   johnson1993source          [76]
+   cepeda2008spacing          [77]
+   roediger2006testing        [78]
+   walker2004sleep            [79]
+   whelan2021replay           [80]
+   kline2025forgetting        [81]
+   feng2026forever            [82]
+   wang2026simulating         [83]
+   pasukonis2022mazes         [84]
+   mcpspec2025                [85]
+   mcpspec2025mar             [86]
+   mcpintro                   [87]
+   anthropicmcp2024           [88]
+   mcpservers                 [89]
+   jsonrpc2                   [90]
+   luo2025mcpuniverse         [91]
+   fan2025mcptoolbench        [92]
+   luo2025mcpbench            [93]
+   zong2025mcpsafety          [94]
+   rodrigues2026mcppatterns   [95]
+   afsar2026registry          [96]
+   rashidi2026unicode         [97]
+   shi2025toolretrieval       [98]
+   lee2026citecheck           [99]
+   garzon2025did              [100]
+   chang2025anp               [101]
+   nie2026awcp                [102]
+   wu2024longmemeval          [103]
+   maharana2024locomo         [104]
+   kim2024dialsim             [105]
+   wu2025sgmem                [106]
+   zhang2026beyondstatic      [107]
+   du2026ifcmemory            [108]
+   lee2026aema                [109]
+   panda2026twist             [110]
+   wang2026rightmemory        [111]
+   song2026eviction           [112]
+   trashchenkov2026power      [113]
+   rassheed2024multieval      [114]
+   xu2025harmony              [115]
+   zhao2025diverse            [116]
+   bayer1972btree             [117]
+   sqlitefileformat           [118]
+   shannon1948communication   [119]
+   kalman1960filter           [120]
+   prov_o                     [121]
+   anthropicmemorytool        [122]
+   anthropiccontext           [123]
+   openaimemory2024           [124]
+   lettadocs                  [125]
+   zepdocs                    [126]
+   mem0docs                   [127]
+   graphiti                   [128]
+   microsoftgraphrag          [129]
+   sintrepo                   [130]
+   sintliquid                 [131]
+   sintepistemic              [132]
+   sintdream                  [133]
+   sintprospective            [134]
+   sintswarm                  [135]
+-- OK: reference base resolves, bibliography and verification table regenerate
+
+==============================================================
+== every \cite key is curated and every curated source is cited
+== $ tools/refslint/target/release/refslint.exe cites --check --root .
+==============================================================
+citation keys used: 135 unique
+curated keys never cited: 0
+-- OK: every \cite key is curated and every curated source is cited
+
+==============================================================
+== citation counts per document
+== $ tools/refslint/target/release/refslint.exe cites --count --root .
+==============================================================
+claims.md                          38 unique keys
+outline.md                         34 unique keys
+protocol.md                        36 unique keys
+related-work.md                    125 unique keys
+taxonomy.md                        74 unique keys
+evidence/search-log.md             10 unique keys
+tex/main.tex                       61 unique keys
+-- OK: citation counts per document
+
+==============================================================
+== protocol report: schema example is valid
+== $ tools/refslint/target/release/refslint.exe report --schema code/protocol_schema.json data/example-report.json
+==============================================================
+VALID   data/example-report.json  (subject=SCHEMA EXAMPLE - synthetic subject, no system was executed, families=10, metric entries=27)
+-- OK: protocol report: schema example is valid
+
+==============================================================
+== protocol runs: every report in reports/ validates
+== $ tools/refslint/target/release/refslint.exe report --schema code/protocol_schema.json reports/sint-liquid-mcp-2026-10-16/report.json reports/sint-memory-mcp-2026-10-16/report.json
+==============================================================
+VALID   reports/sint-liquid-mcp-2026-10-16/report.json  (subject=sint-liquid-mcp, families=10, metric entries=52)
+VALID   reports/sint-memory-mcp-2026-10-16/report.json  (subject=sint-memory-mcp, families=10, metric entries=52)
+-- OK: protocol runs: every report in reports/ validates
+
+==============================================================
+== result tables, number macros and ledger match the reports and every \val{} lookup resolves
+== $ tools/refslint/target/release/refslint.exe tables --root . --check
+==============================================================
+tables up to date: 2 subjects, 10 families, 104 metric rows over families, 86 number lookups in tex/main.tex all resolve
+-- OK: result tables, number macros and ledger match the reports and every \val{} lookup resolves
+
+== negative tests: the validator must reject all five deliberately broken reports
+wrote ./data/bad-reports/bad-missing-disclosure.json
+rejected bad-missing-disclosure.json (1 problems): <root>: missing required field 'disclosure'
+wrote ./data/bad-reports/bad-metric-integrity.json
+rejected bad-metric-integrity.json (3 problems): semantics: family T2 metric 'recall_at_5' has a value but no CI interval
+wrote ./data/bad-reports/bad-operation-claim.json
+rejected bad-operation-claim.json (1 problems): semantics: operation O4_REVISE claims support but reports no metrics
+wrote ./data/bad-reports/bad-commit-sha.json
+rejected bad-commit-sha.json (1 problems): .subject.commit_sha: 'v1.2.3' does not match pattern ^(none|[0-9a-f]{7,40})$
+wrote ./data/bad-reports/bad-t10-removed.json
+rejected bad-t10-removed.json (1 problems): semantics: adversarial family T10 absent without an explicit skip entry
+selftest: 5 of 5 broken reports rejected, 0 accepted
+-- OK: 5 of 5 broken reports rejected, 0 accepted
+
+==============================================================
+== JSON artefacts parse
+== $ tools/refslint/target/release/refslint.exe jsoncheck data/refmeta.json data/repo-facts.json data/example-report.json code/protocol_schema.json .zenodo.json
+==============================================================
+all 5 JSON files parse
+-- OK: JSON artefacts parse
+
+== port parity: the generated files must still equal the pre-port (Python) versions
+-- OK: references.bib, reference-verification.md and refs-verified.csv are byte-identical
+       to the artefacts the Python pipeline produced (evidence/pre-port/SHA256SUMS.txt)
+
+==============================================================
+== PDF regenerates from source
+== $ bash -c bash build.sh >/tmp/build.log 2>&1 || bash build.sh; test -f tex/main.pdf && echo "tex/main.pdf present"
+==============================================================
+tex/main.pdf present
+-- OK: PDF regenerates from source
+
+==============================================================
+ALL CHECKS PASSED
+==============================================================

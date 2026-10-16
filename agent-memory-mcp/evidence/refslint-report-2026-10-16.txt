@@ -1,0 +1,228 @@
+# The harness validates with `refslint report` — verification record (0.4.0)
+
+date: 2026-10-16, ~14:00–14:30 local (UTC+03:00, host time) / 11:26Z
+host: MSYS_NT-10.0-26200 (Windows 11), bash 5.3 (git-bash), cargo 1.97.1, python 3.14.7
+card: t_418aed49 — "Harness: validate reports with refslint report and delete code/validate_report.py"
+scope: `code/run_protocol.py` (harness), `code/validate_report.py` (deleted), README/TOOLING/CHANGELOG/
+protocol.md/claims.md/outline.md — no other file of the paper was touched.
+
+harness:  code/run_protocol.py, 91545 bytes, 14:23 (Python, stdlib only)
+validator: tools/refslint/target/release/refslint.exe, 953344 bytes, built 14:24
+           sha256 475230e919647dd16eba61bb142e296841fbd129fc3ec9f35c4aa0ab4dcd5026
+           (never committed — .gitignore covers tools/refslint/target/; rebuilt from
+            tools/refslint by tools/refslint.sh, standard library only, offline)
+
+The subject runs are launched like this on this host (both subjects need `mcp.server.fastmcp`):
+
+    python code/run_protocol.py --server <name> \
+        --server-python "<hermes-venv>/Scripts/python.exe" \
+        --server-pythonpath "{{HOME}}/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages" \
+        --seeds 1 --out <scratch dir>
+
+`--out` points at the executor's scratch directory so that the runs below add no files to the
+package; the committed `reports/` are not touched anywhere in this record.
+
+## 1 — the Python validator is gone and nothing in `code/*.py` mentions it
+
+    $ ls code/
+    legacy  protocol_schema.json  refs.toml  run_protocol.py  servers.json  streams.py
+    $ ls code/legacy/
+    pull_upstream_readmes.py  refs.py  verify_refs.py          # provenance only, nothing reads them
+
+    $ grep -rn "validate_report" code/*.py
+    (no output)
+    $ echo $?
+    1
+
+`code/validate_report.py` and `code/__pycache__/` (which held `validate_report.cpython-314.pyc`)
+were deleted. The only remaining mentions of that file name in the package are historical text
+(`CHANGELOG.md` 0.4.0 section, `TOOLING.md` port table and 0.4.0 outcome) and the frozen
+`data/example-report.json` + `data/bad-reports/*.json`, which `refslint selftest` regenerates byte
+for byte (see section 6).
+
+## 2 — both committed runs still validate
+
+    $ tools/refslint/target/release/refslint.exe report --schema code/protocol_schema.json reports/*/report.json
+    VALID   reports/sint-liquid-mcp-2026-10-16/report.json  (subject=sint-liquid-mcp, families=10, metric entries=52)
+    VALID   reports/sint-memory-mcp-2026-10-16/report.json  (subject=sint-memory-mcp, families=10, metric entries=52)
+    exit=0
+
+## 3 — a real run: the harness validates its own report with the binary (exit 0)
+
+    ### A: valid run (exit 0 expected)
+    run: sint-memory-mcp-2026-10-16
+    server: sint-memory-mcp @ 7554f7eef853cebafae34e6654acc9871fb01163
+    server root: C:\Users\Lab\AppData\Local\hermes\profiles\libraressa\workspace\refs
+    seeds: [1]
+      sint-memory-mcp seed=1 T1 done (30 calls so far, 0.6s)
+      sint-memory-mcp seed=1 T2 done (48 calls so far, 1.0s)
+      sint-memory-mcp seed=1 T3 done (60 calls so far, 1.3s)
+      sint-memory-mcp seed=1 T4 done (72 calls so far, 1.5s)
+      sint-memory-mcp seed=1 T5 done (101 calls so far, 2.2s)
+      sint-memory-mcp seed=1 T6 done (118 calls so far, 4.9s)
+      sint-memory-mcp seed=1 T7 done (127 calls so far, 7.9s)
+      sint-memory-mcp seed=1 T8 done (148 calls so far, 8.4s)
+      sint-memory-mcp seed=1 T9 done (196 calls so far, 14.7s)
+      sint-memory-mcp seed=1 T10 done (220 calls so far, 15.2s)
+    VALID   ../../../../fabricessa/cache/scratch/final-exit0/sint-memory-mcp-2026-10-16/report.json (subject=sint-memory-mcp, families=10, metric entries=52)
+    validated with: tools/refslint/target/release/refslint.exe report
+    summary ../../../../fabricessa/cache/scratch/final-exit0/sint-memory-mcp-2026-10-16/summary.md
+    calls per repetition: [220]
+    EXIT_A=0
+
+`validated with:` names the binary that judged the file — there is no second validator to disagree
+with it. The report and summary written into the scratch directory are the same shape the committed
+runs have; the only difference from them is the disclosure sentence about the harness language
+(see `CHANGELOG.md` 0.4.0, "Known gaps").
+
+## 4 — exit 1 on an invalid report
+
+Temporary, byte-restorable edit: `code/servers.json` subject `sint-liquid-mcp` got
+`"commit_sha": "v1.2.3"`, the same deliberate break as the negative test `bad-commit-sha.json`.
+
+    $ sha256sum code/servers.json          # before
+    9359dc93992f16a13624c715eaeaef521fcc11c33ed63e8716647e32305f5c2f *code/servers.json
+    $ cp code/servers.json <backup>
+    $ python code/run_protocol.py --server sint-liquid-mcp ... --seeds 1 --out <scratch>/final-exit1
+    ### B: invalid report (exit 1 expected)
+    run: sint-liquid-mcp-2026-10-16
+    server: sint-liquid-mcp @ v1.2.3
+    server root: C:\Users\Lab\AppData\Local\hermes\profiles\libraressa\workspace\refs
+    seeds: [1]
+      sint-liquid-mcp seed=1 T1 done (30 calls so far, 0.5s)
+      ...
+      sint-liquid-mcp seed=1 T10 done (227 calls so far, 12.4s)
+    REPORT INVALID (1 problems):
+       - .subject.commit_sha: 'v1.2.3' does not match pattern ^(none|[0-9a-f]{7,40})$
+    EXIT_B=1
+    $ cp <backup> code/servers.json && sha256sum -c <before>
+    code/servers.json: OK
+
+The rejection line is the validator's own wording, passed through unchanged. `code/servers.json` is
+byte-identical to its state before the test (`sha256sum -c` OK, `9359dc93…`).
+
+## 5 — exit 2 on a suspect run
+
+A stub MCP server (executor scratch, `stubroot/sint-liquid-mcp/server.py`, JavaScript run by node —
+not part of the package, never inside it) answers `initialize` and `tools/list` with the tool names
+the `sint-liquid-mcp` adapter expects and then exits on the first `tools/call`, so every call fails
+on the harness side. This is the failure mode the suspicion threshold exists for.
+
+    $ python code/run_protocol.py --server sint-liquid-mcp \
+        --server-root <scratch>/stubroot --server-python <node.exe> --seeds 1 --out <scratch>/final-exit2
+    ### C: stub server dies on every tools/call (exit 2 expected, suspect)
+    run: sint-liquid-mcp-2026-10-16
+    server: sint-liquid-mcp @ bfffce2cdec35c11aa0d90ae02689d69df596b11
+    server root: {{HOME}}/AppData/Local/hermes/profiles/fabricessa/cache/scratch/stubroot
+    seeds: [1]
+      sint-liquid-mcp seed=1 T1 done (30 calls so far, 0.0s)
+      ...
+      sint-liquid-mcp seed=1 T10 done (215 calls so far, 0.4s)
+    VALID   ../../../../fabricessa/cache/scratch/final-exit2/sint-liquid-mcp-2026-10-16/report.json (subject=sint-liquid-mcp, families=10, metric entries=52)
+    validated with: tools/refslint/target/release/refslint.exe report
+    summary ../../../../fabricessa/cache/scratch/final-exit2/sint-liquid-mcp-2026-10-16/summary.md
+    calls per repetition: [215]
+    RUN SUSPECT: 215 of 215 calls failed with harness-side errors (see failures.counts_by_code); the report is written for inspection but not citable
+    EXIT_C=2
+
+The report is still written and is still schema-valid; the run is refused a clean exit code, which is
+the point: a broken harness cannot masquerade as a bad subject.
+
+## 6 — the negative tests are unchanged by the switch
+
+    $ sha256sum data/bad-reports/*.json   > before
+    $ tools/refslint/target/release/refslint.exe selftest --root . --schema code/protocol_schema.json
+    wrote ./data/bad-reports/bad-missing-disclosure.json
+    rejected bad-missing-disclosure.json (1 problems): <root>: missing required field 'disclosure'
+    wrote ./data/bad-reports/bad-metric-integrity.json
+    rejected bad-metric-integrity.json (3 problems): semantics: family T2 metric 'recall_at_5' has a value but no CI interval
+    wrote ./data/bad-reports/bad-operation-claim.json
+    rejected bad-operation-claim.json (1 problems): semantics: operation O4_REVISE claims support but reports no metrics
+    wrote ./data/bad-reports/bad-commit-sha.json
+    rejected bad-commit-sha.json (1 problems): .subject.commit_sha: 'v1.2.3' does not match pattern ^(none|[0-9a-f]{7,40})$
+    wrote ./data/bad-reports/bad-t10-removed.json
+    rejected bad-t10-removed.json (1 problems): semantics: adversarial family T10 absent without an explicit skip entry
+    selftest: 5 of 5 broken reports rejected, 0 accepted
+    selftest exit=0
+    $ sha256sum data/bad-reports/*.json   > after
+    $ diff before after
+    (empty)
+
+The five files (before == after): `e951fe87…` bad-commit-sha, `cbf99f6c…` bad-metric-integrity,
+`16dfb751…` bad-missing-disclosure, `cdc12138…` bad-operation-claim, `47540e07…` bad-t10-removed —
+identical to the hashes the port recorded for the Python-generated files.
+
+## 7 — fail-closed when no validator can be obtained (exit 2)
+
+With `tools/refslint/target` and `tools/refslint.sh` both moved aside, nothing can validate the run:
+
+    $ python code/run_protocol.py --server sint-memory-mcp ... --seeds 1 --out <scratch>/runs-novalidator
+      sint-memory-mcp seed=1 T10 done (220 calls so far, 133.3s)
+    RUN UNCERTIFIED: the package's validator (refslint) could not be found and tools/refslint.sh could not build it, so ../../../../fabricessa/cache/scratch/runs-novalidator/sint-memory-mcp-2026-10-16/report.json was written but not validated.
+       build it with: bash tools/refslint.sh   (or: cd tools/refslint && cargo build --release)
+    exit=2
+
+Both paths were restored afterwards and the binary re-checked
+(`refslint report --schema code/protocol_schema.json data/example-report.json` → `VALID`).
+
+## 8 — a fresh clone rebuilds the validator (exit 0)
+
+With `tools/refslint/target/release/refslint.exe` deleted, the run's lookup asks `tools/refslint.sh`
+for the binary, which builds it with cargo (stdlib only, no network):
+
+    $ mv tools/refslint/target/release/refslint.exe <aside>
+    $ python code/run_protocol.py --server sint-memory-mcp ... --seeds 1 --out <scratch>/runs-autobuild4
+    log line  1: [refslint] building tools/refslint with cargo (stdlib only, no downloads)
+    log line 17: VALID   ../../../../fabricessa/cache/scratch/runs-autobuild4/sint-memory-mcp-2026-10-16/report.json (subject=sint-memory-mcp, families=10, metric entries=52)
+    log line 18: validated with: tools/refslint/target/release/refslint.exe report
+    exit=0 (18 s)
+
+History worth recording, because it shaped the final code: the first attempt at this test ended
+`RUN UNCERTIFIED` and the reason could not be read, because the harness captured the wrapper's
+stderr and discarded it. The final `find_refslint()` prints whatever the wrapper wrote (`cargo`'s
+error, or its "[refslint] building …" notice) and, if no shell is reachable from Python at all,
+falls back to running the wrapper's single command (`cargo build --release` in `tools/refslint`)
+itself. Both mechanisms are documented in the docstring.
+
+## 9 — the package-wide checks
+
+    $ bash build.sh
+    [build] ok -> tex/main.pdf          # tex/main.pdf, 125375 bytes, 14:25:21
+    BUILD EXIT=0
+
+    $ bash verify_all.sh > evidence/checks-2026-10-16-0.4.0.txt 2>&1
+    VERIFY EXIT=0
+    ... ALL CHECKS PASSED
+
+Full output: `evidence/checks-2026-10-16-0.4.0.txt` (10 steps, every one `-- OK`), including the step
+this change is about:
+
+    == protocol runs: every report in reports/ validates
+    == $ tools/refslint/target/release/refslint.exe report --schema code/protocol_schema.json reports/sint-liquid-mcp-2026-10-16/report.json reports/sint-memory-mcp-2026-10-16/report.json
+    VALID   reports/sint-liquid-mcp-2026-10-16/report.json  (subject=sint-liquid-mcp, families=10, metric entries=52)
+    VALID   reports/sint-memory-mcp-2026-10-16/report.json  (subject=sint-memory-mcp, families=10, metric entries=52)
+    -- OK: protocol runs: every report in reports/ validates
+
+The three generated files that `verify_all.sh` rewrites were checked before and after and are
+unchanged (`sha256sum -c`: `tex/references.bib: OK`, `reference-verification.md: OK`,
+`data/refs-verified.csv: OK`).
+
+The 0.3.0 capture is deliberately kept at `evidence/checks-2026-10-16.txt`, because the port record
+and `TOOLING.md` reference it; this run is the same script from the same repository state plus the
+switch to `refslint report`.
+
+## 10 — concurrent work in the same repository (disclosure, not part of the change)
+
+While this card was open a sibling card was editing the same repository: `tex/main.tex`,
+`tex/numbers.tex`, `tools/refslint/src/tables.rs` (a new `refslint tables` subcommand),
+`verify_all.sh` (a new "result tables, number macros and ledger" step, visible in the section 9
+output) and a new `tools/protorun/` appeared. Consequences worth knowing:
+
+- `bash build.sh` failed once at 14:19 with `main.tex:16: Undefined control sequence
+  \DeclareUnicodeCharacter` (XeTeX cannot use `inputenc`). That failure came from the sibling's
+  in-flight edit, not from this card: it was fixed by that card at 14:22 and `build.sh` has been
+  green since (`BUILD EXIT=0` above, verified twice).
+- `verify_all.sh` as run in section 9 therefore contains one step written by that other card. Every
+  step passed on this repository state.
+- `tools/protorun/` (a Rust harness) and the `tables` subcommand are that card's work; nothing in
+  this change depends on them, and no file of theirs was modified here.

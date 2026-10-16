@@ -1,0 +1,18 @@
+[package]
+name = "protorun"
+version = "0.1.0"
+edition = "2021"
+description = "One utility with subcommands for the agent-memory-mcp paper package: the agent-memory evaluation protocol harness of protocol.md. Generates the T1-T10 task streams from a seed, drives an MCP server over stdio JSON-RPC as a child process, records every raw request/response, computes the protocol metrics from those responses, and writes report.json + summary.md. Standard library only, no crates."
+license = "Apache-2.0"
+
+[[bin]]
+name = "protorun"
+path = "src/main.rs"
+
+# The disk on this machine is tight and nothing here needs a debugger symbol table.
+[profile.dev]
+debug = 0
+incremental = false
+
+[profile.release]
+debug = 0

@@ -1,0 +1,25 @@
+# build artefacts of the Rust tooling
+target/
+**/target/
+
+# Python bytecode (legacy tooling copies kept as port evidence)
+__pycache__/
+*.pyc
+
+# LaTeX intermediates (main.pdf is committed on purpose)
+*.aux
+*.log
+*.blg
+*.bbl
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# bundled TeX engine: not part of the paper, fetched on demand
+tools/tectonic
+tools/tectonic-*.zip
+
+# editor / OS noise
+.DS_Store
+Thumbs.db

@@ -1,0 +1,38 @@
+# build tooling fetched at build time (tectonic is ~50 MB, never committed)
+tools/tectonic/
+tools/tectonic.exe
+tools/tectonic-*.zip
+
+# the Rust utility's build output (the source in tools/refslint IS committed)
+tools/refslint/target/
+
+# the protocol harness's build output and the MCP SDK unpacked next to it
+# (the source in tools/protorun IS committed; the SDK site directory is a dependency,
+#  not an artefact of this package)
+tools/protorun/target/
+
+# scratch directory of the port-parity check in verify_all.sh
+.port-parity-check/
+
+# Python
+__pycache__/
+*.pyc
+
+# LaTeX intermediates (the PDF is a deliverable and IS committed)
+tex/*.aux
+tex/*.log
+tex/*.blg
+tex/*.bbl
+tex/*.out
+tex/*.toc
+
+# local run outputs of the protocol harness (code/run_protocol.py)
+# the two report.json files and their raw/, summary.md are the run evidence and are kept;
+# the per-repetition store directories (reports/*/data/) are machine-local and stay out of git
+reports/**
+!reports/*/
+!reports/*/report.json
+!reports/*/summary.md
+!reports/*/raw/
+!reports/*/raw/**
+runs/

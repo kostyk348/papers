@@ -1,0 +1,222 @@
+# Rust port of the pipeline (refslint) - verification record
+
+date (UTC): 2026-10-16T10:07:22Z
+host: MSYS_NT-10.0-26200 x86_64
+rustc: rustc 1.97.1 (8bab26f4f 2026-07-14)
+cargo: cargo 1.97.1 (c980f4866 2026-06-30)
+binary: tools/refslint/target/release/refslint.exe
+binary sha256: add387ffdb5f3836669d89484d8729ea5bc36f2d4a70c187eff6850da4e129e4
+
+## criterion 1 - cargo build --release succeeds, binary not committed
+build: OK (see tools/refslint/Cargo.toml, no external crates)
+.gitignore covers tools/refslint/target:
+
+## spec conversion: code/refs.py -> code/refs.toml (one-time)
+converted 135 curated sources: code/refs.py -> code/refs.toml
+[[ref]] entries: 135
+
+## criterion 2 - refslint bib --legacy-banner reproduces the Python artefacts byte for byte
+   sintprospective            [134]
+   sintswarm                  [135]
+byte-identical: tex/references.bib
+byte-identical: reference-verification.md
+byte-identical: data/refs-verified.csv
+
+sha256 of the reproduced files:
+da209f93af8ca70569a3ebea0b586c12f9522992642daec9ea49d4ede1b82181 *C:/tmp/parity/tex/references.bib
+4ad7be6908cde76230284a38a99524fff83c545f0616aca585e18ffb4274110f *C:/tmp/parity/reference-verification.md
+2262577ed576fe485dca3a789261cf56fcc90ff30f8fbe07b44f60aac814ea52 *C:/tmp/parity/data/refs-verified.csv
+
+(.gitignore after the port:)
+1:# build tooling fetched at build time (tectonic is ~50 MB, never committed)
+2:tools/tectonic/
+3:tools/tectonic.exe
+4:tools/tectonic-*.zip
+6:# the Rust utility's build output (the source in tools/refslint IS committed)
+7:tools/refslint/target/
+9:# scratch directory of the port-parity check in verify_all.sh
+10:.port-parity-check/
+
+## criterion 3 - cites: identical to the Python checks
+$ refslint cites --check --root .
+citation keys used: 135 unique
+curated keys never cited: 0
+exit=0
+
+$ refslint cites --count --root .   vs   $ python code/count_cites.py .
+count output identical to the Python script (7 files, same figures)
+
+## criterion 4 - report validator: identical verdicts and messages
+$ refslint report --schema code/protocol_schema.json data/example-report.json
+VALID   data/example-report.json  (subject=SCHEMA EXAMPLE - synthetic subject, no system was executed, families=10, metric entries=27)
+exit=0
+$ refslint report --schema code/protocol_schema.json data/bad-reports/*.json
+INVALID data/bad-reports/bad-commit-sha.json (1 problems):
+   - .subject.commit_sha: 'v1.2.3' does not match pattern ^(none|[0-9a-f]{7,40})$
+INVALID data/bad-reports/bad-metric-integrity.json (3 problems):
+   - semantics: family T2 metric 'recall_at_5' has a value but no CI interval
+   - semantics: family T6 metric 'abstraction_faithfulness' reports a graded value but no kappa
+   - semantics: family T6 metric 'abstraction_faithfulness' has a value but no CI interval
+INVALID data/bad-reports/bad-missing-disclosure.json (1 problems):
+   - <root>: missing required field 'disclosure'
+INVALID data/bad-reports/bad-operation-claim.json (1 problems):
+   - semantics: operation O4_REVISE claims support but reports no metrics
+INVALID data/bad-reports/bad-t10-removed.json (1 problems):
+   - semantics: adversarial family T10 absent without an explicit skip entry
+exit=1
+
+diff against the Python validator output:
+rejection reasons identical (5 reports, 7 problems)
+
+## criterion 5 - selftest regenerates the negative tests and rejects all of them
+$ refslint selftest --root .
+wrote ./data/bad-reports/bad-missing-disclosure.json
+rejected bad-missing-disclosure.json (1 problems): <root>: missing required field 'disclosure'
+wrote ./data/bad-reports/bad-metric-integrity.json
+rejected bad-metric-integrity.json (3 problems): semantics: family T2 metric 'recall_at_5' has a value but no CI interval
+wrote ./data/bad-reports/bad-operation-claim.json
+rejected bad-operation-claim.json (1 problems): semantics: operation O4_REVISE claims support but reports no metrics
+wrote ./data/bad-reports/bad-commit-sha.json
+rejected bad-commit-sha.json (1 problems): .subject.commit_sha: 'v1.2.3' does not match pattern ^(none|[0-9a-f]{7,40})$
+wrote ./data/bad-reports/bad-t10-removed.json
+rejected bad-t10-removed.json (1 problems): semantics: adversarial family T10 absent without an explicit skip entry
+selftest: 5 of 5 broken reports rejected, 0 accepted
+exit=0
+regenerated reports byte-identical to the Python-generated files (same sha256 before and after)
+
+## repo facts - refslint facts vs the Python-produced data/repo-facts.json
+sint                   7554f7eef853 2026-10-16 tools=125 files=143 py_lines=9654
+sint-liquid-mcp        bfffce2cdec3 2026-10-16 tools=8 files=11 py_lines=351
+sint-epistemic-mcp     5d339df2cbb0 2026-10-16 tools=6 files=11 py_lines=314
+sint-dream-mcp         4ab0c130eabd 2026-10-16 tools=6 files=12 py_lines=271
+sint-prospective-mcp   b16b7172ec33 2026-10-16 tools=8 files=12 py_lines=365
+sint-llm-swarm         fc705f8d7a3c 2026-10-16 tools=6 files=14 py_lines=822
+wrote C:/tmp/ev-repo-facts.json
+identical apart from the collection timestamp: commit SHAs, file counts, line counts and MCP tool inventories all match
+
+## metadata snapshot - refslint merge vs the committed data/refmeta.json
+wrote C:/tmp/ev-refmeta.json
+{
+ "generated": "2026-10-16T13:07:48",
+ "arxiv_records": 290,
+ "doi_records": 25,
+ "url_records": 25,
+ "collector": "refslint merge"
+}
+identical apart from the snapshot timestamp: 290 arXiv records, 25 DOIs, 25 probed URLs
+
+## network subcommands - live verification (curl as the HTTPS client)
+$ refslint ids --ids C:/tmp/rl-ids.txt
+OK   2404.13501     A Survey on the Memory Mechanism of Large Language Model based Agents | Zeyu Zhang (2024-04-21, 9 authors)
+OK   2310.08560     MemGPT: Towards LLMs as Operating Systems | Charles Packer (2023-10-12, 7 authors)
+verified 2 / 2 -> C:/tmp/ev-ids.json
+
+$ refslint doi --dois C:/tmp/rl-dois.txt
+OK   10.1037/h0043158                              The magical number seven, plus or minus two: Some limits on our capaci | Psychological Review (1956)
+OK   10.1111/j.1467-9280.2008.02209.x              Spacing Effects in Learning | Psychological Science (2008)
+verified 2 / 2
+
+$ refslint probe --urls C:/tmp/rl-url1.txt
+200  42540    https://arxiv.org/abs/2310.08560 | [2310.08560] MemGPT: Towards LLMs as Operating Systems
+
+$ refslint fetch --queries C:/tmp/rl-queries.json --max 3
+== agent memory operation taxonomy MCP -> 3
+   [2605.27825v1] MRMMIA: Membership Inference Attacks on Memory in Chat Agents (2026-05-27)
+   [2607.13157v1] Oracle Agent Memory as an Enterprise Memory Substrate for Long-Horizon AI Agents (2026-07-14)
+   [2508.14704v1] MCP-Universe: Benchmarking Large Language Models with Real-World Model Context Protocol Servers (2025-08-20)
+== prospective memory for LLM agents -> 3
+   [2606.24322v1] Securing LLM-Agent Long-Term Memory Against Poisoning: Non-Malleable, Origin-Bound Authority wi (2026-06-23)
+   [2604.08224v1] Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engine (2026-04-09)
+   [2607.12385v1] PM-Bench: Evaluating Prospective Memory in LLM Agents (2026-07-14)
+saved 6 -> C:/tmp/ev-arxiv.json
+
+$ refslint query --queries C:/tmp/rl-q.txt
+Q: memory operations evaluation protocol MCP agent
+    10.2139/ssrn.7184619             Securing Federated Model Context Protocol (MCP) and Multi-Agent Supply Chai |  (2026)
+    10.71443/er.ar17                 Model Context Protocol (MCP) Server for Multi-Agent AI Assistants with Pers | Engineering Research (2026)
+    10.22541/au.175761889.90929465/v1 Zero-Trust Proof-Gated Agent Architecture (ZPAA): A Comprehensive Security  |  (2025)
+
+$ refslint abs --store data/refmeta.json --ids C:/tmp/rl-absids.txt --n 160
+### 2404.13501 | 2024-04-21 | A Survey on the Memory Mechanism of Large Language Model based Agents | cs.AI
+authors: Zeyu Zhang, Xiaohe Bo, Chen Ma, Rui Li et al.
+Large language model (LLM) based agents have recently attracted much attention from the research and industry communities. Compared with original
+LLMs, LLM-base
+
+### 2310.08560 | 2023-10-12 | MemGPT: Towards LLMs as Operating Systems | cs.AI
+authors: Charles Packer, Sarah Wooders, Kevin Lin, Vivian Fang et al.
+Large language models (LLMs) have revolutionized AI, but are constrained by limited context windows, hindering their utility in tasks like extended
+conversation
+
+MISSING FROM STORE: ["9999.99999"]
+
+## default banner - the only difference between the ported output and the pre-port output
+The default run names the generator that actually exists ('refslint bib'); the byte-identical
+Python-era banner text stays reachable through --legacy-banner and is what the parity check above uses.
+
+$ refslint bib --root .   (default banner, writes the committed artefacts)
+resolved 135 curated sources (0 unresolved)
+   artifact       6
+   cognition      18
+
+diff of the regenerated artefacts against evidence/pre-port/ (only these lines differ):
+1c1
+< % Generated by code/build_refs.py - do not edit by hand.
+---
+> % Generated by refslint (subcommand: bib) - do not edit by hand.
+3c3
+< Generated by `code/build_refs.py` from `code/refs.py` and the metadata snapshot
+---
+> Generated by `refslint bib` from `code/refs.toml` and the metadata snapshot
+151c151
+< python code/build_refs.py --root .            # regenerate references.bib + this table
+---
+> refslint bib --out-dir .                     # regenerate references.bib + this table
+data/refs-verified.csv: unchanged (no banner inside the CSV)
+
+sha256 after the reword:
+08837ec144e32217e5b87e4e88199b71056b461105af37082cb1a8a3462e70fa *tex/references.bib
+6d4218589f984b6aae051d98a02cbe8c4c8b5646563a92e48754bde6c611ad69 *reference-verification.md
+2262577ed576fe485dca3a789261cf56fcc90ff30f8fbe07b44f60aac814ea52 *data/refs-verified.csv
+
+## final state - the parity check is now a permanent step of verify_all.sh
+The check below runs on every '$ bash verify_all.sh', so a future edit that changes generated output
+fails the package-wide check instead of being noticed only by a reviewer.
+
+commands in verify_all.sh:
+  37:    "$RL" bib --root .
+  39:    "$RL" cites --check --root .
+  40:run "citation counts per document" "$RL" cites --count --root .
+  42:    "$RL" report --schema code/protocol_schema.json data/example-report.json
+  46:      "$RL" report --schema code/protocol_schema.json reports/*/report.json
+  54:if "$RL" selftest --root . --schema code/protocol_schema.json; then
+  62:    "$RL" jsoncheck data/refmeta.json data/repo-facts.json data/example-report.json \
+  71:if "$RL" bib --root "$CHECK_DIR" --refs code/refs.toml --meta data/refmeta.json --legacy-banner >/dev/null \
+
+litter created while testing (recursive delete is disabled in this session; safe to remove):
+  C:/c/tmp/rl-check, C:/c/tmp/rl-target   (from the first refslint test runs, which were given MSYS paths)
+  (C:/c also holds earlier unrelated leftovers from other tools; nothing here touches the paper)
+
+## final verify_all.sh run (this is the run captured in evidence/checks-2026-10-16.txt)
+156:-- OK: reference base resolves, bibliography and verification table regenerate
+164:-- OK: every \cite key is curated and every curated source is cited
+177:-- OK: citation counts per document
+184:-- OK: protocol report: schema example is valid
+192:-- OK: protocol runs: every report in reports/ validates
+206:-- OK: 5 of 5 broken reports rejected, 0 accepted
+213:-- OK: JSON artefacts parse
+215:== port parity: the generated files must still equal the pre-port (Python) versions
+216:-- OK: references.bib, reference-verification.md and refs-verified.csv are byte-identical
+224:-- OK: PDF regenerates from source
+227:ALL CHECKS PASSED
+
+exit code: 0 (ALL CHECKS PASSED)
+
+artefact sha256 at the end of the port (default banner):
+  08837ec144e32217e5b87e4e88199b71056b461105af37082cb1a8a3462e70fa *tex/references.bib
+  6d4218589f984b6aae051d98a02cbe8c4c8b5646563a92e48754bde6c611ad69 *reference-verification.md
+  2262577ed576fe485dca3a789261cf56fcc90ff30f8fbe07b44f60aac814ea52 *data/refs-verified.csv
+
+environment note: refslint is a native Windows binary and does not translate MSYS paths
+(/c/..., /tmp/...): call it with C:/... or a path relative to the current directory. The first
+test runs in this session passed /c/tmp/... and wrote to C:/c/tmp/... instead - the reason
+verify_all.sh now uses a relative .port-parity-check directory.
