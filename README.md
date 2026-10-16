@@ -6,7 +6,7 @@ tools that regenerate every number in it.
 
 | Package | Version | What it contains | Status |
 |---|---|---|---|
-| [Memory Operations in MCP Agent Ecosystems](agent-memory-mcp/) | 1.0 | operation taxonomy (6 operations, 2 record axes), evaluation protocol (10 task families, machine-validated report format), verified reference base (135 sources), two completed protocol runs on two memory servers | prepared for deposit — no DOI yet |
+| [Memory Operations in MCP Agent Ecosystems](agent-memory-mcp/) | 1.0 | operation taxonomy (6 operations, 2 record axes), evaluation protocol (10 task families, machine-validated report format), verified reference base (135 sources), two completed protocol runs on two memory servers | [released v1.0](https://github.com/kostyk348/papers/releases/tag/agent-memory-mcp-v1.0) — DOI pending (Zenodo deposit not yet made) |
 
 ## Principles these packages follow
 
