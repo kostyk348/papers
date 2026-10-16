@@ -3,6 +3,14 @@
 One DOI is one version. After a deposit, corrections go into a new version with an entry here —
 never into an already published record.
 
+## Repository release — 2026-10-16
+
+- Package published at https://github.com/kostyk348/papers, tag `agent-memory-mcp-v1.0`
+  (manuscript version 1.0; the 1.1 entry below is unreleased work already present in the tree).
+- Local absolute paths in run logs, reports and evidence were replaced by `{{HOME}}` and
+  `<hermes-venv>` before publication. Values, raw protocol exchanges and code are unchanged;
+  hashes recorded in the port/parity evidence were computed before that substitution.
+
 ## 1.1 — 2026-10-16 (unreleased; the protocol harness is now one Rust binary)
 
 The port promised since 0.2.0 in `TOOLING.md`: the harness that produces `reports/` was the last
@@ -348,8 +356,4 @@ Next version is expected to add: paper §6 written from the two validated report
 literature search with an updated date; the harness port (`refslint run`); and a Zenodo deposit of
 the English PDF.
 
-## 1.0 — public release (16 October 2026)
-
-- Package published at github.com/kostyk348/papers with tag `agent-memory-mcp-v1.0`.
-- Local absolute paths in run logs, reports and evidence replaced by `{{HOME}}` and `<hermes-venv>` before
-  publication; all reported values, raw protocol exchanges and code are unchanged.
+## 1.0 — 2026-10-16 (manuscript version 1.0, published)
