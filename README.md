@@ -1,4 +1,18 @@
+<div align="center">
+
+<img src="docs/banner.svg" alt="papers banner" width="1000">
+
 # papers
+
+### Paper and preprint packages: manuscript sources, artefacts, and the tooling that regenerates every number
+
+[![Release](https://img.shields.io/github/v/release/kostyk348/papers?sort=semver&color=0ea5e9&label=release)](https://github.com/kostyk348/papers/releases)
+[![Language](https://img.shields.io/badge/lang-Rust-blueviolet)](https://github.com/kostyk348/papers)
+
+</div>
+
+---
+
 
 Paper and preprint packages by Konstantin Parashchuk (GitHub [@kostyk348](https://github.com/kostyk348)).
 Each directory is a self-contained package: manuscript sources, the artefacts the manuscript claims, and the
