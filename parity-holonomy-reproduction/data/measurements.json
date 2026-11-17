@@ -1,7 +1,7 @@
 {
   "tool": "papertool measure",
   "version": "0.1.0",
-  "generated_utc": "2026-11-17T07:00:37Z",
+  "generated_utc": "2026-11-17T07:26:13Z",
   "plan": "experiments/plan.toml",
   "environment": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "key": "python",
-      "value": "C:/Users/Lab/AppData/Local/Python/bin/python.exe"
+      "value": "python"
     },
     {
       "key": "python_version",
@@ -42,7 +42,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "python",
         "experiments/01_contextuality.py"
       ],
       "seeds": [
@@ -133,7 +133,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "python",
         "experiments/01_contextuality.py"
       ],
       "seeds": [
@@ -196,7 +196,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "python",
         "experiments/05_diagonal_lemma.py"
       ],
       "seeds": [
@@ -275,7 +275,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "python",
         "experiments/06_frustration.py"
       ],
       "seeds": [
@@ -330,7 +330,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "python",
         "experiments/11_repair_hardness.py"
       ],
       "seeds": [
@@ -409,7 +409,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "python",
         "experiments/03_topological_memory.py"
       ],
       "seeds": [
@@ -684,7 +684,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "python",
         "experiments/12_holonomy_code.py"
       ],
       "seeds": [
@@ -780,6 +780,260 @@
       }
     },
     {
+      "id": "e04_novelty",
+      "group": "claim4",
+      "x": "4",
+      "note": "class changes under value noise versus structure noise: the repository's 'core yes, criticality signal no' verdict",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "python",
+        "experiments/04_novelty.py"
+      ],
+      "seeds": [
+        0
+      ],
+      "repeats": 1,
+      "n": 1,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 306
+        }
+      ],
+      "elapsed_s": {
+        "n": 1,
+        "mean": 11.9324256,
+        "sd": 0.0,
+        "min": 11.9324256,
+        "max": 11.9324256
+      },
+      "peak_ws_bytes": {
+        "n": 1,
+        "mean": 33026048.0,
+        "sd": 0.0,
+        "min": 33026048.0,
+        "max": 33026048.0
+      },
+      "metrics": [
+        {
+          "name": "novelty_mu002",
+          "kind": "num",
+          "n": 1,
+          "mean": 14.0,
+          "sd": 0.0,
+          "min": 14.0,
+          "max": 14.0,
+          "values": [
+            14.0
+          ]
+        },
+        {
+          "name": "novelty_mu01",
+          "kind": "num",
+          "n": 1,
+          "mean": 66.0,
+          "sd": 0.0,
+          "min": 66.0,
+          "max": 66.0,
+          "values": [
+            66.0
+          ]
+        },
+        {
+          "name": "novelty_mu05",
+          "kind": "num",
+          "n": 1,
+          "mean": 314.0,
+          "sd": 0.0,
+          "min": 314.0,
+          "max": 314.0,
+          "values": [
+            314.0
+          ]
+        },
+        {
+          "name": "novelty_value_noise",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0
+          ]
+        },
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 1,
+          "unique": 1,
+          "values": [
+            "50947abcd41213372b1bfddf96bf10e15218ae84ef971ef9a9a2ad37e4348d65"
+          ]
+        }
+      ],
+      "reference": {
+        "path": "subjects/paradox-logic/results/04_novelty.txt",
+        "runs_identical": true
+      }
+    },
+    {
+      "id": "e02_defect_thermodynamics",
+      "group": "claim2",
+      "x": "2",
+      "note": "birth/death scan of defects: the repository's own negative result on criticality",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "python",
+        "experiments/02_defect_thermodynamics.py"
+      ],
+      "seeds": [
+        0
+      ],
+      "repeats": 1,
+      "n": 1,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 477
+        }
+      ],
+      "elapsed_s": {
+        "n": 1,
+        "mean": 250.8534747,
+        "sd": 0.0,
+        "min": 250.8534747,
+        "max": 250.8534747
+      },
+      "peak_ws_bytes": {
+        "n": 1,
+        "mean": 34299904.0,
+        "sd": 0.0,
+        "min": 34299904.0,
+        "max": 34299904.0
+      },
+      "metrics": [
+        {
+          "name": "defect_events_mu0",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0
+          ]
+        },
+        {
+          "name": "defect_events_mu002",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.69,
+          "sd": 0.0,
+          "min": 0.69,
+          "max": 0.69,
+          "values": [
+            0.69
+          ]
+        },
+        {
+          "name": "defect_events_mu01",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.71,
+          "sd": 0.0,
+          "min": 0.71,
+          "max": 0.71,
+          "values": [
+            0.71
+          ]
+        },
+        {
+          "name": "defect_events_mu02",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.72,
+          "sd": 0.0,
+          "min": 0.72,
+          "max": 0.72,
+          "values": [
+            0.72
+          ]
+        },
+        {
+          "name": "defect_events_mu05",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.73,
+          "sd": 0.0,
+          "min": 0.73,
+          "max": 0.73,
+          "values": [
+            0.73
+          ]
+        },
+        {
+          "name": "defect_hurst_mu0",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.092,
+          "sd": 0.0,
+          "min": 0.092,
+          "max": 0.092,
+          "values": [
+            0.092
+          ]
+        },
+        {
+          "name": "defect_rho_mu0",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.7,
+          "sd": 0.0,
+          "min": 0.7,
+          "max": 0.7,
+          "values": [
+            0.7
+          ]
+        },
+        {
+          "name": "defect_rho_mu02",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.72,
+          "sd": 0.0,
+          "min": 0.72,
+          "max": 0.72,
+          "values": [
+            0.72
+          ]
+        },
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 1,
+          "unique": 1,
+          "values": [
+            "333752a6f872d3f439642f2dc05765f3cc2426b5c6db3fddda7edd08ab1c6f87"
+          ]
+        }
+      ],
+      "reference": {
+        "path": "subjects/paradox-logic/results/02_defect_thermodynamics.txt",
+        "runs_identical": true
+      }
+    },
+    {
       "id": "selfgauge_fraction",
       "group": "derived",
       "x": "",
@@ -847,6 +1101,30 @@
           "max": 0.006809625540365637,
           "values": [
             0.006809625540365637
+          ]
+        }
+      ]
+    },
+    {
+      "id": "novelty_structure_over_value",
+      "group": "derived",
+      "x": "",
+      "note": "class changes under the smallest structural noise, with value noise as the zero baseline; the +1 keeps the ratio defined when value noise is exactly zero, and the note says so",
+      "mode": "derived",
+      "expr": "e04_novelty.novelty_mu002 / (e04_novelty.novelty_value_noise + 1)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "class changes",
+          "n": 1,
+          "mean": 14.0,
+          "sd": 0.0,
+          "min": 14.0,
+          "max": 14.0,
+          "values": [
+            14.0
           ]
         }
       ]

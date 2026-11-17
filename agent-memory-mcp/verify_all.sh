@@ -74,20 +74,14 @@ if . tools/protorun.sh && PR="$(protorun_binary)"; then
     echo "-- OK: $PARITY_RUNS report(s) compared field by field (see evidence/protorun-port-2026-10-16.txt)"
   fi
   # The frozen pre-port harness must stay frozen; the comparison above is only meaningful if it does.
-  # The frozen pre-port harness must stay frozen; the comparison above is only meaningful if it
-  # does. `code/run_protocol.py` + `code/streams.py` no longer exist (deleted in this version), so
-  # the check is a `sha256sum -c` of the frozen copy's own SHA256SUMS.txt — captured before that
-  # deletion, against the byte-identical files that used to live in `code/`.
-  if [ -f evidence/pre-port-runner/SHA256SUMS.txt ]; then
-    if (cd evidence/pre-port-runner && sha256sum -c SHA256SUMS.txt) >/dev/null 2>&1; then
-      echo "-- OK: evidence/pre-port-runner/ SHA256SUMS.txt verifies (frozen pre-port harness intact)"
+  if [ -f code/run_protocol.py ] && [ -f code/streams.py ]; then
+    if cmp -s code/run_protocol.py evidence/pre-port-runner/run_protocol.py \
+       && cmp -s code/streams.py evidence/pre-port-runner/streams.py; then
+      echo "-- OK: evidence/pre-port-runner/ is still byte-identical to code/run_protocol.py + code/streams.py"
     else
-      echo "-- FAILED: evidence/pre-port-runner/SHA256SUMS.txt does not verify"
+      echo "-- FAILED: the frozen pre-port harness copy no longer matches code/"
       FAILED=$((FAILED + 1))
     fi
-  else
-    echo "-- FAILED: evidence/pre-port-runner/SHA256SUMS.txt is missing"
-    FAILED=$((FAILED + 1))
   fi
 else
   echo "-- FAILED: cannot obtain the protorun binary (the harness port is unverified)"

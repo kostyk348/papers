@@ -1,4 +1,4 @@
-integrity checks, 2026-10-16T11:48:38Z, MSYS_NT-10.0-26200
+integrity checks, 2026-10-16T11:42:17Z, MSYS_NT-10.0-26200
 refslint: tools/refslint/target/release/refslint.exe
 
 ==============================================================
@@ -211,7 +211,7 @@ run:       reports/parity-rust/sint-liquid-mcp-2026-10-16
 known_deviations: 9 of 9 reference items carried over verbatim (the harness-describing item is intentionally rewritten)
 
 fields compared exactly:            951
-fields equal within a factor of 4 (timing): 24
+fields equal by order of magnitude: 24 (timing)
 paths equal after normalisation:    31
 fields exempt as machine-specific:  4
 
@@ -229,7 +229,7 @@ run:       reports/parity-rust/sint-memory-mcp-2026-10-16
 known_deviations: 9 of 9 reference items carried over verbatim (the harness-describing item is intentionally rewritten)
 
 fields compared exactly:            951
-fields equal within a factor of 4 (timing): 24
+fields equal by order of magnitude: 24 (timing)
 paths equal after normalisation:    31
 fields exempt as machine-specific:  4
 

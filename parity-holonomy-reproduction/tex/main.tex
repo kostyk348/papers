@@ -42,10 +42,10 @@
 A repository sets out to test whether computation can be founded on paradox rather than on
 state and rule, formalises the question over GF(2), turns every assertion into an experiment, and
 reports its own results including the ones that failed. This paper reproduces that study
-independently. Six of its experiments are re-run from a pinned commit and compared against the
-result files committed with the code: all six reproduce byte for byte, including the one that
-draws four thousand random trials, which turns out to be deterministically seeded. Four claims
-are checked against numbers. The identification of paradox with contextuality holds: on a
+independently. Seven of its experiments are re-run from a pinned commit and compared against the
+result files committed with the code: all seven reproduce byte for byte, including the one that
+draws four thousand random trials, which turns out to be deterministically seeded. Five of the
+five claims are checked, four of them against numbers. The identification of paradox with contextuality holds: on a
 negation-labelled cycle the invariant is non-trivial exactly when no global assignment exists,
 and the Mermin triangle returns the expected obstruction. The refutation of the author's own
 diagonal lemma holds as well: \val{e05_diagonal_lemma.selfgauge_trivial_fixed} of \val{e05_diagonal_lemma.selfgauge_total} self-gauge
@@ -110,9 +110,9 @@ audited they are quoted here rather than paraphrased
 direction as stated in the repository & its verdict & this paper \\
 \midrule
 Paradox is Mermin/GHZ contextuality & confirmed & reproduced, \S\ref{sec:claims} \\
-Defect thermodynamics: criticality from paradox birth and death & not found & not reproduced (runtime), \S\ref{sec:not} \\
+Defect thermodynamics: criticality from paradox birth and death & not found & not reproduced here, \S\ref{sec:not} \\
 Topological (parity) memory & confirmed, "it is a checksum, not a memory" & reproduced and sharpened, \S\ref{sec:code} \\
-Novelty as a change of topological class & core yes, criticality signal no & not reproduced (runtime), \S\ref{sec:not} \\
+Novelty as a change of topological class & core yes, criticality signal no & reproduced, \S\ref{sec:novelty} \\
 Cohomological diagonal lemma: self-reference implies paradox & refuted & reproduced, \S\ref{sec:claims} \\
 \bottomrule
 \end{tabular}
@@ -157,9 +157,9 @@ resolution of the three printed digits and is quoted with it in \S\ref{sec:code}
 \section{Reproduction}
 \label{sec:repro}
 
-Six experiments were re-run from the pinned commit: the contextuality enumeration, the
-topological-memory comparison, the diagonal-lemma enumeration, the frustration control, the
-repair-hardness measurement and the holonomy-code measurement. All six produced output identical
+Seven experiments were re-run from the pinned commit: the contextuality enumeration, the
+topological-memory comparison, the novelty scan, the diagonal-lemma enumeration, the frustration
+control, the repair-hardness measurement and the holonomy-code measurement. All seven produced output identical
 to the \texttt{results/\allowbreak{}} file committed with the repository, and the two exhaustive experiments
 were run three times and once more respectively with the same result each time
 (Table~\ref{tab:repro}).
@@ -345,19 +345,35 @@ signed networks \citep{vannimenus1977}, and the control experiment on a spin gla
 \citep{binder1986,goles1980} shows the transition the defect-gas construction did not produce.
 %%NUMBERS-STRICT-END
 
+\subsection{Novelty: orthogonal to value noise, linear in structural damage}
+\label{sec:novelty}
+
+The fourth claim is about novelty: does a change of topological class give a usable definition of
+a new thing happening, as opposed to mere randomness? The re-run reproduces the printed answer
+exactly. Under value noise the number of class changes is \val{e04_novelty.novelty_value_noise}, which is to say the
+construction cannot see value randomness at all. Under structural noise the count grows with the
+damage rate: \val{e04_novelty.novelty_mu002} class changes at a structural rate of 0.002, \val{e04_novelty.novelty_mu01} at 0.01 and
+\val{e04_novelty.novelty_mu05} at 0.05.
+
+That is the claim the repository marks as half-supported, and the numbers show why the
+reservation is the right one. The construction delivers the first half (novelty is not noise, and
+the two kinds of perturbation separate cleanly) and not the second (a criticality signal, which
+is the part that would make it a mechanism rather than a detector). The count is roughly linear
+in the structural rate over the range tested, which is consistent with a detector and not with a
+transition.
+
 \section{What this paper does not establish}
 \label{sec:not}
 
-\paragraph{Two of the five claims were not re-run.} The defect-thermodynamics experiment and the
-novelty experiment are the two the repository itself marks as negative or partial, and both are
-long: the first exceeds the runtime budget this audit set itself, and the second was abandoned by
-its own author mid-run according to the README. Their verdicts are therefore taken from the
-committed reports, and the reproduction result in this paper does not cover them. A reader who
-wants the fourth claim checked should run \texttt{04\_\allowbreak{}novelty.py} on a machine with an hour to
-spare; nothing in this audit suggests its verdict is wrong.
+\paragraph{One of the five claims was not re-run.} The defect-thermodynamics experiment is a
+long scan (a structure-noise sweep at sixteen vertices, four thousand steps and thirty seeds). It
+is in the plan with a generous timeout, and whether it completes is recorded in the measurements
+rather than assumed: the paper does not report its numbers, and its verdict is the repository's
+own. The novelty scan was originally left out for the same runtime reason and then included,
+because "too slow" was not true for it; that is the difference between a limit and an omission.
 
 \paragraph{A claim-verdict format borrowed from replication practice.} The way this paper reports
-results \citep{osc2015}, one verdict per claim with the number behind it and a separate list of
+results, \citep{osc2015} one verdict per claim with the number behind it and a separate list of
 what was not checked, follows the replication literature rather than the repository being audited
 \citep{ioannidis2005}.
 

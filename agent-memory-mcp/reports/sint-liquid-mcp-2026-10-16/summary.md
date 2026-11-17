@@ -13,7 +13,7 @@ two are meant to be read side by side, not scored against each other.
 | model under test | none (store-only) |
 | seeds / repetitions | [1, 2, 3] / 3 |
 | max_calls per repetition | 400 |
-| environment | Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter C:/Users/Lab/AppData/Local/hermes/installs/2636d87a1639ae64/environments/f32597c25d734363b2d220b038061d05/venv/Scripts/python.exe; harness Python 3.14.7 (stdlib only) |
+| environment | Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness Python 3.14.7 (stdlib only) |
 | raw responses | reports/sint-liquid-mcp-2026-10-16/raw |
 
 ## Metrics by task family

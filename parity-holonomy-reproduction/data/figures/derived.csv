@@ -1,4 +1,5 @@
 run,x,value_mean,value_mean_sd
 mcerr_parity_struct,nan,0.006810,0.000000
 noise10_hopfield_over_parity,nan,3.646341,0.000000
+novelty_structure_over_value,nan,14.000000,0.000000
 selfgauge_fraction,nan,0.500000,0.000000

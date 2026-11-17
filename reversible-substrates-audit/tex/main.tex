@@ -421,7 +421,11 @@ well inside one standard deviation. The shape of the curve matters more than the
 \val{train_depth4.xor_accuracy_pct}\%, so the task is not learnable without enough leapfrog
 steps, while everything from depth 8 upward lands between
 \val{train_depth8.xor_accuracy_pct}\% and \val{train_depth48.xor_accuracy_pct}\%. A capacity story
-in which more depth always helps is not what the sweep shows; a threshold near depth 8 is.
+in which more depth always helps is not what the sweep shows; a threshold near depth 8 is. The
+audited command agrees, in its own way: it exits non-zero for every depth-2 and depth-4 run,
+because its pass condition is a 90\% accuracy floor, and the harness records the exit code of every
+process alongside its output, so that disagreement is visible in the artifact and not only in this
+text.
 
 \begin{figure}[t]
 \centering

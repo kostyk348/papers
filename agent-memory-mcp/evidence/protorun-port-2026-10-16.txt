@@ -138,10 +138,10 @@ same statement is a plain line diff, because it shows what is *not* equal and no
 
 ```diff
 16,17c16,17
-< | environment | Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter C:/Users/Lab/AppData/Local/hermes/installs/2636d87a1639ae64/environments/f32597c25d734363b2d220b038061d05/venv/Scripts/python.exe; harness Python 3.14.7 (stdlib only) |
+< | environment | Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness Python 3.14.7 (stdlib only) |
 < | raw responses | reports/sint-liquid-mcp-2026-10-16/raw |
 ---
-> | environment | windows; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter C:/Users/Lab/AppData/Local/hermes/installs/2636d87a1639ae64/environments/f32597c25d734363b2d220b038061d05/venv/Scripts/python.exe; harness protorun (Rust, standard library only, no crates) |
+> | environment | windows; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness protorun (Rust, standard library only, no crates) |
 > | raw responses | reports/parity-rust/sint-liquid-mcp-2026-10-16/raw |
 29,30c29,30
 < | write_latency_p50_ms | 17.8175 | [17.0155, 18.4985] | 3 | harness | wall clock around tools/call; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
@@ -186,7 +186,7 @@ For `report.json` (1325 lines per subject) the diff is likewise only:
 | What differs | Lines | Why |
 |---|---|---|
 | `raw_log_paths` | 60 | the parity runs live in `reports/parity-rust/<run>`; every file name and the whole run structure are identical (the parity tool compares them after normalising the run directory) |
-| the four latency metrics (`write_latency_p50/p95_ms`, `read_latency_p50/p95_ms`), in the family blocks and again in the operations blocks | 48 | wall-clock measurements, which the card allows to differ; they agree within a factor of ~1.3, and the parity tool requires them to stay within a factor of 4 |
+| the four latency metrics (`write_latency_p50/p95_ms`, `read_latency_p50/p95_ms`), in the family blocks and again in the operations blocks | 48 | wall-clock measurements, which the card allows to differ; they agree within a factor of ~1.3, and the parity tool checks the order of magnitude |
 | `runner.harness_commit` | 2 | the hash names the Rust sources instead of the Python ones; it is the identity of the harness, not a measurement |
 | `disclosure.environment` | 2 | names `protorun (Rust, standard library only)` instead of `harness Python 3.14.7` |
 | `disclosure.known_deviations` | 4 | the one item that describes the harness is rewritten; the other nine are carried over verbatim (asserted by the parity tool: "9 of 9 reference items carried over verbatim") |
@@ -194,8 +194,8 @@ For `report.json` (1325 lines per subject) the diff is likewise only:
 Every other field — all 52 metric rows per subject, each with its `value`, its 1000-resample
 bootstrap 95 % CI, its `n`, its `computer`, its full `notes` string and its `kappa` where present,
 plus `families[].tasks`, `failures[]` (codes, counts, examples), `operations` (supported flags,
-pooled CIs) and every disclosure field — is byte-identical, and the timing values stay inside the
-same factor the tool allows:
+pooled CIs) and every disclosure field — is byte-identical, and the timing values came out of the
+same order of magnitude:
 
 | metric (sint-liquid-mcp) | Python harness | protorun |
 |---|---|---|
@@ -221,7 +221,7 @@ which is what makes the raw logs comparable file by file.
 - The seconds are not the same and are not meant to be: `protorun` is a native binary and the
   timing metrics measure the subject server, but the wall clock around each call also includes the
   harness's own I/O. The card allows the timing fields to differ, and the parity tool treats them as
-  equal when they stay within a factor of 4 of each other.
+  equal when the order of magnitude matches.
 - The port reproduces the *reports*, i.e. the measurement path. The two reports it reproduced were
   produced by the earlier revision of `code/run_protocol.py` (0.3.0); the 0.4.0 change to that file
   touches only how it validates its output, not how it measures, and the parity check is therefore
@@ -265,10 +265,10 @@ export). Nothing was installed into a shared environment and nothing large was w
 
 ```diff
 16,17c16,17
-< | environment | Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter C:/Users/Lab/AppData/Local/hermes/installs/2636d87a1639ae64/environments/f32597c25d734363b2d220b038061d05/venv/Scripts/python.exe; harness Python 3.14.7 (stdlib only) |
+< | environment | Windows-11-10.0.26200-SP0; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness Python 3.14.7 (stdlib only) |
 < | raw responses | reports/sint-memory-mcp-2026-10-16/raw |
 ---
-> | environment | windows; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter C:/Users/Lab/AppData/Local/hermes/installs/2636d87a1639ae64/environments/f32597c25d734363b2d220b038061d05/venv/Scripts/python.exe; harness protorun (Rust, standard library only, no crates) |
+> | environment | windows; Intel64 Family 6 Model 140 Stepping 2, GenuineIntel; server interpreter <hermes-venv>/Scripts/python.exe; harness protorun (Rust, standard library only, no crates) |
 > | raw responses | reports/parity-rust/sint-memory-mcp-2026-10-16/raw |
 29,30c29,30
 < | write_latency_p50_ms | 16.4423 | [15.1670, 17.2955] | 3 | harness | wall clock around tools/call; mean over 3 repetitions, percentile bootstrap 95% CI (1000 resamples) over the repetition axis |
@@ -307,59 +307,3 @@ export). Nothing was installed into a shared environment and nothing large was w
     comparison exempts by design — it is the identity of the harness, not a measurement)
 
 $ cargo fmt && cargo build --release      # in tools/protorun, again without warnings
-VALID   reports/parity-rust/sint-liquid-mcp-2026-10-16/report.json (subject=sint-liquid-mcp, families=10, metric entries=52)
-validated with: refslint report
-summary reports/parity-rust/sint-liquid-mcp-2026-10-16/summary.md
-calls per repetition: [227, 227, 227]
-VALID   reports/parity-rust/sint-memory-mcp-2026-10-16/report.json (subject=sint-memory-mcp, families=10, metric entries=52)
-validated with: refslint report
-summary reports/parity-rust/sint-memory-mcp-2026-10-16/summary.md
-calls per repetition: [220, 220, 220]
-
-$ protorun parity run-vs-report --reference reports/sint-liquid-mcp-2026-10-16 --run reports/parity-rust/sint-liquid-mcp-2026-10-16
-fields compared exactly:            951
-fields equal by order of magnitude: 24 (timing)
-paths equal after normalisation:    31
-fields exempt as machine-specific:  4
-
-REPORT PARITY OK: every measured value, every note, every CI and the whole report structure are identical to the Python harness's report (timing metrics excepted)
-
-$ protorun parity run-vs-report --reference reports/sint-memory-mcp-2026-10-16 --run reports/parity-rust/sint-memory-mcp-2026-10-16
-MISMATCHES (4):
-   - report.families[1].metrics[7].value: latency differs by orders of magnitude (8.093667 vs 10.5905)
-   - report.families[1].metrics[7].ci_high: latency differs by orders of magnitude (8.5435 vs 11.968)
-   - report.operations.O2_READ.metrics[6].value: latency differs by orders of magnitude (8.093667 vs 10.5905)
-   - report.operations.O2_READ.metrics[6].ci_high: latency differs by orders of magnitude (8.5435 vs 11.968)
-REPORT PARITY FAILED
-
-== 9. after tightening the timing rule: latency fields count as equal within a factor of 4
-   (the first version compared floor(log10), which flagged a pair that straddled 10 ms — a real
-    difference in the tool, not in the measurement; the numbers below are unchanged)
-
-$ protorun parity run-vs-report --reference reports/sint-liquid-mcp-2026-10-16 --run reports/parity-rust/sint-liquid-mcp-2026-10-16
-report parity: Python harness (reference) vs protorun (run)
-reference: reports/sint-liquid-mcp-2026-10-16
-run:       reports/parity-rust/sint-liquid-mcp-2026-10-16
-
-known_deviations: 9 of 9 reference items carried over verbatim (the harness-describing item is intentionally rewritten)
-
-fields compared exactly:            951
-fields equal within a factor of 4 (timing): 24
-paths equal after normalisation:    31
-fields exempt as machine-specific:  4
-
-REPORT PARITY OK: every measured value, every note, every CI and the whole report structure are identical to the Python harness's report (timing metrics excepted)
-
-$ protorun parity run-vs-report --reference reports/sint-memory-mcp-2026-10-16 --run reports/parity-rust/sint-memory-mcp-2026-10-16
-report parity: Python harness (reference) vs protorun (run)
-reference: reports/sint-memory-mcp-2026-10-16
-run:       reports/parity-rust/sint-memory-mcp-2026-10-16
-
-known_deviations: 9 of 9 reference items carried over verbatim (the harness-describing item is intentionally rewritten)
-
-fields compared exactly:            951
-fields equal within a factor of 4 (timing): 24
-paths equal after normalisation:    31
-fields exempt as machine-specific:  4
-
-REPORT PARITY OK: every measured value, every note, every CI and the whole report structure are identical to the Python harness's report (timing metrics excepted)

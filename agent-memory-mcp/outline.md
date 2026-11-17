@@ -121,9 +121,8 @@ that no single architecture dominates.
 Mapped from `claims.md` section "Что не подтверждено": the measurement is a pair of profiles of two
 servers from one reference set (not a ranking, and no third-party system was run), the confidence
 intervals rest on the protocol minimum of three repetitions, one machine produced the latencies, no
-model is in the loop (token/USD metrics are `null` by construction), the harness is Rust (`tools/protorun`, standard library only, no crates), and all reports' raw
-logs are committed beside the numbers (a purely offline recompute of the metric layer still needs
-a live server — see `claims.md` "Что не подтверждено"), taxonomy completeness is unproven,
+model is in the loop (token/USD metrics are `null` by construction), the harness is still Python and
+there is no offline recompute of a report from its raw logs, taxonomy completeness is unproven,
 human-scored metrics are not yet double-graded, coverage is limited to MCP-exposed stores, domain
 transfer is untested (`\cite{trashchenkov2026power}`), and safety metrics are scoped to write-path
 poisoning and membership inference (`\cite{sunil2026mempoison}`, `\cite{chen2026mrmmia}`).

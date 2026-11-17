@@ -43,7 +43,7 @@ citation exists that a command in this repository cannot reproduce.**
 | `verify_all.sh` | Runs every integrity check in one command and exits non-zero if any fails | `bash verify_all.sh` |
 | `tools/protorun/` | **Rust source of the protocol harness** — one binary with subcommands (`streams`, `servers`, `run`, `parity`), standard library only, no crates | `cd tools/protorun && cargo build --release` |
 | `tools/protorun.sh` | Finds the harness binary or builds it with cargo; sourced by `verify_all.sh` | `. tools/protorun.sh && protorun_binary` |
-| `code/run_protocol.py`, `code/streams.py`, `code/servers.json` | **The pre-port Python harness** (0.2.0–1.0) and the candidate-server registry. The tool of record is now `tools/protorun`; the two Python files are frozen byte-identical in `evidence/pre-port-runner/`, and every command in this README, in the committed reports and in the paper that names `run_protocol.py` / `streams.py` actually runs that frozen copy (they are not wired into `build.sh` or `verify_all.sh` — see the note under the table) | `python evidence/pre-port-runner/run_protocol.py --list-servers` |
+| `code/run_protocol.py`, `code/streams.py`, `code/servers.json` | **The pre-port Python harness** (0.2.0–1.0) and the candidate-server registry. The tool of record is now `tools/protorun`; a byte-identical copy of the two Python files is kept in `evidence/pre-port-runner/` | `python code/run_protocol.py --list-servers` |
 | `evidence/pre-port-runner/` | The Python harness frozen before the port, with `SHA256SUMS.txt` — the reference the port is checked against | see the file's `README.md` |
 | `evidence/protorun-port-2026-10-16.txt` | Full record of the harness port: clean build, stream parity, the two runs, the field-by-field report comparison | see the file |
 | `reports/parity-rust/<run>/` | The ported harness's runs of the same two subjects on the same seeds and commits; each `report.json` is what the parity check compares against the Python-produced one | `protorun parity run-vs-report --reference reports/<run> --run reports/parity-rust/<run>` |
@@ -195,7 +195,7 @@ checked rather than asserted — the harness ships the check itself:
 "$RL" parity run-vs-report --reference reports/sint-liquid-mcp-2026-10-16 \
                            --run reports/parity-rust/sint-liquid-mcp-2026-10-16
       # every field of the two reports: 951 fields compared exactly and identical,
-      # 24 timing fields equal within a factor of 4, 31 paths equal after normalising the run directory
+      # 24 timing fields equal by order of magnitude, 31 paths equal after normalising the run directory
 ```
 
 `reports/parity-rust/<run>/` holds the ported harness's own runs of the same two subjects, on the
@@ -212,20 +212,16 @@ The combination re-checked on this machine in 0.4.0 (the SDK there is 1.28.1; th
 1.9.4 from another site directory, which no longer exists):
 
 ```bash
-python evidence/pre-port-runner/run_protocol.py --server sint-memory-mcp \
-    --server-python "C:/Users/Lab/AppData/Local/hermes/installs/2636d87a1639ae64/environments/f32597c25d734363b2d220b038061d05/venv/Scripts/python.exe" \
-    --server-pythonpath "C:/Users/Lab/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages" \
+python code/run_protocol.py --server sint-memory-mcp \
+    --server-python "<hermes-venv>/Scripts/python.exe" \
+    --server-pythonpath "{{HOME}}/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages" \
     --seeds 1
 ```
 
-The command above is the historical v1.0 command recorded in the committed `summary.md`
-(`reports/sint-memory-mcp-2026-10-16/summary.md`, `Reproduce` block): its two Python files
-(`run_protocol.py`, `streams.py`) are byte-identical to the frozen copy in
-`evidence/pre-port-runner/` — this README, the committed reports and the LaTeX tables cite
-`evidence/pre-port-runner/`, never the working tree. They are not wired into `build.sh` or
-`verify_all.sh`. Run it against that copy and it reproduces the committed v1.0 report
-(`reports/sint-memory-mcp-2026-10-16/`) byte for byte in `report.json` and `summary.md`, which
-is the baseline the port is checked against.
+The port's parity runs (2026-10-16) deliberately used the SDK the committed reports were produced
+with, 1.9.4, so that the two reports are comparable down to `serverInfo.version` in the raw logs.
+That site directory had been deleted with the run that created it, so it was re-created outside any
+shared environment and inside the ignored build directory:
 
 ```bash
 python -m pip install --target tools/protorun/target/mcp-1.9.4-site "mcp==1.9.4" "pydantic==2.13.4"
@@ -234,9 +230,9 @@ python -m pip install --target tools/protorun/target/mcp-1.9.4-site "mcp==1.9.4"
 
 . tools/protorun.sh && RL="$(protorun_binary)"
 "$RL" run --server sint-liquid-mcp \
-    --server-root "C:/Users/Lab/AppData/Local/hermes/profiles/libraressa/workspace/refs" \
-    --server-python "C:/Users/Lab/AppData/Local/hermes/installs/2636d87a1639ae64/environments/f32597c25d734363b2d220b038061d05/venv/Scripts/python.exe" \
-    --server-pythonpath "C:/Users/Lab/AppData/Local/hermes/profiles/libraressa/workspace/papers/agent-memory-mcp/tools/protorun/target/mcp-1.9.4-site" \
+    --server-root "{{HOME}}/AppData/Local/hermes/profiles/libraressa/workspace/refs" \
+    --server-python "<hermes-venv>/Scripts/python.exe" \
+    --server-pythonpath "{{HOME}}/AppData/Local/hermes/profiles/libraressa/workspace/papers/agent-memory-mcp/tools/protorun/target/mcp-1.9.4-site" \
     --seeds 1,2,3 --out reports/parity-rust --run-name sint-liquid-mcp-2026-10-16
       # the same for sint-memory-mcp -> reports/parity-rust/sint-memory-mcp-2026-10-16/
 ```
@@ -328,9 +324,7 @@ the deposit.
    Python files are frozen in `evidence/pre-port-runner/`. Still open inside the harness: subjects
    blocked by the `fastmcp` dependency (`sint-epistemic-mcp`, `sint-dream-mcp`),
    `sint-prospective-mcp` as the real O5_INTEND subject, and the deletion of the now-unreferenced
-   `code/run_protocol.py` / `code/streams.py` (§2c) — **deleted in this version**: the
-   unreferenced Python files are gone; only the frozen copy in `evidence/pre-port-runner/`
-   remains, and nothing in `build.sh` or `verify_all.sh` references `code/`.
+   `code/run_protocol.py` / `code/streams.py` (§2c says why they are still here).
 2. **Validation unification** (owner: `fabricessa`) — **done in this version**: the harness validates
    its reports with `refslint report`, the same validator `verify_all.sh` and the negative tests use;
    `code/validate_report.py` is deleted and the package no longer ships a Python validator, and with

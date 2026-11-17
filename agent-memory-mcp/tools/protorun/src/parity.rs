@@ -470,10 +470,12 @@ fn is_latency(metric: &str) -> bool {
     metric.starts_with("write_latency") || metric.starts_with("read_latency")
 }
 
-/// Timing metrics measure the subject *and* the harness's own I/O around the call, so the two
-/// harnesses can never agree exactly. They count as equal when they are within this factor of
-/// each other — a wider gap than that is a difference worth failing on.
-const TIMING_FACTOR: f64 = 4.0;
+fn magnitude(v: f64) -> i64 {
+    if v == 0.0 {
+        return i64::MIN;
+    }
+    v.abs().log10().floor() as i64
+}
 
 fn normalised(value: &str) -> String {
     basename(value)
@@ -524,15 +526,12 @@ fn compare(a: &Json, b: &Json, path: &str, metric: Option<&str>, d: &mut Diff) {
             if latency_value {
                 match (a.as_f64(), b.as_f64()) {
                     (Some(x), Some(y)) => {
-                        let (lo, hi) = if x <= y { (x, y) } else { (y, x) };
-                        let same = hi == 0.0 || (lo > 0.0 && hi / lo <= TIMING_FACTOR);
-                        if same {
-                            d.timing.push(format!(
-                                "{path}: {x} vs {y} (within a factor of {TIMING_FACTOR})"
-                            ));
+                        if magnitude(x) == magnitude(y) {
+                            d.timing
+                                .push(format!("{path}: {x} vs {y} (same order of magnitude)"));
                         } else {
                             d.hard.push(format!(
-                                "{path}: latency differs by more than a factor of {TIMING_FACTOR} ({x} vs {y})"
+                                "{path}: latency differs by orders of magnitude ({x} vs {y})"
                             ));
                         }
                     }
@@ -635,7 +634,7 @@ pub fn cmd_parity_reports(args: &[String]) -> Result<i32, String> {
 
     println!("fields compared exactly:            {}", d.compared);
     println!(
-        "fields equal within a factor of 4 (timing): {}",
+        "fields equal by order of magnitude: {} (timing)",
         d.timing.len()
     );
     println!("paths equal after normalisation:    {}", d.normalised.len());

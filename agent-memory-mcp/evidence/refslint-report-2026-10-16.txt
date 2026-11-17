@@ -15,8 +15,8 @@ validator: tools/refslint/target/release/refslint.exe, 953344 bytes, built 14:24
 The subject runs are launched like this on this host (both subjects need `mcp.server.fastmcp`):
 
     python code/run_protocol.py --server <name> \
-        --server-python "C:/Users/Lab/AppData/Local/hermes/installs/2636d87a1639ae64/environments/f32597c25d734363b2d220b038061d05/venv/Scripts/python.exe" \
-        --server-pythonpath "C:/Users/Lab/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages" \
+        --server-python "<hermes-venv>/Scripts/python.exe" \
+        --server-pythonpath "{{HOME}}/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages" \
         --seeds 1 --out <scratch dir>
 
 `--out` points at the executor's scratch directory so that the runs below add no files to the
@@ -113,7 +113,7 @@ on the harness side. This is the failure mode the suspicion threshold exists for
     ### C: stub server dies on every tools/call (exit 2 expected, suspect)
     run: sint-liquid-mcp-2026-10-16
     server: sint-liquid-mcp @ bfffce2cdec35c11aa0d90ae02689d69df596b11
-    server root: C:/Users/Lab/AppData/Local/hermes/profiles/fabricessa/cache/scratch/stubroot
+    server root: {{HOME}}/AppData/Local/hermes/profiles/fabricessa/cache/scratch/stubroot
     seeds: [1]
       sint-liquid-mcp seed=1 T1 done (30 calls so far, 0.0s)
       ...

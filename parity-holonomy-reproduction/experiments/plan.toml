@@ -12,7 +12,7 @@
 [meta]
 subject = "kostyk348/paradox-logic"
 subject_sha = "02c66ff3bdad5dc945817b1841eddf56a48fb276"
-python = "C:/Users/Lab/AppData/Local/Python/bin/python.exe"
+python = "python from PATH (measured with CPython 3.14.6)"
 python_version = "3.14.6"
 numpy = "2.5.1"
 host_os = "Windows 11 (x86_64), CPython 3.14.6, single process"
@@ -24,7 +24,7 @@ id = "e01_contextuality"
 group = "claim1"
 x = "1"
 cwd = "subjects/paradox-logic"
-cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/01_contextuality.py"]
+cmd = ["python", "experiments/01_contextuality.py"]
 seeds = [0]
 mode = "capture"
 compare_to = "subjects/paradox-logic/results/01_contextuality.txt"
@@ -36,7 +36,7 @@ id = "e01_contextuality_repeat"
 group = "claim1"
 x = "1"
 cwd = "subjects/paradox-logic"
-cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/01_contextuality.py"]
+cmd = ["python", "experiments/01_contextuality.py"]
 seeds = [1, 2]
 mode = "capture"
 compare_to = "subjects/paradox-logic/results/01_contextuality.txt"
@@ -48,7 +48,7 @@ id = "e03_topological_memory"
 group = "claim3"
 x = "3"
 cwd = "subjects/paradox-logic"
-cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/03_topological_memory.py"]
+cmd = ["python", "experiments/03_topological_memory.py"]
 seeds = [0, 1, 2, 3, 4]
 mode = "capture"
 extract = ["noise05_parity_value|0.05|1", "noise05_parity_struct|0.05|2", "noise05_hopfield|0.05|3", "noise10_parity_value|0.10|1", "noise10_parity_struct|0.10|2", "noise10_hopfield|0.10|3", "noise20_parity_struct|0.20|2", "noise20_hopfield|0.20|3", "noise30_parity_struct|0.30|2", "noise30_hopfield|0.30|3", "noise40_parity_struct|0.40|2", "noise40_hopfield|0.40|3"]
@@ -60,7 +60,7 @@ id = "e05_diagonal_lemma"
 group = "claim5"
 x = "5"
 cwd = "subjects/paradox-logic"
-cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/05_diagonal_lemma.py"]
+cmd = ["python", "experiments/05_diagonal_lemma.py"]
 seeds = [0]
 mode = "capture"
 compare_to = "subjects/paradox-logic/results/05_diagonal_lemma.txt"
@@ -73,7 +73,7 @@ id = "e06_frustration"
 group = "support"
 x = "6"
 cwd = "subjects/paradox-logic"
-cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/06_frustration.py"]
+cmd = ["python", "experiments/06_frustration.py"]
 seeds = [0]
 mode = "capture"
 compare_to = "subjects/paradox-logic/results/06_frustration.txt"
@@ -84,7 +84,7 @@ id = "e11_repair_hardness"
 group = "support"
 x = "11"
 cwd = "subjects/paradox-logic"
-cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/11_repair_hardness.py"]
+cmd = ["python", "experiments/11_repair_hardness.py"]
 seeds = [0]
 mode = "capture"
 timeout_s = 1200
@@ -97,7 +97,7 @@ id = "e12_holonomy_code"
 group = "support"
 x = "12"
 cwd = "subjects/paradox-logic"
-cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/12_holonomy_code.py"]
+cmd = ["python", "experiments/12_holonomy_code.py"]
 seeds = [0]
 mode = "capture"
 compare_to = "subjects/paradox-logic/results/12_holonomy_code.txt"
@@ -105,6 +105,42 @@ extract = ["code_rank_v7|0.2|1", "code_detect_v7_p02|0.2|2", "code_localise_v7_p
 note = "detection, localisation and the undetectable-error column: the code's distance"
 
 # --- Derived quantities
+
+# --- Claim 4: novelty as a change of topological class.
+# Runtime note: this experiment needs several minutes (a structure-noise scan with thousands of
+# steps per seed), which is why the first pass of the plan left it out. It is cheap enough to
+# include, and leaving it out would have been an avoidable gap rather than an honest limit.
+[[run]]
+id = "e04_novelty"
+group = "claim4"
+x = "4"
+cwd = "subjects/paradox-logic"
+cmd = ["python", "experiments/04_novelty.py"]
+seeds = [0]
+seed_flag = ""
+mode = "capture"
+timeout_s = 1500
+compare_to = "subjects/paradox-logic/results/04_novelty.txt"
+extract = ["novelty_value_noise|value noise:|1", "novelty_mu002|structure mu=0.002|1", "novelty_mu01|structure mu=0.01|1", "novelty_mu05|structure mu=0.05|1"]
+note = "class changes under value noise versus structure noise: the repository's 'core yes, criticality signal no' verdict"
+
+# --- Claim 2: defect thermodynamics.  Long: a structure-noise scan at n=16, 4000 steps, 30 seeds.
+# It is in the plan with a generous timeout; whether it finishes is recorded in the measurements
+# rather than assumed either way.
+[[run]]
+id = "e02_defect_thermodynamics"
+group = "claim2"
+x = "2"
+cwd = "subjects/paradox-logic"
+cmd = ["python", "experiments/02_defect_thermodynamics.py"]
+seeds = [0]
+seed_flag = ""
+mode = "capture"
+timeout_s = 2700
+compare_to = "subjects/paradox-logic/results/02_defect_thermodynamics.txt"
+extract = ["defect_rho_mu0|0.0 |1", "defect_hurst_mu0|0.0 |4", "defect_events_mu0|0.0 |3", "defect_rho_mu002|0.002|1", "defect_events_mu002|0.002|3", "defect_rho_mu01|0.01|1", "defect_events_mu01|0.01|3", "defect_rho_mu05|0.05|1", "defect_events_mu05|0.05|3", "defect_rho_mu02|0.2 |1", "defect_events_mu02|0.2 |3"]
+note = "birth/death scan of defects: the repository's own negative result on criticality"
+
 [[derive]]
 id = "selfgauge_fraction"
 group = "derived"
@@ -125,3 +161,10 @@ group = "derived"
 expr = "sqrt(e03_topological_memory.noise10_parity_struct * (1 - e03_topological_memory.noise10_parity_struct) / 4000)"
 unit = "fraction"
 note = "binomial standard error of the printed structural-noise rate: 4000 trials per row, one fixed RNG stream, so this is the Monte Carlo resolution the printed digits do not show"
+
+[[derive]]
+id = "novelty_structure_over_value"
+group = "derived"
+expr = "e04_novelty.novelty_mu002 / (e04_novelty.novelty_value_noise + 1)"
+unit = "class changes"
+note = "class changes under the smallest structural noise, with value noise as the zero baseline; the +1 keeps the ratio defined when value noise is exactly zero, and the note says so"

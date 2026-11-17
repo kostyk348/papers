@@ -1,16 +1,34 @@
-# Vendored subjects (each package pins its own commit in experiments/subjects.lock and
-# clones it with scripts/fetch_subjects.sh).
-subjects/
-*/subjects/
-# Toolchain binaries
-tooling/tectonic/
-tooling/*.zip
-tooling/papertool/target/
-# LaTeX intermediates (the PDF is committed: it is the deliverable)
+# build artefacts of the Rust tooling
+target/
+**/target/
+
+# Python bytecode (legacy tooling copies kept as port evidence)
+__pycache__/
+*.pyc
+
+# LaTeX intermediates (main.pdf is committed on purpose)
 *.aux
 *.log
 *.blg
 *.bbl
 *.out
-*.toc
+*.fls
+*.fdb_latexmk
 *.synctex.gz
+
+# bundled TeX engine: not part of the paper, fetched on demand
+tools/tectonic
+tools/tectonic-*.zip
+
+# editor / OS noise
+.DS_Store
+Thumbs.db
+
+# Vendored subjects of the audit packages: each package pins its own commit in
+# experiments/subjects.lock and clones it with scripts/fetch_subjects.sh.
+subjects/
+*/subjects/
+
+# Downloaded toolchain binaries
+tooling/tectonic/
+tooling/*.zip

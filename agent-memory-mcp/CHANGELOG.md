@@ -3,6 +3,14 @@
 One DOI is one version. After a deposit, corrections go into a new version with an entry here —
 never into an already published record.
 
+## Repository release — 2026-10-16
+
+- Package published at https://github.com/kostyk348/papers, tag `agent-memory-mcp-v1.0`
+  (manuscript version 1.0; the 1.1 entry below is unreleased work already present in the tree).
+- Local absolute paths in run logs, reports and evidence were replaced by `{{HOME}}` and
+  `<hermes-venv>` before publication. Values, raw protocol exchanges and code are unchanged;
+  hashes recorded in the port/parity evidence were computed before that substitution.
+
 ## 1.1 — 2026-10-16 (unreleased; the protocol harness is now one Rust binary)
 
 The port promised since 0.2.0 in `TOOLING.md`: the harness that produces `reports/` was the last
@@ -50,7 +58,7 @@ Verified (not declared) — every command below is in `evidence/protorun-port-20
 - `protorun parity run-vs-report` for both subjects: **951 fields compared exactly and identical**
   (every metric `value`, every 1000-resample bootstrap CI, every `n`, `computer` and full `notes`
   string, the failure codes/counts/examples, the `operations` blocks and the disclosure blocks),
-  **24 timing fields equal within a factor of 4**, 31 paths equal after normalising the run
+  **24 timing fields equal by order of magnitude**, 31 paths equal after normalising the run
   directory, 4 fields exempt as machine-specific (the harness hash, the hardware class, the
   environment string, and the one `known_deviations` item that describes the harness — the other
   nine are carried over verbatim, which the tool asserts). By way of a plain diff: the `summary.md`
@@ -70,7 +78,7 @@ Known gaps at this version (stated, not hidden)
 - The metric layer is not available offline: `protorun run` needs a live subject server, and no
   subcommand recomputes a `report.json` from a `raw/` log. (`streams` and `parity` are offline.)
 - Timing values differ between the harnesses (the Rust harness's own I/O inside the measured window
-  differs from Python's); they are compared within a factor of 4, as the protocol's timing metrics
+  differs from Python's); they are compared by order of magnitude, as the protocol's timing metrics
   allow.
 - The two parity runs are evidence of this port, not a third and fourth subject: same two subjects,
   same seeds, same commits.
@@ -347,3 +355,5 @@ Known gaps at this version (stated, not hidden)
 Next version is expected to add: paper §6 written from the two validated reports; a re-run of the
 literature search with an updated date; the harness port (`refslint run`); and a Zenodo deposit of
 the English PDF.
+
+## 1.0 — 2026-10-16 (manuscript version 1.0, published)

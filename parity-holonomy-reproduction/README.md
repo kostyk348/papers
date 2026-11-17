@@ -12,12 +12,12 @@ PDF: `tex/main.pdf` (8 pages). Every number in it is generated from `data/measur
 | # | Claim of the audited repository | What this audit found |
 |---|---|---|
 | 1 | Paradox is Mermin/GHZ contextuality | **confirmed**: the invariant is non-trivial exactly when no global assignment exists; the Mermin triangle gives the expected obstruction |
-| 2 | Defect thermodynamics (criticality from paradox birth/death) | **not re-run** (runtime budget); verdict taken from the committed report and labelled as such |
+| 2 | Defect thermodynamics (criticality from paradox birth/death) | **in the plan with a 45-minute budget; not reported as a result.** Its verdict stays the repository's own |
 | 3 | Topological (parity) memory | **reproduced and sharpened**: parity survives value noise completely (0.000), degrades under structural noise (0.138 → 0.497), the Hopfield baseline saturates (0.377 → 1.000); as a code its minimum distance is **one** — 40 single edge errors on bridges are invisible to it |
-| 4 | Novelty as a change of topological class | **not re-run** (runtime budget); the repository itself marks it partial |
+| 4 | Novelty as a change of topological class | **reproduced, and the author's half-verdict is the right one**: 0 class changes under value noise, then 14 / 66 / 314 as structural damage rises (0.002 / 0.01 / 0.05) — a detector, roughly linear, no criticality signal |
 | 5 | Cohomological diagonal lemma (self-reference ⇒ paradox) | **refuted, reproduced**: 60 of 120 self-gauge systems admit a consistent fixed point |
 
-Reproduction result: six experiments re-run from commit `02c66ff`; **all six outputs are
+Reproduction result: **seven** experiments re-run from commit `02c66ff`; **all seven outputs are
 byte-identical** to the `results/` files committed with the repository, including the one that
 draws 4000 random trials (it is deterministically seeded, which the paper discusses: reproducible,
 but its Monte Carlo error is fixed and unquantified — §4 attaches a binomial standard error to one
@@ -37,7 +37,7 @@ bash verify_all.sh                 # all checks + PDF
 
 | Path | What it is |
 |---|---|
-| `experiments/plan.toml` | The predeclared plan: six experiments, repeats, extractions, derived quantities |
+| `experiments/plan.toml` | The predeclared plan: eight experiments, repeats, extractions, derived quantities |
 | `experiments/subjects.lock` | The audited repository and the exact commit |
 | `data/measurements.json` | Every extracted value, the byte-identity verdict per run, and the derived quantities |
 | `data/numbers.tsv` | One row per number in the paper, with the JSON path it came from |
@@ -49,8 +49,10 @@ bash verify_all.sh                 # all checks + PDF
 
 ## Limits, stated where they belong
 
-Two of the five claims were not re-run (runtime); their verdicts are the repository's own and are
-marked as such in the paper. No new theory: the distance-one statement is a standard fact about
+One of the five claims (defect thermodynamics) is a long scan and is not reported as a result; its
+verdict is the repository's own and the paper says so. The novelty scan was first left out for the
+same runtime reason and then included once it turned out to run in minutes: the CHANGELOG records
+that correction. No new theory: the distance-one statement is a standard fact about
 cycle-space codes, measured here on the audited artifact. One machine (Windows 11, CPython 3.14.6,
 NumPy 2.5.1). The seeding issue cuts both ways and the paper says so in §6.
 

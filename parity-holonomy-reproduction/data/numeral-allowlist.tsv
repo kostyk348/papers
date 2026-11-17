@@ -18,3 +18,5 @@
 5.2	TikZ figure height in centimetres; layout constant
 3.14.6	CPython version of the measurement environment; an identifier
 2.5.1	NumPy version of the measurement environment; an identifier
+0.002	First structural-noise rate of the novelty scan in the audited script; a constant of the audited experiment, not a measurement here
+0.01	Second structural-noise rate of the novelty scan; a constant of the audited experiment

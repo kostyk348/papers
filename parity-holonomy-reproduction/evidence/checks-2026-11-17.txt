@@ -1,4 +1,4 @@
-verify_all.sh -- 2026-11-17T07:10:16Z
+verify_all.sh -- 2026-11-17T07:28:04Z
 papertool: /c/Users/Lab/AppData/Local/hermes/profiles/libraressa/workspace/papers/parity-holonomy-reproduction/../tooling/papertool/target/release/papertool.exe
 papertool -- pipeline utility for the paper packages in papers/.
 
@@ -35,10 +35,10 @@ Network verification (HTTPS via curl)
 all 2 JSON files parse
     ok
 === measurements match the plan (every run present, right n)
-measurements match the plan (7 runs)
+measurements match the plan (9 runs)
     ok
 === ledger and figure data are what the measurements produce
-generated files match measurements.json (5 figure files)
+generated files match measurements.json (7 figure files)
     ok
 === bibliography rebuilds from the curated, verified sources
 resolved 18 curated sources (0 unresolved)
@@ -80,10 +80,10 @@ citation keys used: 18 unique
 curated keys never cited: 0
     ok
 === every number macro resolves and no bare numeral is unlisted
-numbers: 53 lookups resolve, no unlisted bare numerals in 2 tex file(s)
+numbers: 57 lookups resolve, no unlisted bare numerals in 2 tex file(s)
     ok
 === PDF build
-    ok (78218 bytes)
-    sha256 7811ebd6ab41fdec3f8459e80076b73b1ad65d56b50b227498d10ddf853fb9d8
+    ok (79357 bytes)
+    sha256 7604da2024b455afafb809c7cad14e73e2a7855a868bee12b3ecc8944859de55
 
 ALL CHECKS PASSED

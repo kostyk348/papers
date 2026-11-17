@@ -57,6 +57,29 @@ e12_holonomy_code	support	code_localise_v7_p02	num		1	mean	64	0	64	64	measuremen
 e12_holonomy_code	support	code_rank_v7	num		1	mean	4.3	0	4.3	4.3	measurements.json:runs[id=e12_holonomy_code].metrics[name=code_rank_v7]
 e12_holonomy_code	support	code_undetectable_v7_p02	num		1	mean	40	0	40	40	measurements.json:runs[id=e12_holonomy_code].metrics[name=code_undetectable_v7_p02]
 e12_holonomy_code	support	stdout_sha256	text		1	unique_values	1				measurements.json:runs[id=e12_holonomy_code].metrics[name=stdout_sha256]
+e04_novelty	claim4	x	param		1	plan	4				experiments/plan.toml:[[run]] id=e04_novelty x
+e04_novelty	claim4	peak_ws_mb	num	MB	1	mean	31.5				measurements.json:runs[id=e04_novelty].peak_ws_bytes.mean
+e04_novelty	claim4	peak_ws_sd_mb	num	MB	1	sd	0				measurements.json:runs[id=e04_novelty].peak_ws_bytes.sd
+e04_novelty	claim4	elapsed_s	num	s	1	mean	11.93				measurements.json:runs[id=e04_novelty].elapsed_s.mean
+e04_novelty	claim4	novelty_mu002	num		1	mean	14	0	14	14	measurements.json:runs[id=e04_novelty].metrics[name=novelty_mu002]
+e04_novelty	claim4	novelty_mu01	num		1	mean	66	0	66	66	measurements.json:runs[id=e04_novelty].metrics[name=novelty_mu01]
+e04_novelty	claim4	novelty_mu05	num		1	mean	314	0	314	314	measurements.json:runs[id=e04_novelty].metrics[name=novelty_mu05]
+e04_novelty	claim4	novelty_value_noise	num		1	mean	0	0	0	0	measurements.json:runs[id=e04_novelty].metrics[name=novelty_value_noise]
+e04_novelty	claim4	stdout_sha256	text		1	unique_values	1				measurements.json:runs[id=e04_novelty].metrics[name=stdout_sha256]
+e02_defect_thermodynamics	claim2	x	param		1	plan	2				experiments/plan.toml:[[run]] id=e02_defect_thermodynamics x
+e02_defect_thermodynamics	claim2	peak_ws_mb	num	MB	1	mean	32.71				measurements.json:runs[id=e02_defect_thermodynamics].peak_ws_bytes.mean
+e02_defect_thermodynamics	claim2	peak_ws_sd_mb	num	MB	1	sd	0				measurements.json:runs[id=e02_defect_thermodynamics].peak_ws_bytes.sd
+e02_defect_thermodynamics	claim2	elapsed_s	num	s	1	mean	250.9				measurements.json:runs[id=e02_defect_thermodynamics].elapsed_s.mean
+e02_defect_thermodynamics	claim2	defect_events_mu0	num		1	mean	0	0	0	0	measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=defect_events_mu0]
+e02_defect_thermodynamics	claim2	defect_events_mu002	num		1	mean	0.69	0	0.69	0.69	measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=defect_events_mu002]
+e02_defect_thermodynamics	claim2	defect_events_mu01	num		1	mean	0.71	0	0.71	0.71	measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=defect_events_mu01]
+e02_defect_thermodynamics	claim2	defect_events_mu02	num		1	mean	0.72	0	0.72	0.72	measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=defect_events_mu02]
+e02_defect_thermodynamics	claim2	defect_events_mu05	num		1	mean	0.73	0	0.73	0.73	measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=defect_events_mu05]
+e02_defect_thermodynamics	claim2	defect_hurst_mu0	num		1	mean	0.092	0	0.092	0.092	measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=defect_hurst_mu0]
+e02_defect_thermodynamics	claim2	defect_rho_mu0	num		1	mean	0.7	0	0.7	0.7	measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=defect_rho_mu0]
+e02_defect_thermodynamics	claim2	defect_rho_mu02	num		1	mean	0.72	0	0.72	0.72	measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=defect_rho_mu02]
+e02_defect_thermodynamics	claim2	stdout_sha256	text		1	unique_values	1				measurements.json:runs[id=e02_defect_thermodynamics].metrics[name=stdout_sha256]
 selfgauge_fraction	derived	value	num	fraction	1	mean	0.5	0	0.5	0.5	measurements.json:runs[id=selfgauge_fraction].metrics[name=value]
 noise10_hopfield_over_parity	derived	value	num	ratio	1	mean	3.646	0	3.646	3.646	measurements.json:runs[id=noise10_hopfield_over_parity].metrics[name=value]
 mcerr_parity_struct	derived	value	num	fraction	1	mean	0.0068	0	0.0068	0.0068	measurements.json:runs[id=mcerr_parity_struct].metrics[name=value]
+novelty_structure_over_value	derived	value	num	class changes	1	mean	14	0	14	14	measurements.json:runs[id=novelty_structure_over_value].metrics[name=value]
