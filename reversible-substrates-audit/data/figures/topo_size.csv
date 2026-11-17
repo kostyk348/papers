@@ -1,0 +1,4 @@
+run,x,accepted_flips_mean,accepted_flips_mean_sd,chi_final_mean,chi_final_mean_sd,chi_initial_mean,chi_initial_mean_sd,rejected_flips_mean,rejected_flips_mean_sd,topology_locked,topology_locked_sd
+topo_size16,16,76.400000,7.381659,0.000000,0.000000,0.000000,0.000000,123.600000,7.381659,1.000000,0
+topo_size32,32,35.100000,5.173651,0.000000,0.000000,0.000000,0.000000,164.900000,5.173651,1.000000,0
+topo_size64,64,7.300000,2.790858,0.000000,0.000000,0.000000,0.000000,192.700000,2.790858,1.000000,0

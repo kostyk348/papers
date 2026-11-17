@@ -1,0 +1,5 @@
+# The audited artifact, pinned. `scripts/fetch_subjects.sh` reads this file; the plan's
+# [meta] records the same SHA in data/measurements.json.
+repo=kostyk348/timelock-ca
+sha=c5c94bb38bae1ac6dec1f8b794112b6331f5625e
+dir=subjects/timelock-ca

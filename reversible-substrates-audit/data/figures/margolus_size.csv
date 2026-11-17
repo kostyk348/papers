@@ -1,0 +1,6 @@
+run,x,bit_exact_reversal,bit_exact_reversal_sd,endpoint_recovered,endpoint_recovered_sd,entropy_conserved,entropy_conserved_sd,hamming_weight_mean,hamming_weight_mean_sd,midpoint_match,midpoint_match_sd
+margolus_size8,8,1.000000,0,1.000000,0,1.000000,0,11.900000,2.131770,1.000000,0
+margolus_size16,16,1.000000,0,1.000000,0,1.000000,0,47.700000,5.558777,1.000000,0
+margolus_size32,32,1.000000,0,1.000000,0,1.000000,0,203.300000,9.888826,1.000000,0
+margolus_size48,48,1.000000,0,1.000000,0,1.000000,0,459.300000,24.014116,1.000000,0
+margolus_size64,64,1.000000,0,1.000000,0,1.000000,0,820.600000,35.954292,1.000000,0

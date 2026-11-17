@@ -1,0 +1,65 @@
+{
+ "Periodic behaviour of generalized threshold functions Goles Olivos": [
+  {
+   "doi": "10.1016/0012-365x(80)90121-1",
+   "title": "Periodic behaviour of generalized threshold functions",
+   "container": "Discrete Mathematics",
+   "year": 1980,
+   "type": "journal-article",
+   "authors": [
+    "E. Goles",
+    "J. Olivos"
+   ]
+  },
+  {
+   "doi": "10.1016/0165-4896(83)90023-9",
+   "title": "Iterative behaviour of generalized majority functions",
+   "container": "Mathematical Social Sciences",
+   "year": 1983,
+   "type": "journal-article",
+   "authors": [
+    "E. Goles",
+    "M. Tchuente"
+   ]
+  },
+  {
+   "doi": "10.1515/9783111689746-007",
+   "title": "4 Generalized almost periodic functions, generalized metrically almost periodic functions and applications",
+   "container": "Almost Periodic Type Solutions",
+   "year": 2025,
+   "type": "book-chapter",
+   "authors": []
+  }
+ ],
+ "Algebraic theory of machines I Krohn Rhodes": [
+  {
+   "doi": "10.1016/b978-1-4832-0013-2.50011-4",
+   "title": "The Theory of Krohn and Rhodes",
+   "container": "Algebraic Theory of Automata",
+   "year": 1968,
+   "type": "book-chapter",
+   "authors": [
+    "Abraham Ginzburg"
+   ]
+  },
+  {
+   "doi": "10.1090/s0002-9947-1965-0188316-1",
+   "title": "Algebraic theory of machines. I. Prime decomposition theorem for finite semigroups and machines",
+   "container": "Transactions of the American Mathematical Society",
+   "year": 1965,
+   "type": "journal-article",
+   "authors": [
+    "Kenneth Krohn",
+    "John Rhodes"
+   ]
+  },
+  {
+   "doi": "10.1137/1.9780898718492.ch3",
+   "title": "3. Krohn—Rhodes Theory and Complete Classes",
+   "container": "Algebraic Theory of Automata Networks",
+   "year": 2005,
+   "type": "book-chapter",
+   "authors": []
+  }
+ ]
+}

@@ -1,0 +1,284 @@
+run_id	group	metric	kind	unit	n	stat	value	sd	min	max	source
+margolus_size8	margolus_size	x	param		1	plan	8				experiments/plan.toml:[[run]] id=margolus_size8 x
+margolus_size8	margolus_size	peak_ws_mb	num	MB	10	mean	33.16				measurements.json:runs[id=margolus_size8].peak_ws_bytes.mean
+margolus_size8	margolus_size	peak_ws_sd_mb	num	MB	10	sd	0.2132				measurements.json:runs[id=margolus_size8].peak_ws_bytes.sd
+margolus_size8	margolus_size	elapsed_s	num	s	10	mean	0.2899				measurements.json:runs[id=margolus_size8].elapsed_s.mean
+margolus_size8	margolus_size	bit_exact_reversal	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size8].metrics[name=bit_exact_reversal]
+margolus_size8	margolus_size	endpoint_recovered	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size8].metrics[name=endpoint_recovered]
+margolus_size8	margolus_size	entropy_conserved	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size8].metrics[name=entropy_conserved]
+margolus_size8	margolus_size	hamming_weight	num		10	mean	11.9	2.132	7	14	measurements.json:runs[id=margolus_size8].metrics[name=hamming_weight]
+margolus_size8	margolus_size	midpoint_match	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size8].metrics[name=midpoint_match]
+margolus_size16	margolus_size	x	param		1	plan	16				experiments/plan.toml:[[run]] id=margolus_size16 x
+margolus_size16	margolus_size	peak_ws_mb	num	MB	10	mean	33.18				measurements.json:runs[id=margolus_size16].peak_ws_bytes.mean
+margolus_size16	margolus_size	peak_ws_sd_mb	num	MB	10	sd	0.1905				measurements.json:runs[id=margolus_size16].peak_ws_bytes.sd
+margolus_size16	margolus_size	elapsed_s	num	s	10	mean	0.3003				measurements.json:runs[id=margolus_size16].elapsed_s.mean
+margolus_size16	margolus_size	bit_exact_reversal	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size16].metrics[name=bit_exact_reversal]
+margolus_size16	margolus_size	endpoint_recovered	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size16].metrics[name=endpoint_recovered]
+margolus_size16	margolus_size	entropy_conserved	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size16].metrics[name=entropy_conserved]
+margolus_size16	margolus_size	hamming_weight	num		10	mean	47.7	5.559	37	55	measurements.json:runs[id=margolus_size16].metrics[name=hamming_weight]
+margolus_size16	margolus_size	midpoint_match	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size16].metrics[name=midpoint_match]
+margolus_size32	margolus_size	x	param		1	plan	32				experiments/plan.toml:[[run]] id=margolus_size32 x
+margolus_size32	margolus_size	peak_ws_mb	num	MB	10	mean	33.06				measurements.json:runs[id=margolus_size32].peak_ws_bytes.mean
+margolus_size32	margolus_size	peak_ws_sd_mb	num	MB	10	sd	0.1444				measurements.json:runs[id=margolus_size32].peak_ws_bytes.sd
+margolus_size32	margolus_size	elapsed_s	num	s	10	mean	0.2552				measurements.json:runs[id=margolus_size32].elapsed_s.mean
+margolus_size32	margolus_size	bit_exact_reversal	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size32].metrics[name=bit_exact_reversal]
+margolus_size32	margolus_size	endpoint_recovered	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size32].metrics[name=endpoint_recovered]
+margolus_size32	margolus_size	entropy_conserved	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size32].metrics[name=entropy_conserved]
+margolus_size32	margolus_size	hamming_weight	num		10	mean	203.3	9.889	190	219	measurements.json:runs[id=margolus_size32].metrics[name=hamming_weight]
+margolus_size32	margolus_size	midpoint_match	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size32].metrics[name=midpoint_match]
+margolus_size48	margolus_size	x	param		1	plan	48				experiments/plan.toml:[[run]] id=margolus_size48 x
+margolus_size48	margolus_size	peak_ws_mb	num	MB	10	mean	33.27				measurements.json:runs[id=margolus_size48].peak_ws_bytes.mean
+margolus_size48	margolus_size	peak_ws_sd_mb	num	MB	10	sd	0.1959				measurements.json:runs[id=margolus_size48].peak_ws_bytes.sd
+margolus_size48	margolus_size	elapsed_s	num	s	10	mean	0.2508				measurements.json:runs[id=margolus_size48].elapsed_s.mean
+margolus_size48	margolus_size	bit_exact_reversal	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size48].metrics[name=bit_exact_reversal]
+margolus_size48	margolus_size	endpoint_recovered	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size48].metrics[name=endpoint_recovered]
+margolus_size48	margolus_size	entropy_conserved	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size48].metrics[name=entropy_conserved]
+margolus_size48	margolus_size	hamming_weight	num		10	mean	459.3	24.01	424	495	measurements.json:runs[id=margolus_size48].metrics[name=hamming_weight]
+margolus_size48	margolus_size	midpoint_match	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size48].metrics[name=midpoint_match]
+margolus_size64	margolus_size	x	param		1	plan	64				experiments/plan.toml:[[run]] id=margolus_size64 x
+margolus_size64	margolus_size	peak_ws_mb	num	MB	10	mean	33.28				measurements.json:runs[id=margolus_size64].peak_ws_bytes.mean
+margolus_size64	margolus_size	peak_ws_sd_mb	num	MB	10	sd	0.1676				measurements.json:runs[id=margolus_size64].peak_ws_bytes.sd
+margolus_size64	margolus_size	elapsed_s	num	s	10	mean	0.2574				measurements.json:runs[id=margolus_size64].elapsed_s.mean
+margolus_size64	margolus_size	bit_exact_reversal	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size64].metrics[name=bit_exact_reversal]
+margolus_size64	margolus_size	endpoint_recovered	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size64].metrics[name=endpoint_recovered]
+margolus_size64	margolus_size	entropy_conserved	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size64].metrics[name=entropy_conserved]
+margolus_size64	margolus_size	hamming_weight	num		10	mean	820.6	35.95	752	863	measurements.json:runs[id=margolus_size64].metrics[name=hamming_weight]
+margolus_size64	margolus_size	midpoint_match	bool		10	true_count	10		0	10	measurements.json:runs[id=margolus_size64].metrics[name=midpoint_match]
+margolus_steps1	margolus_steps	x	param		1	plan	1				experiments/plan.toml:[[run]] id=margolus_steps1 x
+margolus_steps1	margolus_steps	peak_ws_mb	num	MB	5	mean	33.17				measurements.json:runs[id=margolus_steps1].peak_ws_bytes.mean
+margolus_steps1	margolus_steps	peak_ws_sd_mb	num	MB	5	sd	0.1305				measurements.json:runs[id=margolus_steps1].peak_ws_bytes.sd
+margolus_steps1	margolus_steps	elapsed_s	num	s	5	mean	0.2362				measurements.json:runs[id=margolus_steps1].elapsed_s.mean
+margolus_steps1	margolus_steps	bit_exact_reversal	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps1].metrics[name=bit_exact_reversal]
+margolus_steps1	margolus_steps	endpoint_recovered	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps1].metrics[name=endpoint_recovered]
+margolus_steps1	margolus_steps	entropy_conserved	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps1].metrics[name=entropy_conserved]
+margolus_steps1	margolus_steps	hamming_weight	num		5	mean	200.6	7.925	190	212	measurements.json:runs[id=margolus_steps1].metrics[name=hamming_weight]
+margolus_steps1	margolus_steps	midpoint_match	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps1].metrics[name=midpoint_match]
+margolus_steps2	margolus_steps	x	param		1	plan	2				experiments/plan.toml:[[run]] id=margolus_steps2 x
+margolus_steps2	margolus_steps	peak_ws_mb	num	MB	5	mean	33.25				measurements.json:runs[id=margolus_steps2].peak_ws_bytes.mean
+margolus_steps2	margolus_steps	peak_ws_sd_mb	num	MB	5	sd	0.1197				measurements.json:runs[id=margolus_steps2].peak_ws_bytes.sd
+margolus_steps2	margolus_steps	elapsed_s	num	s	5	mean	0.2447				measurements.json:runs[id=margolus_steps2].elapsed_s.mean
+margolus_steps2	margolus_steps	bit_exact_reversal	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps2].metrics[name=bit_exact_reversal]
+margolus_steps2	margolus_steps	endpoint_recovered	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps2].metrics[name=endpoint_recovered]
+margolus_steps2	margolus_steps	entropy_conserved	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps2].metrics[name=entropy_conserved]
+margolus_steps2	margolus_steps	hamming_weight	num		5	mean	200.6	7.925	190	212	measurements.json:runs[id=margolus_steps2].metrics[name=hamming_weight]
+margolus_steps2	margolus_steps	midpoint_match	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps2].metrics[name=midpoint_match]
+margolus_steps3	margolus_steps	x	param		1	plan	3				experiments/plan.toml:[[run]] id=margolus_steps3 x
+margolus_steps3	margolus_steps	peak_ws_mb	num	MB	5	mean	33.34				measurements.json:runs[id=margolus_steps3].peak_ws_bytes.mean
+margolus_steps3	margolus_steps	peak_ws_sd_mb	num	MB	5	sd	0.1334				measurements.json:runs[id=margolus_steps3].peak_ws_bytes.sd
+margolus_steps3	margolus_steps	elapsed_s	num	s	5	mean	0.238				measurements.json:runs[id=margolus_steps3].elapsed_s.mean
+margolus_steps3	margolus_steps	bit_exact_reversal	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps3].metrics[name=bit_exact_reversal]
+margolus_steps3	margolus_steps	endpoint_recovered	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps3].metrics[name=endpoint_recovered]
+margolus_steps3	margolus_steps	entropy_conserved	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps3].metrics[name=entropy_conserved]
+margolus_steps3	margolus_steps	hamming_weight	num		5	mean	200.6	7.925	190	212	measurements.json:runs[id=margolus_steps3].metrics[name=hamming_weight]
+margolus_steps3	margolus_steps	midpoint_match	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps3].metrics[name=midpoint_match]
+margolus_steps7	margolus_steps	x	param		1	plan	7				experiments/plan.toml:[[run]] id=margolus_steps7 x
+margolus_steps7	margolus_steps	peak_ws_mb	num	MB	5	mean	33.24				measurements.json:runs[id=margolus_steps7].peak_ws_bytes.mean
+margolus_steps7	margolus_steps	peak_ws_sd_mb	num	MB	5	sd	0.1594				measurements.json:runs[id=margolus_steps7].peak_ws_bytes.sd
+margolus_steps7	margolus_steps	elapsed_s	num	s	5	mean	0.2692				measurements.json:runs[id=margolus_steps7].elapsed_s.mean
+margolus_steps7	margolus_steps	bit_exact_reversal	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps7].metrics[name=bit_exact_reversal]
+margolus_steps7	margolus_steps	endpoint_recovered	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps7].metrics[name=endpoint_recovered]
+margolus_steps7	margolus_steps	entropy_conserved	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps7].metrics[name=entropy_conserved]
+margolus_steps7	margolus_steps	hamming_weight	num		5	mean	200.6	7.925	190	212	measurements.json:runs[id=margolus_steps7].metrics[name=hamming_weight]
+margolus_steps7	margolus_steps	midpoint_match	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps7].metrics[name=midpoint_match]
+margolus_steps16	margolus_steps	x	param		1	plan	16				experiments/plan.toml:[[run]] id=margolus_steps16 x
+margolus_steps16	margolus_steps	peak_ws_mb	num	MB	5	mean	33.33				measurements.json:runs[id=margolus_steps16].peak_ws_bytes.mean
+margolus_steps16	margolus_steps	peak_ws_sd_mb	num	MB	5	sd	0.1091				measurements.json:runs[id=margolus_steps16].peak_ws_bytes.sd
+margolus_steps16	margolus_steps	elapsed_s	num	s	5	mean	0.2764				measurements.json:runs[id=margolus_steps16].elapsed_s.mean
+margolus_steps16	margolus_steps	bit_exact_reversal	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps16].metrics[name=bit_exact_reversal]
+margolus_steps16	margolus_steps	endpoint_recovered	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps16].metrics[name=endpoint_recovered]
+margolus_steps16	margolus_steps	entropy_conserved	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps16].metrics[name=entropy_conserved]
+margolus_steps16	margolus_steps	hamming_weight	num		5	mean	200.6	7.925	190	212	measurements.json:runs[id=margolus_steps16].metrics[name=hamming_weight]
+margolus_steps16	margolus_steps	midpoint_match	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps16].metrics[name=midpoint_match]
+margolus_steps100	margolus_steps	x	param		1	plan	100				experiments/plan.toml:[[run]] id=margolus_steps100 x
+margolus_steps100	margolus_steps	peak_ws_mb	num	MB	5	mean	33.29				measurements.json:runs[id=margolus_steps100].peak_ws_bytes.mean
+margolus_steps100	margolus_steps	peak_ws_sd_mb	num	MB	5	sd	0.1697				measurements.json:runs[id=margolus_steps100].peak_ws_bytes.sd
+margolus_steps100	margolus_steps	elapsed_s	num	s	5	mean	0.3066				measurements.json:runs[id=margolus_steps100].elapsed_s.mean
+margolus_steps100	margolus_steps	bit_exact_reversal	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps100].metrics[name=bit_exact_reversal]
+margolus_steps100	margolus_steps	endpoint_recovered	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps100].metrics[name=endpoint_recovered]
+margolus_steps100	margolus_steps	entropy_conserved	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps100].metrics[name=entropy_conserved]
+margolus_steps100	margolus_steps	hamming_weight	num		5	mean	200.6	7.925	190	212	measurements.json:runs[id=margolus_steps100].metrics[name=hamming_weight]
+margolus_steps100	margolus_steps	midpoint_match	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps100].metrics[name=midpoint_match]
+margolus_steps500	margolus_steps	x	param		1	plan	500				experiments/plan.toml:[[run]] id=margolus_steps500 x
+margolus_steps500	margolus_steps	peak_ws_mb	num	MB	5	mean	33.55				measurements.json:runs[id=margolus_steps500].peak_ws_bytes.mean
+margolus_steps500	margolus_steps	peak_ws_sd_mb	num	MB	5	sd	0.1238				measurements.json:runs[id=margolus_steps500].peak_ws_bytes.sd
+margolus_steps500	margolus_steps	elapsed_s	num	s	5	mean	0.6433				measurements.json:runs[id=margolus_steps500].elapsed_s.mean
+margolus_steps500	margolus_steps	bit_exact_reversal	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps500].metrics[name=bit_exact_reversal]
+margolus_steps500	margolus_steps	endpoint_recovered	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps500].metrics[name=endpoint_recovered]
+margolus_steps500	margolus_steps	entropy_conserved	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps500].metrics[name=entropy_conserved]
+margolus_steps500	margolus_steps	hamming_weight	num		5	mean	200.6	7.925	190	212	measurements.json:runs[id=margolus_steps500].metrics[name=hamming_weight]
+margolus_steps500	margolus_steps	midpoint_match	bool		5	true_count	5		0	5	measurements.json:runs[id=margolus_steps500].metrics[name=midpoint_match]
+topo_size16	topo_size	x	param		1	plan	16				experiments/plan.toml:[[run]] id=topo_size16 x
+topo_size16	topo_size	peak_ws_mb	num	MB	10	mean	33.07				measurements.json:runs[id=topo_size16].peak_ws_bytes.mean
+topo_size16	topo_size	peak_ws_sd_mb	num	MB	10	sd	0.1872				measurements.json:runs[id=topo_size16].peak_ws_bytes.sd
+topo_size16	topo_size	elapsed_s	num	s	10	mean	0.2861				measurements.json:runs[id=topo_size16].elapsed_s.mean
+topo_size16	topo_size	accepted_flips	num		10	mean	76.4	7.382	66	88	measurements.json:runs[id=topo_size16].metrics[name=accepted_flips]
+topo_size16	topo_size	chi_final	num		10	mean	0	0	0	0	measurements.json:runs[id=topo_size16].metrics[name=chi_final]
+topo_size16	topo_size	chi_initial	num		10	mean	0	0	0	0	measurements.json:runs[id=topo_size16].metrics[name=chi_initial]
+topo_size16	topo_size	rejected_flips	num		10	mean	123.6	7.382	112	134	measurements.json:runs[id=topo_size16].metrics[name=rejected_flips]
+topo_size16	topo_size	topology_locked	bool		10	true_count	10		0	10	measurements.json:runs[id=topo_size16].metrics[name=topology_locked]
+topo_size32	topo_size	x	param		1	plan	32				experiments/plan.toml:[[run]] id=topo_size32 x
+topo_size32	topo_size	peak_ws_mb	num	MB	10	mean	33.07				measurements.json:runs[id=topo_size32].peak_ws_bytes.mean
+topo_size32	topo_size	peak_ws_sd_mb	num	MB	10	sd	0.1152				measurements.json:runs[id=topo_size32].peak_ws_bytes.sd
+topo_size32	topo_size	elapsed_s	num	s	10	mean	0.2845				measurements.json:runs[id=topo_size32].elapsed_s.mean
+topo_size32	topo_size	accepted_flips	num		10	mean	35.1	5.174	25	45	measurements.json:runs[id=topo_size32].metrics[name=accepted_flips]
+topo_size32	topo_size	chi_final	num		10	mean	0	0	0	0	measurements.json:runs[id=topo_size32].metrics[name=chi_final]
+topo_size32	topo_size	chi_initial	num		10	mean	0	0	0	0	measurements.json:runs[id=topo_size32].metrics[name=chi_initial]
+topo_size32	topo_size	rejected_flips	num		10	mean	164.9	5.174	155	175	measurements.json:runs[id=topo_size32].metrics[name=rejected_flips]
+topo_size32	topo_size	topology_locked	bool		10	true_count	10		0	10	measurements.json:runs[id=topo_size32].metrics[name=topology_locked]
+topo_size64	topo_size	x	param		1	plan	64				experiments/plan.toml:[[run]] id=topo_size64 x
+topo_size64	topo_size	peak_ws_mb	num	MB	10	mean	33.19				measurements.json:runs[id=topo_size64].peak_ws_bytes.mean
+topo_size64	topo_size	peak_ws_sd_mb	num	MB	10	sd	0.1005				measurements.json:runs[id=topo_size64].peak_ws_bytes.sd
+topo_size64	topo_size	elapsed_s	num	s	10	mean	0.3171				measurements.json:runs[id=topo_size64].elapsed_s.mean
+topo_size64	topo_size	accepted_flips	num		10	mean	7.3	2.791	3	12	measurements.json:runs[id=topo_size64].metrics[name=accepted_flips]
+topo_size64	topo_size	chi_final	num		10	mean	0	0	0	0	measurements.json:runs[id=topo_size64].metrics[name=chi_final]
+topo_size64	topo_size	chi_initial	num		10	mean	0	0	0	0	measurements.json:runs[id=topo_size64].metrics[name=chi_initial]
+topo_size64	topo_size	rejected_flips	num		10	mean	192.7	2.791	188	197	measurements.json:runs[id=topo_size64].metrics[name=rejected_flips]
+topo_size64	topo_size	topology_locked	bool		10	true_count	10		0	10	measurements.json:runs[id=topo_size64].metrics[name=topology_locked]
+topo_steps2000	topo_long	x	param		1	plan	2000				experiments/plan.toml:[[run]] id=topo_steps2000 x
+topo_steps2000	topo_long	peak_ws_mb	num	MB	5	mean	33.2				measurements.json:runs[id=topo_steps2000].peak_ws_bytes.mean
+topo_steps2000	topo_long	peak_ws_sd_mb	num	MB	5	sd	0.0863				measurements.json:runs[id=topo_steps2000].peak_ws_bytes.sd
+topo_steps2000	topo_long	elapsed_s	num	s	5	mean	0.4488				measurements.json:runs[id=topo_steps2000].elapsed_s.mean
+topo_steps2000	topo_long	accepted_flips	num		5	mean	416	36.86	388	479	measurements.json:runs[id=topo_steps2000].metrics[name=accepted_flips]
+topo_steps2000	topo_long	chi_final	num		5	mean	0	0	0	0	measurements.json:runs[id=topo_steps2000].metrics[name=chi_final]
+topo_steps2000	topo_long	chi_initial	num		5	mean	0	0	0	0	measurements.json:runs[id=topo_steps2000].metrics[name=chi_initial]
+topo_steps2000	topo_long	rejected_flips	num		5	mean	1584	36.86	1521	1612	measurements.json:runs[id=topo_steps2000].metrics[name=rejected_flips]
+topo_steps2000	topo_long	topology_locked	bool		5	true_count	5		0	5	measurements.json:runs[id=topo_steps2000].metrics[name=topology_locked]
+hpp_size32	hpp_size	x	param		1	plan	32				experiments/plan.toml:[[run]] id=hpp_size32 x
+hpp_size32	hpp_size	peak_ws_mb	num	MB	20	mean	33.33				measurements.json:runs[id=hpp_size32].peak_ws_bytes.mean
+hpp_size32	hpp_size	peak_ws_sd_mb	num	MB	20	sd	0.18				measurements.json:runs[id=hpp_size32].peak_ws_bytes.sd
+hpp_size32	hpp_size	elapsed_s	num	s	20	mean	0.3828				measurements.json:runs[id=hpp_size32].elapsed_s.mean
+hpp_size32	hpp_size	attraction_detected	bool		20	true_count	12		0	20	measurements.json:runs[id=hpp_size32].metrics[name=attraction_detected]
+hpp_size32	hpp_size	final_activity	num		20	mean	1023	28.1	955	1068	measurements.json:runs[id=hpp_size32].metrics[name=final_activity]
+hpp_size32	hpp_size	mean_net_force	num	lattice units	20	mean	0.0311	0.1048	-0.1217	0.245	measurements.json:runs[id=hpp_size32].metrics[name=mean_net_force]
+hpp_size32	hpp_size	steps	num		20	mean	300	0	300	300	measurements.json:runs[id=hpp_size32].metrics[name=steps]
+hpp_size48	hpp_size	x	param		1	plan	48				experiments/plan.toml:[[run]] id=hpp_size48 x
+hpp_size48	hpp_size	peak_ws_mb	num	MB	20	mean	33.36				measurements.json:runs[id=hpp_size48].peak_ws_bytes.mean
+hpp_size48	hpp_size	peak_ws_sd_mb	num	MB	20	sd	0.1426				measurements.json:runs[id=hpp_size48].peak_ws_bytes.sd
+hpp_size48	hpp_size	elapsed_s	num	s	20	mean	0.371				measurements.json:runs[id=hpp_size48].elapsed_s.mean
+hpp_size48	hpp_size	attraction_detected	bool		20	true_count	10		0	20	measurements.json:runs[id=hpp_size48].metrics[name=attraction_detected]
+hpp_size48	hpp_size	final_activity	num		20	mean	2301	47.71	2157	2371	measurements.json:runs[id=hpp_size48].metrics[name=final_activity]
+hpp_size48	hpp_size	mean_net_force	num	lattice units	20	mean	-0.006	0.0461	-0.105	0.0683	measurements.json:runs[id=hpp_size48].metrics[name=mean_net_force]
+hpp_size48	hpp_size	steps	num		20	mean	300	0	300	300	measurements.json:runs[id=hpp_size48].metrics[name=steps]
+hpp_size64	hpp_size	x	param		1	plan	64				experiments/plan.toml:[[run]] id=hpp_size64 x
+hpp_size64	hpp_size	peak_ws_mb	num	MB	20	mean	33.4				measurements.json:runs[id=hpp_size64].peak_ws_bytes.mean
+hpp_size64	hpp_size	peak_ws_sd_mb	num	MB	20	sd	0.0725				measurements.json:runs[id=hpp_size64].peak_ws_bytes.sd
+hpp_size64	hpp_size	elapsed_s	num	s	20	mean	0.3694				measurements.json:runs[id=hpp_size64].elapsed_s.mean
+hpp_size64	hpp_size	attraction_detected	bool		20	true_count	12		0	20	measurements.json:runs[id=hpp_size64].metrics[name=attraction_detected]
+hpp_size64	hpp_size	final_activity	num		20	mean	4098	60.62	3935	4182	measurements.json:runs[id=hpp_size64].metrics[name=final_activity]
+hpp_size64	hpp_size	mean_net_force	num	lattice units	20	mean	0.0066	0.0549	-0.095	0.0967	measurements.json:runs[id=hpp_size64].metrics[name=mean_net_force]
+hpp_size64	hpp_size	steps	num		20	mean	300	0	300	300	measurements.json:runs[id=hpp_size64].metrics[name=steps]
+hpp_size96	hpp_size	x	param		1	plan	96				experiments/plan.toml:[[run]] id=hpp_size96 x
+hpp_size96	hpp_size	peak_ws_mb	num	MB	20	mean	33.55				measurements.json:runs[id=hpp_size96].peak_ws_bytes.mean
+hpp_size96	hpp_size	peak_ws_sd_mb	num	MB	20	sd	0.0844				measurements.json:runs[id=hpp_size96].peak_ws_bytes.sd
+hpp_size96	hpp_size	elapsed_s	num	s	20	mean	0.457				measurements.json:runs[id=hpp_size96].elapsed_s.mean
+hpp_size96	hpp_size	attraction_detected	bool		20	true_count	12		0	20	measurements.json:runs[id=hpp_size96].metrics[name=attraction_detected]
+hpp_size96	hpp_size	final_activity	num		20	mean	9212	76.15	9056	9330	measurements.json:runs[id=hpp_size96].metrics[name=final_activity]
+hpp_size96	hpp_size	mean_net_force	num	lattice units	20	mean	0.0081	0.0517	-0.0917	0.1	measurements.json:runs[id=hpp_size96].metrics[name=mean_net_force]
+hpp_size96	hpp_size	steps	num		20	mean	300	0	300	300	measurements.json:runs[id=hpp_size96].metrics[name=steps]
+train_depth2	train_depth	x	param		1	plan	2				experiments/plan.toml:[[run]] id=train_depth2 x
+train_depth2	train_depth	peak_ws_mb	num	MB	10	mean	33.51				measurements.json:runs[id=train_depth2].peak_ws_bytes.mean
+train_depth2	train_depth	peak_ws_sd_mb	num	MB	10	sd	0.1092				measurements.json:runs[id=train_depth2].peak_ws_bytes.sd
+train_depth2	train_depth	elapsed_s	num	s	10	mean	0.4523				measurements.json:runs[id=train_depth2].elapsed_s.mean
+train_depth2	train_depth	epochs	num		10	mean	120	0	120	120	measurements.json:runs[id=train_depth2].metrics[name=epochs]
+train_depth2	train_depth	loss_decreased	bool		10	true_count	10		0	10	measurements.json:runs[id=train_depth2].metrics[name=loss_decreased]
+train_depth2	train_depth	loss_first	num		10	mean	0.4978	0.022	0.4705	0.5417	measurements.json:runs[id=train_depth2].metrics[name=loss_first]
+train_depth2	train_depth	loss_last	num		10	mean	0.4223	0.0179	0.3947	0.4522	measurements.json:runs[id=train_depth2].metrics[name=loss_last]
+train_depth2	train_depth	xor_accuracy_pct	num	percent	10	mean	58.48	2.613	53.5	62	measurements.json:runs[id=train_depth2].metrics[name=xor_accuracy_pct]
+train_depth4	train_depth	x	param		1	plan	4				experiments/plan.toml:[[run]] id=train_depth4 x
+train_depth4	train_depth	peak_ws_mb	num	MB	10	mean	33.57				measurements.json:runs[id=train_depth4].peak_ws_bytes.mean
+train_depth4	train_depth	peak_ws_sd_mb	num	MB	10	sd	0.1737				measurements.json:runs[id=train_depth4].peak_ws_bytes.sd
+train_depth4	train_depth	elapsed_s	num	s	10	mean	0.3232				measurements.json:runs[id=train_depth4].elapsed_s.mean
+train_depth4	train_depth	epochs	num		10	mean	120	0	120	120	measurements.json:runs[id=train_depth4].metrics[name=epochs]
+train_depth4	train_depth	loss_decreased	bool		10	true_count	10		0	10	measurements.json:runs[id=train_depth4].metrics[name=loss_decreased]
+train_depth4	train_depth	loss_first	num		10	mean	0.5007	0.0332	0.4595	0.569	measurements.json:runs[id=train_depth4].metrics[name=loss_first]
+train_depth4	train_depth	loss_last	num		10	mean	0.2628	0.0132	0.2452	0.2876	measurements.json:runs[id=train_depth4].metrics[name=loss_last]
+train_depth4	train_depth	xor_accuracy_pct	num	percent	10	mean	76.42	1.922	73.5	80	measurements.json:runs[id=train_depth4].metrics[name=xor_accuracy_pct]
+train_depth8	train_depth	x	param		1	plan	8				experiments/plan.toml:[[run]] id=train_depth8 x
+train_depth8	train_depth	peak_ws_mb	num	MB	10	mean	33.59				measurements.json:runs[id=train_depth8].peak_ws_bytes.mean
+train_depth8	train_depth	peak_ws_sd_mb	num	MB	10	sd	0.1513				measurements.json:runs[id=train_depth8].peak_ws_bytes.sd
+train_depth8	train_depth	elapsed_s	num	s	10	mean	0.3862				measurements.json:runs[id=train_depth8].elapsed_s.mean
+train_depth8	train_depth	epochs	num		10	mean	120	0	120	120	measurements.json:runs[id=train_depth8].metrics[name=epochs]
+train_depth8	train_depth	loss_decreased	bool		10	true_count	10		0	10	measurements.json:runs[id=train_depth8].metrics[name=loss_decreased]
+train_depth8	train_depth	loss_first	num		10	mean	0.4975	0.0636	0.3844	0.6069	measurements.json:runs[id=train_depth8].metrics[name=loss_first]
+train_depth8	train_depth	loss_last	num		10	mean	0.1012	0.0128	0.0839	0.1193	measurements.json:runs[id=train_depth8].metrics[name=loss_last]
+train_depth8	train_depth	xor_accuracy_pct	num	percent	10	mean	94.47	2.225	90.5	97.25	measurements.json:runs[id=train_depth8].metrics[name=xor_accuracy_pct]
+train_depth12	train_depth	x	param		1	plan	12				experiments/plan.toml:[[run]] id=train_depth12 x
+train_depth12	train_depth	peak_ws_mb	num	MB	10	mean	33.58				measurements.json:runs[id=train_depth12].peak_ws_bytes.mean
+train_depth12	train_depth	peak_ws_sd_mb	num	MB	10	sd	0.1897				measurements.json:runs[id=train_depth12].peak_ws_bytes.sd
+train_depth12	train_depth	elapsed_s	num	s	10	mean	0.4904				measurements.json:runs[id=train_depth12].elapsed_s.mean
+train_depth12	train_depth	epochs	num		10	mean	120	0	120	120	measurements.json:runs[id=train_depth12].metrics[name=epochs]
+train_depth12	train_depth	loss_decreased	bool		10	true_count	10		0	10	measurements.json:runs[id=train_depth12].metrics[name=loss_decreased]
+train_depth12	train_depth	loss_first	num		10	mean	0.4864	0.0941	0.3575	0.6225	measurements.json:runs[id=train_depth12].metrics[name=loss_first]
+train_depth12	train_depth	loss_last	num		10	mean	0.0771	0.0209	0.0538	0.1049	measurements.json:runs[id=train_depth12].metrics[name=loss_last]
+train_depth12	train_depth	xor_accuracy_pct	num	percent	10	mean	96.42	1.607	94	98.5	measurements.json:runs[id=train_depth12].metrics[name=xor_accuracy_pct]
+train_depth24	train_depth	x	param		1	plan	24				experiments/plan.toml:[[run]] id=train_depth24 x
+train_depth24	train_depth	peak_ws_mb	num	MB	10	mean	33.52				measurements.json:runs[id=train_depth24].peak_ws_bytes.mean
+train_depth24	train_depth	peak_ws_sd_mb	num	MB	10	sd	0.1508				measurements.json:runs[id=train_depth24].peak_ws_bytes.sd
+train_depth24	train_depth	elapsed_s	num	s	10	mean	0.6235				measurements.json:runs[id=train_depth24].elapsed_s.mean
+train_depth24	train_depth	epochs	num		10	mean	120	0	120	120	measurements.json:runs[id=train_depth24].metrics[name=epochs]
+train_depth24	train_depth	loss_decreased	bool		10	true_count	10		0	10	measurements.json:runs[id=train_depth24].metrics[name=loss_decreased]
+train_depth24	train_depth	loss_first	num		10	mean	0.5966	0.2137	0.3193	0.9315	measurements.json:runs[id=train_depth24].metrics[name=loss_first]
+train_depth24	train_depth	loss_last	num		10	mean	0.0505	0.0103	0.0273	0.065	measurements.json:runs[id=train_depth24].metrics[name=loss_last]
+train_depth24	train_depth	xor_accuracy_pct	num	percent	10	mean	97.65	1.259	96.25	99.75	measurements.json:runs[id=train_depth24].metrics[name=xor_accuracy_pct]
+train_depth48	train_depth	x	param		1	plan	48				experiments/plan.toml:[[run]] id=train_depth48 x
+train_depth48	train_depth	peak_ws_mb	num	MB	10	mean	33.49				measurements.json:runs[id=train_depth48].peak_ws_bytes.mean
+train_depth48	train_depth	peak_ws_sd_mb	num	MB	10	sd	0.0689				measurements.json:runs[id=train_depth48].peak_ws_bytes.sd
+train_depth48	train_depth	elapsed_s	num	s	10	mean	0.9027				measurements.json:runs[id=train_depth48].elapsed_s.mean
+train_depth48	train_depth	epochs	num		10	mean	120	0	120	120	measurements.json:runs[id=train_depth48].metrics[name=epochs]
+train_depth48	train_depth	loss_decreased	bool		10	true_count	10		0	10	measurements.json:runs[id=train_depth48].metrics[name=loss_decreased]
+train_depth48	train_depth	loss_first	num		10	mean	3.467	3.331	0.4919	10.25	measurements.json:runs[id=train_depth48].metrics[name=loss_first]
+train_depth48	train_depth	loss_last	num		10	mean	0.0665	0.0179	0.0288	0.0954	measurements.json:runs[id=train_depth48].metrics[name=loss_last]
+train_depth48	train_depth	xor_accuracy_pct	num	percent	10	mean	97	1.275	95.5	99.25	measurements.json:runs[id=train_depth48].metrics[name=xor_accuracy_pct]
+train_batch100	train_batch	x	param		1	plan	100				experiments/plan.toml:[[run]] id=train_batch100 x
+train_batch100	train_batch	peak_ws_mb	num	MB	5	mean	33.33				measurements.json:runs[id=train_batch100].peak_ws_bytes.mean
+train_batch100	train_batch	peak_ws_sd_mb	num	MB	5	sd	0.1678				measurements.json:runs[id=train_batch100].peak_ws_bytes.sd
+train_batch100	train_batch	elapsed_s	num	s	5	mean	0.3914				measurements.json:runs[id=train_batch100].elapsed_s.mean
+train_batch100	train_batch	epochs	num		5	mean	120	0	120	120	measurements.json:runs[id=train_batch100].metrics[name=epochs]
+train_batch100	train_batch	loss_decreased	bool		5	true_count	5		0	5	measurements.json:runs[id=train_batch100].metrics[name=loss_decreased]
+train_batch100	train_batch	loss_first	num		5	mean	0.4362	0.0743	0.3489	0.554	measurements.json:runs[id=train_batch100].metrics[name=loss_first]
+train_batch100	train_batch	loss_last	num		5	mean	0.0548	0.0236	0.0317	0.0925	measurements.json:runs[id=train_batch100].metrics[name=loss_last]
+train_batch100	train_batch	xor_accuracy_pct	num	percent	5	mean	96.8	2.387	93	99	measurements.json:runs[id=train_batch100].metrics[name=xor_accuracy_pct]
+train_batch400	train_batch	x	param		1	plan	400				experiments/plan.toml:[[run]] id=train_batch400 x
+train_batch400	train_batch	peak_ws_mb	num	MB	5	mean	33.68				measurements.json:runs[id=train_batch400].peak_ws_bytes.mean
+train_batch400	train_batch	peak_ws_sd_mb	num	MB	5	sd	0.1663				measurements.json:runs[id=train_batch400].peak_ws_bytes.sd
+train_batch400	train_batch	elapsed_s	num	s	5	mean	0.4141				measurements.json:runs[id=train_batch400].elapsed_s.mean
+train_batch400	train_batch	epochs	num		5	mean	120	0	120	120	measurements.json:runs[id=train_batch400].metrics[name=epochs]
+train_batch400	train_batch	loss_decreased	bool		5	true_count	5		0	5	measurements.json:runs[id=train_batch400].metrics[name=loss_decreased]
+train_batch400	train_batch	loss_first	num		5	mean	0.4623	0.0992	0.3575	0.6225	measurements.json:runs[id=train_batch400].metrics[name=loss_first]
+train_batch400	train_batch	loss_last	num		5	mean	0.0643	0.0151	0.0538	0.089	measurements.json:runs[id=train_batch400].metrics[name=loss_last]
+train_batch400	train_batch	xor_accuracy_pct	num	percent	5	mean	96.5	1.311	94.75	98	measurements.json:runs[id=train_batch400].metrics[name=xor_accuracy_pct]
+train_batch1600	train_batch	x	param		1	plan	1600				experiments/plan.toml:[[run]] id=train_batch1600 x
+train_batch1600	train_batch	peak_ws_mb	num	MB	5	mean	33.67				measurements.json:runs[id=train_batch1600].peak_ws_bytes.mean
+train_batch1600	train_batch	peak_ws_sd_mb	num	MB	5	sd	0.141				measurements.json:runs[id=train_batch1600].peak_ws_bytes.sd
+train_batch1600	train_batch	elapsed_s	num	s	5	mean	0.7384				measurements.json:runs[id=train_batch1600].elapsed_s.mean
+train_batch1600	train_batch	epochs	num		5	mean	120	0	120	120	measurements.json:runs[id=train_batch1600].metrics[name=epochs]
+train_batch1600	train_batch	loss_decreased	bool		5	true_count	5		0	5	measurements.json:runs[id=train_batch1600].metrics[name=loss_decreased]
+train_batch1600	train_batch	loss_first	num		5	mean	0.462	0.0838	0.3592	0.5815	measurements.json:runs[id=train_batch1600].metrics[name=loss_first]
+train_batch1600	train_batch	loss_last	num		5	mean	0.0629	0.0225	0.0403	0.1003	measurements.json:runs[id=train_batch1600].metrics[name=loss_last]
+train_batch1600	train_batch	xor_accuracy_pct	num	percent	5	mean	97.13	2.264	93.19	98.75	measurements.json:runs[id=train_batch1600].metrics[name=xor_accuracy_pct]
+train_batch6400	train_batch	x	param		1	plan	6400				experiments/plan.toml:[[run]] id=train_batch6400 x
+train_batch6400	train_batch	peak_ws_mb	num	MB	5	mean	35.77				measurements.json:runs[id=train_batch6400].peak_ws_bytes.mean
+train_batch6400	train_batch	peak_ws_sd_mb	num	MB	5	sd	0.1929				measurements.json:runs[id=train_batch6400].peak_ws_bytes.sd
+train_batch6400	train_batch	elapsed_s	num	s	5	mean	2.072				measurements.json:runs[id=train_batch6400].elapsed_s.mean
+train_batch6400	train_batch	epochs	num		5	mean	120	0	120	120	measurements.json:runs[id=train_batch6400].metrics[name=epochs]
+train_batch6400	train_batch	loss_decreased	bool		5	true_count	5		0	5	measurements.json:runs[id=train_batch6400].metrics[name=loss_decreased]
+train_batch6400	train_batch	loss_first	num		5	mean	0.4644	0.0856	0.3548	0.587	measurements.json:runs[id=train_batch6400].metrics[name=loss_first]
+train_batch6400	train_batch	loss_last	num		5	mean	0.0625	0.016	0.0529	0.0909	measurements.json:runs[id=train_batch6400].metrics[name=loss_last]
+train_batch6400	train_batch	xor_accuracy_pct	num	percent	5	mean	97.07	1.695	94.31	98.48	measurements.json:runs[id=train_batch6400].metrics[name=xor_accuracy_pct]
+hpp_se32	derived	value	num	lattice units	1	mean	0.0234	0	0.0234	0.0234	measurements.json:runs[id=hpp_se32].metrics[name=value]
+hpp_t32	derived	value	num	dimensionless	1	mean	1.326	0	1.326	1.326	measurements.json:runs[id=hpp_t32].metrics[name=value]
+hpp_se48	derived	value	num	lattice units	1	mean	0.0103	0	0.0103	0.0103	measurements.json:runs[id=hpp_se48].metrics[name=value]
+hpp_t48	derived	value	num	dimensionless	1	mean	-0.5817	0	-0.5817	-0.5817	measurements.json:runs[id=hpp_t48].metrics[name=value]
+hpp_se64	derived	value	num	lattice units	1	mean	0.0123	0	0.0123	0.0123	measurements.json:runs[id=hpp_se64].metrics[name=value]
+hpp_t64	derived	value	num	dimensionless	1	mean	0.5362	0	0.5362	0.5362	measurements.json:runs[id=hpp_t64].metrics[name=value]
+hpp_se96	derived	value	num	lattice units	1	mean	0.0116	0	0.0116	0.0116	measurements.json:runs[id=hpp_se96].metrics[name=value]
+hpp_t96	derived	value	num	dimensionless	1	mean	0.6995	0	0.6995	0.6995	measurements.json:runs[id=hpp_t96].metrics[name=value]
+hpp_positive_all	derived	value	num	runs	1	mean	46	0	46	46	measurements.json:runs[id=hpp_positive_all].metrics[name=value]
+hpp_all_n	derived	value	num	runs	1	mean	80	0	80	80	measurements.json:runs[id=hpp_all_n].metrics[name=value]
+topo_accept16	derived	value	num	fraction	1	mean	0.382	0	0.382	0.382	measurements.json:runs[id=topo_accept16].metrics[name=value]
+topo_accept32	derived	value	num	fraction	1	mean	0.1755	0	0.1755	0.1755	measurements.json:runs[id=topo_accept32].metrics[name=value]
+topo_accept64	derived	value	num	fraction	1	mean	0.0365	0	0.0365	0.0365	measurements.json:runs[id=topo_accept64].metrics[name=value]
+mem_depth_delta_mb	derived	value	num	MB	1	mean	-0.025	0	-0.025	-0.025	measurements.json:runs[id=mem_depth_delta_mb].metrics[name=value]
+mem_batch_delta_mb	derived	value	num	MB	1	mean	2.446	0	2.446	2.446	measurements.json:runs[id=mem_batch_delta_mb].metrics[name=value]
+mem_depth_ratio	derived	value	num	ratio	1	mean	0.9993	0	0.9993	0.9993	measurements.json:runs[id=mem_depth_ratio].metrics[name=value]
+mem_depth_abs_mb	derived	value	num	MB	1	mean	0.025	0	0.025	0.025	measurements.json:runs[id=mem_depth_abs_mb].metrics[name=value]

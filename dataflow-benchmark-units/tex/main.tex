@@ -1,0 +1,271 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{microtype}
+\usepackage[htt]{hyphenat}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+\setlength{\emergencystretch}{2em}
+
+\input{numbers.tex}
+\newcommand{\val}[1]{\ifcsname pv@#1\endcsname\csname pv@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valci}[1]{\ifcsname pvci@#1\endcsname\csname pvci@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valsd}[1]{\ifcsname pvsd@#1\endcsname\csname pvsd@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valn}[1]{\ifcsname pvn@#1\endcsname\csname pvn@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valfrac}[1]{\ifcsname pvfrac@#1\endcsname\csname pvfrac@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valtrue}[1]{\ifcsname pvtrue@#1\endcsname\csname pvtrue@#1\endcsname\else\textbf{??#1??}\fi}
+
+\title{\bfseries Units before speed\\[2pt]
+\large What a dataflow-versus-von-Neumann benchmark actually measures, and what to report instead}
+\author{Konstantin Parashchuk\\\small Independent researcher, Saint Petersburg, Russia\\
+\small \texttt{github.com/kostyk348}}
+\date{17 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+A repository benchmarks a 3D "spatial dataflow" engine against a von Neumann interpreter and
+prints one table: about one million VM operations per second against about one billion broth
+operations per second, read as a paradigm verdict. The two columns count different things. The VM
+column counts instructions, each of which writes one cell; the broth column counts 27-tap
+multiply-accumulates over three channels, each of which updates one voxel. Converting both to a
+common unit, state updates per second, turns the implied
+\val{ratio_c24_ops.value}-fold advantage into \val{ratio_c24_updates.value} at the README's cube
+size and \val{ratio_c32_updates.value} at twice the edge length. A second axis separates paradigm
+from implementation: at the same cube size the dependency-free NumPy backend of the same dataflow
+engine reaches \val{numpy_c24_updates_per_s.value} voxel updates per second against
+\val{broth_c24_updates_per_s.value} for the "fast" torch path, so the implementation choice moves
+the number by a larger factor than the paradigm does, in the opposite direction from the code's
+own comment. The note reproduces the benchmark five times per configuration, reports the spread
+that the single run hides, and recommends what a cross-paradigm benchmark should print instead.
+\end{abstract}
+
+\noindent\textbf{Keywords:} benchmarking methodology; dataflow computing; cellular automata;
+units of measurement; reproducibility
+
+\section{Introduction}
+
+Comparing two computing paradigms is a legitimate thing to want to do, and it is hard to do
+honestly. The moment two systems do not produce the same output through the same interface, the
+comparison needs a common unit, and choosing that unit is where most of the argument lives
+\citep{hoefler2015,amdahl1967}. A benchmark that skips the choice can still be internally
+consistent and still mislead, because the numbers it prints are ratios of quantities with
+different dimensions.
+
+The subject of this note, \texttt{tensor-broth} \citep{tensorbroth}, is a small, well-made
+repository that walks into this trap and prints the result as its headline. It implements two
+engines. One is a fetch-decode-execute loop over a 256-cell data memory, the shape of machine that
+\citet{vonneumann1945} described and that \citet{backus1978} complained about. The other is a 3D
+lattice of voxels updated by one fused convolution per tick, a member of a family that runs from
+lattice-gas automata \citep{margolus1984} through dataflow architectures
+\citep{dennis1975} to reservoir computing \citep{jaeger2004}, and that a hand-written domain-specific
+compiler would fuse the same way \citep{ragankelley2013}. The README's table puts the two engines
+side by side with the columns "VM Mops/sec" and "broth GOPS (effective)", and the text reads the
+gap as a paradigm verdict.
+
+The gap is real in the sense that the numbers are what the code prints. It is not a measurement of
+the paradigms, and this note shows why with measurements of its own. Section~\ref{sec:units} converts
+both columns to a common unit and reports the ratio that survives.
+Section~\ref{sec:impl} separates the paradigm from the implementation by running the same dataflow
+engine on two backends at the same cube size. Section~\ref{sec:what} lists what this note does not
+establish, and Section~\ref{sec:recommend} turns the exercise into a short list of what such a
+benchmark should print.
+
+\section{What the two columns count}
+\label{sec:units}
+
+The VM executes one instruction per loop iteration. Each instruction reads two cell indices,
+performs one of four operations and writes one cell. So one "op" is one cell update, and the
+column is a rate of cell updates.
+
+The broth engine advances one tick by evaluating a $3\times3\times3$ kernel over three input
+channels for every voxel, through a single \texttt{conv3d}. Its op count is
+\val{bench_torch_c24.broth[0].cube}$^3$ voxels times 27 taps times three channels per tick, which
+the code calls "MAC-ish". So one "effective op" is one multiply-accumulate inside one voxel's
+update, and a voxel update costs 81 of them.
+
+A ratio between the two columns therefore contains a factor of 81 that has nothing to do with
+either machine, and the printed comparison of giga-ops to mega-ops adds a factor of a thousand on
+top. Measured on this machine, the table's implied ratio at the README's cube size is
+\val{ratio_c24_ops.value}. Converting both engines to cell updates per second gives
+\val{ratio_c24_updates.value} for the same run (Table~\ref{tab:matched}).
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+cube & VM (cell updates/s) & broth (voxel updates/s) & ratio & ratio the table implies \\
+\midrule
+\val{bench_torch_c16.broth[0].cube} & \val{vm_c16_updates_per_s.value} & \val{broth_c16_updates_per_s.value} & \val{ratio_c16_updates.value} & --- \\
+\val{bench_torch_c24.broth[0].cube} & \val{vm_c24_updates_per_s.value} & \val{broth_c24_updates_per_s.value} & \val{ratio_c24_updates.value} & \val{ratio_c24_ops.value} \\
+\val{bench_torch_c32.broth[0].cube} & \val{vm_c32_updates_per_s.value} & \val{broth_c32_updates_per_s.value} & \val{ratio_c32_updates.value} & --- \\
+\bottomrule
+\end{tabular}
+\caption{The same two engines in a common unit. Means over five runs per configuration; the
+per-run spread is in Table~\ref{tab:spread}. The last column is the ratio a reader gets by dividing
+the two columns the audited table prints, which is a ratio between giga-ops and mega-ops and
+therefore mostly a units conversion. The derived ratios combine means, so they do not carry the
+run-to-run variance; Section~\ref{sec:impl} reports that separately.}
+\label{tab:matched}
+\end{table}
+
+The matched-unit advantage grows with cube size, from \val{ratio_c16_updates.value} to
+\val{ratio_c32_updates.value} over a \val{bench_torch_c16.broth[0].cube}$\to$\val{bench_torch_c32.broth[0].cube}
+edge sweep. That growth is the interesting part and it is not in the audited text: the dataflow
+engine's advantage is a function of the volume per tick, because its per-tick cost scales with the
+volume while its vectorisation amortises the per-call overhead. A single cube size cannot show
+that, and the README reports a single cube size. The right instrument for the growth itself is a
+roofline-style statement of how far each engine sits from its hardware limit at each volume
+\citep{williams2009}.
+
+\section{Paradigm or implementation}
+\label{sec:impl}
+
+The repository ships two backends for the same engine: a torch path, which the code calls the
+primary one, and a NumPy fallback, about which a comment says honestly that "pure NumPy convolution
+is slower per voxel than torch's vectorized kernels on CPU". Running both at the same cube size
+tests that sentence and tests the confound at once (Table~\ref{tab:backend}).
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\toprule
+cube & backend & broth (voxel updates/s) & VM mean (Mops/s) & VM SD (Mops/s) \\
+\midrule
+\val{bench_torch_c24.broth[0].cube} & torch & \val{broth_c24_updates_per_s.value} & \val{bench_torch_c24.vm.mops_per_sec} & \valsd{bench_torch_c24.vm.mops_per_sec} \\
+\val{bench_numpy_c24.broth[0].cube} & NumPy & \val{numpy_c24_updates_per_s.value} & \val{bench_numpy_c24.vm.mops_per_sec} & \valsd{bench_numpy_c24.vm.mops_per_sec} \\
+\bottomrule
+\end{tabular}
+\caption{The same dataflow engine, the same cube, two backends, five runs each. The NumPy fallback
+reaches \val{numpy_c24_updates_per_s.value} voxel updates per second against
+\val{broth_c24_updates_per_s.value} for the torch path, a factor of
+\val{backend_advantage_c24.value} in NumPy's favour, which is opposite to the direction the code
+comment predicts. The two right-hand columns are the baseline engine's own run-to-run mean and
+standard deviation, in the units the audited table prints.}
+\label{tab:backend}
+\end{table}
+
+Two things follow. First, the "slower" backend is not slower at this size: \texttt{conv3d} on a
+$24^3$ volume with three channels pays a dispatch cost that a sliding-window \texttt{tensordot}
+does not, and at a small volume that cost dominates. Second, and more important for the
+methodology, the implementation factor (\val{backend_spread_c24.value}) is of the same order as the
+paradigm factor at the README's cube size (\val{ratio_c24_updates.value}). A comparison that fixes
+neither the backend nor the language it is written in is not measuring the thing its text claims to
+measure. That is the classic measurement-bias story \citep{mytkowicz2009,georges2007}, and the
+standard remedies are randomised layout and repeated evaluation \citep{curtsinger2013}.
+
+The baseline is noisy too. Repeating the identical VM run five times gives a mean of
+\val{bench_torch_c24.vm.mops_per_sec} Mops/s with a standard deviation of
+\valsd{bench_torch_c24.vm.mops_per_sec}; across the instruction-count sweep the same baseline
+ranges from \val{vm_100k.vm.mops_per_sec} to \val{vm_400k.vm.mops_per_sec} Mops/s for reasons that
+are entirely outside the program. Any single-run ratio inherits that spread, which is why the
+audited table's two significant digits overstate its resolution.
+
+\section{What this note does not establish}
+\label{sec:what}
+
+\paragraph{It does not rank the paradigms.} A Python interpreter loop is not a von Neumann
+machine, and a torch convolution is not a dataflow chip. What was measured is a Python VM against
+a vectorised library call, and the honest conclusion is about the size of the confound, not about
+which paradigm is faster in silicon. A defensible paradigm comparison would need both engines on
+the same substrate, or an analytical model of each.
+
+\paragraph{It does not reproduce the README's absolute numbers.} The README reports about 1.15 effective Gops/s on hardware it does not describe; this machine reaches \val{bench_torch_c24.broth[0].gops_effective}
+Gops/s at the same cube. That is a factor of several, and it is exactly why absolute cross-machine
+rates should not be printed without the machine.
+
+\paragraph{It says nothing about energy.} The motivation for spatial computing is often energy per
+operation, and nothing here measures power. Peak memory was recorded per run but is not reported:
+the engines' footprints in Python are dominated by the interpreter.
+
+\paragraph{One machine, one library version.} Windows 11, CPython 3.14.6, torch 2.12.1+cpu, NumPy
+2.5.1. The NumPy-versus-torch crossover is a function of cube size and of those versions, and this
+note measures one point on it rather than locating it.
+
+\section{What such a benchmark should print}
+\label{sec:recommend}
+
+The audited table is one column away from being defensible, and the changes are cheap.
+
+\begin{enumerate}
+\item Print the primitive operation of each engine in its own unit, and then the common unit.
+  "Cell updates per second" and "multiply-accumulates per second" are both measurable; a ratio
+  between them is not a quantity \citep{ofenbeck2014}.
+\item Fix the implementation, or report every implementation. If the engine has two backends, the
+  comparison is incomplete until both are in the table, because the backend moves the number by
+  more than the paradigm does at small sizes.
+\item Repeat the run and print the spread. Five runs are enough to see that the second digit is
+  noise \citep{georges2007,curtsinger2013}.
+\item State the machine and the library versions next to the absolute numbers, or print ratios
+  only. A giga-op per second without hardware describes a laptop.
+\item Report how the throughput scales with the problem size. Here the entire useful finding, the
+  growth of the advantage with volume, is invisible in a single row.
+\end{enumerate}
+
+None of this is new advice; it is the standard list \citep{hoefler2015}, and it applies with
+particular force to cross-paradigm comparisons, where a reader cannot check the claim from the
+program's output.
+
+\section{Reproducibility statement}
+
+\texttt{experiments/plan.toml} declares every run (three cube sizes, two backends, an
+instruction-count sweep, five repeats each); \texttt{subjects.lock} pins the audited commit;
+\texttt{evidence/raw/} keeps the stdout of every process; \texttt{data/measurements.json} holds the
+aggregates and the derived quantities with their formulas; \texttt{tex/numbers.tex} and
+\texttt{data/numbers.tsv} are generated from it, and the prose may not use a number outside that
+ledger. \texttt{bash verify\_all.sh} re-runs the reference checks, the number checks, the ledger
+freshness check and the PDF build.
+
+\section{Conclusion}
+
+The audited table compares giga-ops to mega-ops and calls the result a paradigm. In a common unit
+the advantage is \val{ratio_c24_updates.value} at the reported cube size, growing to
+\val{ratio_c32_updates.value} when the cube is doubled; and at the reported size, the choice of
+backend moves the same engine by a factor of \val{backend_advantage_c24.value} in the direction the
+code's own comment does not predict. The engine is not the problem. The table is, and the fix is to
+print units, implementations, repeats and the size scaling, which costs a few lines of code and
+turns a slogan into a measurement. A single run of a benchmark, like a single-seed experiment,
+is a hypothesis \citep{ioannidis2005}; the difference is that a benchmark can be repeated in
+seconds, and \citet{sandve2013} would ask for exactly that.
+
+\section*{Acknowledgements and disclosure}
+
+The author thanks the maintainer of \texttt{tensor-broth} for a benchmark that is small enough to
+audit in an afternoon and for a code comment honest enough to be tested. AI assistance: the
+measurement harness, the plan, the number ledger, the reference verification and the drafting were
+produced in a session with a Hermes Agent instance acting as a research assistant. Every number in
+this note is generated by the artifact from raw logs, and every reference was resolved by a machine
+query before it was cited; the checks that enforce both are in \texttt{verify\_all.sh} and were run
+by the human author on the published version.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\section{Commands}
+
+\begin{verbatim}
+bash scripts/fetch_subjects.sh   # clone at the pinned commit
+papertool measure --root .       # run the plan, keep logs, aggregate
+papertool ledger --root .        # measurements -> macros and figure data
+papertool bib --root .           # curated sources -> references.bib
+bash build.sh                    # checks, then the PDF
+bash verify_all.sh               # everything
+\end{verbatim}
+
+\end{document}

@@ -1,0 +1,3 @@
+Irreversibility and heat generation in the computing process Landauer
+Logical reversibility of computation Bennett IBM Journal
+Digital topology introduction and survey Kong Rosenfeld

@@ -1,0 +1,16 @@
+# Vendored subjects (each package pins its own commit in experiments/subjects.lock and
+# clones it with scripts/fetch_subjects.sh).
+subjects/
+*/subjects/
+# Toolchain binaries
+tooling/tectonic/
+tooling/*.zip
+tooling/papertool/target/
+# LaTeX intermediates (the PDF is committed: it is the deliverable)
+*.aux
+*.log
+*.blg
+*.bbl
+*.out
+*.toc
+*.synctex.gz

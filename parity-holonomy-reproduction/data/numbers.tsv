@@ -1,0 +1,62 @@
+run_id	group	metric	kind	unit	n	stat	value	sd	min	max	source
+e01_contextuality	claim1	x	param		1	plan	1				experiments/plan.toml:[[run]] id=e01_contextuality x
+e01_contextuality	claim1	peak_ws_mb	num	MB	1	mean	27.02				measurements.json:runs[id=e01_contextuality].peak_ws_bytes.mean
+e01_contextuality	claim1	peak_ws_sd_mb	num	MB	1	sd	0				measurements.json:runs[id=e01_contextuality].peak_ws_bytes.sd
+e01_contextuality	claim1	elapsed_s	num	s	1	mean	0.4169				measurements.json:runs[id=e01_contextuality].elapsed_s.mean
+e01_contextuality	claim1	mermin_contextual_fraction	num		1	mean	0.333	0	0.333	0.333	measurements.json:runs[id=e01_contextuality].metrics[name=mermin_contextual_fraction]
+e01_contextuality	claim1	mermin_holonomy	num		1	mean	1	0	1	1	measurements.json:runs[id=e01_contextuality].metrics[name=mermin_holonomy]
+e01_contextuality	claim1	mermin_maxsat	num		1	mean	2	0	2	2	measurements.json:runs[id=e01_contextuality].metrics[name=mermin_maxsat]
+e01_contextuality	claim1	stdout_sha256	text		1	unique_values	1				measurements.json:runs[id=e01_contextuality].metrics[name=stdout_sha256]
+e01_contextuality_repeat	claim1	x	param		1	plan	1				experiments/plan.toml:[[run]] id=e01_contextuality_repeat x
+e01_contextuality_repeat	claim1	peak_ws_mb	num	MB	2	mean	27.2				measurements.json:runs[id=e01_contextuality_repeat].peak_ws_bytes.mean
+e01_contextuality_repeat	claim1	peak_ws_sd_mb	num	MB	2	sd	0.0635				measurements.json:runs[id=e01_contextuality_repeat].peak_ws_bytes.sd
+e01_contextuality_repeat	claim1	elapsed_s	num	s	2	mean	0.3043				measurements.json:runs[id=e01_contextuality_repeat].elapsed_s.mean
+e01_contextuality_repeat	claim1	stdout_sha256	text		2	unique_values	1				measurements.json:runs[id=e01_contextuality_repeat].metrics[name=stdout_sha256]
+e05_diagonal_lemma	claim5	x	param		1	plan	5				experiments/plan.toml:[[run]] id=e05_diagonal_lemma x
+e05_diagonal_lemma	claim5	peak_ws_mb	num	MB	1	mean	27.19				measurements.json:runs[id=e05_diagonal_lemma].peak_ws_bytes.mean
+e05_diagonal_lemma	claim5	peak_ws_sd_mb	num	MB	1	sd	0				measurements.json:runs[id=e05_diagonal_lemma].peak_ws_bytes.sd
+e05_diagonal_lemma	claim5	elapsed_s	num	s	1	mean	1.347				measurements.json:runs[id=e05_diagonal_lemma].elapsed_s.mean
+e05_diagonal_lemma	claim5	selfgauge_total	num		1	mean	120	0	120	120	measurements.json:runs[id=e05_diagonal_lemma].metrics[name=selfgauge_total]
+e05_diagonal_lemma	claim5	selfgauge_trivial_fixed	num		1	mean	60	0	60	60	measurements.json:runs[id=e05_diagonal_lemma].metrics[name=selfgauge_trivial_fixed]
+e05_diagonal_lemma	claim5	stdout_sha256	text		1	unique_values	1				measurements.json:runs[id=e05_diagonal_lemma].metrics[name=stdout_sha256]
+e06_frustration	support	x	param		1	plan	6				experiments/plan.toml:[[run]] id=e06_frustration x
+e06_frustration	support	peak_ws_mb	num	MB	1	mean	34.32				measurements.json:runs[id=e06_frustration].peak_ws_bytes.mean
+e06_frustration	support	peak_ws_sd_mb	num	MB	1	sd	0				measurements.json:runs[id=e06_frustration].peak_ws_bytes.sd
+e06_frustration	support	elapsed_s	num	s	1	mean	10.33				measurements.json:runs[id=e06_frustration].elapsed_s.mean
+e06_frustration	support	stdout_sha256	text		1	unique_values	1				measurements.json:runs[id=e06_frustration].metrics[name=stdout_sha256]
+e11_repair_hardness	support	x	param		1	plan	11				experiments/plan.toml:[[run]] id=e11_repair_hardness x
+e11_repair_hardness	support	peak_ws_mb	num	MB	1	mean	31.42				measurements.json:runs[id=e11_repair_hardness].peak_ws_bytes.mean
+e11_repair_hardness	support	peak_ws_sd_mb	num	MB	1	sd	0				measurements.json:runs[id=e11_repair_hardness].peak_ws_bytes.sd
+e11_repair_hardness	support	elapsed_s	num	s	1	mean	0.4128				measurements.json:runs[id=e11_repair_hardness].elapsed_s.mean
+e11_repair_hardness	support	frustration_v8_index	num		1	mean	3	0	3	3	measurements.json:runs[id=e11_repair_hardness].metrics[name=frustration_v8_index]
+e11_repair_hardness	support	frustration_v8_maxsat	num		1	mean	13	0	13	13	measurements.json:runs[id=e11_repair_hardness].metrics[name=frustration_v8_maxsat]
+e11_repair_hardness	support	stdout_sha256	text		1	unique_values	1				measurements.json:runs[id=e11_repair_hardness].metrics[name=stdout_sha256]
+e03_topological_memory	claim3	x	param		1	plan	3				experiments/plan.toml:[[run]] id=e03_topological_memory x
+e03_topological_memory	claim3	peak_ws_mb	num	MB	5	mean	31.45				measurements.json:runs[id=e03_topological_memory].peak_ws_bytes.mean
+e03_topological_memory	claim3	peak_ws_sd_mb	num	MB	5	sd	0.1407				measurements.json:runs[id=e03_topological_memory].peak_ws_bytes.sd
+e03_topological_memory	claim3	elapsed_s	num	s	5	mean	0.4149				measurements.json:runs[id=e03_topological_memory].elapsed_s.mean
+e03_topological_memory	claim3	noise05_hopfield	num		5	mean	0.377	0	0.377	0.377	measurements.json:runs[id=e03_topological_memory].metrics[name=noise05_hopfield]
+e03_topological_memory	claim3	noise05_parity_struct	num		5	mean	0.138	0	0.138	0.138	measurements.json:runs[id=e03_topological_memory].metrics[name=noise05_parity_struct]
+e03_topological_memory	claim3	noise05_parity_value	num		5	mean	0	0	0	0	measurements.json:runs[id=e03_topological_memory].metrics[name=noise05_parity_value]
+e03_topological_memory	claim3	noise10_hopfield	num		5	mean	0.897	0	0.897	0.897	measurements.json:runs[id=e03_topological_memory].metrics[name=noise10_hopfield]
+e03_topological_memory	claim3	noise10_parity_struct	num		5	mean	0.246	0	0.246	0.246	measurements.json:runs[id=e03_topological_memory].metrics[name=noise10_parity_struct]
+e03_topological_memory	claim3	noise10_parity_value	num		5	mean	0	0	0	0	measurements.json:runs[id=e03_topological_memory].metrics[name=noise10_parity_value]
+e03_topological_memory	claim3	noise20_hopfield	num		5	mean	1	0	1	1	measurements.json:runs[id=e03_topological_memory].metrics[name=noise20_hopfield]
+e03_topological_memory	claim3	noise20_parity_struct	num		5	mean	0.385	0	0.385	0.385	measurements.json:runs[id=e03_topological_memory].metrics[name=noise20_parity_struct]
+e03_topological_memory	claim3	noise30_hopfield	num		5	mean	1	0	1	1	measurements.json:runs[id=e03_topological_memory].metrics[name=noise30_hopfield]
+e03_topological_memory	claim3	noise30_parity_struct	num		5	mean	0.463	0	0.463	0.463	measurements.json:runs[id=e03_topological_memory].metrics[name=noise30_parity_struct]
+e03_topological_memory	claim3	noise40_hopfield	num		5	mean	1	0	1	1	measurements.json:runs[id=e03_topological_memory].metrics[name=noise40_hopfield]
+e03_topological_memory	claim3	noise40_parity_struct	num		5	mean	0.497	0	0.497	0.497	measurements.json:runs[id=e03_topological_memory].metrics[name=noise40_parity_struct]
+e03_topological_memory	claim3	stdout_sha256	text		5	unique_values	1				measurements.json:runs[id=e03_topological_memory].metrics[name=stdout_sha256]
+e12_holonomy_code	support	x	param		1	plan	12				experiments/plan.toml:[[run]] id=e12_holonomy_code x
+e12_holonomy_code	support	peak_ws_mb	num	MB	1	mean	31.6				measurements.json:runs[id=e12_holonomy_code].peak_ws_bytes.mean
+e12_holonomy_code	support	peak_ws_sd_mb	num	MB	1	sd	0				measurements.json:runs[id=e12_holonomy_code].peak_ws_bytes.sd
+e12_holonomy_code	support	elapsed_s	num	s	1	mean	1.102				measurements.json:runs[id=e12_holonomy_code].elapsed_s.mean
+e12_holonomy_code	support	code_detect_v7_p02	num		1	mean	87	0	87	87	measurements.json:runs[id=e12_holonomy_code].metrics[name=code_detect_v7_p02]
+e12_holonomy_code	support	code_localise_v7_p02	num		1	mean	64	0	64	64	measurements.json:runs[id=e12_holonomy_code].metrics[name=code_localise_v7_p02]
+e12_holonomy_code	support	code_rank_v7	num		1	mean	4.3	0	4.3	4.3	measurements.json:runs[id=e12_holonomy_code].metrics[name=code_rank_v7]
+e12_holonomy_code	support	code_undetectable_v7_p02	num		1	mean	40	0	40	40	measurements.json:runs[id=e12_holonomy_code].metrics[name=code_undetectable_v7_p02]
+e12_holonomy_code	support	stdout_sha256	text		1	unique_values	1				measurements.json:runs[id=e12_holonomy_code].metrics[name=stdout_sha256]
+selfgauge_fraction	derived	value	num	fraction	1	mean	0.5	0	0.5	0.5	measurements.json:runs[id=selfgauge_fraction].metrics[name=value]
+noise10_hopfield_over_parity	derived	value	num	ratio	1	mean	3.646	0	3.646	3.646	measurements.json:runs[id=noise10_hopfield_over_parity].metrics[name=value]
+mcerr_parity_struct	derived	value	num	fraction	1	mean	0.0068	0	0.0068	0.0068	measurements.json:runs[id=mcerr_parity_struct].metrics[name=value]

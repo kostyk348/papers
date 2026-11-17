@@ -1,0 +1,191 @@
+{
+  "protocol": {
+    "version": "0.1",
+    "taxonomy_version": "0.1",
+    "mcp_spec_revision": "2025-06-18",
+    "schema_uri": "https://github.com/kostyk348/agent-memory-mcp/blob/main/code/protocol_schema.json"
+  },
+  "subject": {
+    "name": "SCHEMA EXAMPLE - synthetic subject, no system was executed",
+    "kind": "reference_implementation",
+    "repo_url": "https://github.com/kostyk348/sint",
+    "commit_sha": "none",
+    "transport": "stdio",
+    "deployment": "local process, fresh data directory per run",
+    "storage_dir": "<run>/store"
+  },
+  "runner": {
+    "harness_commit": "not-implemented-yet",
+    "model": "none (store-only)",
+    "model_params": {},
+    "prompt_templates_hash": "not-applicable",
+    "repetitions": 3,
+    "seeds": [1, 2, 3],
+    "hardware_class": "not recorded"
+  },
+  "budgets": {
+    "max_calls": 0,
+    "max_tokens": 0,
+    "wall_clock_s": 0,
+    "price_table": {
+      "date": "not-applicable",
+      "source": "no model calls in this example",
+      "usd_per_1k_input": null,
+      "usd_per_1k_output": null
+    }
+  },
+  "families": [
+    {
+      "id": "T1",
+      "tasks": 0,
+      "repetitions": 3,
+      "seed": 1,
+      "metrics": [
+        {"name": "write_precision", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "write_latency_p50_ms", "unit": "ms", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T2",
+      "tasks": 0,
+      "metrics": [
+        {"name": "recall_at_5", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "mrr", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "provenance_correctness", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T3",
+      "tasks": 0,
+      "metrics": [
+        {"name": "temporal_correctness", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "lifecycle_state_exposed", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "programmatic_check"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T4",
+      "tasks": 0,
+      "metrics": [
+        {"name": "admissibility_error_rate", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "programmatic_check"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T5",
+      "tasks": 0,
+      "metrics": [
+        {"name": "contradiction_detection_f1", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "revision_correctness", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "programmatic_check"},
+        {"name": "stale_read_rate", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "collateral_change_rate", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "programmatic_check"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T6",
+      "tasks": 0,
+      "metrics": [
+        {"name": "probe_survival_rate", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "compression_ratio", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "derived_from_completeness", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "programmatic_check"},
+        {"name": "abstraction_faithfulness", "unit": "score_1_5", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "rubric_two_graders", "kappa": null}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T7",
+      "tasks": 0,
+      "metrics": [
+        {"name": "cue_hit_rate", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "false_fire_rate", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "context_availability_at_fire", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "programmatic_check"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T8",
+      "tasks": 0,
+      "metrics": [
+        {"name": "ece", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "discrimination_auroc", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "abstention_correctness", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "monitoring_accuracy", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "programmatic_check"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T9",
+      "tasks": 0,
+      "metrics": [
+        {"name": "restart_survival", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "idempotency_violations", "unit": "count", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "programmatic_check"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    },
+    {
+      "id": "T10",
+      "tasks": 0,
+      "metrics": [
+        {"name": "poisoning_influence_rate", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"},
+        {"name": "membership_inference_advantage", "unit": "ratio", "value": null, "ci_low": null, "ci_high": null, "n": 0, "computer": "harness"}
+      ],
+      "failures": [],
+      "raw_log_paths": []
+    }
+  ],
+  "operations": {
+    "O1_WRITE": {"supported": "yes", "metrics": [{"name": "write_precision", "unit": "ratio", "value": null, "computer": "harness"}], "notes": "example block; values are null because no run happened"},
+    "O2_READ": {"supported": "yes", "metrics": [{"name": "recall_at_5", "unit": "ratio", "value": null, "computer": "harness"}]},
+    "O3_CONSOLIDATE": {"supported": "partial", "metrics": [{"name": "probe_survival_rate", "unit": "ratio", "value": null, "computer": "harness"}]},
+    "O4_REVISE": {"supported": "yes", "metrics": [{"name": "stale_read_rate", "unit": "ratio", "value": null, "computer": "harness"}]},
+    "O5_INTEND": {"supported": "yes", "metrics": [{"name": "cue_hit_rate", "unit": "ratio", "value": null, "computer": "harness"}]},
+    "O6_ASSERT": {"supported": "partial", "metrics": [{"name": "ece", "unit": "ratio", "value": null, "computer": "harness"}]},
+    "PROVENANCE": {"supported": "partial", "metrics": [{"name": "provenance_correctness", "unit": "ratio", "value": null, "computer": "harness"}]},
+    "LIFECYCLE": {"supported": "partial", "metrics": [{"name": "lifecycle_state_exposed", "unit": "ratio", "value": null, "computer": "programmatic_check"}]}
+  },
+  "statistics": {
+    "ci_method": "bootstrap_percentile",
+    "n_resamples": 1000,
+    "notes": "no values to resample in this schema example"
+  },
+  "failures": {
+    "counts_by_code": {},
+    "examples": []
+  },
+  "disclosure": {
+    "server_selection_rule": "EXAMPLE FILE: this report exists to exercise code/validate_report.py. It contains no measurements.",
+    "candidate_servers": [
+      {"name": "sint-liquid-mcp", "included": false, "reason": "example entry only"}
+    ],
+    "mcp_spec_revision": "2025-06-18",
+    "mcp_servers_sha": "none",
+    "transport": "stdio",
+    "model_under_test": "none (store-only)",
+    "model_params": {},
+    "embedding_model": "not-applicable",
+    "seeds": [1, 2, 3],
+    "repetitions": 3,
+    "n_tasks_per_family": {"T1": 0, "T2": 0, "T3": 0, "T4": 0, "T5": 0, "T6": 0, "T7": 0, "T8": 0, "T9": 0, "T10": 0},
+    "budgets": {"max_calls": 0, "max_tokens": 0, "wall_clock_s": 0},
+    "price_table": {"date": "not-applicable", "source": "no model calls"},
+    "grader_info": "no rubric metrics were graded",
+    "prompt_templates_hash": "not-applicable",
+    "environment": "schema example",
+    "known_deviations": [
+      "SCHEMA EXAMPLE: every metric value is null; this file must never be quoted as a result",
+      "the example exists so that code/validate_report.py has something to validate"
+    ]
+  }
+}

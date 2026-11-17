@@ -1,0 +1,18 @@
+[package]
+name = "refslint"
+version = "0.1.0"
+edition = "2021"
+description = "One utility with subcommands for the agent-memory-mcp paper pipeline: curated source spec -> BibTeX + verification table, citation-key checks, protocol-report validation, repo facts, network verification, and the paper's self-tests. Standard library only."
+license = "Apache-2.0"
+
+[[bin]]
+name = "refslint"
+path = "src/main.rs"
+
+# The disk on this machine is tight and nothing here needs a debugger symbol table.
+[profile.dev]
+debug = 0
+incremental = false
+
+[profile.release]
+debug = 0

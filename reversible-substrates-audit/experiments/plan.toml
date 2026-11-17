@@ -1,0 +1,509 @@
+# Experiment plan -- reversible-substrates-audit
+#
+# Every number in tex/main.tex is produced by `papertool measure` from exactly these runs.
+# The subject is kostyk348/timelock-ca at the SHA in experiments/subjects.lock; `cwd` is
+# relative to this folder, so `bash scripts/fetch_subjects.sh` must have run once.
+#
+# `x` is where the run sits on its group's figure axis (data/figures/<group>.csv).
+# `note` says why the run exists, and it is copied into data/measurements.json so the
+# reason travels with the number.
+
+[meta]
+subject = "kostyk348/timelock-ca"
+subject_sha = "c5c94bb38bae1ac6dec1f8b794112b6331f5625e"
+python = "C:/Users/Lab/AppData/Local/Python/bin/python.exe"
+python_version = "3.14.6"
+numpy = "2.5.1"
+host_os = "Windows 11 (x86_64), CPython 3.14.6, single process, no GPU"
+tool_commit = "papertool 0.1.0"
+claimed_in_readme = "margolus seed 0 hamming_weight 51; train 0.3313 -> 0.0848, XOR 94.75"
+
+# ---------------------------------------------------------------- Lab 3: Margolus / BBM
+# The README's headline: 100 ticks forward, 100 back, bit-for-bit. Does it hold off the
+# one seed it was tuned on, and for step counts that are not a multiple of the two phases?
+
+[[run]]
+id = "margolus_size8"
+group = "margolus_size"
+x = "8"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "8"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+note = "16x16 -> 8x8 lattice, 100 ticks forward and back"
+
+[[run]]
+id = "margolus_size16"
+group = "margolus_size"
+x = "16"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "16"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+note = "the size and seed the README reports"
+
+[[run]]
+id = "margolus_size32"
+group = "margolus_size"
+x = "32"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "32"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+note = "1024 cells: does the inverse survive a bigger lattice?"
+
+[[run]]
+id = "margolus_size48"
+group = "margolus_size"
+x = "48"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "48"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+note = "2304 cells"
+
+[[run]]
+id = "margolus_size64"
+group = "margolus_size"
+x = "64"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "64"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+note = "4096 cells; the largest lattice the CLI accepts comfortably"
+
+# Phase bookkeeping: the automaton alternates an odd and an even block offset, so the
+# interesting failure mode is an odd number of ticks, where the backward pass must use the
+# opposite phase on the first step.
+
+[[run]]
+id = "margolus_steps1"
+group = "margolus_steps"
+x = "1"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "32", "--steps", "1", "--mid-steps", "1"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+note = "single odd tick: the phase-inversion edge case"
+
+[[run]]
+id = "margolus_steps2"
+group = "margolus_steps"
+x = "2"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "32", "--steps", "2", "--mid-steps", "1"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+note = "one full two-phase period"
+
+[[run]]
+id = "margolus_steps3"
+group = "margolus_steps"
+x = "3"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "32", "--steps", "3", "--mid-steps", "1"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+note = "three ticks: odd, but past the trivial case"
+
+[[run]]
+id = "margolus_steps7"
+group = "margolus_steps"
+x = "7"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "32", "--steps", "7", "--mid-steps", "3"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+note = "odd count with an odd midpoint"
+
+[[run]]
+id = "margolus_steps16"
+group = "margolus_steps"
+x = "16"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "32", "--steps", "16", "--mid-steps", "7"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+note = "even steps, odd midpoint"
+
+[[run]]
+id = "margolus_steps100"
+group = "margolus_steps"
+x = "100"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "32", "--steps", "100", "--mid-steps", "40"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+note = "the README's configuration at size 32"
+
+[[run]]
+id = "margolus_steps500"
+group = "margolus_steps"
+x = "500"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "margolus", "--size", "32", "--steps", "500", "--mid-steps", "250"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+note = "500 ticks: integer drift cannot accumulate if the rule is a permutation, so this bounds the claim"
+
+# ---------------------------------------------------------- Lab 1: topological charge lock
+# The claim is that the Euler characteristic is a conserved charge rather than a filtered
+# statistic. What the run cannot show by itself is whether the invariant distinguishes
+# anything: accepted_flips/rejected_flips is the evidence that the sampler is alive.
+
+[[run]]
+id = "topo_size16"
+group = "topo_size"
+x = "16"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "topo", "--size", "16"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+note = "two rings on a 16x16 lattice, 200 noisy proposals"
+
+[[run]]
+id = "topo_size32"
+group = "topo_size"
+x = "32"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "topo", "--size", "32"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+note = "the README's configuration"
+
+[[run]]
+id = "topo_size64"
+group = "topo_size"
+x = "64"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "topo", "--size", "64"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+note = "bigger lattice, same 200 proposals: acceptance rate should fall, conservation should not"
+
+[[run]]
+id = "topo_steps2000"
+group = "topo_long"
+x = "2000"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "topo", "--size", "32", "--steps", "2000"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+note = "ten times the proposals: a conserved quantity should still be conserved, and the lattice should still be moving"
+
+# -------------------------------------------------------- Lab 2: bitwise lattice-gas gravity
+# The claim is a net attractive force. One seed at one size is not a force; the question is
+# whether the sign of mean_net_force survives twenty seeds and four sizes.
+
+[[run]]
+id = "hpp_size32"
+group = "hpp_size"
+x = "32"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "hpp", "--size", "32"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+mode = "json"
+unit_mean_net_force = "lattice units"
+note = "small box: finite-size effects are the whole question"
+
+[[run]]
+id = "hpp_size48"
+group = "hpp_size"
+x = "48"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "hpp", "--size", "48"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+mode = "json"
+unit_mean_net_force = "lattice units"
+note = "medium box"
+
+[[run]]
+id = "hpp_size64"
+group = "hpp_size"
+x = "64"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "hpp", "--size", "64"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+mode = "json"
+unit_mean_net_force = "lattice units"
+note = "the README's configuration"
+
+[[run]]
+id = "hpp_size96"
+group = "hpp_size"
+x = "96"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "hpp", "--size", "96"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+mode = "json"
+unit_mean_net_force = "lattice units"
+note = "large box: if the force is real it should not need a small box"
+
+# -------------------------------------------------- Lab 4: adjoint training, memory and accuracy
+# Two claims are entangled in the README: the XOR accuracy (99% of a task the loss was
+# designed around) and O(1) memory. Depth is the axis that separates them: activations are
+# what a backprop graph would grow with depth, so peak working set vs depth is the test.
+
+[[run]]
+id = "train_depth2"
+group = "train_depth"
+x = "2"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--depth", "2"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "two leapfrog steps"
+
+[[run]]
+id = "train_depth4"
+group = "train_depth"
+x = "4"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--depth", "4"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "four steps"
+
+[[run]]
+id = "train_depth8"
+group = "train_depth"
+x = "8"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--depth", "8"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "eight steps"
+
+[[run]]
+id = "train_depth12"
+group = "train_depth"
+x = "12"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--depth", "12"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "the README's configuration"
+
+[[run]]
+id = "train_depth24"
+group = "train_depth"
+x = "24"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--depth", "24"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "double the README depth: stored activations would show here"
+
+[[run]]
+id = "train_depth48"
+group = "train_depth"
+x = "48"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--depth", "48"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "quadruple: 12x48x400 float64 activations would be about 1.8 MB if anything stored them"
+
+[[run]]
+id = "train_batch100"
+group = "train_batch"
+x = "100"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--n", "100"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "batch size 100: memory should scale with n, not with depth"
+
+[[run]]
+id = "train_batch400"
+group = "train_batch"
+x = "400"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--n", "400"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "the README's batch"
+
+[[run]]
+id = "train_batch1600"
+group = "train_batch"
+x = "1600"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--n", "1600"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "four times the batch"
+
+[[run]]
+id = "train_batch6400"
+group = "train_batch"
+x = "6400"
+cwd = "subjects/timelock-ca"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "timelock_ca.cli", "train", "--n", "6400"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+mode = "json"
+unit_xor_accuracy_pct = "percent"
+note = "sixteen times the batch: the linear term in n must appear"
+
+# ------------------------------------------------------------------- derived quantities
+# Ratios and standard errors are functions of the measurements, not measurements. They are
+# declared here so that the paper quotes a value with a provenance line instead of typing a
+# number: `papertool measure --derive-only` evaluates them over the aggregate means.
+
+[[derive]]
+id = "hpp_se32"
+group = "derived"
+expr = "hpp_size32.mean_net_force.sd / sqrt(hpp_size32.mean_net_force.n)"
+unit = "lattice units"
+note = "standard error of the mean net force over 20 seeds, size 32"
+
+[[derive]]
+id = "hpp_t32"
+group = "derived"
+expr = "hpp_size32.mean_net_force / hpp_se32.value"
+unit = "dimensionless"
+note = "mean/SE: how many standard errors the claimed attraction sits from zero, size 32"
+
+[[derive]]
+id = "hpp_se48"
+group = "derived"
+expr = "hpp_size48.mean_net_force.sd / sqrt(hpp_size48.mean_net_force.n)"
+unit = "lattice units"
+note = "standard error, size 48"
+
+[[derive]]
+id = "hpp_t48"
+group = "derived"
+expr = "hpp_size48.mean_net_force / hpp_se48.value"
+unit = "dimensionless"
+note = "mean/SE, size 48"
+
+[[derive]]
+id = "hpp_se64"
+group = "derived"
+expr = "hpp_size64.mean_net_force.sd / sqrt(hpp_size64.mean_net_force.n)"
+unit = "lattice units"
+note = "standard error, size 64 (the README's configuration)"
+
+[[derive]]
+id = "hpp_t64"
+group = "derived"
+expr = "hpp_size64.mean_net_force / hpp_se64.value"
+unit = "dimensionless"
+note = "mean/SE, size 64"
+
+[[derive]]
+id = "hpp_se96"
+group = "derived"
+expr = "hpp_size96.mean_net_force.sd / sqrt(hpp_size96.mean_net_force.n)"
+unit = "lattice units"
+note = "standard error, size 96"
+
+[[derive]]
+id = "hpp_t96"
+group = "derived"
+expr = "hpp_size96.mean_net_force / hpp_se96.value"
+unit = "dimensionless"
+note = "mean/SE, size 96"
+
+[[derive]]
+id = "hpp_positive_all"
+group = "derived"
+expr = "hpp_size32.attraction_detected.true_count + hpp_size48.attraction_detected.true_count + hpp_size64.attraction_detected.true_count + hpp_size96.attraction_detected.true_count"
+unit = "runs"
+note = "how many of the 80 runs reported a positive net force"
+
+[[derive]]
+id = "hpp_all_n"
+group = "derived"
+expr = "hpp_size32.attraction_detected.n + hpp_size48.attraction_detected.n + hpp_size64.attraction_detected.n + hpp_size96.attraction_detected.n"
+unit = "runs"
+note = "denominator of hpp_positive_all"
+
+[[derive]]
+id = "topo_accept16"
+group = "derived"
+expr = "topo_size16.accepted_flips / (topo_size16.accepted_flips + topo_size16.rejected_flips)"
+unit = "fraction"
+note = "acceptance rate of the chi-preserving sampler, size 16"
+
+[[derive]]
+id = "topo_accept32"
+group = "derived"
+expr = "topo_size32.accepted_flips / (topo_size32.accepted_flips + topo_size32.rejected_flips)"
+unit = "fraction"
+note = "acceptance rate, size 32"
+
+[[derive]]
+id = "topo_accept64"
+group = "derived"
+expr = "topo_size64.accepted_flips / (topo_size64.accepted_flips + topo_size64.rejected_flips)"
+unit = "fraction"
+note = "acceptance rate, size 64: the freeze the invariant imposes on the dynamics"
+
+[[derive]]
+id = "mem_depth_delta_mb"
+group = "derived"
+expr = "(train_depth48.peak_ws_bytes.mean - train_depth2.peak_ws_bytes.mean) / 1048576"
+unit = "MB"
+note = "peak working set difference between depth 2 and depth 48: the O(1)-in-depth test"
+
+[[derive]]
+id = "mem_batch_delta_mb"
+group = "derived"
+expr = "(train_batch6400.peak_ws_bytes.mean - train_batch100.peak_ws_bytes.mean) / 1048576"
+unit = "MB"
+note = "peak working set difference between a 100-sample and a 6400-sample batch: memory is linear in n"
+
+[[derive]]
+id = "mem_depth_ratio"
+group = "derived"
+expr = "train_depth48.peak_ws_bytes.mean / train_depth2.peak_ws_bytes.mean"
+unit = "ratio"
+note = "24x the depth for this factor of peak memory"
+
+[[derive]]
+id = "mem_depth_abs_mb"
+group = "derived"
+expr = "sqrt((train_depth48.peak_ws_bytes.mean - train_depth2.peak_ws_bytes.mean) * (train_depth48.peak_ws_bytes.mean - train_depth2.peak_ws_bytes.mean)) / 1048576"
+unit = "MB"
+note = "absolute value of the depth-2 to depth-48 peak difference: the size of the effect, without its sign"

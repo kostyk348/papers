@@ -1,0 +1,89 @@
+verify_all.sh -- 2026-11-17T07:10:16Z
+papertool: /c/Users/Lab/AppData/Local/hermes/profiles/libraressa/workspace/papers/parity-holonomy-reproduction/../tooling/papertool/target/release/papertool.exe
+papertool -- pipeline utility for the paper packages in papers/.
+
+Papers and citations
+  bib         [--root .] [--refs data/sources.toml] [--meta data/refmeta.json]
+              [--out-dir .] [--check-only]      -> tex/references.bib,
+                                                   reference-verification.md,
+                                                   data/refs-verified.csv
+  cites       [--root .] [--refs data/sources.toml] [--check | --count]
+  jsoncheck   <file.json> ...                   parse-only check of JSON artefacts
+
+Experiments and numbers
+  measure     [--root .] [--plan experiments/plan.toml] [--out data/measurements.json]
+              [--logs evidence/raw] [--only <run|group>] [--check] [--derive-only]
+                                                run the plan, keep raw logs, aggregate
+  ledger      [--root .] [--measurements data/measurements.json]
+              [--numbers-tex tex/numbers.tex] [--ledger-tsv data/numbers.tsv]
+              [--figures-dir data/figures] [--check]
+                                                -> number macros, TSV ledger, figure CSVs
+  numbers     [--root .] [--numbers-tex tex/numbers.tex]
+              [--allowlist data/numeral-allowlist.tsv] [--texdir tex]
+                                                every number macro resolves; no unlisted
+                                                bare numerals in the prose
+
+Network verification (HTTPS via curl)
+  fetch       --queries queries.json --out evidence/raw/arxiv1.json [--max 8]
+  ids         --ids ids.txt   --out evidence/raw/arxiv_ids.json
+  doi         --dois dois.txt --out evidence/raw/dois.json
+  probe       --urls urls.txt --out evidence/raw/urls.json
+  query       --queries queries.txt --out evidence/raw/crossref.json
+  merge       [--raw evidence/raw] [--out data/refmeta.json]
+
+=== JSON artefacts parse
+all 2 JSON files parse
+    ok
+=== measurements match the plan (every run present, right n)
+measurements match the plan (7 runs)
+    ok
+=== ledger and figure data are what the measurements produce
+generated files match measurements.json (5 figure files)
+    ok
+=== bibliography rebuilds from the curated, verified sources
+resolved 18 curated sources (0 unresolved)
+   algebra        1
+   associative-memory 1
+   coding         1
+   cohomology     2
+   contextuality  2
+   dynamics       1
+   frustration    2
+   hardness       1
+   learning       1
+   replication    2
+   reproducibility 1
+   subject        1
+   topological-memory 2
+key -> ref number map:
+   paradoxlogic               [1]
+   mermin1990                 [2]
+   mermin1993                 [3]
+   abramsky2011               [4]
+   abramsky2012               [5]
+   hopfield1982               [6]
+   goles1980                  [7]
+   krohn1965                  [8]
+   angluin1987                [9]
+   karp1972                   [10]
+   vannimenus1977             [11]
+   binder1986                 [12]
+   hamming1950                [13]
+   kitaev2003                 [14]
+   dennis2002                 [15]
+   ioannidis2005              [16]
+   osc2015                    [17]
+   sandve2013                 [18]
+    ok
+=== every \cite has a curated source and every source is cited
+citation keys used: 18 unique
+curated keys never cited: 0
+    ok
+=== every number macro resolves and no bare numeral is unlisted
+numbers: 53 lookups resolve, no unlisted bare numerals in 2 tex file(s)
+    ok
+=== PDF build
+    ok (78218 bytes)
+    sha256 7811ebd6ab41fdec3f8459e80076b73b1ad65d56b50b227498d10ddf853fb9d8
+
+ALL CHECKS PASSED

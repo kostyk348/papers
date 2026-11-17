@@ -1,0 +1,9 @@
+subjects/
+tools/tectonic/
+tools/*.zip
+tex/*.aux
+tex/*.log
+tex/*.blg
+tex/*.bbl
+tex/*.out
+tex/*.toc

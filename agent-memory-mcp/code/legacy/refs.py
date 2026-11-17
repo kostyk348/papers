@@ -1,0 +1,508 @@
+"""Curated source list for the paper ``agent-memory-mcp``.
+
+This module is the single source of truth for every cited work.  Each entry is
+resolved against ``data/refmeta.json`` (a snapshot of the arXiv API, the Crossref
+API and direct HTTP probes, see ``collect_refmeta.py``) by ``build_refs.py``.
+Nothing may be cited that does not resolve in that snapshot: the build fails
+loudly instead of emitting a reference nobody checked.
+
+Fields
+------
+key       BibTeX key, used verbatim in the Markdown deliverables (\\cite{key}).
+kind      'arxiv' | 'doi' | 'url'
+id        arXiv id (no version) | DOI | absolute URL
+category  grouping used by the taxonomy / related-work tables
+supports  the specific claim in this paper that the source is cited for.  If a
+          source cannot be tied to a claim, it does not belong here.
+"""
+
+SOURCES = [
+    # ---------------------------------------------------------------- surveys
+    dict(key="huan2026secondhalf", kind="arxiv", id="2602.06052", category="survey",
+         supports="2026 survey of agent memory; organises the field along memory substrate / cognitive "
+                  "mechanism / memory subject and reviews evaluation benchmarks and metrics - the "
+                  "closest prior taxonomy to ours (type-level, not operation-level)."),
+    dict(key="zhou2026agentnative", kind="arxiv", id="2606.24775", category="survey",
+         supports="States that agent memory is now a data management system (storage, retrieval, update, "
+                  "consolidation, lifecycle governance) while existing evaluations still report "
+                  "end-to-end task success with the system as a black box; proposes a four-module "
+                  "analytical framework and evaluates 12 systems. Primary motivation for our "
+                  "operation-level protocol."),
+    dict(key="zhou2026externalization", kind="arxiv", id="2604.08224", category="survey",
+         supports="Reviews agent infrastructure as externalisation of state (memory), expertise "
+                  "(skills) and interaction (protocols); lists open challenges in evaluation and "
+                  "governance of external memory."),
+    dict(key="zhang2024memorysurvey", kind="arxiv", id="2404.13501", category="survey",
+         supports="Survey of the memory mechanism of LLM-based agents (memory sources, forms, "
+                  "operations); the operation vocabulary we extend with revision, prospective and "
+                  "epistemic-status operations."),
+    dict(key="gao2024ragsurvey", kind="arxiv", id="2312.10997", category="survey",
+         supports="RAG survey; three-paradigm decomposition (naive / advanced / modular) and the "
+                  "retrieval-generation-augmentation loop that agent memory retrieval inherits."),
+    dict(key="zhao2024aigcsurvey", kind="arxiv", id="2402.19473", category="survey",
+         supports="Second RAG survey covering retrieval granularity, training and evaluation axes; "
+                  "shows how heterogeneous retrieval metrics are reported, a comparability problem the "
+                  "protocol addresses."),
+    dict(key="xu2024conflictsurvey", kind="arxiv", id="2403.08319", category="survey",
+         supports="Taxonomy of knowledge conflicts (context-memory, inter-context, intra-memory) for "
+                  "LLMs; the conflict classes our contradiction tasks instantiate."),
+    dict(key="wang2024editsurvey", kind="arxiv", id="2310.16218", category="survey",
+         supports="Survey of knowledge editing (locate-then-edit, meta-learning, memory-based); the "
+                  "parametric counterpart to external belief revision."),
+    dict(key="moghadasi2026disclose", kind="arxiv", id="2605.21404", category="survey",
+         supports="Audit of twelve agent benchmark papers: two papers reporting on the same benchmark "
+                  "and model disagree and the paper text does not say why (scaffold, prompts, budget). "
+                  "Motivates the mandatory reporting block in our protocol."),
+
+    # ------------------------------------------------------- systems (memory)
+    dict(key="packer2023memgpt", kind="arxiv", id="2310.08560", category="systems",
+         supports="MemGPT: virtual context management with main/external storage and OS-inspired "
+                  "paging - the archetype of the storage-tier model that our write/read operations "
+                  "must be expressed in."),
+    dict(key="park2023generative", kind="arxiv", id="2304.03442", category="systems",
+         supports="Generative agents: memory stream with recency/importance/relevance retrieval and "
+                  "reflection over observations - canonical read-side scoring and offline "
+                  "consolidation."),
+    dict(key="zhong2023memorybank", kind="arxiv", id="2305.10250", category="systems",
+         supports="MemoryBank: long-term memory with Ebbinghaus-style decay and user-portrait "
+                  "summarisation - canonical forgetting/summarisation policy."),
+    dict(key="wang2023scm", kind="arxiv", id="2304.13343", category="systems",
+         supports="Self-Controlled Memory: memory controller plus memory stream for long inputs - "
+                  "explicit control operations over the store."),
+    dict(key="modarressi2023retllm", kind="arxiv", id="2305.14322", category="systems",
+         supports="RET-LLM: a general read-write memory unit for LLMs with explicit write/read "
+                  "operations - the closest prior interface-level framing."),
+    dict(key="xu2025amem", kind="arxiv", id="2502.12110", category="systems",
+         supports="A-MEM: agentic memory with note construction, link generation and memory evolution "
+                  "- a write operation that mutates existing records."),
+    dict(key="chhikara2025mem0", kind="arxiv", id="2504.19413", category="systems",
+         supports="Mem0: production memory layer that extracts, consolidates and retrieves salient "
+                  "facts, with a graph variant; reports accuracy/cost/latency against a full-context "
+                  "baseline."),
+    dict(key="li2025memos", kind="arxiv", id="2507.03724", category="systems",
+         supports="MemOS: memory as first-class resource with scheduling/management, incl. plaintext, "
+                  "activation and parameter memory - sharing across memory types."),
+    dict(key="rasmussen2025zep", kind="arxiv", id="2501.13956", category="systems",
+         supports="Zep/Graphiti: temporal knowledge graph memory with bi-temporal validity intervals; "
+                  "reports latency improvements and DMR accuracy against MemGPT."),
+    dict(key="gutierrez2024hipporag", kind="arxiv", id="2405.14831", category="systems",
+         supports="HippoRAG: hippocampal-index inspired retrieval over a knowledge graph, "
+                  "single-step multi-hop retrieval - shows retrieval-architecture effects on memory QA."),
+    dict(key="zhou2024structural", kind="arxiv", id="2412.15266", category="systems",
+         supports="Comparative study of memory structures and retrieval methods for agent memory, "
+                  "including non-parametric structures; evidence that structure choice changes task "
+                  "outcomes."),
+    dict(key="shu2024genaimalti", kind="arxiv", id="2412.05449", category="systems",
+         supports="Design and evaluation study of GenAI multi-agent collaboration for enterprise "
+                  "applications: reports design dimensions and evaluation practice for agent "
+                  "ensembles, the setting in which shared memory lives."),
+    dict(key="rezazadeh2025collabmem", kind="arxiv", id="2505.18279", category="systems",
+         supports="Collaborative memory across users with dynamic access control - memory as a shared "
+                  "resource with scoping, which our taxonomy treats as record metadata."),
+    dict(key="li2025maas", kind="arxiv", id="2506.22815", category="systems",
+         supports="Memory as a service: purpose-bound mediation of memories produced by many agents - "
+                  "motivates operation-level contracts between producer and consumer."),
+    dict(key="alake2026oracle", kind="arxiv", id="2607.13157", category="systems",
+         supports="Enterprise memory substrate for long-horizon agents; names the same requirements we "
+                  "treat as operations: retention of task state, cross-session facts, procedural "
+                  "knowledge, scoping and durability."),
+    dict(key="xu2026linkedin", kind="arxiv", id="2604.26197", category="systems",
+         supports="Industrial hierarchical semantic memory (LinkedIn hiring agent); reports latency and "
+                  "extraction-quality constraints of a deployed store - cost/latency metrics are "
+                  "first-class, as in our protocol."),
+    dict(key="wang2026emem", kind="arxiv", id="2601.21714", category="systems",
+         supports="E-mem: argues that compressing episodic context into embeddings/graphs destroys "
+                  "dependencies (de-contextualisation); an anti-consolidation position our protocol can "
+                  "test rather than assume."),
+    dict(key="mody2026cranimem", kind="arxiv", id="2603.15642", category="systems",
+         supports="CraniMem: gated, bounded memory with consolidation and distractor resistance; "
+                  "criticises ad-hoc read/write rules of database-like memory systems."),
+    dict(key="feng2026baremem", kind="arxiv", id="2609.35551", category="systems",
+         supports="BaRe-Mem: online Bayesian reliability estimates per advisor - per-record reliability "
+                  "as a stored, updated quantity."),
+    dict(key="song2026dmem", kind="arxiv", id="2603.14597", category="systems",
+         supports="D-MEM: reports O(N^2) write latency and token cost for append-and-evolve designs "
+                  "(A-MEM) and routes writes by reward prediction error; direct evidence that write "
+                  "cost must be measured, not assumed."),
+    dict(key="gaikwad2026routing", kind="arxiv", id="2603.15658", category="systems",
+         supports="Store routing: retrieval as a routing problem evaluated with coverage, exact match "
+                  "and token efficiency - shows token-efficiency metrics can be computed "
+                  "automatically."),
+    dict(key="gallego2026feedback", kind="arxiv", id="2601.05960", category="systems",
+         supports="Distils transient critiques into retrievable guidelines through a file-based memory "
+                  "and agent-controlled tool calls - an operation-level (write-what) ablation."),
+    dict(key="lin2025sleeptime", kind="arxiv", id="2504.13171", category="systems",
+         supports="Sleep-time compute: offline pre-computation over a context before queries arrive "
+                  "reduces inference cost - the offline consolidation operation and its cost model."),
+    dict(key="mullick2026store", kind="arxiv", id="2610.04794", category="systems",
+         supports="Knowing the Store: a memory backend must expose value-free lifecycle metadata so an "
+                  "agent can tell that a record (cancelled plan) must not be used; scores that "
+                  "judgment as metamemory monitoring. Supports our metadata and "
+                  "inadmissible-record tasks."),
+
+    # ------------------------------------------------------------- retrieval
+    dict(key="lewis2020rag", kind="arxiv", id="2005.11401", category="retrieval",
+         supports="RAG: retrieval-augmented generation over a non-parametric index; the baseline "
+                  "read path of every memory system we benchmark."),
+    dict(key="asai2023selfrag", kind="arxiv", id="2310.11511", category="retrieval",
+         supports="Self-RAG: self-reflective retrieval with critique tokens - retrieval decisions are "
+                  "themselves an operation with measurable outcomes."),
+    dict(key="liu2023lostmiddle", kind="arxiv", id="2307.03172", category="retrieval",
+         supports="Lost in the middle: retrieval/answer accuracy depends strongly on where evidence "
+                  "sits in the context - a confound our protocol fixes by masking evidence order."),
+    dict(key="hseih2024foundmiddle", kind="arxiv", id="2406.16008", category="retrieval",
+         supports="Found in the middle: positional attention bias can be calibrated to improve long "
+                  "context use - follow-up evidence for positional effects."),
+    dict(key="edge2024graphrag", kind="arxiv", id="2404.16130", category="retrieval",
+         supports="GraphRAG: query-focused summarisation over a derived entity graph; the "
+                  "graph-based consolidation path."),
+    dict(key="wang2024awm", kind="arxiv", id="2409.07429", category="retrieval",
+         supports="Agent workflow memory: inducing reusable workflows from past trajectories - "
+                  "procedural memory as an explicitly induced artefact."),
+    dict(key="xia2026hits", kind="arxiv", id="2609.31382", category="retrieval",
+         supports="Highlight-then-summarise compression of long context - a concrete compression "
+                  "policy whose fidelity loss the protocol measures."),
+    dict(key="xu2026contextpipe", kind="arxiv", id="2609.00749", category="retrieval",
+         supports="ContextPipe: context assembly under a hard token budget with ordering and "
+                  "compaction decisions - formalises the budget constraint our cost metrics share."),
+
+    # -------------------------------------------------- belief / conflict / provenance
+    dict(key="su2024conflictbank", kind="arxiv", id="2408.12076", category="revision",
+         supports="ConflictBank: benchmark for the influence of knowledge conflicts on LLMs; provides "
+                  "conflict constructions reusable in our contradiction-injection tasks."),
+    dict(key="chen2026ragwrong", kind="arxiv", id="2605.14473", category="revision",
+         supports="Shows that final-answer accuracy hides whether a model followed retrieved evidence, "
+                  "its parametric prior or produced something else; our conflict tasks score the "
+                  "attribution decision separately from the answer."),
+    dict(key="schuster2026sourcepref", kind="arxiv", id="2601.03746", category="revision",
+         supports="Source identity changes how LLM pipelines resolve conflicts - a variable our "
+                  "protocol controls for in conflict tasks."),
+    dict(key="meng2022rome", kind="arxiv", id="2202.05262", category="revision",
+         supports="ROME: causal tracing locates factual associations that can be edited directly - "
+                  "the parametric alternative to writing a record."),
+    dict(key="meng2022memit", kind="arxiv", id="2210.07229", category="revision",
+         supports="MEMIT: mass editing of many facts at once; scales the rewrite operation and shows "
+                  "the cost of bulk revision."),
+    dict(key="falakh2021agm", kind="arxiv", id="2104.14512", category="revision",
+         supports="Katsuno-Mendelzon-style characterisation of AGM belief base revision - the formal "
+                  "revision semantics our belief-revision operations are named after."),
+    dict(key="falkenhainer2013belief", kind="arxiv", id="1304.3084", category="revision",
+         supports="Argues for a general-purpose belief maintenance system bridging probabilistic "
+                  "uncertainty and symbolic belief structures; the maintenance-component lineage."),
+    dict(key="kassner2021belief", kind="arxiv", id="2104.08401", category="revision",
+         supports="Persistent memory of (subject, relation, object) belief statements makes a model's "
+                  "answers consistent - evidence that an external belief store changes internal "
+                  "consistency."),
+    dict(key="souza2025provagent", kind="arxiv", id="2508.02866", category="revision",
+         supports="PROV-AGENT: unified provenance for agent interactions, so reasoning can be "
+                  "inspected and errors traced - the model for our per-record provenance requirement."),
+    dict(key="louck2026poisoning", kind="arxiv", id="2606.24322", category="revision",
+         supports="Non-malleable, origin-bound write authority with machine-checked guarantees against "
+                  "memory poisoning; supports treating write authority as part of the record."
+         ),
+    dict(key="sunil2026mempoison", kind="arxiv", id="2601.05504", category="revision",
+         supports="Memory poisoning attack and defence on memory-based LLM agents; quantifies "
+                  "corruption of long-term memory via query-only interactions."),
+    dict(key="chen2026mrmmia", kind="arxiv", id="2605.27825", category="revision",
+         supports="Membership inference against chat-agent memory - privacy leakage that a memory "
+                  "store's report must be able to bound."),
+
+    # ------------------------------------------------------- epistemic status
+    dict(key="lin2022uncertaintywords", kind="arxiv", id="2205.14334", category="epistemic",
+         supports="Models can be trained to state confidence in words (e.g. '90% confidence') that is "
+                  "better calibrated than the corresponding probabilities - verbalised confidence is "
+                  "measurable without logit access."),
+    dict(key="kadavath2022know", kind="arxiv", id="2207.05221", category="epistemic",
+         supports="Larger models are well calibrated on multiple-choice/true-false self-evaluation and "
+                  "can predict which questions they will answer correctly (P(IK))."),
+    dict(key="tian2023justask", kind="arxiv", id="2305.14975", category="epistemic",
+         supports="Elicitation strategy, not just model scale, drives calibration quality of "
+                  "expressed confidence."),
+    dict(key="xiong2023confidence", kind="arxiv", id="2306.13063", category="epistemic",
+         supports="Black-box evaluation of confidence elicitation: no prompt strategy gives both good "
+                  "calibration and good discrimination; framework for measuring both."),
+    dict(key="cheng2024knownotknow", kind="arxiv", id="2401.13275", category="epistemic",
+         supports="Refusal-aware calibration of assistants: a model should decline outside its knowledge "
+                  "boundary; an operation-level abstention metric."),
+    dict(key="ni2024probabilistic", kind="arxiv", id="2408.09773", category="epistemic",
+         supports="Compares probabilistic vs verbalised confidence: probabilistic confidence "
+                  "discriminates knowledge boundaries better while verbalised confidence is better "
+                  "calibrated in some regimes - hence we require both to be reported."),
+    dict(key="yang2024verbalized", kind="arxiv", id="2412.14737", category="epistemic",
+         supports="Verbalised confidence scores need explicit evaluation protocol and are "
+                  "prompt-sensitive - supports fixing elicitation prompts in our protocol."),
+    dict(key="matsnev2026uncertdec", kind="arxiv", id="2606.19559", category="epistemic",
+         supports="Decomposes uncertainty for clarification seeking in agents (underspecification-aware) "
+                  "- a third operation alongside asserting and abstaining."),
+    dict(key="guo2017calibration", kind="arxiv", id="1706.04599", category="epistemic",
+         supports="Establishes reliability diagrams, ECE and temperature scaling for neural networks; "
+                  "the metric machinery we reuse for stored-confidence calibration."),
+    dict(key="lichtenstein1982calibration", kind="doi", id="10.1017/CBO9780511809477.023",
+         category="epistemic",
+         supports="Human probability calibration review (overconfidence, calibration vs resolution); the "
+                  "origin of the reliability-diagram framing for stored confidence."),
+
+    # ------------------------------------------------------ prospective memory
+    dict(key="liu2026pmbench", kind="arxiv", id="2607.12385", category="prospective",
+         supports="PM-Bench: text-based benchmark measuring prospective memory (executing an intention "
+                  "at a future cue while other activity continues) - the single operation our "
+                  "prospective-memory tasks must reuse rather than reinvent."),
+    dict(key="zhao2026pmslm", kind="arxiv", id="2609.01272", category="prospective",
+         supports="Typed intention stores for small-model agents: reports that the best published "
+                  "PM-Bench scaffold reaches limited accuracy - baseline numbers for PM tasks."),
+    dict(key="einstein1990prospective", kind="doi", id="10.1037/0278-7393.16.4.717",
+         category="prospective",
+         supports="Experimental evidence that prospective memory (intention for a future cue) is a "
+                  "distinct faculty that ages differently from retrospective recall - the psychological "
+                  "basis for treating it as its own operation."),
+
+    # ------------------------------------------------- cognitive architecture
+    dict(key="laird2012soar", kind="doi", id="10.7551/mitpress/7688.001.0001", category="cognition",
+         supports="The Soar cognitive architecture: separate declarative (semantic/episodic) and "
+                  "procedural memories with a working-memory graph - the canonical "
+                  "multi-store design our taxonomy maps onto MCP servers."),
+    dict(key="laird2022actrsoar", kind="arxiv", id="2201.09305", category="cognition",
+         supports="Detailed comparison of ACT-R and Soar representations, metadata and processing - "
+                  "evidence that the field's store boundaries differ per architecture, hence the need "
+                  "for an operation-level (not structure-level) taxonomy."),
+    dict(key="anderson2004actr", kind="doi", id="10.1037/0033-295X.111.4.1036", category="cognition",
+         supports="ACT-R: integrated theory of mind with declarative/procedural distinction and "
+                  "activation-based retrieval - activation and retrieval-probability metrics."),
+    dict(key="innerebner2025actr", kind="arxiv", id="2505.05083", category="cognition",
+         supports="Hybrid personalisation with ACT-R declarative and procedural memory modules - "
+                  "separates what is stored from how it is used, as our taxonomy does."),
+    dict(key="mohan2022analogical", kind="arxiv", id="2210.11731", category="cognition",
+         supports="Analogical concept memory for Common-Model-of-Cognition architectures: generalisation "
+                  "across episodes is a memory operation, not a retrieval side effect."),
+    dict(key="atkinson1968human", kind="doi", id="10.1016/S0079-7421(08)60422-3", category="cognition",
+         supports="The multi-store model (sensory, short-term, long-term with control processes) - "
+                  "control processes are the ancestors of our write/consolidate operations."),
+    dict(key="miller1956magical", kind="doi", id="10.1037/h0043158", category="cognition",
+         supports="Capacity limits on immediate memory - the quantitative ancestor of a context/token "
+                  "budget."),
+    dict(key="craik1972levels", kind="doi", id="10.1016/S0022-5371(72)80001-X", category="cognition",
+         supports="Depth of processing determines later recall: what you store at write time predicts "
+                  "read success - the write-side quality metric."),
+    dict(key="tulving1973encoding", kind="doi", id="10.1037/h0020071", category="cognition",
+         supports="Encoding specificity: retrieval depends on the match between encoding context and "
+                  "retrieval cue - the theoretical basis for probe-set/provenance requirements."),
+    dict(key="johnson1993source", kind="doi", id="10.1037/0033-2909.114.1.3", category="cognition",
+         supports="Source monitoring: remembering where knowledge came from is a distinct process that "
+                  "fails independently of content recall - the human evidence for provenance as a "
+                  "separate scoring dimension."),
+    dict(key="cepeda2008spacing", kind="doi", id="10.1111/j.1467-9280.2008.02209.x", category="cognition",
+         supports="Spacing effects in learning: gap between exposures changes retention - informs the "
+                  "schedule of consolidation runs."),
+    dict(key="roediger2006testing", kind="doi", id="10.1111/j.1745-6916.2006.00012.x", category="cognition",
+         supports="Retrieval practice improves long-term retention more than restudy - evidence that "
+                  "read operations themselves modify the store's future usefulness."),
+    dict(key="walker2004sleep", kind="doi", id="10.1016/j.neuron.2004.08.031", category="cognition",
+         supports="Sleep-dependent memory consolidation: offline replay is a necessary post-encoding "
+                  "process - the biological analogue of the offline consolidation operation."),
+    dict(key="whelan2021replay", kind="arxiv", id="2102.11914", category="cognition",
+         supports="Computational model of hippocampal reverse replay for reinforcement learning - a "
+                  "mechanism-level account of offline consolidation."),
+    dict(key="kline2025forgetting", kind="arxiv", id="2506.12034", category="cognition",
+         supports="Tests whether artificial models show human-like Ebbinghaus forgetting curves under "
+                  "decay and spaced repetition - measurable decay shaping."),
+    dict(key="feng2026forever", kind="arxiv", id="2601.03938", category="cognition",
+         supports="Forgetting-curve-inspired replay scheduling for continual learning - an explicit "
+                  "retention-policy benchmark."),
+    dict(key="wang2026simulating", kind="arxiv", id="2605.25680", category="cognition",
+         supports="Runs classic human memory experiments on language models and reports that LM memory "
+                  "is far more reliable than human memory - warning against anthropomorphic decay "
+                  "assumptions."),
+    dict(key="pasukonis2022mazes", kind="arxiv", id="2210.13383", category="cognition",
+         supports="Long-term memory evaluation in partially observed 3D mazes (Memory Maze) - an "
+                  "environment-level memory benchmark with leakage controls."),
+
+    # --------------------------------------------------------------- protocol
+    dict(key="mcpspec2025", kind="url", id="https://modelcontextprotocol.io/specification/2025-06-18",
+         category="protocol",
+         supports="Model Context Protocol specification revision 2025-06-18: server/client discovery, "
+                  "tools, resources and prompts - the interface our protocol binds to."),
+    dict(key="mcpspec2025mar", kind="url", id="https://modelcontextprotocol.io/specification/2025-03-26",
+         category="protocol",
+         supports="Earlier MCP revision (2025-03-26) - kept to show which revision a reported run "
+                  "targeted."),
+    dict(key="mcpintro", kind="url", id="https://modelcontextprotocol.io/docs/getting-started/intro",
+         category="protocol",
+         supports="MCP introduction: the protocol's stated purpose of standardising how applications "
+                  "give LLMs context and tools."),
+    dict(key="anthropicmcp2024", kind="url", id="https://www.anthropic.com/news/model-context-protocol",
+         category="protocol",
+         supports="MCP announcement (November 2024) - the primary source for the protocol's origin and "
+                  "stated goals."),
+    dict(key="mcpservers", kind="url", id="https://github.com/modelcontextprotocol/servers",
+         category="protocol",
+         supports="Reference MCP server collection - the harness that makes the protocol concrete and "
+                  "the population our protocol must work against."),
+    dict(key="jsonrpc2", kind="url", id="https://www.jsonrpc.org/specification",
+         category="protocol",
+         supports="JSON-RPC 2.0 specification: request/response/error framing used by MCP transports - "
+                  "the source of our error-code accounting."),
+    dict(key="luo2025mcpuniverse", kind="arxiv", id="2508.14704", category="protocol",
+         supports="MCP-Universe: benchmark for LLMs driving real MCP servers across 6 domains, 231 "
+                  "tasks; shows the ecosystem is benchmarkable at task level."),
+    dict(key="fan2025mcptoolbench", kind="arxiv", id="2508.07575", category="protocol",
+         supports="MCPToolBench++: large-scale MCP tool-use benchmark with cost analysis - precedent for "
+                  "reporting per-call cost in MCP evaluations."),
+    dict(key="luo2025mcpbench", kind="arxiv", id="2504.11094", category="protocol",
+         supports="MCPBench: an evaluation framework for MCP servers measuring task effectiveness and "
+                  "efficiency (latency, tokens) - the closest prior art to a runnable, "
+                  "implementation-agnostic MCP evaluation, but scoped to tool-use tasks, not to memory "
+                  "operations."),
+    dict(key="zong2025mcpsafety", kind="arxiv", id="2512.15163", category="protocol",
+         supports="MCP-SafetyBench: safety evaluation of LLMs with real MCP servers - evidence that "
+                  "protocol-level benchmarking of servers is an accepted practice."),
+    dict(key="rodrigues2026mcppatterns", kind="arxiv", id="2606.30317", category="protocol",
+         supports="MCP server architecture patterns and ecosystem growth after November 2024 - "
+                  "context for why a memory-server protocol is actionable now."),
+    dict(key="afsar2026registry", kind="arxiv", id="2609.10962", category="protocol",
+         supports="Shows that MCP ecosystem studies select for servers that work (reference sets, "
+                  "popularity, repaired pipelines) - warns that our server sample must be reported "
+                  "explicitly."),
+    dict(key="rashidi2026unicode", kind="arxiv", id="2607.05744", category="protocol",
+         supports="Unicode TAG-block concealment of tool metadata across three MCP server "
+                  "implementations: an approval-view fidelity gap - a class of metadata-integrity "
+                  "checks our protocol's provenance task must include."),
+    dict(key="shi2025toolretrieval", kind="arxiv", id="2503.01763", category="protocol",
+         supports="Tool retrieval benchmarks: as tool sets grow, retrieving the right tool becomes the "
+                  "bottleneck - the same finding our memory-store routing task tests for records."),
+    dict(key="lee2026citecheck", kind="arxiv", id="2603.17339", category="protocol",
+         supports="citecheck: an MCP server that verifies and repairs bibliographic metadata - evidence "
+                  "that protocol servers can carry machine-checkable verification procedures."),
+    dict(key="garzon2025did", kind="arxiv", id="2511.02841", category="protocol",
+         supports="Agent identity with decentralised identifiers and verifiable credentials for "
+                  "agent-to-agent trust - the credentialing direction our origin-bound write "
+                  "authority points to."),
+    dict(key="chang2025anp", kind="arxiv", id="2508.00007", category="protocol",
+         supports="Agent Network Protocol white paper: interoperability requirements between "
+                  "heterogeneous agents (identity, discovery, negotiation)."),
+    dict(key="nie2026awcp", kind="arxiv", id="2602.20493", category="protocol",
+         supports="AWCP: workspace delegation protocol between remote agents - shows protocol work in "
+                  "agent ecosystems is moving to explicit, testable interfaces."),
+
+    # ------------------------------------------------------------- evaluation
+    dict(key="wu2024longmemeval", kind="arxiv", id="2410.10813", category="evaluation",
+         supports="LongMemEval: 500 questions over five long-term-memory abilities (information "
+                  "extraction, multi-session reasoning, temporal reasoning, knowledge updates, "
+                  "abstention) - the ability list our task families must align with or extend."),
+    dict(key="maharana2024locomo", kind="arxiv", id="2402.17753", category="evaluation",
+         supports="LoCoMo: very long-term multi-session dialogue benchmark with QA and event-graph "
+                  "summarisation; reports that long-context and RAG models lag humans - baseline "
+                  "reference."),
+    dict(key="kim2024dialsim", kind="arxiv", id="2406.13144", category="evaluation",
+         supports="DialSim: simulator for long-term multi-party dialogue understanding with time "
+                  "constraints - shows how timing constraints enter memory evaluation."),
+    dict(key="wu2025sgmem", kind="arxiv", id="2509.21212", category="evaluation",
+         supports="SGMem: sentence-graph memory that keeps provenance instead of reducing context to "
+                  "isolated facts; reports gains on long-conversation tasks."),
+    dict(key="zhang2026beyondstatic", kind="arxiv", id="2605.31086", category="evaluation",
+         supports="Benchmark with evolving personas and long-horizon semantic consistency across "
+                  "sessions - criteria the protocol's multi-session tasks adopt."),
+    dict(key="du2026ifcmemory", kind="arxiv", id="2607.26072", category="evaluation",
+         supports="IFCMemoryBench: domain memory benchmark (BIM) arguing that non-domain, "
+                  "persona-grounded evaluations are weaker tests - supports domain-transfer tasks."),
+    dict(key="lee2026aema", kind="arxiv", id="2601.11903", category="evaluation",
+         supports="AEMA: verifiable evaluation framework for agentic LLM systems with coordination and "
+                  "decision transparency metrics - precedent for verifiable report artefacts."),
+    dict(key="panda2026twist", kind="arxiv", id="2609.28575", category="evaluation",
+         supports="TWIST: proposes measuring the quality of memory interventions (not only recall), with "
+                  "a human-validated alignment - adjacent to our revision-quality scoring."),
+    dict(key="wang2026rightmemory", kind="arxiv", id="2610.07309", category="evaluation",
+         supports="Verifies retrieval admissibility (principal, policy, lifecycle state) in long-term "
+                  "agent memory: shows that recall and answer accuracy cannot detect inadmissible "
+                  "retrieval - a single-operation protocol we must cite and extend, not duplicate."),
+    dict(key="song2026eviction", kind="arxiv", id="2608.20400", category="evaluation",
+         supports="Isolates a pre-retrieval retention failure mode (structurally indirect prerequisite "
+                  "eviction) - evidence that retention must be scored separately from retrieval."),
+    dict(key="trashchenkov2026power", kind="arxiv", id="2606.20950", category="evaluation",
+         supports="Power Systems Agent Benchmark: executable evaluation of agents in electric power "
+                  "engineering - precedent for checking consequences with a program rather than "
+                  "grading prose, in the industrial domain this work is intended to transfer to."),
+    dict(key="rassheed2024multieval", kind="arxiv", id="2404.01023", category="evaluation",
+         supports="Multi-agent LLM evaluation attempt with reported inconsistencies between graders - "
+                  "reason to prefer programmatic checks where possible."),
+
+    # ------------------------------------------------------------------- infra
+    dict(key="xu2025harmony", kind="arxiv", id="2506.14707", category="infra",
+         supports="HARMONY: distributed vector database for high-throughput ANNS - the retrieval backend "
+                  "whose throughput ceiling bounds read cost."),
+    dict(key="zhao2025diverse", kind="arxiv", id="2510.27243", category="infra",
+         supports="Approximate diverse k-NN search in vector databases; diversity as a first-class "
+                  "retrieval objective - the metric our retrieval-diversity measurement borrows."),
+    dict(key="bayer1972btree", kind="doi", id="10.1007/BF00288683", category="infra",
+         supports="B-tree organisation and maintenance - the index-maintenance cost model behind write "
+                  "latency."),
+    dict(key="sqlitefileformat", kind="url", id="https://www.sqlite.org/fileformat.html",
+         category="infra",
+         supports="SQLite database file format - a durable single-file store whose documented format "
+                  "lets an evaluation snapshot and re-open a memory store byte-for-byte."),
+    dict(key="shannon1948communication", kind="doi", id="10.1002/j.1538-7305.1948.tb01338.x",
+         category="infra",
+         supports="Shannon's measure of information: bits as the unit in which we report raw context "
+                  "and record payload sizes."),
+    dict(key="kalman1960filter", kind="doi", id="10.1115/1.3662552", category="infra",
+         supports="Recursive state estimation with uncertainty - the classical form of the "
+                  "belief-plus-uncertainty update that calibrated confidence generalises."),
+    dict(key="prov_o", kind="url", id="https://www.w3.org/TR/prov-o/", category="infra",
+         supports="PROV-O: the W3C provenance ontology (entity/activity/agent, wasDerivedFrom, "
+                  "wasGeneratedBy, wasInvalidatedBy) - the standard vocabulary our record provenance "
+                  "block reuses instead of inventing one."),
+    dict(key="anthropicmemorytool", kind="url",
+         id="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/memory-tool", category="infra",
+         supports="A vendor memory tool exposed to agents with explicit operations over a file-based "
+                  "store - evidence that production agents already expose memory as an interface."),
+    dict(key="anthropiccontext", kind="url",
+         id="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+         category="infra",
+         supports="Vendor guidance on managing finite context (compaction, structured note-taking, "
+                  "sub-agents) - the practical motivation for external memory operations."),
+    dict(key="openaimemory2024", kind="url", id="https://openai.com/index/memory-and-new-controls-for-chatgpt/",
+         category="infra",
+         supports="Memory in a consumer assistant: saved memories plus derived chat history, with "
+                  "user-visible controls and opt-out - a deployed two-store design and its governance "
+                  "requirements."),
+    dict(key="lettadocs", kind="url", id="https://docs.letta.com/", category="infra",
+         supports="Letta (MemGPT) documentation: an open agent runtime with self-editing memory blocks - "
+                  "an accessible target for the protocol."),
+    dict(key="zepdocs", kind="url", id="https://help.getzep.com/", category="infra",
+         supports="Zep documentation: deployed temporal-graph memory service with its own API - a "
+                  "non-MCP memory service the protocol should also be able to run against."),
+    dict(key="mem0docs", kind="url", id="https://docs.mem0.ai/", category="infra",
+         supports="Mem0 documentation: managed memory layer with add/search/update operations - a "
+                  "hosted memory API whose operations map onto our taxonomy."),
+    dict(key="graphiti", kind="url", id="https://github.com/getzep/graphiti", category="infra",
+         supports="Graphiti: temporal knowledge-graph engine with edge validity intervals - a "
+                  "bitemporal store implementation usable as a reference backend."),
+    dict(key="microsoftgraphrag", kind="url", id="https://github.com/microsoft/graphrag", category="infra",
+         supports="Microsoft GraphRAG: modular graph-based RAG system with indexing pipelines - a "
+                  "reference implementation for the consolidate/index operation."),
+
+    # ------------------------------------- reference implementation (own artefact)
+    dict(key="sintrepo", kind="url", id="https://github.com/kostyk348/sint", category="artifact",
+         supports="SINT monorepo: the reference implementation's core memory system and MCP servers; "
+                  "the artefact whose operation coverage the taxonomy is checked against."),
+    dict(key="sintliquid", kind="url", id="https://github.com/kostyk348/sint-liquid-mcp",
+         category="artifact",
+         supports="Liquid Memory MCP server: belief upsert, contradiction registration, resolution and "
+                  "revision chains - the artefact backing the belief-revision operations."),
+    dict(key="sintepistemic", kind="url", id="https://github.com/kostyk348/sint-epistemic-mcp",
+         category="artifact",
+         supports="Epistemic Status Tracking MCP server: claims typed VERIFIED/INFERRED/ASSUMED/UNCERTAIN "
+                  "with stored confidence and a calibration query - the artefact backing the "
+                  "epistemic-status operation."),
+    dict(key="sintdream", kind="url", id="https://github.com/kostyk348/sint-dream-mcp", category="artifact",
+         supports="Agent Dreaming MCP server: offline consolidation of blocks into generalised claims, "
+                  "error-pattern mining, skill suggestions - the artefact backing offline "
+                  "consolidation."),
+    dict(key="sintprospective", kind="url", id="https://github.com/kostyk348/sint-prospective-mcp",
+         category="artifact",
+         supports="Prospective Memory MCP server: intention stack with suspend/resume, context markers "
+                  "and session snapshots - the artefact backing the prospective operation."),
+    dict(key="sintswarm", kind="url", id="https://github.com/kostyk348/sint-llm-swarm", category="artifact",
+         supports="LLM Swarm MCP server: role-specialised review passes including provenance, temporal "
+                  "and uncertainty roles - the artefact backing multi-agent verification of stored "
+                  "records."),
+]

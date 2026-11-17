@@ -1,0 +1,154 @@
+{
+ "https://modelcontextprotocol.io/specification/2025-06-18": {
+  "status": 200,
+  "final_url": "https://modelcontextprotocol.io/specification/2025-06-18",
+  "bytes": 318340,
+  "title": "Specification - Model Context Protocol"
+ },
+ "https://modelcontextprotocol.io/specification/2025-03-26": {
+  "status": 200,
+  "final_url": "https://modelcontextprotocol.io/specification/2025-03-26",
+  "bytes": 316023,
+  "title": "Specification - Model Context Protocol"
+ },
+ "https://modelcontextprotocol.io/docs/getting-started/intro": {
+  "status": 200,
+  "final_url": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro",
+  "bytes": 317595,
+  "title": "What is the Model Context Protocol (MCP)? - Model Context Protocol"
+ },
+ "https://www.anthropic.com/news/model-context-protocol": {
+  "status": 200,
+  "final_url": "https://www.anthropic.com/news/model-context-protocol",
+  "bytes": 115949,
+  "title": "Introducing the Model Context Protocol \\ Anthropic"
+ },
+ "https://github.com/modelcontextprotocol/servers": {
+  "status": 200,
+  "final_url": "https://github.com/modelcontextprotocol/servers",
+  "bytes": 371363,
+  "title": "GitHub - modelcontextprotocol/servers: Model Context Protocol Servers · GitHub"
+ },
+ "https://github.com/modelcontextprotocol/modelcontextprotocol": {
+  "status": 200,
+  "final_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "bytes": 345139,
+  "title": "GitHub - modelcontextprotocol/modelcontextprotocol: Specification and documentation for the Model Context Prot"
+ },
+ "https://www.jsonrpc.org/specification": {
+  "status": 200,
+  "final_url": "https://www.jsonrpc.org/specification",
+  "bytes": 24512,
+  "title": "JSON-RPC 2.0 Specification"
+ },
+ "https://www.w3.org/TR/prov-o/": {
+  "status": 403,
+  "final_url": "https://www.w3.org/TR/prov-o/",
+  "bytes": 0,
+  "title": "",
+  "error": "HTTP Error 403: Forbidden"
+ },
+ "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents": {
+  "status": 200,
+  "final_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "bytes": 164680,
+  "title": "Effective context engineering for AI agents \\ Anthropic"
+ },
+ "https://docs.letta.com/": {
+  "status": 200,
+  "final_url": "https://docs.letta.com/",
+  "bytes": 82144,
+  "title": "Letta Documentation | Letta Docs"
+ },
+ "https://help.getzep.com/": {
+  "status": 200,
+  "final_url": "https://help.getzep.com/overview",
+  "bytes": 142668,
+  "title": "Zep Documentation | Zep Documentation"
+ },
+ "https://docs.mem0.ai/": {
+  "status": 200,
+  "final_url": "https://docs.mem0.ai/introduction",
+  "bytes": 294152,
+  "title": "Build AI apps that remember - Mem0"
+ },
+ "https://github.com/getzep/graphiti": {
+  "status": 200,
+  "final_url": "https://github.com/getzep/graphiti",
+  "bytes": 400000,
+  "title": "GitHub - getzep/graphiti: Build Real-Time Knowledge Graphs for AI Agents · GitHub"
+ },
+ "https://github.com/microsoft/graphrag": {
+  "status": 200,
+  "final_url": "https://github.com/microsoft/graphrag",
+  "bytes": 353556,
+  "title": "GitHub - microsoft/graphrag: A modular graph-based Retrieval-Augmented Generation (RAG) system · GitHub"
+ },
+ "https://github.com/kostyk348/sint": {
+  "status": 200,
+  "final_url": "https://github.com/kostyk348/sint",
+  "bytes": 400000,
+  "title": "GitHub - kostyk348/sint: SINT Agent Ecosystem — monorepo for all MCP servers, core memory system, and architec"
+ },
+ "https://github.com/kostyk348/sint-liquid-mcp": {
+  "status": 200,
+  "final_url": "https://github.com/kostyk348/sint-liquid-mcp",
+  "bytes": 263855,
+  "title": "GitHub - kostyk348/sint-liquid-mcp: Liquid Memory — adaptive belief revision MCP server. · GitHub"
+ },
+ "https://github.com/kostyk348/sint-epistemic-mcp": {
+  "status": 200,
+  "final_url": "https://github.com/kostyk348/sint-epistemic-mcp",
+  "bytes": 266509,
+  "title": "GitHub - kostyk348/sint-epistemic-mcp: Epistemic Status Tracking MCP server — tracks what an agent KNOWS vs IN"
+ },
+ "https://github.com/kostyk348/sint-dream-mcp": {
+  "status": 200,
+  "final_url": "https://github.com/kostyk348/sint-dream-mcp",
+  "bytes": 258609,
+  "title": "GitHub - kostyk348/sint-dream-mcp: Agent Dreaming — offline consolidation between MCP sessions. · GitHub"
+ },
+ "https://github.com/kostyk348/sint-prospective-mcp": {
+  "status": 200,
+  "final_url": "https://github.com/kostyk348/sint-prospective-mcp",
+  "bytes": 268240,
+  "title": "GitHub - kostyk348/sint-prospective-mcp: Prospective Memory MCP server — tracks the agent&#39;s intentions, su"
+ },
+ "https://github.com/kostyk348/sint-llm-swarm": {
+  "status": 200,
+  "final_url": "https://github.com/kostyk348/sint-llm-swarm",
+  "bytes": 264543,
+  "title": "GitHub - kostyk348/sint-llm-swarm: LLM Swarm with SINT-Intrinsic Roles · GitHub"
+ },
+ "https://openai.com/index/memory-and-new-controls-for-chatgpt/": {
+  "status": 403,
+  "final_url": "https://openai.com/index/memory-and-new-controls-for-chatgpt/",
+  "bytes": 0,
+  "title": "",
+  "error": "HTTP Error 403: Forbidden"
+ },
+ "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/memory-tool": {
+  "status": 200,
+  "final_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+  "bytes": 400000,
+  "title": "Memory tool - Claude Platform Docs"
+ },
+ "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool": {
+  "status": 200,
+  "final_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+  "bytes": 400000,
+  "title": "Memory tool - Claude Platform Docs"
+ },
+ "https://www.sqlite.org/fileformat.html": {
+  "status": 200,
+  "final_url": "https://www.sqlite.org/fileformat.html",
+  "bytes": 110473,
+  "title": "Database File Format"
+ },
+ "https://arxiv.org/abs/2310.08560": {
+  "status": 200,
+  "final_url": "https://arxiv.org/abs/2310.08560",
+  "bytes": 42540,
+  "title": "[2310.08560] MemGPT: Towards LLMs as Operating Systems"
+ }
+}

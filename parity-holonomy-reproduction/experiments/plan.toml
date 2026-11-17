@@ -1,0 +1,127 @@
+# Experiment plan -- parity-holonomy-reproduction
+#
+# The subject is kostyk348/paradox-logic at the SHA in experiments/subjects.lock. Each
+# experiment is a script that prints a human-readable report and (in the repository) has a
+# committed copy of that report under results/. The plan therefore runs in `capture` mode:
+# the raw stdout is kept, its SHA-256 is recorded, and `compare_to` asks the harness whether
+# the run reproduces the committed report byte for byte.
+#
+# `repeats` is the honesty knob: the experiments that use an unseeded RNG are run more than
+# once, so the paper can say how much of the printed number is noise.
+
+[meta]
+subject = "kostyk348/paradox-logic"
+subject_sha = "02c66ff3bdad5dc945817b1841eddf56a48fb276"
+python = "C:/Users/Lab/AppData/Local/Python/bin/python.exe"
+python_version = "3.14.6"
+numpy = "2.5.1"
+host_os = "Windows 11 (x86_64), CPython 3.14.6, single process"
+tool_commit = "papertool 0.1.0"
+
+# --- Claim 1: a "paradox" is exactly a non-trivial class in H^1(G; Z/2) of a cycle.
+[[run]]
+id = "e01_contextuality"
+group = "claim1"
+x = "1"
+cwd = "subjects/paradox-logic"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/01_contextuality.py"]
+seeds = [0]
+mode = "capture"
+compare_to = "subjects/paradox-logic/results/01_contextuality.txt"
+extract = ["mermin_holonomy|holonomy_dim=|1", "mermin_maxsat|max-sat=|1", "mermin_contextual_fraction|contextual_fraction=|1"]
+note = "exhaustive over cycles L=3..6 and label counts: parity of the number of negation labels decides satisfiability"
+
+[[run]]
+id = "e01_contextuality_repeat"
+group = "claim1"
+x = "1"
+cwd = "subjects/paradox-logic"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/01_contextuality.py"]
+seeds = [1, 2]
+mode = "capture"
+compare_to = "subjects/paradox-logic/results/01_contextuality.txt"
+note = "same script again: an exhaustive enumeration must be bit-identical every time"
+
+# --- Claim 2: defects do NOT show criticality (the repository's own negative result).
+[[run]]
+id = "e03_topological_memory"
+group = "claim3"
+x = "3"
+cwd = "subjects/paradox-logic"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/03_topological_memory.py"]
+seeds = [0, 1, 2, 3, 4]
+mode = "capture"
+extract = ["noise05_parity_value|0.05|1", "noise05_parity_struct|0.05|2", "noise05_hopfield|0.05|3", "noise10_parity_value|0.10|1", "noise10_parity_struct|0.10|2", "noise10_hopfield|0.10|3", "noise20_parity_struct|0.20|2", "noise20_hopfield|0.20|3", "noise30_parity_struct|0.30|2", "noise30_hopfield|0.30|3", "noise40_parity_struct|0.40|2", "noise40_hopfield|0.40|3"]
+note = "unseeded RNG: five runs give the spread of the printed error rates"
+
+# --- Claim 4: novelty as a change of topological class (the repository's partial verdict).
+[[run]]
+id = "e05_diagonal_lemma"
+group = "claim5"
+x = "5"
+cwd = "subjects/paradox-logic"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/05_diagonal_lemma.py"]
+seeds = [0]
+mode = "capture"
+compare_to = "subjects/paradox-logic/results/05_diagonal_lemma.txt"
+extract = ["selfgauge_trivial_fixed|overall:|1", "selfgauge_total|overall:|2"]
+note = "exhaustive over L=3..6: about half the base vectors admit a trivial-class fixed point"
+
+# --- Supporting results the paper leans on.
+[[run]]
+id = "e06_frustration"
+group = "support"
+x = "6"
+cwd = "subjects/paradox-logic"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/06_frustration.py"]
+seeds = [0]
+mode = "capture"
+compare_to = "subjects/paradox-logic/results/06_frustration.txt"
+note = "the spin-glass control: a real transition where the defect gas had none"
+
+[[run]]
+id = "e11_repair_hardness"
+group = "support"
+x = "11"
+cwd = "subjects/paradox-logic"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/11_repair_hardness.py"]
+seeds = [0]
+mode = "capture"
+timeout_s = 1200
+compare_to = "subjects/paradox-logic/results/11_repair_hardness.txt"
+extract = ["frustration_v8_maxsat|  8   16|1", "frustration_v8_index|  8   16|2"]
+note = "minimum repair is MAX-CUT already at Z/2: polynomial detection, NP-hard repair"
+
+[[run]]
+id = "e12_holonomy_code"
+group = "support"
+x = "12"
+cwd = "subjects/paradox-logic"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "experiments/12_holonomy_code.py"]
+seeds = [0]
+mode = "capture"
+compare_to = "subjects/paradox-logic/results/12_holonomy_code.txt"
+extract = ["code_rank_v7|0.2|1", "code_detect_v7_p02|0.2|2", "code_localise_v7_p02|0.2|3", "code_undetectable_v7_p02|0.2|4"]
+note = "detection, localisation and the undetectable-error column: the code's distance"
+
+# --- Derived quantities
+[[derive]]
+id = "selfgauge_fraction"
+group = "derived"
+expr = "e05_diagonal_lemma.selfgauge_trivial_fixed / e05_diagonal_lemma.selfgauge_total"
+unit = "fraction"
+note = "the fraction of self-gauge systems that are consistent: the diagonal lemma's counterexample rate"
+
+[[derive]]
+id = "noise10_hopfield_over_parity"
+group = "derived"
+expr = "e03_topological_memory.noise10_hopfield / e03_topological_memory.noise10_parity_struct"
+unit = "ratio"
+note = "at 10% structural noise, how many times worse the associative memory is than the parity invariant"
+
+[[derive]]
+id = "mcerr_parity_struct"
+group = "derived"
+expr = "sqrt(e03_topological_memory.noise10_parity_struct * (1 - e03_topological_memory.noise10_parity_struct) / 4000)"
+unit = "fraction"
+note = "binomial standard error of the printed structural-noise rate: 4000 trials per row, one fixed RNG stream, so this is the Monte Carlo resolution the printed digits do not show"

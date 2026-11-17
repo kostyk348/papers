@@ -1,0 +1,1068 @@
+[
+ {
+  "arxiv_id": "2605.27825v1",
+  "title": "MRMMIA: Membership Inference Attacks on Memory in Chat Agents",
+  "published": "2026-05-27",
+  "updated": "2026-05-27",
+  "authors": [
+   "Kai Chen",
+   "Yan Pang",
+   "Tianhao Wang"
+  ],
+  "summary": "Membership inference attacks (MIAs) test whether a target data record belongs to a system's private data, and have become a standard tool to measure privacy leakage in machine learning systems. Prior work has primarily focused on training corpora or retrieval databases. However, MIAs against agent memory have received less attention, even though such memory can contain sensitive user-agent interactions, retrieved facts, and user preferences. Therefore, in this work, we focus on chat agent memory MIAs, where an adversary infers whether a candidate memory unit belongs to the chat agent's memory store. We propose Multi-Recall Memory MIA (MRMMIA), a unified attack that utilizes multiple recall probes to the agent to extract the membership signal across black-box, gray-box, and white-box settings. Our experiments demonstrate that MRMMIA consistently outperforms baselines. Our results expose the privacy risk in agents and provide an initial evaluation framework for membership leakage in chat-agent memory systems.",
+  "primary_category": "cs.CR",
+  "categories": [
+   "cs.CR",
+   "cs.LG"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2605.27825v1"
+ },
+ {
+  "arxiv_id": "2607.13157v1",
+  "title": "Oracle Agent Memory as an Enterprise Memory Substrate for Long-Horizon AI Agents",
+  "published": "2026-07-14",
+  "updated": "2026-07-14",
+  "authors": [
+   "Richmond Alake",
+   "Cesare Bernardis",
+   "Paul Cayet",
+   "Luca Engel",
+   "Damien Hilloulin",
+   "Sungpack Hong",
+   "Allen Hosler",
+   "Nickolas Kavantzas",
+   "Ingo Kossyk",
+   "Son Le",
+   "Rhicheek Patra",
+   "Kartik Talamadupula",
+   "Valentin Venzin"
+  ],
+  "summary": "Agent memory is a systems problem for long-horizon agents. Practical deployments require retention of task state across extended conversations, recovery of user-specific facts and preferences across sessions, and accumulation of procedural knowledge from prior outcomes. These requirements extend beyond document retrieval: a memory layer must determine which interactions become durable state, how that state is scoped, how it is retrieved under latency constraints, and how it is revised or removed over time. This report studies Oracle Agent Memory as a database-native memory substrate built on Oracle Database. Three themes organize the discussion: memory as a lifecycle spanning ingestion, extraction, consolidation, retrieval, summarization, and revision or removal; a layered architecture that separates an active memory core from a passive memory-store interface with explicit scope control across users, agents, and threads; and evaluation methodology in which downstream task accuracy is complemented by memory-centric measures such as evidence retrieval, recall, latency, and estimated token use. The report summarizes LongMemEval results, reaching 93.8% accuracy, compares Oracle Agent Memory against flat-history baselines, using about 10.7x fewer tokens, and published or reported external baselines where available, and closes with implementation-oriented appendix material covering setup, thread lifecycle, and search semantics.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI",
+   "cs.DB"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2607.13157v1"
+ },
+ {
+  "arxiv_id": "2602.20493v1",
+  "title": "AWCP: A Workspace Delegation Protocol for Deep-Engagement Collaboration across Remote Agents",
+  "published": "2026-02-24",
+  "updated": "2026-02-24",
+  "authors": [
+   "Xiaohang Nie",
+   "Zihan Guo",
+   "Youliang Chen",
+   "Yuanjian Zhou",
+   "Weinan Zhang"
+  ],
+  "summary": "The rapid evolution of Large Language Model (LLM)-based autonomous agents is reshaping the digital landscape toward an emerging Agentic Web, where increasingly specialized agents must collaborate to accomplish complex tasks. However, existing collaboration paradigms are constrained to message passing, leaving execution environments as isolated silos. This creates a context gap: agents cannot directly manipulate files or invoke tools in a peer's environment, and must instead resort to costly, error-prone environment reconstruction. We introduce the Agent Workspace Collaboration Protocol (AWCP), which bridges this gap through temporary workspace delegation inspired by the Unix philosophy that everything is a file. AWCP decouples a lightweight control plane from pluggable transport mechanisms, allowing a Delegator to project its workspace to a remote Executor, who then operates on the shared files directly with unmodified local toolchains. We provide a fully open-source reference implementation with MCP tool integration and validate the protocol through live demonstrations of asymmetric collaboration, where agents with complementary capabilities cooperate through delegated workspaces. By establishing the missing workspace layer in the agentic protocol stack, AWCP paves the way for a universally interoperable agent ecosystem in which collaboration transcends message boundaries. The protocol and reference implementation are publicly available at https://github.com/SII-Holos/awcp.",
+  "primary_category": "cs.NI",
+  "categories": [
+   "cs.NI",
+   "cs.MA"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2602.20493v1"
+ },
+ {
+  "arxiv_id": "2508.00007v1",
+  "title": "Agent Network Protocol Technical White Paper",
+  "published": "2025-07-18",
+  "updated": "2025-07-18",
+  "authors": [
+   "Gaowei Chang",
+   "Eidan Lin",
+   "Chengxuan Yuan",
+   "Rizhao Cai",
+   "Binbin Chen",
+   "Xuan Xie",
+   "Yin Zhang"
+  ],
+  "summary": "With the development of large models and autonomous decision-making AI, agents are rapidly becoming the new entities of the internet, following mobile apps. However, existing internet infrastructure is primarily designed for human interaction, creating data silos, unfriendly interfaces, and high collaboration costs among agents, making it difficult to support the needs for large-scale agent interconnection and collaboration. The internet is undergoing a profound transformation, showing four core trends: agents replacing traditional software, universal agent interconnection, native protocol-based connections, and autonomous agent organization and collaboration. To align with these trends, Agent Network Protocol (ANP) proposes a new generation of communication protocols for the Agentic Web. ANP adheres to AI-native design, maintains compatibility with existing internet protocols, adopts a modular composable architecture, follows minimalist yet extensible principles, and enables rapid deployment based on existing infrastructure. Through a three-layer protocol system--identity and encrypted communication layer, meta-protocol negotiation layer, and application protocol layer--ANP. systematically solves the problems of agent identity authentication, dynamic negotiation, and capability discovery interoperability.",
+  "primary_category": "cs.NI",
+  "categories": [
+   "cs.NI",
+   "cs.AI"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2508.00007v1"
+ },
+ {
+  "arxiv_id": "2606.24775v1",
+  "title": "Are We Ready For An Agent-Native Memory System?",
+  "published": "2026-06-23",
+  "updated": "2026-06-23",
+  "authors": [
+   "Wei Zhou",
+   "Xuanhe Zhou",
+   "Shaokun Han",
+   "Hongming Xu",
+   "Guoliang Li",
+   "Zhiyu Li",
+   "Feiyu Xiong",
+   "Fan Wu"
+  ],
+  "summary": "Memory for large language model (LLM) agents has rapidly evolved from simple retrieval-augmented mechanisms into a data management system that supports persistent information storage, retrieval, update, consolidation, and dynamic lifecycle governance throughout agent execution. Despite this evolution, existing evaluations still benchmark agent memory mainly through end-to-end task success metrics (e.g., F1, BLEU), while treating the underlying system as a monolithic black box. As a result, critical system-level concerns, including operational costs, architectural trade-offs across memory modules, and robustness under dynamic knowledge updates, remain insufficiently explored. In this paper, we present a systematic experimental study of agent memory from a data management perspective. We propose an analytical framework that decomposes agent memory into four core modules: memory representation and storage, extraction, retrieval and routing, and maintenance. Under this framework, we evaluate 12 representative memory systems and two reference baselines across five benchmark workloads spanning 11 datasets. Our extensive end-to-end evaluation shows that no single architecture dominates across all scenarios; instead, effectiveness depends heavily on how well the memory structure aligns with the workload bottleneck. Furthermore, through fine-grained ablation studies, we quantify their individual effects on representation fidelity, retrieval precision, update correctness, and long-horizon stability. Finally, we reveal cost-performance trade-offs under realistic workloads, showing localized maintenance is more cost-efficient than global reorganization. Based on these findings, we identify promising directions towards building truly agent-native memory systems. The code is publicly available at https://github.com/OpenDataBox/MemoryData.",
+  "primary_category": "cs.CL",
+  "categories": [
+   "cs.CL",
+   "cs.DB",
+   "cs.IR"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2606.24775v1"
+ },
+ {
+  "arxiv_id": "1002.1178v1",
+  "title": "Adaptation of TURN protocol to SIP protocol",
+  "published": "2010-02-05",
+  "updated": "2010-02-05",
+  "authors": [
+   "Mustapha Guezouri",
+   "Ahmed Blaha",
+   "Mokhtar Keche"
+  ],
+  "summary": "Today, SIP is a protocol par Excellence in the field of communication over Internet. But, the fact that it belongs to the application layer constitutes a weakness vis-a-vis the NAT traversal. This weakness is due to the way in which the server replies to the requests of clients on the one hand. On the other, it is caused by the dynamic allocation of UDP ports for emission and reception of packets RTP/RTCP. The TURN Protocol may face this weakness. However, its use requires a certain number of exchanges between the clients and a TURN server before establishing the multimedia sessions and this increase the latent time. In this article, we propose to adapt TURN protocol for applications based on SIP protocol such as telephony over Internet, conference video, etc. This adaptation optimises the establishment of multimedia sessions by integrating a manager of TCP connections and multimedia flow controller into SIP Proxy server.",
+  "primary_category": "cs.NI",
+  "categories": [
+   "cs.NI"
+  ],
+  "doi": null,
+  "journal_ref": "International Journal of Computer Science Issues, IJCSI, Vol. 7, Issue 1, No. 2, January 2010, http://ijcsi.org/articles/Adaptation-of-TURN-protocol-to-SIP-protocol.php",
+  "abs_url": "https://arxiv.org/abs/1002.1178v1"
+ },
+ {
+  "arxiv_id": "2603.28944v2",
+  "title": "Faith in AI can narrow the futures individuals consider",
+  "published": "2026-03-30",
+  "updated": "2026-07-03",
+  "authors": [
+   "Aoi Naito",
+   "Hirokazu Shirado"
+  ],
+  "summary": "Artificial intelligence (AI) predictions are increasingly used to inform human decisions. Here, using a behavioral implementation of the classic Newcomb's paradox in 1,305 participants, we show that AI predictions can also shape the reasoning people use to make a decision. In this paradigm, perceived predictive authority can alter how people reason about their future actions, leading them to forgo a guaranteed reward. Over 40% of participants treated AI as such a predictive authority about their own behavior, significantly increasing the odds of forgoing the guaranteed reward by a factor of 3.39 (95% CI: 2.45-4.70) and reducing earnings by 10.7-42.9%. The effect appeared across AI presentations and decision contexts and remained detectable even when predictions repeatedly failed. When people perceive AI as capable of predicting their personal behavior, the mere presence of AI predictions may shape their decision-making, narrowing the futures they consider.",
+  "primary_category": "cs.HC",
+  "categories": [
+   "cs.HC"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2603.28944v2"
+ },
+ {
+  "arxiv_id": "2501.02842v1",
+  "title": "Foundations of GenIR",
+  "published": "2025-01-06",
+  "updated": "2025-01-06",
+  "authors": [
+   "Qingyao Ai",
+   "Jingtao Zhan",
+   "Yiqun Liu"
+  ],
+  "summary": "The chapter discusses the foundational impact of modern generative AI models on information access (IA) systems. In contrast to traditional AI, the large-scale training and superior data modeling of generative AI models enable them to produce high-quality, human-like responses, which brings brand new opportunities for the development of IA paradigms. In this chapter, we identify and introduce two of them in details, i.e., information generation and information synthesis. Information generation allows AI to create tailored content addressing user needs directly, enhancing user experience with immediate, relevant outputs. Information synthesis leverages the ability of generative AI to integrate and reorganize existing information, providing grounded responses and mitigating issues like model hallucination, which is particularly valuable in scenarios requiring precision and external knowledge. This chapter delves into the foundational aspects of generative models, including architecture, scaling, and training, and discusses their applications in multi-modal scenarios. Additionally, it examines the retrieval-augmented generation paradigm and other methods for corpus modeling and understanding, demonstrating how generative AI can enhance information access systems. It also summarizes potential challenges and fruitful directions for future studies.",
+  "primary_category": "cs.IR",
+  "categories": [
+   "cs.IR",
+   "cs.LG"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2501.02842v1"
+ },
+ {
+  "arxiv_id": "2511.02841v2",
+  "title": "AI Agents with Decentralized Identifiers and Verifiable Credentials",
+  "published": "2025-10-01",
+  "updated": "2025-12-15",
+  "authors": [
+   "Sandro Rodriguez Garzon",
+   "Awid Vaziry",
+   "Enis Mert Kuzu",
+   "Dennis Enrique Gehrmann",
+   "Buse Varkan",
+   "Alexander Gaballa",
+   "Axel Küpper"
+  ],
+  "summary": "A fundamental limitation of current LLM-based AI agents is their inability to build differentiated trust among each other at the onset of an agent-to-agent dialogue. However, autonomous and interoperable trust establishment becomes essential once agents start to operate beyond isolated environments and engage in dialogues across individual or organizational boundaries. A promising way to fill this gap in Agentic AI is to equip agents with long-lived digital identities and introduce tamper-proof and flexible identity-bound attestations of agents, provisioned by commonly trusted third parties and designed for cross-domain verifiability. This article presents a conceptual framework and a prototypical multi-agent system, where each agent is endowed with a self-sovereign digital identity. It combines a unique and ledger-anchored W3C Decentralized Identifier (DID) of an agent with a set of third-party issued W3C Verifiable Credentials (VCs). This enables agents at the start of a dialog to prove ownership of their self-controlled DIDs for authentication purposes and to establish various cross-domain trust relationships through the spontaneous exchange of their self-hosted DID-bound VCs. A comprehensive evaluation of the prototypical implementation demonstrates technical feasibility but also reveals limitations once an agent's LLM is in sole charge to control the respective security procedures.",
+  "primary_category": "cs.CR",
+  "categories": [
+   "cs.CR",
+   "cs.MA"
+  ],
+  "doi": "10.5220/0014234400004052",
+  "journal_ref": "18th International Conference on Agents and Artificial Intelligence (ICAART), 2026, volume 1, pp. 252-259",
+  "abs_url": "https://arxiv.org/abs/2511.02841v2"
+ },
+ {
+  "arxiv_id": "2510.01751v1",
+  "title": "A cybersecurity AI agent selection and decision support framework",
+  "published": "2025-10-02",
+  "updated": "2025-10-02",
+  "authors": [
+   "Masike Malatji"
+  ],
+  "summary": "This paper presents a novel, structured decision support framework that systematically aligns diverse artificial intelligence (AI) agent architectures, reactive, cognitive, hybrid, and learning, with the comprehensive National Institute of Standards and Technology (NIST) Cybersecurity Framework (CSF) 2.0. By integrating agent theory with industry guidelines, this framework provides a transparent and stepwise methodology for selecting and deploying AI solutions to address contemporary cyber threats. Employing a granular decomposition of NIST CSF 2.0 functions into specific tasks, the study links essential AI agent properties such as autonomy, adaptive learning, and real-time responsiveness to each subcategory's security requirements. In addition, it outlines graduated levels of autonomy (assisted, augmented, and fully autonomous) to accommodate organisations at varying stages of cybersecurity maturity. This holistic approach transcends isolated AI applications, providing a unified detection, incident response, and governance strategy. Through conceptual validation, the framework demonstrates how tailored AI agent deployments can align with real-world constraints and risk profiles, enhancing situational awareness, accelerating response times, and fortifying long-term resilience via adaptive risk management. Ultimately, this research bridges the gap between theoretical AI constructs and operational cybersecurity demands, establishing a foundation for robust, empirically validated multi-agent systems that adhere to industry standards.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2510.01751v1"
+ },
+ {
+  "arxiv_id": "2601.16513v1",
+  "title": "Competing Visions of Ethical AI: A Case Study of OpenAI",
+  "published": "2026-01-23",
+  "updated": "2026-01-23",
+  "authors": [
+   "Melissa Wilfley",
+   "Mengting Ai",
+   "Madelyn Rose Sanfilippo"
+  ],
+  "summary": "Introduction. AI Ethics is framed distinctly across actors and stakeholder groups. We report results from a case study of OpenAI analysing ethical AI discourse. Method. Research addressed: How has OpenAI's public discourse leveraged 'ethics', 'safety', 'alignment' and adjacent related concepts over time, and what does discourse signal about framing in practice? A structured corpus, differentiating between communication for a general audience and communication with an academic audience, was assembled from public documentation. Analysis. Qualitative content analysis of ethical themes combined inductively derived and deductively applied codes. Quantitative analysis leveraged computational content analysis methods via NLP to model topics and quantify changes in rhetoric over time. Visualizations report aggregate results. For reproducible results, we have released our code at https://github.com/famous-blue-raincoat/AI_Ethics_Discourse. Results. Results indicate that safety and risk discourse dominate OpenAI's public communication and documentation, without applying academic and advocacy ethics frameworks or vocabularies. Conclusions. Implications for governance are presented, along with discussion of ethics-washing practices in industry.",
+  "primary_category": "cs.CY",
+  "categories": [
+   "cs.CY"
+  ],
+  "doi": "10.47989/ir31iConf64115",
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2601.16513v1"
+ },
+ {
+  "arxiv_id": "2604.20158v1",
+  "title": "Stateless Decision Memory for Enterprise AI Agents",
+  "published": "2026-04-22",
+  "updated": "2026-04-22",
+  "authors": [
+   "Vasundra Srinivasan"
+  ],
+  "summary": "Enterprise deployment of long-horizon decision agents in regulated domains (underwriting, claims adjudication, tax examination) is dominated by retrieval-augmented pipelines despite a decade of increasingly sophisticated stateful memory architectures. We argue this reflects a hidden requirement: regulated deployment is load-bearing on four systems properties (deterministic replay, auditable rationale, multi-tenant isolation, statelessness for horizontal scale), and stateful architectures violate them by construction. We propose Deterministic Projection Memory (DPM): an append-only event log plus one task-conditioned projection at decision time. On ten regulated decisioning cases at three memory budgets, DPM matches summarization-based memory at generous budgets and substantially outperforms it when the budget binds: at a 20x compression ratio, DPM improves factual precision by +0.52 (Cohen's h=1.17, p=0.0014) and reasoning coherence by +0.53 (h=1.13, p=0.0034), paired permutation, n=10. DPM is additionally 7-15x faster at binding budgets, making one LLM call at decision time instead of N. A determinism study of 10 replays per case at temperature zero shows both architectures inherit residual API-level nondeterminism, but the asymmetry is structural: DPM exposes one nondeterministic call; summarization exposes N compounding calls. The audit surface follows the same one-versus-N pattern: DPM logs two LLM calls per decision while summarization logs 83-97 on LongHorizon-Bench. We conclude with TAMS, a practitioner heuristic for architecture selection, and a failure analysis of stateful memory under enterprise operating conditions. The contribution is the argument that statelessness is the load-bearing property explaining enterprise's preference for weaker but replayable retrieval pipelines, and that DPM demonstrates this property is attainable without the decisioning penalty retrieval pays.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2604.20158v1"
+ },
+ {
+  "arxiv_id": "1002.1191v1",
+  "title": "Unidirectional Error Correcting Codes for Memory Systems: A Comparative Study",
+  "published": "2010-02-05",
+  "updated": "2010-02-05",
+  "authors": [
+   "Muzhir Al-Ani",
+   "Qeethara Al-Shayea"
+  ],
+  "summary": "In order to achieve fault tolerance, highly reliable system often require the ability to detect errors as soon as they occur and prevent the speared of erroneous information throughout the system. Thus, the need for codes capable of detecting and correcting byte errors are extremely important since many memory systems use b-bit-per-chip organization. Redundancy on the chip must be put to make fault-tolerant design available. This paper examined several methods of computer memory systems, and then a proposed technique is designed to choose a suitable method depending on the organization of memory systems. The constructed codes require a minimum number of check bits with respect to codes used previously, then it is optimized to fit the organization of memory systems according to the requirements for data and byte lengths.",
+  "primary_category": "cs.IT",
+  "categories": [
+   "cs.IT"
+  ],
+  "doi": null,
+  "journal_ref": "International Journal of Computer Science Issues, IJCSI, Vol. 7, Issue 1, No. 3, January 2010, http://ijcsi.org/articles/Unidirectional-Error-Correcting-Codes-for-Memory-Systems-A-Comparative-Study.php",
+  "abs_url": "https://arxiv.org/abs/1002.1191v1"
+ },
+ {
+  "arxiv_id": "2601.05960v2",
+  "title": "Distilling Feedback into Memory-as-a-Tool",
+  "published": "2026-01-09",
+  "updated": "2026-03-17",
+  "authors": [
+   "Víctor Gallego"
+  ],
+  "summary": "We propose a framework that amortizes the cost of inference-time reasoning by converting transient critiques into retrievable guidelines, through a file-based memory system and agent-controlled tool calls. We evaluate this method on the Rubric Feedback Bench, a novel dataset for rubric-based learning. Experiments demonstrate that our augmented LLMs rapidly match the performance of test-time refinement pipelines while drastically reducing inference cost.",
+  "primary_category": "cs.CL",
+  "categories": [
+   "cs.CL"
+  ],
+  "doi": null,
+  "journal_ref": "ICLR 2026 Workshop on Memory for LLM-Based Agentic Systems",
+  "abs_url": "https://arxiv.org/abs/2601.05960v2"
+ },
+ {
+  "arxiv_id": "1102.5599v2",
+  "title": "Consensus of Discrete-Time Linear Multi-Agent Systems with Observer-Type Protocols",
+  "published": "2011-02-28",
+  "updated": "2011-03-06",
+  "authors": [
+   "Zhongkui Li",
+   "Zhisheng Duan",
+   "Guanrong Chen"
+  ],
+  "summary": "This paper concerns the consensus of discrete-time multi-agent systems with linear or linearized dynamics. An observer-type protocol based on the relative outputs of neighboring agents is proposed. The consensus of such a multi-agent system with a directed communication topology can be cast into the stability of a set of matrices with the same low dimension as that of a single agent. The notion of discrete-time consensus region is then introduced and analyzed. For neurally stable agents, it is shown that there exists an observer-type protocol having a bounded consensus region in the form of an open unit disk, provided that each agent is stabilizable and detectable. An algorithm is further presented to construct a protocol to achieve consensus with respect to all the communication topologies containing a spanning tree. Moreover, for the case where the agents have no poles outside the unit circle,an algorithm is proposed to construct a protocol having an origin-centered disk of radius $δ$ ($0<δ<1$) as its consensus region, where $δ$ has to further satisfy a constraint related to the unstable eigenvalues of a single agent for the case where each agent has a least one eigenvalue outside the unit circle. Finally, the consensus algorithms are applied to solve formation control problems of multi-agent systems.",
+  "primary_category": "eess.SY",
+  "categories": [
+   "eess.SY",
+   "math.OC"
+  ],
+  "doi": "10.3934/dcdsb.2011.16.489",
+  "journal_ref": "Discrete and Continuous Dynamical Systems-Series B 16 (2011) 489-505",
+  "abs_url": "https://arxiv.org/abs/1102.5599v2"
+ },
+ {
+  "arxiv_id": "2404.19480v2",
+  "title": "Mitigating and Analysis of Memory Usage Attack in IoE System",
+  "published": "2024-04-30",
+  "updated": "2024-10-15",
+  "authors": [
+   "Zainab Alwaisi",
+   "Simone Soderi",
+   "Rocco De Nicola"
+  ],
+  "summary": "Internet of Everything (IoE) is a newly emerging trend, especially in homes. Marketing forces toward smart homes are also accelerating the spread of IoE devices in households. An obvious risk of the rapid adoption of these smart devices is that many lack controls for protecting the privacy and security of end users from attacks designed to disrupt lives and incur financial losses. Today the smart home is a system for managing the basic life support processes of both small systems, e.g., commercial, office premises, apartments, cottages, and largely automated complexes, e.g., commercial and industrial complexes. One of the critical tasks to be solved by the concept of a modern smart home is the problem of preventing the usage of IoE resources. Recently, there has been a rapid increase in attacks on consumer IoE devices. Memory corruption vulnerabilities constitute a significant class of vulnerabilities in software security through which attackers can gain control of an entire system. Numerous memory corruption vulnerabilities have been found in IoE firmware already deployed in the consumer market. This paper aims to analyze and explain the resource usage attack and create a low-cost simulation environment to aid in the dynamic analysis of the attack. Further, we perform controlled resource usage attacks while measuring resource consumption on resource-constrained victims' IoE devices, such as CPU and memory utilization. We also build a lightweight algorithm to detect memory usage attacks in the IoE environment. The result shows high efficiency in detecting and mitigating memory usage attacks by detecting when the intruder starts and stops the attack.",
+  "primary_category": "cs.CR",
+  "categories": [
+   "cs.CR"
+  ],
+  "doi": "10.1007/978-3-031-47359-3_22",
+  "journal_ref": "Industrial Networks and Intelligent Systems,2023",
+  "abs_url": "https://arxiv.org/abs/2404.19480v2"
+ },
+ {
+  "arxiv_id": "2604.24153v1",
+  "title": "Right-to-Act: A Pre-Execution Non-Compensatory Decision Protocol for AI Systems",
+  "published": "2026-04-27",
+  "updated": "2026-04-27",
+  "authors": [
+   "Gadi Lavi"
+  ],
+  "summary": "Current AI systems increasingly operate in contexts where their outputs directly trigger real-world actions. Most existing approaches to AI safety, risk management, and governance focus on post-hoc validation, probabilistic risk estimation, or certification of model behavior. However, these approaches implicitly assume that once a decision is produced, it is eligible for execution. In this work, we introduce the Right-to-Act protocol, a deterministic, non-compensatory pre-execution decision layer that evaluates whether an AI-generated decision is permitted to be realized at all. Unlike compensatory systems, where high-confidence signals can override failed conditions, the proposed framework enforces strict structural constraints: if any required condition is unmet, execution is halted or deferred. We formalize the distinction between compensatory and non-compensatory decision regimes and define a pre-execution legitimacy boundary. Through a scenario-based case study, we demonstrate how identical AI outputs can lead to divergent outcomes when evaluated under a Right-to-Act protocol, preserving reversibility and preventing premature or irreversible actions. The proposed approach reframes AI control from optimizing decisions to governing their admissibility, introducing a protocol-level abstraction that operates independently of model architecture or training methodology.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2604.24153v1"
+ },
+ {
+  "arxiv_id": "1507.06138v1",
+  "title": "Room temperature write-read operations in antiferromagnetic memory",
+  "published": "2015-07-22",
+  "updated": "2015-07-22",
+  "authors": [
+   "Takahiro Moriyama",
+   "Noriko Matsuzaki",
+   "Kab-Jin Kim",
+   "Ippei Suzuki",
+   "Tomoyasu Taniyama",
+   "Teruo Ono"
+  ],
+  "summary": "B2-ordered FeRh has been known to exhibit antiferromagnetic-ferromagnetic (AF-F) phase transitions in the vicinity of room temperature. Manipulation of the Néel order via AF-F phase transition and recent experimental observation of the anisotropic magnetoresistance in antiferromagnetic FeRh has proven that FeRh is a promising candidate for antiferromagnetic memory material. In this work, we demonstrate sequential write and read operations in antiferromagnetic memory resistors made of B2-orderd FeRh thin films by a magnetic field and electric current only. Our demonstration of writing and reading at ambient room temperature opens a realistic pathway towards operational antiferromagnetic memory devices.",
+  "primary_category": "cond-mat.mtrl-sci",
+  "categories": [
+   "cond-mat.mtrl-sci"
+  ],
+  "doi": "10.1063/1.4931567",
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/1507.06138v1"
+ },
+ {
+  "arxiv_id": "1709.09345v4",
+  "title": "A Read-Write Memory Network for Movie Story Understanding",
+  "published": "2017-09-27",
+  "updated": "2018-03-16",
+  "authors": [
+   "Seil Na",
+   "Sangho Lee",
+   "Jisung Kim",
+   "Gunhee Kim"
+  ],
+  "summary": "We propose a novel memory network model named Read-Write Memory Network (RWMN) to perform question and answering tasks for large-scale, multimodal movie story understanding. The key focus of our RWMN model is to design the read network and the write network that consist of multiple convolutional layers, which enable memory read and write operations to have high capacity and flexibility. While existing memory-augmented network models treat each memory slot as an independent block, our use of multi-layered CNNs allows the model to read and write sequential memory cells as chunks, which is more reasonable to represent a sequential story because adjacent memory blocks often have strong correlations. For evaluation, we apply our model to all the six tasks of the MovieQA benchmark, and achieve the best accuracies on several tasks, especially on the visual QA task. Our model shows a potential to better understand not only the content in the story, but also more abstract information, such as relationships between characters and the reasons for their actions.",
+  "primary_category": "cs.CV",
+  "categories": [
+   "cs.CV",
+   "cs.CL"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/1709.09345v4"
+ },
+ {
+  "arxiv_id": "2609.28575v1",
+  "title": "TWIST: A Proposed Benchmark for Intervention Quality in Conversational Memory, with a Human-Validated Draft-Alignment",
+  "published": "2026-09-23",
+  "updated": "2026-09-23",
+  "authors": [
+   "Subrat Panda"
+  ],
+  "summary": "Long-conversation memory benchmarks increasingly test recall and prompted knowledge updates, and recent work studies evolving user beliefs and memory state. TWIST is a proposed benchmark suite for a complementary, unmeasured property: intervention quality -- whether a deployed memory system, exercised through its own ingest/recall/vet surface, acts correctly at belief change points. Four tracks cover unprompted tension detection, vetting outgoing drafts against the record, answering with current beliefs while preserving supersession history, and governing sensitive recall. The suite extends LoCoMo's corpora and harness, pairing every detect/block metric with a matched do-not-over-detect control: surface-matched hard negatives price false intervention, so no track can be gamed by flagging everything. The benchmark itself is validated first: independent, gold-blind double annotation with adjudication, judge decoy calibration, and a separability audit. On the human-validated Track B v1.0 key (161 items, post-adjudication kappa = 0.85), no tested configuration simultaneously achieves high contradiction recall, high hard-negative specificity, and high attribution: flat-RAG baselines detect 0.76-0.97 of true contradictions but falsely flag 16-43% of surface-matched safe drafts depending on backend, while a deployed coherence-oriented system almost never over-flags (0.98-1.00 specificity) yet catches 42% of true contradictions -- a trade-off no recall-only score can see. A 13-configuration baseline ladder localizes causes: every gold contradiction is detectable from its evidence alone (recall 1.000), calibrated models nearly solve the track given the full transcript -- consistent with substantial retrieval-coverage gaps -- and draft-only floors reveal model-dependent style priors. A system's TWIST profile, beside its recall score, measures whether memory knows when to intervene and when not to.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2609.28575v1"
+ },
+ {
+  "arxiv_id": "2602.16903v1",
+  "title": "Read-Modify-Writable Snapshots from Read/Write operations",
+  "published": "2026-02-18",
+  "updated": "2026-02-18",
+  "authors": [
+   "Armando Castañeda",
+   "Braulio Ramses Hernández Martínez"
+  ],
+  "summary": "In the context of asynchronous concurrent shared-memory systems, a snapshot algorithm allows failure-prone processes to concurrently and atomically write on the entries of a shared array MEM , and also atomically read the whole array. Recently, Read-Modify-Writable (RMWable) snapshot was proposed, a variant of snapshot that allows processes to perform operations more complex than just read and write, specifically, each entry MEM[k] is an arbitrary readable object. The known RMWable snapshot algorithms heavily rely on powerful low-level operations such as compare&swap or load-link/store-conditional to correctly produce snapshots of MEM. Following the large body of research devoted to understand the limits of what can be solved using the simple read/write low-level operations, which are known to be strictly weaker than compare&swap and load-link/store-conditional, we explore if RMWable snapshots are possible using only read/write operations. We present two read/write RMWable snapshot algorithms, the first one in the standard concurrent shared-memory model where the number of processes n is finite and known in advance, and the second one in a variant of the standard model with unbounded concurrency, where there are infinitely many processes, but at any moment only finitely many processes participate in an execution.",
+  "primary_category": "cs.DC",
+  "categories": [
+   "cs.DC"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2602.16903v1"
+ },
+ {
+  "arxiv_id": "2302.03670v1",
+  "title": "Private Read Update Write (PRUW) With Heterogeneous Databases",
+  "published": "2023-02-07",
+  "updated": "2023-02-07",
+  "authors": [
+   "Sajani Vithana",
+   "Sennur Ulukus"
+  ],
+  "summary": "We investigate the problem of private read update write (PRUW) with heterogeneous storage constrained databases in federated submodel learning (FSL). In FSL a machine learning (ML) model is divided into multiple submodels based on different types of data used to train it. A given user downloads, updates and uploads the updates back to a single submodel of interest, based on the type of user's local data. With PRUW, the process of reading (downloading) and writing (uploading) is carried out such that information theoretic privacy of the updating submodel index and the values of updates is guaranteed. We consider the practical scenario where the submodels are stored in databases with arbitrary (heterogeneous) storage constraints, and provide a PRUW scheme with a storage mechanism that utilizes submodel partitioning and encoding to minimize the communication cost.",
+  "primary_category": "cs.IT",
+  "categories": [
+   "cs.IT",
+   "cs.CR",
+   "cs.NI",
+   "eess.SP"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2302.03670v1"
+ },
+ {
+  "arxiv_id": "quant-ph/0208137v1",
+  "title": "Quantum memory: Write, read and reset",
+  "published": "2002-08-21",
+  "updated": "2002-08-21",
+  "authors": [
+   "Tai Tsun Wu",
+   "Ming Lun Yu"
+  ],
+  "summary": "A model is presented for the quantum memory, the content of which is a pure quantum state. In this model, the fundamental operations of writing on, reading, and resetting the memory are performed through scattering from the memory. The requirement that the quantum memory must remain in a pure state after scattering implies that the scattering is of a special type, and only certain incident waves are admissible. An example, based on the Fermi pseudo-potential in one dimension, is used to demonstrate that the requirements on the scattering process are consistent and can be satisfied. This model is compared with the commonly used model for the quantum memory; the most important difference is that the spatial dimensions and interference play a central role in the present model.",
+  "primary_category": "quant-ph",
+  "categories": [
+   "quant-ph"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/quant-ph/0208137v1"
+ },
+ {
+  "arxiv_id": "2508.14704v1",
+  "title": "MCP-Universe: Benchmarking Large Language Models with Real-World Model Context Protocol Servers",
+  "published": "2025-08-20",
+  "updated": "2025-08-20",
+  "authors": [
+   "Ziyang Luo",
+   "Zhiqi Shen",
+   "Wenzhuo Yang",
+   "Zirui Zhao",
+   "Prathyusha Jwalapuram",
+   "Amrita Saha",
+   "Doyen Sahoo",
+   "Silvio Savarese",
+   "Caiming Xiong",
+   "Junnan Li"
+  ],
+  "summary": "The Model Context Protocol has emerged as a transformative standard for connecting large language models to external data sources and tools, rapidly gaining adoption across major AI providers and development platforms. However, existing benchmarks are overly simplistic and fail to capture real application challenges such as long-horizon reasoning and large, unfamiliar tool spaces. To address this critical gap, we introduce MCP-Universe, the first comprehensive benchmark specifically designed to evaluate LLMs in realistic and hard tasks through interaction with real-world MCP servers. Our benchmark encompasses 6 core domains spanning 11 different MCP servers: Location Navigation, Repository Management, Financial Analysis, 3D Design, Browser Automation, and Web Searching. To ensure rigorous evaluation, we implement execution-based evaluators, including format evaluators for agent format compliance, static evaluators for time-invariant content matching, and dynamic evaluators that automatically retrieve real-time ground truth for temporally sensitive tasks. Through extensive evaluation of leading LLMs, we find that even SOTA models such as GPT-5 (43.72%), Grok-4 (33.33%) and Claude-4.0-Sonnet (29.44%) exhibit significant performance limitations. In addition, our benchmark poses a significant long-context challenge for LLM agents, as the number of input tokens increases rapidly with the number of interaction steps. Moreover, it introduces an unknown-tools challenge, as LLM agents often lack familiarity with the precise usage of the MCP servers. Notably, enterprise-level agents like Cursor cannot achieve better performance than standard ReAct frameworks. Beyond evaluation, we open-source our extensible evaluation framework with UI support, enabling researchers and practitioners to seamlessly integrate new agents and MCP servers while fostering innovation in the rapidly evolving MCP ecosystem.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI",
+   "cs.CL"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2508.14704v1"
+ },
+ {
+  "arxiv_id": "2603.17339v1",
+  "title": "citecheck: An MCP Server for Automated Bibliographic Verification and Repair in Scholarly Manuscripts",
+  "published": "2026-03-18",
+  "updated": "2026-03-18",
+  "authors": [
+   "Junhyeok Lee"
+  ],
+  "summary": "Reference lists in scholarly manuscripts frequently contain errors, including incorrect identifiers, incomplete metadata, misattributed authors, and mismatches between preprint and published versions. These problems are tedious to repair manually and have become more visible in workflows that rely on large language models, which can fabricate or corrupt citations. We present citecheck, a TypeScript system and MCP server for automated bibliographic verification and repair in paper-like project folders. Given a manuscript file or workspace, citecheck selects the most likely paper artifact, extracts references from .bib, .tex, .md, .txt, or .docx, validates entries against PubMed, Crossref, arXiv, and Semantic Scholar, and returns structured correction proposals together with replacement-safety diagnostics. The current repository provides a working research prototype with multi-pass retrieval, manifestation-aware matching, policy-gated rewrite planning, and 47 passing tests covering repair behavior, malformed payload handling, transport failures, and MCP exposure. We position citecheck as infrastructure for agentic scholarly editing and as a practical guardrail against both traditional reference errors and LLM-induced citation hallucinations.",
+  "primary_category": "cs.DL",
+  "categories": [
+   "cs.DL"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2603.17339v1"
+ },
+ {
+  "arxiv_id": "2511.20417v2",
+  "title": "Comparative evaluation of future collider options",
+  "published": "2025-11-25",
+  "updated": "2026-01-20",
+  "authors": [
+   "G. Arduini",
+   "M. Benedikt",
+   "F. Gianotti",
+   "K. Jakobs",
+   "M. Lamont",
+   "R. Losito",
+   "M. Meddahi",
+   "J. Mnich",
+   "N. Mounet",
+   "D. Schulte",
+   "F. Sonnemann",
+   "S. Stapnes",
+   "F. Zimmermann"
+  ],
+  "summary": "In anticipation of the completion of the High-Luminosity Large Hadron Collider (HL-LHC) programme by the end of 2041, CERN is preparing to launch a new major facility in the mid-2040s. According to the 2020 update of the European Strategy for Particle Physics (ESPP), the highest-priority next collider is an electron-positron Higgs factory, followed in the longer term by a hadron-hadron collider at the highest achievable energy. The CERN directorate established a Future Colliders Comparative Evaluation working group in June 2023. This group brings together project leaders and domain experts to conduct a consistent evaluation of the Future Circular Collider (FCC) and alternative scenarios based on shared assumptions and standardized criteria. This report presents a comparative evaluation of proposed future collider projects submitted as input for the Update of the European Strategy for Particle Physics. These proposals are compared considering main performance parameters, environmental impact and sustainability, technical maturity, cost of construction and operation, required human resources, and realistic implementation timelines. An overview of the international collider projects within a similar timeframe, notably the CEPC in China and the ILC in Japan is also presented, as well as a short review of the status and prospects of new accelerator techniques.",
+  "primary_category": "physics.acc-ph",
+  "categories": [
+   "physics.acc-ph",
+   "hep-ex"
+  ],
+  "doi": "10.23731/CYRM-2025-0011",
+  "journal_ref": "Comparative evaluation of future collider options, Future Colliders Comparative Evaluation Working Group. CERN Yellow Reports: Monographs, CERN-2025-011 (CERN, Geneva, 2025)",
+  "abs_url": "https://arxiv.org/abs/2511.20417v2"
+ },
+ {
+  "arxiv_id": "2606.30317v1",
+  "title": "MCP Server Architecture Patterns for LLM-Integrated Applications",
+  "published": "2026-06-29",
+  "updated": "2026-06-29",
+  "authors": [
+   "Carson Rodrigues",
+   "Oysturn Vas"
+  ],
+  "summary": "The Model Context Protocol (MCP), introduced by Anthropic in November 2024, defines a standardized interface for connecting large language models (LLMs) to external tools, data sources, and services. Within months of release, hundreds of community-built MCP servers appeared on GitHub, but no software-maintenance literature has yet described how the ecosystem is being structured in production. This industry experience paper catalogues five recurring MCP server architectural patterns observed across an enumerated corpus of fifteen independently developed servers (five production servers from the ANSYR voice AI platform plus ten public servers from the official MCP registry): Resource Gateway, Tool Orchestrator, Stateful Session Server, Proxy Aggregator, and Domain-Specific Adapter. Each pattern is described in the structured form of Gamma et al.: context, problem, solution, and consequences. We also document four anti-patterns and a set of cross-cutting concerns around authentication, versioning, and observability. The quantitative evaluation contributes three measurements: inter-rater reliability of the taxonomy across two independent LLM raters on 54 held-out servers (Cohen's kappa = 0.76), which also localizes three pattern-boundary ambiguities; transport overhead measured end-to-end on loopback and modeled for cross-host paths; and a tool-count study showing tool-selection accuracy drops below 90% between 10 and 15 tools per context for Claude Haiku 4.5 and between 20 and 30 tools for Sonnet 4. Code, corpus, and prompts are released as a replication package.",
+  "primary_category": "cs.SE",
+  "categories": [
+   "cs.SE",
+   "cs.AI"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2606.30317v1"
+ },
+ {
+  "arxiv_id": "2607.05744v1",
+  "title": "Unicode TAG-Block Concealment of Tool-Metadata Payloads in the Model Context Protocol: An Approval-View Fidelity Gap Across Three Independent Server Implementations",
+  "published": "2026-07-07",
+  "updated": "2026-07-07",
+  "authors": [
+   "Mohammadreza Rashidi"
+  ],
+  "summary": "The Model Context Protocol (MCP) is the dominant way coding agents discover and invoke external tools. A server advertises each tool through a tools/list handshake that returns a name, a natural-language description, and a JSON input schema. The client renders this metadata once, in a one-time approval dialog, and then injects it verbatim into the model's context on every subsequent turn. Nothing in the protocol requires the rendered approval view and the bytes delivered to the model to match. We isolate that gap as a single structural mechanism, concealment encoding, and show with a model-free, protocol-free analysis that Unicode's TAG block (U+E0000 to U+E007F) has no assigned glyph in any mainstream terminal, chat, or IDE renderer, so a payload written in it is absent from what a human reviewer sees while surviving byte-for-byte into the model's tokenizer. We then measure whether this mechanism actually defeats today's client-side defenses, building a proof-of-concept that speaks the real MCP JSON-RPC/stdio protocol against a genuine client and server. Across 5 distinct MCP metadata surfaces we implement 8 concrete techniques with a deterministic, protocol-level harness. All 8/8 techniques deliver an attacker-controlled payload into the model's context, 4/8 evade a representative string-matching sanitizer, and exactly as the mechanism analysis predicts, only the TAG-block encoding (1/8) is invisible in the human approval view while still reaching the model verbatim. MCP forces re-approval for 0/8 techniques even under a time-of-check to time-of-use rug-pull. To test whether these outcomes are a property of the protocol or an artifact of one server codebase, we re-implement the catalogue against 3 independently developed Python MCP server libraries and find total agreement across all 32 cross-library outcome cells. The baseline sanitizer flags 0 of 25 benign descriptions.",
+  "primary_category": "cs.CR",
+  "categories": [
+   "cs.CR",
+   "cs.AI",
+   "cs.SE"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2607.05744v1"
+ },
+ {
+  "arxiv_id": "2504.11094v2",
+  "title": "Evaluation Report on MCP Servers",
+  "published": "2025-04-15",
+  "updated": "2025-04-18",
+  "authors": [
+   "Zhiling Luo",
+   "Xiaorong Shi",
+   "Xuanrui Lin",
+   "Jinyang Gao"
+  ],
+  "summary": "With the rise of LLMs, a large number of Model Context Protocol (MCP) services have emerged since the end of 2024. However, the effectiveness and efficiency of MCP servers have not been well studied. To study these questions, we propose an evaluation framework, called MCPBench. We selected several widely used MCP server and conducted an experimental evaluation on their accuracy, time, and token usage. Our experiments showed that the most effective MCP, Bing Web Search, achieved an accuracy of 64%. Importantly, we found that the accuracy of MCP servers can be substantially enhanced by involving declarative interface. This research paves the way for further investigations into optimized MCP implementations, ultimately leading to better AI-driven applications and data retrieval solutions.",
+  "primary_category": "cs.IR",
+  "categories": [
+   "cs.IR",
+   "cs.DB"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2504.11094v2"
+ },
+ {
+  "arxiv_id": "1601.06903v1",
+  "title": "Tiered-Latency DRAM (TL-DRAM)",
+  "published": "2016-01-26",
+  "updated": "2016-01-26",
+  "authors": [
+   "Donghyuk Lee",
+   "Yoongu Kim",
+   "Vivek Seshadri",
+   "Jamie Liu",
+   "Lavanya Subramanian",
+   "Onur Mutlu"
+  ],
+  "summary": "This paper summarizes the idea of Tiered-Latency DRAM, which was published in HPCA 2013. The key goal of TL-DRAM is to provide low DRAM latency at low cost, a critical problem in modern memory systems. To this end, TL-DRAM introduces heterogeneity into the design of a DRAM subarray by segmenting the bitlines, thereby creating a low-latency, low-energy, low-capacity portion in the subarray (called the near segment), which is close to the sense amplifiers, and a high-latency, high-energy, high-capacity portion, which is farther away from the sense amplifiers. Thus, DRAM becomes heterogeneous with a small portion having lower latency and a large portion having higher latency. Various techniques can be employed to take advantage of the low-latency near segment and this new heterogeneous DRAM substrate, including hardware-based caching and software based caching and memory allocation of frequently used data in the near segment. Evaluations with simple such techniques show significant performance and energy-efficiency benefits.",
+  "primary_category": "cs.AR",
+  "categories": [
+   "cs.AR"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/1601.06903v1"
+ },
+ {
+  "arxiv_id": "2602.06052v4",
+  "title": "A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents",
+  "published": "2026-01-14",
+  "updated": "2026-08-04",
+  "authors": [
+   "Wei-Chieh Huang",
+   "Weizhi Zhang",
+   "Yueqing Liang",
+   "Yuanchen Bei",
+   "Yankai Chen",
+   "Tao Feng",
+   "Xinyu Pan",
+   "Zhen Tan",
+   "Yu Wang",
+   "Tianxin Wei",
+   "Shanglin Wu",
+   "Ruiyao Xu",
+   "Liangwei Yang",
+   "Rui Yang",
+   "Wooseong Yang",
+   "Chin-Yuan Yeh",
+   "Hanrong Zhang",
+   "Haozhen Zhang",
+   "Siqi Zhu",
+   "Henry Peng Zou",
+   "Wanjia Zhao",
+   "Song Wang",
+   "Wujiang Xu",
+   "Zixuan Ke",
+   "Zheng Hui",
+   "Dawei Li",
+   "Yaozu Wu",
+   "Langzhou He",
+   "Chen Wang",
+   "Xiongxiao Xu",
+   "Baixiang Huang",
+   "Juntao Tan",
+   "Shelby Heinecke",
+   "Huan Wang",
+   "Caiming Xiong",
+   "Ahmed A. Metwally",
+   "Jun Yan",
+   "Chen-Yu Lee",
+   "Hanqing Zeng",
+   "Yinglong Xia",
+   "Xiaokai Wei",
+   "Ali Payani",
+   "Yu Wang",
+   "Haitong Ma",
+   "Wenya Wang",
+   "Chenguang Wang",
+   "Yu Zhang",
+   "Xin Eric Wang",
+   "Yongfeng Zhang",
+   "Jiaxuan You",
+   "Hanghang Tong",
+   "Xiao Luo",
+   "Xue Liu",
+   "Yizhou Sun",
+   "Wei Wang",
+   "Julian McAuley",
+   "James Zou",
+   "Jiawei Han",
+   "Philip S. Yu",
+   "Kai Shu"
+  ],
+  "summary": "Research in artificial intelligence is shifting from model innovations and benchmark scores towards problem definition and rigorous real-world evaluation. As the field enters the \"second half,\" the central challenge becomes real utility in long-horizon, dynamic, and user-dependent settings such as agentic coding, deep research, and computer use, where LLM-based agents face context explosion beyond fixed context windows and must continuously accumulate, manage, and selectively reuse information across extended interactions. Memory, with hundreds of papers released in 2025, therefore emerges as the critical solution to fill this utility gap. Beyond passive storage, memory is increasingly the substrate through which agents self-evolve: short-term memory gates which experiences are perceived and abstracted during execution, while long-term memory consolidates them into reusable knowledge and skills, forming the loop through which agents improve from their own experience. In this survey, we provide a unified view of foundation agent memory along three dimensions: memory substrate (internal parametric state and external retrieval-augmented stores), cognitive mechanism (sensory, working, episodic, semantic, and procedural), and memory subject (user-centric personalization and agent-centric experience). We then analyze how memory is operated under single- and multi-agent topologies and highlight learning policies over memory operations, showing how memory management itself is becoming a trainable capability spanning reinforcement-learned context curation, experience consolidation at decision time, and the emerging ecosystem of portable, shareable agent skills. Finally, we review evaluation benchmarks and metrics for memory utility, and outline open challenges and future directions.",
+  "primary_category": "cs.CL",
+  "categories": [
+   "cs.CL",
+   "cs.AI"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2602.06052v4"
+ },
+ {
+  "arxiv_id": "2603.15658v1",
+  "title": "Did You Check the Right Pocket? Cost-Sensitive Store Routing for Memory-Augmented Agents",
+  "published": "2026-03-08",
+  "updated": "2026-03-08",
+  "authors": [
+   "Madhava Gaikwad"
+  ],
+  "summary": "Memory-augmented agents maintain multiple specialized stores, yet most systems retrieve from all stores for every query, increasing cost and introducing irrelevant context. We formulate memory retrieval as a store-routing problem and evaluate it using coverage, exact match, and token efficiency metrics. On downstream question answering, an oracle router achieves higher accuracy while using substantially fewer context tokens compared to uniform retrieval, demonstrating that selective retrieval improves both efficiency and performance. Our results show that routing decisions are a first-class component of memory-augmented agent design and motivate learned routing mechanisms for scalable multi-store systems. We additionally formalize store selection as a cost-sensitive decision problem that trades answer accuracy against retrieval cost, providing a principled interpretation of routing policies.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI",
+   "cs.CL",
+   "cs.IR"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2603.15658v1"
+ },
+ {
+  "arxiv_id": "2104.13230v1",
+  "title": "Influence Based Defense Against Data Poisoning Attacks in Online Learning",
+  "published": "2021-04-24",
+  "updated": "2021-04-24",
+  "authors": [
+   "Sanjay Seetharaman",
+   "Shubham Malaviya",
+   "Rosni KV",
+   "Manish Shukla",
+   "Sachin Lodha"
+  ],
+  "summary": "Data poisoning is a type of adversarial attack on training data where an attacker manipulates a fraction of data to degrade the performance of machine learning model. Therefore, applications that rely on external data-sources for training data are at a significantly higher risk. There are several known defensive mechanisms that can help in mitigating the threat from such attacks. For example, data sanitization is a popular defensive mechanism wherein the learner rejects those data points that are sufficiently far from the set of training instances. Prior work on data poisoning defense primarily focused on offline setting, wherein all the data is assumed to be available for analysis. Defensive measures for online learning, where data points arrive sequentially, have not garnered similar interest. In this work, we propose a defense mechanism to minimize the degradation caused by the poisoned training data on a learner's model in an online setup. Our proposed method utilizes an influence function which is a classic technique in robust statistics. Further, we supplement it with the existing data sanitization methods for filtering out some of the poisoned data points. We study the effectiveness of our defense mechanism on multiple datasets and across multiple attack strategies against an online learner.",
+  "primary_category": "cs.LG",
+  "categories": [
+   "cs.LG",
+   "cs.AI",
+   "cs.CR"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2104.13230v1"
+ },
+ {
+  "arxiv_id": "2606.24322v1",
+  "title": "Securing LLM-Agent Long-Term Memory Against Poisoning: Non-Malleable, Origin-Bound Authority with Machine-Checked Guarantees",
+  "published": "2026-06-23",
+  "updated": "2026-06-23",
+  "authors": [
+   "Yedidel Louck"
+  ],
+  "summary": "LLM agents increasingly rely on persistent long-term memory, which creates a critical vulnerability that we study here: memory poisoning. An adversary can store untrusted content in one session that later steers a consequential action, such as a payment, a setting change, or data exfiltration, in a future session. Existing defenses base a memory item's authority to act on either its content (detection or trust-scoring) or its derivation history (lineage). We show that both signals are malleable. An attacker can launder an untrusted origin through three channels specific to LLM agents: the agent's own summarization, a trusted-tool echo, and manufactured corroboration. Each makes the content look benign and breaks or flips its derivation edge to ``trusted.'' We formalize malleability for the memory write-retrieve-act pipeline and prove a machine-checked separation theorem. No content- or lineage-based defense is sound under laundering (T1), write-time origin binding is necessary (T2), and non-malleable origin-bound authority with Sybil-resistant corroboration-gated elevation is sufficient (T3). Our construction, TMA-NM (Tamper-evident Memory Authority, Non-Malleable), instantiates non-malleable information-flow control (IFC) for LLM-agent memory. A cross-defense, cross-attack, and cross-model benchmark over eight frontier models shows that existing defenses fail exactly where the theory predicts (up to 68% laundering attack-success), while TMA-NM reaches 0% attack success on both direct and laundering attacks across all models and channels, at full legitimate utility. We release the benchmark, harness, and machine-checked TLA+ models to support reproducibility.",
+  "primary_category": "cs.CR",
+  "categories": [
+   "cs.CR"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2606.24322v1"
+ },
+ {
+  "arxiv_id": "2206.03693v3",
+  "title": "Autoregressive Perturbations for Data Poisoning",
+  "published": "2022-06-08",
+  "updated": "2022-10-13",
+  "authors": [
+   "Pedro Sandoval-Segura",
+   "Vasu Singla",
+   "Jonas Geiping",
+   "Micah Goldblum",
+   "Tom Goldstein",
+   "David W. Jacobs"
+  ],
+  "summary": "The prevalence of data scraping from social media as a means to obtain datasets has led to growing concerns regarding unauthorized use of data. Data poisoning attacks have been proposed as a bulwark against scraping, as they make data \"unlearnable\" by adding small, imperceptible perturbations. Unfortunately, existing methods require knowledge of both the target architecture and the complete dataset so that a surrogate network can be trained, the parameters of which are used to generate the attack. In this work, we introduce autoregressive (AR) poisoning, a method that can generate poisoned data without access to the broader dataset. The proposed AR perturbations are generic, can be applied across different datasets, and can poison different architectures. Compared to existing unlearnable methods, our AR poisons are more resistant against common defenses such as adversarial training and strong data augmentations. Our analysis further provides insight into what makes an effective data poison.",
+  "primary_category": "cs.LG",
+  "categories": [
+   "cs.LG",
+   "cs.CR"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2206.03693v3"
+ },
+ {
+  "arxiv_id": "2601.05504v2",
+  "title": "Memory Poisoning Attack and Defense on Memory Based LLM-Agents",
+  "published": "2026-01-09",
+  "updated": "2026-01-12",
+  "authors": [
+   "Balachandra Devarangadi Sunil",
+   "Isheeta Sinha",
+   "Piyush Maheshwari",
+   "Shantanu Todmal",
+   "Shreyan Mallik",
+   "Shuchi Mishra"
+  ],
+  "summary": "Large language model agents equipped with persistent memory are vulnerable to memory poisoning attacks, where adversaries inject malicious instructions through query only interactions that corrupt the agents long term memory and influence future responses. Recent work demonstrated that the MINJA (Memory Injection Attack) achieves over 95 % injection success rate and 70 % attack success rate under idealized conditions. However, the robustness of these attacks in realistic deployments and effective defensive mechanisms remain understudied. This work addresses these gaps through systematic empirical evaluation of memory poisoning attacks and defenses in Electronic Health Record (EHR) agents. We investigate attack robustness by varying three critical dimensions: initial memory state, number of indication prompts, and retrieval parameters. Our experiments on GPT-4o-mini, Gemini-2.0-Flash and Llama-3.1-8B-Instruct models using MIMIC-III clinical data reveal that realistic conditions with pre-existing legitimate memories dramatically reduce attack effectiveness. We then propose and evaluate two novel defense mechanisms: (1) Input/Output Moderation using composite trust scoring across multiple orthogonal signals, and (2) Memory Sanitization with trust-aware retrieval employing temporal decay and pattern-based filtering. Our defense evaluation reveals that effective memory sanitization requires careful trust threshold calibration to prevent both overly conservative rejection (blocking all entries) and insufficient filtering (missing subtle attacks), establishing important baselines for future adaptive defense mechanisms. These findings provide crucial insights for securing memory-augmented LLM agents in production environments.",
+  "primary_category": "cs.CR",
+  "categories": [
+   "cs.CR",
+   "cs.MA"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2601.05504v2"
+ },
+ {
+  "arxiv_id": "2504.15321v1",
+  "title": "A Mission to Demonstrate Rapid-Response Flyby Reconnaissance for Planetary Defense",
+  "published": "2025-04-21",
+  "updated": "2025-04-21",
+  "authors": [
+   "Nancy L. Chabot",
+   "Justin A. Atchison",
+   "Rylie Bull",
+   "Andrew S. Rivkin",
+   "R. Terik Daly",
+   "Ronald-L. Ballouz",
+   "Olivier S. Barnouin",
+   "Andrew F. Cheng",
+   "Carolyn M. Ernst",
+   "Angela M. Stickle",
+   "Evan J. Smith",
+   "Joseph J. Linden",
+   "Benjamin F. Villac",
+   "Jodi R. Berdis",
+   "Dawn M. Graninger",
+   "Sarah Hefter"
+  ],
+  "summary": "International and U.S. strategies and protocols have identified the need to develop rapid-response spacecraft reconnaissance capabilities as a priority to advance planetary defense readiness. A space-based reconnaissance response is recommended for potential impactors as small as 50 m, making these small objects the most likely to trigger a space-based response and the ones that drive the reconnaissance capabilities needed. Even following the successful completion of the NEO Surveyor mission and Rubin Observatory survey efforts, roughly half of the 50-m near-Earth object (NEO) population will remain undiscovered. As a result, 50-m impactors may not be found with long warning times, and a rapid-response flyby mission may be the only reconnaissance possible. To develop a robust flyby reconnaissance capability for planetary defense, four major requirements are defined for a demonstration mission. 1. Enable a flyby of greater than 90 percent of the potential asteroid threat population. 2. Demonstrate the flyby reconnaissance for a 50 m NEO. 3. Obtain the information needed to determine if and where it would impact the Earth. 4. Determine key properties of the asteroid to inform decision makers. As commonly noted in the planetary defense community, in planetary defense, you do not pick the asteroid, the asteroid picks you. Thus, a planetary defense flyby reconnaissance demonstration mission is not about just flying by an asteroid, but rather it is about developing a robust capability for the objects that are most likely to require a short-warning-time, space-based response.",
+  "primary_category": "astro-ph.IM",
+  "categories": [
+   "astro-ph.IM",
+   "astro-ph.EP"
+  ],
+  "doi": "10.52202/078387-0001",
+  "journal_ref": "IAF Symposium on Planetary Defense and Near-Earth Objects (2024) IAC-24-E10.1.1, 1-9, 10.52202/078387-0001",
+  "abs_url": "https://arxiv.org/abs/2504.15321v1"
+ },
+ {
+  "arxiv_id": "2006.16469v2",
+  "title": "Model-Targeted Poisoning Attacks with Provable Convergence",
+  "published": "2020-06-30",
+  "updated": "2021-04-21",
+  "authors": [
+   "Fnu Suya",
+   "Saeed Mahloujifar",
+   "Anshuman Suri",
+   "David Evans",
+   "Yuan Tian"
+  ],
+  "summary": "In a poisoning attack, an adversary with control over a small fraction of the training data attempts to select that data in a way that induces a corrupted model that misbehaves in favor of the adversary. We consider poisoning attacks against convex machine learning models and propose an efficient poisoning attack designed to induce a specified model. Unlike previous model-targeted poisoning attacks, our attack comes with provable convergence to {\\it any} attainable target classifier. The distance from the induced classifier to the target classifier is inversely proportional to the square root of the number of poisoning points. We also provide a lower bound on the minimum number of poisoning points needed to achieve a given target classifier. Our method uses online convex optimization, so finds poisoning points incrementally. This provides more flexibility than previous attacks which require a priori assumption about the number of poisoning points. Our attack is the first model-targeted poisoning attack that provides provable convergence for convex models, and in our experiments, it either exceeds or matches state-of-the-art attacks in terms of attack success rate and distance to the target model.",
+  "primary_category": "cs.LG",
+  "categories": [
+   "cs.LG",
+   "cs.AI",
+   "cs.CR",
+   "stat.ML"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2006.16469v2"
+ },
+ {
+  "arxiv_id": "cs/0003040v1",
+  "title": "Implementing Integrity Constraints in an Existing Belief Revision System",
+  "published": "2000-03-08",
+  "updated": "2000-03-08",
+  "authors": [
+   "Frances L. Johnson",
+   "Stuart C. Shapiro"
+  ],
+  "summary": "SNePS is a mature knowledge representation, reasoning, and acting system that has long contained a belief revision subsystem, called SNeBR. SNeBR is triggered when an explicit contradiction is introduced into the SNePS belief space, either because of a user's new assertion, or because of a user's query. SNeBR then makes the user decide what belief to remove from the belief space in order to restore consistency, although it provides information to help the user in making that decision. We have recently added automatic belief revision to SNeBR, by which, under certain circumstances, SNeBR decides by itself which belief to remove, and then informs the user of the decision and its consequences. We have used the well-known belief revision integrity constraints as a guide in designing automatic belief revision, taking into account, however, that SNePS's belief space is not deductively closed, and that it would be infeasible to form the deductive closure in order to decide what belief to remove. This paper briefly describes SNeBR both before and after this revision, discusses how we adapted the integrity constraints for this purpose, and gives an example of the new SNeBR in action.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI",
+   "cs.LO"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/cs/0003040v1"
+ },
+ {
+  "arxiv_id": "2104.14512v2",
+  "title": "A General Katsuno-Mendelzon-Style Characterization of AGM Belief Base Revision for Arbitrary Monotonic Logics",
+  "published": "2021-04-29",
+  "updated": "2021-12-28",
+  "authors": [
+   "Faiq Miftakhul Falakh",
+   "Sebastian Rudolph",
+   "Kai Sauerwald"
+  ],
+  "summary": "The AGM postulates by Alchourrón, Gärdenfors, and Makinson continue to represent a cornerstone in research related to belief change. We generalize the approach of Katsuno and Mendelzon (KM) for characterizing AGM base revision from propositional logic to the setting of (multiple) base revision in arbitrary monotonic logics. Our core result is a representation theorem using the assignment of total - yet not transitive - \"preference\" relations to belief bases. We also provide a characterization of all logics for which our result can be strengthened to preorder assignments (as in KM's original work).",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI",
+   "cs.LO"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2104.14512v2"
+ },
+ {
+  "arxiv_id": "2104.08401v2",
+  "title": "Enriching a Model's Notion of Belief using a Persistent Memory",
+  "published": "2021-04-16",
+  "updated": "2021-10-07",
+  "authors": [
+   "Nora Kassner",
+   "Oyvind Tafjord",
+   "Hinrich Schutze",
+   "Peter Clark"
+  ],
+  "summary": "Although pretrained language models (PTLMs) have been shown to contain significant amounts of world knowledge, they can still produce inconsistent answers to questions when probed, even after using specialized training techniques to reduce inconsistency. As a result, it can be hard to identify what the model actually \"believes\" about the world. Our goal is to reduce this problem, so systems are more globally consistent and accurate in their answers. Our approach is to add a memory component -- a BeliefBank -- that records a model's answers, and two mechanisms that use it to improve consistency among beliefs. First, a reasoning component -- a weighted SAT solver -- improves consistency by flipping answers that significantly clash with others. Second, a feedback component re-queries the model but using known beliefs as context. We show that, in a controlled experimental setting, these two mechanisms improve both accuracy and consistency. This is significant as it is a first step towards endowing models with an evolving memory, allowing them to construct a more coherent picture of the world.",
+  "primary_category": "cs.CL",
+  "categories": [
+   "cs.CL",
+   "cs.AI"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2104.08401v2"
+ },
+ {
+  "arxiv_id": "2508.02866v3",
+  "title": "PROV-AGENT: Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows",
+  "published": "2025-08-04",
+  "updated": "2025-08-20",
+  "authors": [
+   "Renan Souza",
+   "Amal Gueroudji",
+   "Stephen DeWitt",
+   "Daniel Rosendo",
+   "Tirthankar Ghosal",
+   "Robert Ross",
+   "Prasanna Balaprakash",
+   "Rafael Ferreira da Silva"
+  ],
+  "summary": "Large Language Models (LLMs) and other foundation models are increasingly used as the core of AI agents. In agentic workflows, these agents plan tasks, interact with humans and peers, and influence scientific outcomes across federated and heterogeneous environments. However, agents can hallucinate or reason incorrectly, propagating errors when one agent's output becomes another's input. Thus, assuring that agents' actions are transparent, traceable, reproducible, and reliable is critical to assess hallucination risks and mitigate their workflow impacts. While provenance techniques have long supported these principles, existing methods fail to capture and relate agent-centric metadata such as prompts, responses, and decisions with the broader workflow context and downstream outcomes. In this paper, we introduce PROV-AGENT, a provenance model that extends W3C PROV and leverages the Model Context Protocol (MCP) and data observability to integrate agent interactions into end-to-end workflow provenance. Our contributions include: (1) a provenance model tailored for agentic workflows, (2) a near real-time, open-source system for capturing agentic provenance, and (3) a cross-facility evaluation spanning edge, cloud, and HPC environments, demonstrating support for critical provenance queries and agent reliability analysis.",
+  "primary_category": "cs.DC",
+  "categories": [
+   "cs.DC",
+   "cs.DB"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2508.02866v3"
+ },
+ {
+  "arxiv_id": "2608.00077v2",
+  "title": "Beyond Accuracy: Auditing Spatial Provenance in Visual Token Pruning for OCR-Critical MLLM Inference",
+  "published": "2026-07-29",
+  "updated": "2026-08-04",
+  "authors": [
+   "Feixiang Liu",
+   "Qiang Qiu",
+   "Hao Zhang",
+   "Xinyue Wang"
+  ],
+  "summary": "Visual-token pruning is usually judged by answer quality at a fixed retention budget. For text-rich multimodal large language models (MLLMs), this protocol can miss a distinct failure: an answer remains correct even when no retained token is locally traceable to the small OCR region that supports it. We turn this blind spot into an evidence-risk audit that couples answer behavior with geometric token-origin provenance, interventions, and realized cost; transparent training-free selectors isolate controlled operating points. On locked image-disjoint confirmation, Qwen Target at 30% retention has observed accuracy 0.786 versus 0.783 for Full (paired image-cluster difference +0.003, 95% CI [-0.014, +0.020]), yet same-budget Target, Random, and Grid retain sharply different positive-support coverage: 0.620, 0.270, and 0.318. Across Qwen3-VL-8B, LLaVA-1.5-7B, and InternVL3.5-8B, matched controls, interventions, detector tests, and external methods reveal model-specific quality-risk-traceability frontiers that accuracy alone does not expose. Materialized prefixes yield up to 4.32x batch-prefill speedup and 76.4% lower incremental peak memory; full-validation TextVQA and DocVQA further show that favorable target-verification points do not imply task-general compression. Visual-token pruning should therefore report surviving spatial provenance and realized cost alongside quality and compression.",
+  "primary_category": "cs.CV",
+  "categories": [
+   "cs.CV"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2608.00077v2"
+ },
+ {
+  "arxiv_id": "1506.04815v1",
+  "title": "Towards a unified query language for provenance and versioning",
+  "published": "2015-06-16",
+  "updated": "2015-06-16",
+  "authors": [
+   "Amit Chavan",
+   "Silu Huang",
+   "Amol Deshpande",
+   "Aaron Elmore",
+   "Samuel Madden",
+   "Aditya Parameswaran"
+  ],
+  "summary": "Organizations and teams collect and acquire data from various sources, such as social interactions, financial transactions, sensor data, and genome sequencers. Different teams in an organization as well as different data scientists within a team are interested in extracting a variety of insights which require combining and collaboratively analyzing datasets in diverse ways. DataHub is a system that aims to provide robust version control and provenance management for such a scenario. To be truly useful for collaborative data science, one also needs the ability to specify queries and analysis tasks over the versioning and the provenance information in a unified manner. In this paper, we present an initial design of our query language, called VQuel, that aims to support such unified querying over both types of information, as well as the intermediate and final results of analyses. We also discuss some of the key language design and implementation challenges moving forward.",
+  "primary_category": "cs.DB",
+  "categories": [
+   "cs.DB"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/1506.04815v1"
+ },
+ {
+  "arxiv_id": "2605.21404v1",
+  "title": "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema",
+  "published": "2026-05-20",
+  "updated": "2026-05-20",
+  "authors": [
+   "Mahdi Naser Moghadasi",
+   "Faezeh Ghaderi"
+  ],
+  "summary": "We read twelve well-known LLM agent benchmark papers and recorded, dimension by dimension, what each paper actually says about how its evaluation was run. The motivation came from a familiar frustration: two papers will report results on the same benchmark with the same model name and disagree, and you cannot tell why -- the scaffold, the sampling settings, the subset, or the evaluator version. In many cases the published artifact does not let you answer. This paper is an implementation report on the attempt. We designed a small audit schema (five fields: benchmark identity, harness specification, inference settings, cost reporting, failure breakdown), wrote a scoring codebook with the boundary cases we hit during pilot scoring, applied it to twelve canonical papers (eight agent, four classical static), and recorded what we saw. We score the disclosure of an agent run, not its correctness, and make no claim that disclosure implies a trustworthy result. The mean audit score across the eight agent-benchmark papers is 0.38 (out of 1.0), and across the four classical static benchmarks 0.66; the largest gap is on cost (none of the eight agent benchmark papers disclose inference cost in any form) and on harness specification (none fully disclose a content-addressed container image of the evaluation environment). We release the schema as a JSON Schema file, the codebook as a Markdown document, and the raw scoring sheet as a CSV. The scoring was performed by a single auditor in one pass; a multi-rater audit is the natural next step, and we discuss what we think it would change.",
+  "primary_category": "cs.LG",
+  "categories": [
+   "cs.LG"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2605.21404v1"
+ },
+ {
+  "arxiv_id": "2608.20400v1",
+  "title": "When Retrieval Fails Before It Begins: Structurally Indirect Prerequisite Eviction as a Retention Failure in Agentic Memory",
+  "published": "2026-07-05",
+  "updated": "2026-07-05",
+  "authors": [
+   "Minkyu Song"
+  ],
+  "summary": "Agentic memory under a fixed budget involves two stages: retention and retrieval. Existing retrieval-centered paradigms implicitly assume necessary evidence survives eviction, but we challenge this by isolating a pre-retrieval failure mode: structurally indirect prerequisite eviction, in which upstream blocks weakly aligned with the query are discarded under budget pressure. We provide an operational definition of this failure, a reproducible deterministic benchmark, and per-seed trace diagnostics. Finally, we evaluate Dependency-aware Semantic Garbage Collection (DSGC), a one-hop graph-aware rule. In our main suite, DSGC improves full-chain retention from 0.03 to 0.90 under a lexical encoder and from 0.23 to 1.00 under a sentence encoder. Robustness checks then identify the budget and scaling regimes where the one-hop rule holds or degrades. Our released pipeline and failure postmortem support mechanistic analysis of retention before retrieval as a distinct failure boundary.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI",
+   "cs.CL",
+   "cs.LG"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2608.20400v1"
+ },
+ {
+  "arxiv_id": "2610.07309v1",
+  "title": "The Right Memory in the Wrong Context: Verifying Retrieval Admissibility in Long-Term Agent Memory",
+  "published": "2026-10-05",
+  "updated": "2026-10-05",
+  "authors": [
+   "Zi Wang",
+   "Xingqiao Wang",
+   "Emmanuel Addai",
+   "Devika Ambekar",
+   "Xiaowei Xu"
+  ],
+  "summary": "Long-term-memory agents can retrieve relevant information that is inadmissible for the current request because it belongs to another principal, violates policy, or reflects an incompatible lifecycle state. Recall and final-answer accuracy do not reveal this: a route can appear safe by missing required evidence, while a correct answer may follow inadmissible prompt exposure. We introduce a retrieval-admissibility verification framework that assigns each memory-query pair one of three statuses (admissible, inadmissible, or unresolved), compares routes at matched required-evidence recall with bounds for unresolved cases, and tracks memory IDs through prompt exposure while linking exposure to target-level disclosure. We evaluate its stages on separate, non-pooled populations. A post-hoc top-20 reanalysis of frozen rankings from two public long-term-memory benchmarks, RHELM and MemOps, covers 3,767 queries. All released anchors lie within trusted query namespaces; with within-namespace scores unchanged, off-namespace filtering cannot lower their ranks. Top-20 anchor recall increases from 0.432 to 0.533, 80% recall feasibility from 0.237 to 0.311, and exact similarity evaluations decrease by 98.3%. In a frozen 72-case development diagnostic, a released-metadata reference preserves required evidence, whereas neither text-only verifier detects violations under the 1% required-anchor false-denial limit. Across 1,523 paired benchmark-native cases, namespace routing is associated with judged-accuracy gains of 0.053-0.068 across three readers; recall also changes, so this comparison is observational. In 16 controlled exposure scenarios, only one of four reader-specific 95% confidence intervals excludes zero for relevant-inadmissible literal disclosure (+0.156, 95% CI [0.031, 0.312]). Results motivate separate verification of candidate support, admissibility, prompt exposure, and answer disclosure.",
+  "primary_category": "cs.AI",
+  "categories": [
+   "cs.AI",
+   "cs.IR",
+   "cs.MA"
+  ],
+  "doi": null,
+  "journal_ref": null,
+  "abs_url": "https://arxiv.org/abs/2610.07309v1"
+ },
+ {
+  "arxiv_id": "2603.02888v1",
+  "title": "LLandMark: A Multi-Agent Framework for Landmark-Aware Multimodal Interactive Video Retrieval",
+  "published": "2026-03-03",
+  "updated": "2026-03-03",
+  "authors": [
+   "Minh-Chi Phung",
+   "Thien-Bao Le",
+   "Cam-Tu Tran-Thi",
+   "Thu-Dieu Nguyen-Thi",
+   "Vu-Hung Dao"
+  ],
+  "summary": "The increasing diversity and scale of video data demand retrieval systems capable of multimodal understanding, adaptive reasoning, and domain-specific knowledge integration. This paper presents LLandMark, a modular multi-agent framework for landmark-aware multimodal video retrieval to handle real-world complex queries. The framework features specialized agents that collaborate across four stages: query parsing and planning, landmark reasoning, multimodal retrieval, and reranked answer synthesis. A key component, the Landmark Knowledge Agent, detects cultural or spatial landmarks and reformulates them into descriptive visual prompts, enhancing CLIP-based semantic matching for Vietnamese scenes. To expand capabilities, we introduce an LLM-assisted image-to-image pipeline, where a large language model (Gemini 2.5 Flash) autonomously detects landmarks, generates image search queries, retrieves representative images, and performs CLIP-based visual similarity matching, removing the need for manual image input. In addition, an OCR refinement module leveraging Gemini and LlamaIndex improves Vietnamese text recognition. Experimental results show that LLandMark achieves adaptive, culturally grounded, and explainable retrieval performance.",
+  "primary_category": "cs.CV",
+  "categories": [
+   "cs.CV"
+  ],
+  "doi": null,
+  "journal_ref": "AAAI 2026 Workshop on New Frontiers in Information Retrieval",
+  "abs_url": "https://arxiv.org/abs/2603.02888v1"
+ }
+]

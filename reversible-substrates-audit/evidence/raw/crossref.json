@@ -1,0 +1,102 @@
+{
+ "Irreversibility and heat generation in the computing process Landauer": [
+  {
+   "doi": "10.1147/rd.53.0183",
+   "title": "Irreversibility and Heat Generation in the Computing Process",
+   "container": "IBM Journal of Research and Development",
+   "year": 1961,
+   "type": "journal-article",
+   "authors": [
+    "R. Landauer"
+   ]
+  },
+  {
+   "doi": "10.1147/rd.441.0261",
+   "title": "Irreversibility and heat generation in the computing process",
+   "container": "IBM Journal of Research and Development",
+   "year": 2000,
+   "type": "journal-article",
+   "authors": [
+    "R. Landauer"
+   ]
+  },
+  {
+   "doi": "10.3390/e19030110",
+   "title": "The Gibbs Paradox, the Landauer Principle and the Irreversibility Associated with Tilted Observers",
+   "container": "Entropy",
+   "year": 2017,
+   "type": "journal-article",
+   "authors": [
+    "Luis Herrera"
+   ]
+  }
+ ],
+ "Logical reversibility of computation Bennett IBM Journal": [
+  {
+   "doi": "10.1147/rd.176.0525",
+   "title": "Logical Reversibility of Computation",
+   "container": "IBM Journal of Research and Development",
+   "year": 1973,
+   "type": "journal-article",
+   "authors": [
+    "C. H. Bennett"
+   ]
+  },
+  {
+   "doi": "10.1147/rd.456.0807",
+   "title": "Logical reversibility",
+   "container": "IBM Journal of Research and Development",
+   "year": 2001,
+   "type": "journal-article",
+   "authors": [
+    "P. Zuliani"
+   ]
+  },
+  {
+   "doi": "10.1147/rd.441.0270",
+   "title": "Notes on the history of reversible computation",
+   "container": "IBM Journal of Research and Development",
+   "year": 2000,
+   "type": "journal-article",
+   "authors": [
+    "Charles H. Bennett"
+   ]
+  }
+ ],
+ "Digital topology introduction and survey Kong Rosenfeld": [
+  {
+   "doi": "10.1016/0734-189x(89)90127-8",
+   "title": "Digital topology: Introduction and survey",
+   "container": "Computer Vision, Graphics, and Image Processing",
+   "year": 1989,
+   "type": "journal-article",
+   "authors": [
+    "T.Y Kong",
+    "A Rosenfeld"
+   ]
+  },
+  {
+   "doi": "10.1016/0734-189x(89)90147-3",
+   "title": "Digital topology: Introduction and survey",
+   "container": "Computer Vision, Graphics, and Image Processing",
+   "year": 1989,
+   "type": "journal-article",
+   "authors": [
+    "T.Y Kong",
+    "A Rosenfeld"
+   ]
+  },
+  {
+   "doi": "10.1016/0166-8641(92)90016-s",
+   "title": "Concepts of digital topology",
+   "container": "Topology and its Applications",
+   "year": 1992,
+   "type": "journal-article",
+   "authors": [
+    "T.Y. Kong",
+    "A.W. Roscoe",
+    "A. Rosenfeld"
+   ]
+  }
+ ]
+}

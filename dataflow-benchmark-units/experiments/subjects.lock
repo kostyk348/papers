@@ -1,0 +1,5 @@
+# The audited artifact, pinned. `scripts/fetch_subjects.sh` reads this file; the plan's
+# [meta] records the same SHA in data/measurements.json.
+repo=kostyk348/tensor-broth
+sha=b05e7ba6fe76ea9a282c704fa2c1e0cd313f1954
+dir=subjects/tensor-broth

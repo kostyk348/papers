@@ -1,0 +1,8 @@
+run,x,bit_exact_reversal,bit_exact_reversal_sd,endpoint_recovered,endpoint_recovered_sd,entropy_conserved,entropy_conserved_sd,hamming_weight_mean,hamming_weight_mean_sd,midpoint_match,midpoint_match_sd
+margolus_steps1,1,1.000000,0,1.000000,0,1.000000,0,200.600000,7.924645,1.000000,0
+margolus_steps2,2,1.000000,0,1.000000,0,1.000000,0,200.600000,7.924645,1.000000,0
+margolus_steps3,3,1.000000,0,1.000000,0,1.000000,0,200.600000,7.924645,1.000000,0
+margolus_steps7,7,1.000000,0,1.000000,0,1.000000,0,200.600000,7.924645,1.000000,0
+margolus_steps16,16,1.000000,0,1.000000,0,1.000000,0,200.600000,7.924645,1.000000,0
+margolus_steps100,100,1.000000,0,1.000000,0,1.000000,0,200.600000,7.924645,1.000000,0
+margolus_steps500,500,1.000000,0,1.000000,0,1.000000,0,200.600000,7.924645,1.000000,0

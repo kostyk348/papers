@@ -1,0 +1,18 @@
+[package]
+name = "papertool"
+version = "0.1.0"
+edition = "2021"
+description = "One utility with subcommands for every paper package: curated sources -> verified BibTeX, experiment plans -> measurements -> number macros and figure data, and the checks that keep invented numbers out of the prose. Standard library only."
+license = "Apache-2.0"
+
+[[bin]]
+name = "papertool"
+path = "src/main.rs"
+
+# The disk on this machine is tight and nothing here needs a debugger symbol table.
+[profile.dev]
+debug = 0
+incremental = false
+
+[profile.release]
+debug = 0

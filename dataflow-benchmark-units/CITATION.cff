@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this note or its harness, cite it as below."
+type: software
+title: "Units before speed: what a dataflow-versus-von-Neumann benchmark actually measures, and what to report instead"
+abstract: >-
+  A measurement-methodology note on the benchmark published by kostyk348/tensor-broth. The audited
+  table compares VM instructions per second with 27-tap multiply-accumulates per second and reads
+  the ratio as a paradigm verdict; converted to a common unit (state updates per second) the
+  advantage is 5.3-fold at the reported cube size and 14.4-fold at twice the edge length, while the
+  choice of backend moves the same engine by a factor of 3.5 at the reported size. The note
+  reproduces every configuration five times, reports the spread the single run hides, and lists
+  what such a benchmark should print instead.
+authors:
+  - family-names: Parashchuk
+    given-names: Konstantin
+    affiliation: "Independent researcher, Saint Petersburg, Russia"
+    website: "https://github.com/kostyk348"
+version: 0.1.0
+date-released: "2026-11-17"
+license: CC-BY-4.0
+keywords:
+  - benchmarking methodology
+  - dataflow computing
+  - cellular automata
+  - units of measurement
+  - reproducibility
+references:
+  - type: software
+    title: "papertool: one utility with subcommands for the paper packages in this repository"
+    authors:
+      - family-names: Parashchuk
+        given-names: Konstantin
+    version: 0.1.0
+    license: Apache-2.0

@@ -1,0 +1,6603 @@
+{
+  "tool": "papertool measure",
+  "version": "0.1.0",
+  "generated_utc": "2026-11-17T06:32:02Z",
+  "plan": "experiments/plan.toml",
+  "environment": [
+    {
+      "key": "subject",
+      "value": "kostyk348/timelock-ca"
+    },
+    {
+      "key": "subject_sha",
+      "value": "c5c94bb38bae1ac6dec1f8b794112b6331f5625e"
+    },
+    {
+      "key": "python",
+      "value": "C:/Users/Lab/AppData/Local/Python/bin/python.exe"
+    },
+    {
+      "key": "python_version",
+      "value": "3.14.6"
+    },
+    {
+      "key": "numpy",
+      "value": "2.5.1"
+    },
+    {
+      "key": "host_os",
+      "value": "Windows 11 (x86_64), CPython 3.14.6, single process, no GPU"
+    },
+    {
+      "key": "tool_commit",
+      "value": "papertool 0.1.0"
+    },
+    {
+      "key": "claimed_in_readme",
+      "value": "margolus seed 0 hamming_weight 51; train 0.3313 -> 0.0848, XOR 94.75"
+    }
+  ],
+  "runs": [
+    {
+      "id": "margolus_size8",
+      "group": "margolus_size",
+      "x": "8",
+      "note": "16x16 -> 8x8 lattice, 100 ticks forward and back",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "8"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 148
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.28992435,
+        "sd": 0.04049318080350073,
+        "min": 0.2419771,
+        "max": 0.3498185
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 34767667.2,
+        "sd": 223513.0316642261,
+        "min": 34488320.0,
+        "max": 35094528.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 10,
+          "mean": 11.9,
+          "sd": 2.1317702607092643,
+          "min": 7.0,
+          "max": 14.0,
+          "values": [
+            14.0,
+            12.0,
+            13.0,
+            11.0,
+            7.0,
+            10.0,
+            13.0,
+            12.0,
+            13.0,
+            14.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_size16",
+      "group": "margolus_size",
+      "x": "16",
+      "note": "the size and seed the README reports",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "16"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 149
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.30025331000000005,
+        "sd": 0.07423559275001071,
+        "min": 0.2388536,
+        "max": 0.4447852
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 34791833.6,
+        "sd": 199791.23784768718,
+        "min": 34488320.0,
+        "max": 35102720.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 10,
+          "mean": 47.7,
+          "sd": 5.558776843874918,
+          "min": 37.0,
+          "max": 55.0,
+          "values": [
+            51.0,
+            48.0,
+            55.0,
+            42.0,
+            37.0,
+            50.0,
+            47.0,
+            51.0,
+            53.0,
+            43.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_size32",
+      "group": "margolus_size",
+      "x": "32",
+      "note": "1024 cells: does the inverse survive a bigger lattice?",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "32"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.25519960999999997,
+        "sd": 0.030666804198584727,
+        "min": 0.2289404,
+        "max": 0.3388646
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 34663219.2,
+        "sd": 151460.3350413713,
+        "min": 34406400.0,
+        "max": 34897920.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 10,
+          "mean": 203.3,
+          "sd": 9.88882646671934,
+          "min": 190.0,
+          "max": 219.0,
+          "values": [
+            202.0,
+            190.0,
+            201.0,
+            212.0,
+            198.0,
+            218.0,
+            199.0,
+            219.0,
+            201.0,
+            193.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_size48",
+      "group": "margolus_size",
+      "x": "48",
+      "note": "2304 cells",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "48"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.25075101999999994,
+        "sd": 0.011731836498917519,
+        "min": 0.2297677,
+        "max": 0.2636966
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 34887680.0,
+        "sd": 205420.28732008595,
+        "min": 34545664.0,
+        "max": 35209216.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 10,
+          "mean": 459.3,
+          "sd": 24.01411621896125,
+          "min": 424.0,
+          "max": 495.0,
+          "values": [
+            488.0,
+            452.0,
+            480.0,
+            495.0,
+            453.0,
+            472.0,
+            444.0,
+            456.0,
+            424.0,
+            429.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_size64",
+      "group": "margolus_size",
+      "x": "64",
+      "note": "4096 cells; the largest lattice the CLI accepts comfortably",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "64"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.25735773,
+        "sd": 0.012018101982708324,
+        "min": 0.2417859,
+        "max": 0.2779752
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 34899968.0,
+        "sd": 175775.73040414628,
+        "min": 34684928.0,
+        "max": 35229696.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 10,
+          "mean": 820.6,
+          "sd": 35.95429197065506,
+          "min": 752.0,
+          "max": 863.0,
+          "values": [
+            849.0,
+            830.0,
+            833.0,
+            855.0,
+            841.0,
+            863.0,
+            805.0,
+            800.0,
+            752.0,
+            778.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_steps1",
+      "group": "margolus_steps",
+      "x": "1",
+      "note": "single odd tick: the phase-inversion edge case",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "32",
+        "--steps",
+        "1",
+        "--mid-steps",
+        "1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.23620702000000002,
+        "sd": 0.009951139528566563,
+        "min": 0.2264921,
+        "max": 0.2513939
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 34786508.8,
+        "sd": 136876.28394722,
+        "min": 34611200.0,
+        "max": 34951168.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 5,
+          "mean": 200.6,
+          "sd": 7.92464510246358,
+          "min": 190.0,
+          "max": 212.0,
+          "values": [
+            202.0,
+            190.0,
+            201.0,
+            212.0,
+            198.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_steps2",
+      "group": "margolus_steps",
+      "x": "2",
+      "note": "one full two-phase period",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "32",
+        "--steps",
+        "2",
+        "--mid-steps",
+        "1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.24471439999999997,
+        "sd": 0.021117791675504333,
+        "min": 0.2281071,
+        "max": 0.2800344
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 34867609.6,
+        "sd": 125467.37333984482,
+        "min": 34734080.0,
+        "max": 35061760.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 5,
+          "mean": 200.6,
+          "sd": 7.92464510246358,
+          "min": 190.0,
+          "max": 212.0,
+          "values": [
+            202.0,
+            190.0,
+            201.0,
+            212.0,
+            198.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_steps3",
+      "group": "margolus_steps",
+      "x": "3",
+      "note": "three ticks: odd, but past the trivial case",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "32",
+        "--steps",
+        "3",
+        "--mid-steps",
+        "1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.23799001999999997,
+        "sd": 0.009256120374217277,
+        "min": 0.2292774,
+        "max": 0.2519733
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 34955264.0,
+        "sd": 139865.05587887205,
+        "min": 34717696.0,
+        "max": 35090432.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 5,
+          "mean": 200.6,
+          "sd": 7.92464510246358,
+          "min": 190.0,
+          "max": 212.0,
+          "values": [
+            202.0,
+            190.0,
+            201.0,
+            212.0,
+            198.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_steps7",
+      "group": "margolus_steps",
+      "x": "7",
+      "note": "odd count with an odd midpoint",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "32",
+        "--steps",
+        "7",
+        "--mid-steps",
+        "3"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.26916308,
+        "sd": 0.054815139727195795,
+        "min": 0.2268547,
+        "max": 0.3642951
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 34852044.8,
+        "sd": 167169.99937548602,
+        "min": 34619392.0,
+        "max": 35082240.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 5,
+          "mean": 200.6,
+          "sd": 7.92464510246358,
+          "min": 190.0,
+          "max": 212.0,
+          "values": [
+            202.0,
+            190.0,
+            201.0,
+            212.0,
+            198.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_steps16",
+      "group": "margolus_steps",
+      "x": "16",
+      "note": "even steps, odd midpoint",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "32",
+        "--steps",
+        "16",
+        "--mid-steps",
+        "7"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.27638428,
+        "sd": 0.030029278922694753,
+        "min": 0.2522341,
+        "max": 0.3230866
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 34951987.2,
+        "sd": 114446.374041295,
+        "min": 34803712.0,
+        "max": 35086336.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 5,
+          "mean": 200.6,
+          "sd": 7.92464510246358,
+          "min": 190.0,
+          "max": 212.0,
+          "values": [
+            202.0,
+            190.0,
+            201.0,
+            212.0,
+            198.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_steps100",
+      "group": "margolus_steps",
+      "x": "100",
+      "note": "the README's configuration at size 32",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "32",
+        "--steps",
+        "100",
+        "--mid-steps",
+        "40"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.30659272,
+        "sd": 0.08272981605840182,
+        "min": 0.2393078,
+        "max": 0.4377543
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 34910208.0,
+        "sd": 177952.22729710353,
+        "min": 34705408.0,
+        "max": 35160064.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 5,
+          "mean": 200.6,
+          "sd": 7.92464510246358,
+          "min": 190.0,
+          "max": 212.0,
+          "values": [
+            202.0,
+            190.0,
+            201.0,
+            212.0,
+            198.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "margolus_steps500",
+      "group": "margolus_steps",
+      "x": "500",
+      "note": "500 ticks: integer drift cannot accumulate if the rule is a permutation, so this bounds the claim",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "margolus",
+        "--size",
+        "32",
+        "--steps",
+        "500",
+        "--mid-steps",
+        "250"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 150
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.643324,
+        "sd": 0.178166173438254,
+        "min": 0.4081155,
+        "max": 0.8337947
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 35182182.4,
+        "sd": 129837.3853587633,
+        "min": 34967552.0,
+        "max": 35303424.0
+      },
+      "metrics": [
+        {
+          "name": "bit_exact_reversal",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "endpoint_recovered",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "entropy_conserved",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "hamming_weight",
+          "kind": "num",
+          "n": 5,
+          "mean": 200.6,
+          "sd": 7.92464510246358,
+          "min": 190.0,
+          "max": 212.0,
+          "values": [
+            202.0,
+            190.0,
+            201.0,
+            212.0,
+            198.0
+          ]
+        },
+        {
+          "name": "midpoint_match",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topo_size16",
+      "group": "topo_size",
+      "x": "16",
+      "note": "two rings on a 16x16 lattice, 200 noisy proposals",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "topo",
+        "--size",
+        "16"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.28612031000000004,
+        "sd": 0.09896861331548447,
+        "min": 0.2383454,
+        "max": 0.5653473
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 34673049.6,
+        "sd": 196261.14589336773,
+        "min": 34410496.0,
+        "max": 34934784.0
+      },
+      "metrics": [
+        {
+          "name": "accepted_flips",
+          "kind": "num",
+          "n": 10,
+          "mean": 76.4,
+          "sd": 7.381658952355418,
+          "min": 66.0,
+          "max": 88.0,
+          "values": [
+            76.0,
+            88.0,
+            72.0,
+            86.0,
+            75.0,
+            66.0,
+            81.0,
+            80.0,
+            67.0,
+            73.0
+          ]
+        },
+        {
+          "name": "chi_final",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "chi_initial",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "rejected_flips",
+          "kind": "num",
+          "n": 10,
+          "mean": 123.6,
+          "sd": 7.381658952355418,
+          "min": 112.0,
+          "max": 134.0,
+          "values": [
+            124.0,
+            112.0,
+            128.0,
+            114.0,
+            125.0,
+            134.0,
+            119.0,
+            120.0,
+            133.0,
+            127.0
+          ]
+        },
+        {
+          "name": "topology_locked",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topo_size32",
+      "group": "topo_size",
+      "x": "32",
+      "note": "the README's configuration",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "topo",
+        "--size",
+        "32"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.28451002000000003,
+        "sd": 0.042411956949421174,
+        "min": 0.2529553,
+        "max": 0.3941957
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 34673049.6,
+        "sd": 120837.0138319473,
+        "min": 34500608.0,
+        "max": 34889728.0
+      },
+      "metrics": [
+        {
+          "name": "accepted_flips",
+          "kind": "num",
+          "n": 10,
+          "mean": 35.1,
+          "sd": 5.173651192984184,
+          "min": 25.0,
+          "max": 45.0,
+          "values": [
+            34.0,
+            36.0,
+            38.0,
+            45.0,
+            25.0,
+            33.0,
+            37.0,
+            33.0,
+            38.0,
+            32.0
+          ]
+        },
+        {
+          "name": "chi_final",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "chi_initial",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "rejected_flips",
+          "kind": "num",
+          "n": 10,
+          "mean": 164.9,
+          "sd": 5.173651192984184,
+          "min": 155.0,
+          "max": 175.0,
+          "values": [
+            166.0,
+            164.0,
+            162.0,
+            155.0,
+            175.0,
+            167.0,
+            163.0,
+            167.0,
+            162.0,
+            168.0
+          ]
+        },
+        {
+          "name": "topology_locked",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topo_size64",
+      "group": "topo_size",
+      "x": "64",
+      "note": "bigger lattice, same 200 proposals: acceptance rate should fall, conservation should not",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "topo",
+        "--size",
+        "64"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 123
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 123
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 123
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 123
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 123
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 123
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 124
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 123
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 123
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.31706718,
+        "sd": 0.04448073367612345,
+        "min": 0.2538312,
+        "max": 0.3904204
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 34804121.6,
+        "sd": 105342.34620006019,
+        "min": 34664448.0,
+        "max": 34975744.0
+      },
+      "metrics": [
+        {
+          "name": "accepted_flips",
+          "kind": "num",
+          "n": 10,
+          "mean": 7.3,
+          "sd": 2.79085809185793,
+          "min": 3.0,
+          "max": 12.0,
+          "values": [
+            4.0,
+            6.0,
+            3.0,
+            6.0,
+            8.0,
+            6.0,
+            10.0,
+            12.0,
+            9.0,
+            9.0
+          ]
+        },
+        {
+          "name": "chi_final",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "chi_initial",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "rejected_flips",
+          "kind": "num",
+          "n": 10,
+          "mean": 192.7,
+          "sd": 2.79085809185793,
+          "min": 188.0,
+          "max": 197.0,
+          "values": [
+            196.0,
+            194.0,
+            197.0,
+            194.0,
+            192.0,
+            194.0,
+            190.0,
+            188.0,
+            191.0,
+            191.0
+          ]
+        },
+        {
+          "name": "topology_locked",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topo_steps2000",
+      "group": "topo_long",
+      "x": "2000",
+      "note": "ten times the proposals: a conserved quantity should still be conserved, and the lattice should still be moving",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "topo",
+        "--size",
+        "32",
+        "--steps",
+        "2000"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 126
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 126
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 126
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 126
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 126
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.448761,
+        "sd": 0.06559641973088165,
+        "min": 0.3668225,
+        "max": 0.5219422
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 34809446.4,
+        "sd": 90465.05383185265,
+        "min": 34713600.0,
+        "max": 34930688.0
+      },
+      "metrics": [
+        {
+          "name": "accepted_flips",
+          "kind": "num",
+          "n": 5,
+          "mean": 416.0,
+          "sd": 36.864617182333525,
+          "min": 388.0,
+          "max": 479.0,
+          "values": [
+            413.0,
+            391.0,
+            479.0,
+            409.0,
+            388.0
+          ]
+        },
+        {
+          "name": "chi_final",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "chi_initial",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "rejected_flips",
+          "kind": "num",
+          "n": 5,
+          "mean": 1584.0,
+          "sd": 36.864617182333525,
+          "min": 1521.0,
+          "max": 1612.0,
+          "values": [
+            1587.0,
+            1609.0,
+            1521.0,
+            1591.0,
+            1612.0
+          ]
+        },
+        {
+          "name": "topology_locked",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_size32",
+      "group": "hpp_size",
+      "x": "32",
+      "note": "small box: finite-size effects are the whole question",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "hpp",
+        "--size",
+        "32"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "repeats": 1,
+      "n": 20,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 10,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 11,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 12,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 110
+        },
+        {
+          "seed": 13,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 113
+        },
+        {
+          "seed": 14,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 15,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 113
+        },
+        {
+          "seed": 16,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 110
+        },
+        {
+          "seed": 17,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 18,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 113
+        },
+        {
+          "seed": 19,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 113
+        }
+      ],
+      "elapsed_s": {
+        "n": 20,
+        "mean": 0.382768915,
+        "sd": 0.05609506970589046,
+        "min": 0.3039356,
+        "max": 0.5370533
+      },
+      "peak_ws_bytes": {
+        "n": 20,
+        "mean": 34948300.8,
+        "sd": 188730.20209188067,
+        "min": 34451456.0,
+        "max": 35196928.0
+      },
+      "metrics": [
+        {
+          "name": "attraction_detected",
+          "kind": "bool",
+          "n": 20,
+          "true_count": 12,
+          "values": [
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "name": "final_activity",
+          "kind": "num",
+          "n": 20,
+          "mean": 1023.0,
+          "sd": 28.09944745663909,
+          "min": 955.0,
+          "max": 1068.0,
+          "values": [
+            1037.0,
+            1029.0,
+            1060.0,
+            1058.0,
+            1015.0,
+            1068.0,
+            1006.0,
+            1008.0,
+            955.0,
+            1012.0,
+            1003.0,
+            1021.0,
+            1028.0,
+            995.0,
+            1023.0,
+            1010.0,
+            998.0,
+            1014.0,
+            1061.0,
+            1059.0
+          ]
+        },
+        {
+          "name": "mean_net_force",
+          "unit": "lattice units",
+          "kind": "num",
+          "n": 20,
+          "mean": 0.031075,
+          "sd": 0.10483105644195732,
+          "min": -0.1217,
+          "max": 0.245,
+          "values": [
+            0.0183,
+            0.1383,
+            0.1483,
+            -0.1217,
+            0.0683,
+            0.0017,
+            -0.07,
+            0.0233,
+            0.1267,
+            0.1933,
+            0.115,
+            -0.1083,
+            0.07,
+            -0.1067,
+            0.0067,
+            -0.035,
+            0.245,
+            -0.0117,
+            -0.075,
+            -0.005
+          ]
+        },
+        {
+          "name": "steps",
+          "kind": "num",
+          "n": 20,
+          "mean": 300.0,
+          "sd": 0.0,
+          "min": 300.0,
+          "max": 300.0,
+          "values": [
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_size48",
+      "group": "hpp_size",
+      "x": "48",
+      "note": "medium box",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "hpp",
+        "--size",
+        "48"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "repeats": 1,
+      "n": 20,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 110
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 10,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 113
+        },
+        {
+          "seed": 11,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 12,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 13,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 14,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 15,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 16,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 17,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 18,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 19,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        }
+      ],
+      "elapsed_s": {
+        "n": 20,
+        "mean": 0.37102177,
+        "sd": 0.062624457511743,
+        "min": 0.304081,
+        "max": 0.5312851
+      },
+      "peak_ws_bytes": {
+        "n": 20,
+        "mean": 34979225.6,
+        "sd": 149509.3155507815,
+        "min": 34713600.0,
+        "max": 35184640.0
+      },
+      "metrics": [
+        {
+          "name": "attraction_detected",
+          "kind": "bool",
+          "n": 20,
+          "true_count": 10,
+          "values": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "final_activity",
+          "kind": "num",
+          "n": 20,
+          "mean": 2300.65,
+          "sd": 47.70995151626346,
+          "min": 2157.0,
+          "max": 2371.0,
+          "values": [
+            2332.0,
+            2283.0,
+            2342.0,
+            2371.0,
+            2274.0,
+            2334.0,
+            2289.0,
+            2291.0,
+            2157.0,
+            2322.0,
+            2236.0,
+            2332.0,
+            2274.0,
+            2282.0,
+            2340.0,
+            2293.0,
+            2267.0,
+            2317.0,
+            2333.0,
+            2344.0
+          ]
+        },
+        {
+          "name": "mean_net_force",
+          "unit": "lattice units",
+          "kind": "num",
+          "n": 20,
+          "mean": -0.005995,
+          "sd": 0.04609048851529941,
+          "min": -0.105,
+          "max": 0.0683,
+          "values": [
+            0.0217,
+            -0.0083,
+            0.0,
+            -0.0667,
+            -0.0483,
+            -0.0483,
+            -0.0517,
+            0.0317,
+            -0.0017,
+            0.0367,
+            -0.105,
+            0.055,
+            0.0367,
+            0.0033,
+            0.0217,
+            0.0183,
+            -0.0717,
+            -0.0183,
+            0.0067,
+            0.0683
+          ]
+        },
+        {
+          "name": "steps",
+          "kind": "num",
+          "n": 20,
+          "mean": 300.0,
+          "sd": 0.0,
+          "min": 300.0,
+          "max": 300.0,
+          "values": [
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_size64",
+      "group": "hpp_size",
+      "x": "64",
+      "note": "the README's configuration",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "hpp",
+        "--size",
+        "64"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "repeats": 1,
+      "n": 20,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 113
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 113
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 110
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 113
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 10,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 11,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 12,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 13,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 14,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 15,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 16,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 17,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 110
+        },
+        {
+          "seed": 18,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 110
+        },
+        {
+          "seed": 19,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 110
+        }
+      ],
+      "elapsed_s": {
+        "n": 20,
+        "mean": 0.36942059499999996,
+        "sd": 0.07353523083583438,
+        "min": 0.2886909,
+        "max": 0.5914965
+      },
+      "peak_ws_bytes": {
+        "n": 20,
+        "mean": 35027558.4,
+        "sd": 75972.67903827423,
+        "min": 34861056.0,
+        "max": 35160064.0
+      },
+      "metrics": [
+        {
+          "name": "attraction_detected",
+          "kind": "bool",
+          "n": 20,
+          "true_count": 12,
+          "values": [
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "final_activity",
+          "kind": "num",
+          "n": 20,
+          "mean": 4098.45,
+          "sd": 60.61915191544145,
+          "min": 3935.0,
+          "max": 4182.0,
+          "values": [
+            4030.0,
+            4128.0,
+            4108.0,
+            4176.0,
+            4130.0,
+            4182.0,
+            4133.0,
+            4070.0,
+            3935.0,
+            4160.0,
+            4057.0,
+            4160.0,
+            4019.0,
+            4102.0,
+            4102.0,
+            4099.0,
+            4033.0,
+            4099.0,
+            4110.0,
+            4136.0
+          ]
+        },
+        {
+          "name": "mean_net_force",
+          "unit": "lattice units",
+          "kind": "num",
+          "n": 20,
+          "mean": 0.00658,
+          "sd": 0.054885033910606465,
+          "min": -0.095,
+          "max": 0.0967,
+          "values": [
+            0.0633,
+            -0.0767,
+            -0.065,
+            0.015,
+            0.085,
+            0.0033,
+            -0.095,
+            0.03,
+            -0.015,
+            0.0967,
+            -0.0267,
+            0.0367,
+            0.015,
+            -0.0533,
+            -0.0417,
+            -0.0267,
+            0.0367,
+            0.06,
+            0.03,
+            0.06
+          ]
+        },
+        {
+          "name": "steps",
+          "kind": "num",
+          "n": 20,
+          "mean": 300.0,
+          "sd": 0.0,
+          "min": 300.0,
+          "max": 300.0,
+          "values": [
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_size96",
+      "group": "hpp_size",
+      "x": "96",
+      "note": "large box: if the force is real it should not need a small box",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "hpp",
+        "--size",
+        "96"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "repeats": 1,
+      "n": 20,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 10,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 11,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 110
+        },
+        {
+          "seed": 12,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 13,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 112
+        },
+        {
+          "seed": 14,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 15,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 16,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        },
+        {
+          "seed": 17,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 111
+        },
+        {
+          "seed": 18,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 109
+        },
+        {
+          "seed": 19,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 114
+        }
+      ],
+      "elapsed_s": {
+        "n": 20,
+        "mean": 0.4570055150000001,
+        "sd": 0.07786357156068269,
+        "min": 0.3772601,
+        "max": 0.6451007
+      },
+      "peak_ws_bytes": {
+        "n": 20,
+        "mean": 35178291.2,
+        "sd": 88535.00870788493,
+        "min": 35012608.0,
+        "max": 35385344.0
+      },
+      "metrics": [
+        {
+          "name": "attraction_detected",
+          "kind": "bool",
+          "n": 20,
+          "true_count": 12,
+          "values": [
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          "name": "final_activity",
+          "kind": "num",
+          "n": 20,
+          "mean": 9212.1,
+          "sd": 76.14522136576993,
+          "min": 9056.0,
+          "max": 9330.0,
+          "values": [
+            9127.0,
+            9176.0,
+            9174.0,
+            9211.0,
+            9238.0,
+            9330.0,
+            9247.0,
+            9056.0,
+            9132.0,
+            9321.0,
+            9268.0,
+            9266.0,
+            9101.0,
+            9181.0,
+            9182.0,
+            9276.0,
+            9152.0,
+            9221.0,
+            9315.0,
+            9268.0
+          ]
+        },
+        {
+          "name": "mean_net_force",
+          "unit": "lattice units",
+          "kind": "num",
+          "n": 20,
+          "mean": 0.008090000000000003,
+          "sd": 0.05172319951840811,
+          "min": -0.0917,
+          "max": 0.1,
+          "values": [
+            -0.0683,
+            -0.0917,
+            0.0317,
+            0.0233,
+            0.0417,
+            0.035,
+            -0.02,
+            0.0517,
+            0.0683,
+            -0.0183,
+            0.0117,
+            0.04,
+            -0.0483,
+            0.0417,
+            -0.0767,
+            0.065,
+            -0.0083,
+            0.005,
+            0.1,
+            -0.0217
+          ]
+        },
+        {
+          "name": "steps",
+          "kind": "num",
+          "n": 20,
+          "mean": 300.0,
+          "sd": 0.0,
+          "min": 300.0,
+          "max": 300.0,
+          "values": [
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_depth2",
+      "group": "train_depth",
+      "x": "2",
+      "note": "two leapfrog steps",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--depth",
+        "2"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 126
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 129
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.45229248999999994,
+        "sd": 0.07815427673972736,
+        "min": 0.3564623,
+        "max": 0.5701012
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 35142041.6,
+        "sd": 114512.32259281095,
+        "min": 34988032.0,
+        "max": 35323904.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 10,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.49784999999999996,
+          "sd": 0.022046579477702808,
+          "min": 0.4705,
+          "max": 0.5417,
+          "values": [
+            0.4836,
+            0.5417,
+            0.5109,
+            0.4973,
+            0.4705,
+            0.49,
+            0.4794,
+            0.5086,
+            0.4781,
+            0.5184
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.42233,
+          "sd": 0.017937115462390022,
+          "min": 0.3947,
+          "max": 0.4522,
+          "values": [
+            0.4123,
+            0.4522,
+            0.4291,
+            0.4413,
+            0.4003,
+            0.4222,
+            0.3947,
+            0.4335,
+            0.4118,
+            0.4259
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 10,
+          "mean": 58.475,
+          "sd": 2.6126030016909274,
+          "min": 53.5,
+          "max": 62.0,
+          "values": [
+            56.0,
+            53.5,
+            60.0,
+            57.0,
+            62.0,
+            58.5,
+            61.75,
+            58.25,
+            60.0,
+            57.75
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_depth4",
+      "group": "train_depth",
+      "x": "4",
+      "note": "four steps",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--depth",
+        "4"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 127
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 1,
+          "timed_out": false,
+          "stdout_bytes": 129
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.32324272,
+        "sd": 0.02894431497831656,
+        "min": 0.302608,
+        "max": 0.4018427
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 35196108.8,
+        "sd": 182186.8385323155,
+        "min": 34922496.0,
+        "max": 35475456.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 10,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.50065,
+          "sd": 0.03323459542906055,
+          "min": 0.4595,
+          "max": 0.569,
+          "values": [
+            0.4737,
+            0.569,
+            0.519,
+            0.4595,
+            0.4847,
+            0.4747,
+            0.4885,
+            0.5025,
+            0.4966,
+            0.5383
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.26281000000000004,
+          "sd": 0.013166240499432214,
+          "min": 0.2452,
+          "max": 0.2876,
+          "values": [
+            0.2464,
+            0.2876,
+            0.2659,
+            0.2731,
+            0.2504,
+            0.2656,
+            0.2452,
+            0.2705,
+            0.258,
+            0.2654
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 10,
+          "mean": 76.425,
+          "sd": 1.9222744052004879,
+          "min": 73.5,
+          "max": 80.0,
+          "values": [
+            76.25,
+            74.75,
+            76.25,
+            73.5,
+            79.25,
+            76.0,
+            80.0,
+            75.5,
+            76.5,
+            76.25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_depth8",
+      "group": "train_depth",
+      "x": "8",
+      "note": "eight steps",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--depth",
+        "8"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.38621821,
+        "sd": 0.031240689273568642,
+        "min": 0.3549669,
+        "max": 0.4640762
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 35221094.4,
+        "sd": 158677.93335012486,
+        "min": 34947072.0,
+        "max": 35430400.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 10,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.49745,
+          "sd": 0.0636490420631415,
+          "min": 0.3844,
+          "max": 0.6069,
+          "values": [
+            0.4482,
+            0.6069,
+            0.4923,
+            0.3844,
+            0.5042,
+            0.4349,
+            0.5127,
+            0.5067,
+            0.5199,
+            0.5643
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.10122,
+          "sd": 0.012841062607467067,
+          "min": 0.0839,
+          "max": 0.1193,
+          "values": [
+            0.0905,
+            0.1023,
+            0.0853,
+            0.0946,
+            0.1171,
+            0.1193,
+            0.0839,
+            0.114,
+            0.0991,
+            0.1061
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 10,
+          "mean": 94.475,
+          "sd": 2.2250156054384074,
+          "min": 90.5,
+          "max": 97.25,
+          "values": [
+            96.5,
+            92.0,
+            97.25,
+            96.0,
+            90.5,
+            95.0,
+            96.75,
+            93.25,
+            94.25,
+            93.25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_depth12",
+      "group": "train_depth",
+      "x": "12",
+      "note": "the README's configuration",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--depth",
+        "12"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 127
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.49039035000000003,
+        "sd": 0.06396493348958647,
+        "min": 0.413547,
+        "max": 0.5911498
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 35210854.4,
+        "sd": 198891.1579528417,
+        "min": 34832384.0,
+        "max": 35553280.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 10,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.48636,
+          "sd": 0.09413731341916329,
+          "min": 0.3575,
+          "max": 0.6225,
+          "values": [
+            0.4408,
+            0.6225,
+            0.4167,
+            0.3575,
+            0.474,
+            0.3666,
+            0.5592,
+            0.5424,
+            0.4765,
+            0.6074
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.07709999999999999,
+          "sd": 0.02087938909280846,
+          "min": 0.0538,
+          "max": 0.1049,
+          "values": [
+            0.0538,
+            0.0555,
+            0.0546,
+            0.0687,
+            0.089,
+            0.1049,
+            0.0575,
+            0.0956,
+            0.0972,
+            0.0942
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 10,
+          "mean": 96.425,
+          "sd": 1.6074911439189263,
+          "min": 94.0,
+          "max": 98.5,
+          "values": [
+            96.5,
+            95.75,
+            97.5,
+            98.0,
+            94.75,
+            94.0,
+            98.25,
+            98.5,
+            96.25,
+            94.75
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_depth24",
+      "group": "train_depth",
+      "x": "24",
+      "note": "double the README depth: stored activations would show here",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--depth",
+        "24"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 127
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 127
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.62345324,
+        "sd": 0.057655273990237295,
+        "min": 0.5479089,
+        "max": 0.7206852
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 35144908.8,
+        "sd": 158084.7295378863,
+        "min": 34881536.0,
+        "max": 35377152.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 10,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.59661,
+          "sd": 0.21369797196562776,
+          "min": 0.3193,
+          "max": 0.9315,
+          "values": [
+            0.6288,
+            0.5848,
+            0.3193,
+            0.9315,
+            0.4896,
+            0.3519,
+            0.7936,
+            0.4203,
+            0.569,
+            0.8773
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.050530000000000005,
+          "sd": 0.010286134140460913,
+          "min": 0.0273,
+          "max": 0.065,
+          "values": [
+            0.0489,
+            0.0539,
+            0.0273,
+            0.0614,
+            0.0499,
+            0.052,
+            0.0483,
+            0.0548,
+            0.0438,
+            0.065
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 10,
+          "mean": 97.65,
+          "sd": 1.2594090324875038,
+          "min": 96.25,
+          "max": 99.75,
+          "values": [
+            96.5,
+            96.5,
+            99.75,
+            96.75,
+            98.25,
+            98.0,
+            97.0,
+            99.5,
+            98.0,
+            96.25
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_depth48",
+      "group": "train_depth",
+      "x": "48",
+      "note": "quadruple: 12x48x400 float64 activations would be about 1.8 MB if anything stored them",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--depth",
+        "48"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "repeats": 1,
+      "n": 10,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 5,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 6,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 7,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 8,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 9,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        }
+      ],
+      "elapsed_s": {
+        "n": 10,
+        "mean": 0.90271945,
+        "sd": 0.06576797078572266,
+        "min": 0.8444612,
+        "max": 1.0145246
+      },
+      "peak_ws_bytes": {
+        "n": 10,
+        "mean": 35115827.2,
+        "sd": 72293.07848965288,
+        "min": 35008512.0,
+        "max": 35233792.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 10,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 10,
+          "true_count": 10,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 10,
+          "mean": 3.46723,
+          "sd": 3.330992488083193,
+          "min": 0.4919,
+          "max": 10.2496,
+          "values": [
+            1.8124,
+            0.8688,
+            0.4919,
+            10.2496,
+            2.8281,
+            2.4001,
+            2.0021,
+            2.5056,
+            8.9516,
+            2.5621
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 10,
+          "mean": 0.06651,
+          "sd": 0.01786165663587165,
+          "min": 0.0288,
+          "max": 0.0954,
+          "values": [
+            0.0673,
+            0.0606,
+            0.0288,
+            0.0954,
+            0.0776,
+            0.0738,
+            0.0662,
+            0.0496,
+            0.0771,
+            0.0687
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 10,
+          "mean": 97.0,
+          "sd": 1.2747548783981961,
+          "min": 95.5,
+          "max": 99.25,
+          "values": [
+            95.5,
+            96.25,
+            99.25,
+            96.0,
+            96.25,
+            95.75,
+            97.25,
+            98.75,
+            97.5,
+            97.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_batch100",
+      "group": "train_batch",
+      "x": "100",
+      "note": "batch size 100: memory should scale with n, not with depth",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--n",
+        "100"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 127
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.39141064,
+        "sd": 0.06890166772290784,
+        "min": 0.336048,
+        "max": 0.5050903
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 34944614.4,
+        "sd": 175999.35767155516,
+        "min": 34795520.0,
+        "max": 35151872.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 5,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.43616,
+          "sd": 0.07431929762854331,
+          "min": 0.3489,
+          "max": 0.554,
+          "values": [
+            0.4135,
+            0.554,
+            0.4371,
+            0.3489,
+            0.4273
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.05484,
+          "sd": 0.023610124946725715,
+          "min": 0.0317,
+          "max": 0.0925,
+          "values": [
+            0.0383,
+            0.0563,
+            0.0554,
+            0.0317,
+            0.0925
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 5,
+          "mean": 96.8,
+          "sd": 2.3874672772626644,
+          "min": 93.0,
+          "max": 99.0,
+          "values": [
+            98.0,
+            98.0,
+            96.0,
+            99.0,
+            93.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_batch400",
+      "group": "train_batch",
+      "x": "400",
+      "note": "the README's batch",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--n",
+        "400"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 127
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.41410837999999994,
+        "sd": 0.00810209291584588,
+        "min": 0.4015605,
+        "max": 0.4241638
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 35318988.8,
+        "sd": 174390.53713777018,
+        "min": 35061760.0,
+        "max": 35467264.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 5,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.46230000000000004,
+          "sd": 0.09915339126827688,
+          "min": 0.3575,
+          "max": 0.6225,
+          "values": [
+            0.4408,
+            0.6225,
+            0.4167,
+            0.3575,
+            0.474
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.06432,
+          "sd": 0.015093276648892377,
+          "min": 0.0538,
+          "max": 0.089,
+          "values": [
+            0.0538,
+            0.0555,
+            0.0546,
+            0.0687,
+            0.089
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 5,
+          "mean": 96.5,
+          "sd": 1.3110110602126894,
+          "min": 94.75,
+          "max": 98.0,
+          "values": [
+            96.5,
+            95.75,
+            97.5,
+            98.0,
+            94.75
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_batch1600",
+      "group": "train_batch",
+      "x": "1600",
+      "note": "four times the batch",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--n",
+        "1600"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.73836958,
+        "sd": 0.03552751888856019,
+        "min": 0.69258,
+        "max": 0.775319
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 35308339.2,
+        "sd": 147836.66420479055,
+        "min": 35139584.0,
+        "max": 35487744.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 5,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.46204,
+          "sd": 0.0837568086784591,
+          "min": 0.3592,
+          "max": 0.5815,
+          "values": [
+            0.4648,
+            0.5815,
+            0.4135,
+            0.3592,
+            0.4912
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.06288,
+          "sd": 0.02249904442415277,
+          "min": 0.0403,
+          "max": 0.1003,
+          "values": [
+            0.0628,
+            0.0538,
+            0.0572,
+            0.0403,
+            0.1003
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 5,
+          "mean": 97.126,
+          "sd": 2.2641400133383986,
+          "min": 93.19,
+          "max": 98.75,
+          "values": [
+            98.5,
+            97.44,
+            97.75,
+            98.75,
+            93.19
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_batch6400",
+      "group": "train_batch",
+      "x": "6400",
+      "note": "sixteen times the batch: the linear term in n must appear",
+      "mode": "json",
+      "cwd": "subjects/timelock-ca",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "timelock_ca.cli",
+        "train",
+        "--n",
+        "6400"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 128
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 129
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 2.0722726,
+        "sd": 0.16923776838974208,
+        "min": 1.7810401,
+        "max": 2.1751355
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 37509529.6,
+        "sd": 202256.9795403857,
+        "min": 37232640.0,
+        "max": 37748736.0
+      },
+      "metrics": [
+        {
+          "name": "epochs",
+          "kind": "num",
+          "n": 5,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0,
+            120.0,
+            120.0,
+            120.0,
+            120.0
+          ]
+        },
+        {
+          "name": "loss_decreased",
+          "kind": "bool",
+          "n": 5,
+          "true_count": 5,
+          "values": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "name": "loss_first",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.46436,
+          "sd": 0.08561724709426248,
+          "min": 0.3548,
+          "max": 0.587,
+          "values": [
+            0.4701,
+            0.587,
+            0.4228,
+            0.3548,
+            0.4871
+          ]
+        },
+        {
+          "name": "loss_last",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.06254000000000001,
+          "sd": 0.015965368771187212,
+          "min": 0.0529,
+          "max": 0.0909,
+          "values": [
+            0.0582,
+            0.0529,
+            0.0556,
+            0.0551,
+            0.0909
+          ]
+        },
+        {
+          "name": "xor_accuracy_pct",
+          "unit": "percent",
+          "kind": "num",
+          "n": 5,
+          "mean": 97.06800000000001,
+          "sd": 1.694541235851166,
+          "min": 94.31,
+          "max": 98.48,
+          "values": [
+            98.48,
+            97.55,
+            96.7,
+            98.3,
+            94.31
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_se32",
+      "group": "derived",
+      "x": "",
+      "note": "standard error of the mean net force over 20 seeds, size 32",
+      "mode": "derived",
+      "expr": "hpp_size32.mean_net_force.sd / sqrt(hpp_size32.mean_net_force.n)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "lattice units",
+          "n": 1,
+          "mean": 0.02344093683573338,
+          "sd": 0.0,
+          "min": 0.02344093683573338,
+          "max": 0.02344093683573338,
+          "values": [
+            0.02344093683573338
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_t32",
+      "group": "derived",
+      "x": "",
+      "note": "mean/SE: how many standard errors the claimed attraction sits from zero, size 32",
+      "mode": "derived",
+      "expr": "hpp_size32.mean_net_force / hpp_se32.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "dimensionless",
+          "n": 1,
+          "mean": 1.3256722723056549,
+          "sd": 0.0,
+          "min": 1.3256722723056549,
+          "max": 1.3256722723056549,
+          "values": [
+            1.3256722723056549
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_se48",
+      "group": "derived",
+      "x": "",
+      "note": "standard error, size 48",
+      "mode": "derived",
+      "expr": "hpp_size48.mean_net_force.sd / sqrt(hpp_size48.mean_net_force.n)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "lattice units",
+          "n": 1,
+          "mean": 0.010306146543638284,
+          "sd": 0.0,
+          "min": 0.010306146543638284,
+          "max": 0.010306146543638284,
+          "values": [
+            0.010306146543638284
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_t48",
+      "group": "derived",
+      "x": "",
+      "note": "mean/SE, size 48",
+      "mode": "derived",
+      "expr": "hpp_size48.mean_net_force / hpp_se48.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "dimensionless",
+          "n": 1,
+          "mean": -0.5816917093712933,
+          "sd": 0.0,
+          "min": -0.5816917093712933,
+          "max": -0.5816917093712933,
+          "values": [
+            -0.5816917093712933
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_se64",
+      "group": "derived",
+      "x": "",
+      "note": "standard error, size 64 (the README's configuration)",
+      "mode": "derived",
+      "expr": "hpp_size64.mean_net_force.sd / sqrt(hpp_size64.mean_net_force.n)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "lattice units",
+          "n": 1,
+          "mean": 0.012272666677149716,
+          "sd": 0.0,
+          "min": 0.012272666677149716,
+          "max": 0.012272666677149716,
+          "values": [
+            0.012272666677149716
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_t64",
+      "group": "derived",
+      "x": "",
+      "note": "mean/SE, size 64",
+      "mode": "derived",
+      "expr": "hpp_size64.mean_net_force / hpp_se64.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "dimensionless",
+          "n": 1,
+          "mean": 0.5361507953484305,
+          "sd": 0.0,
+          "min": 0.5361507953484305,
+          "max": 0.5361507953484305,
+          "values": [
+            0.5361507953484305
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_se96",
+      "group": "derived",
+      "x": "",
+      "note": "standard error, size 96",
+      "mode": "derived",
+      "expr": "hpp_size96.mean_net_force.sd / sqrt(hpp_size96.mean_net_force.n)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "lattice units",
+          "n": 1,
+          "mean": 0.011565659013694492,
+          "sd": 0.0,
+          "min": 0.011565659013694492,
+          "max": 0.011565659013694492,
+          "values": [
+            0.011565659013694492
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_t96",
+      "group": "derived",
+      "x": "",
+      "note": "mean/SE, size 96",
+      "mode": "derived",
+      "expr": "hpp_size96.mean_net_force / hpp_se96.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "dimensionless",
+          "n": 1,
+          "mean": 0.6994845681012138,
+          "sd": 0.0,
+          "min": 0.6994845681012138,
+          "max": 0.6994845681012138,
+          "values": [
+            0.6994845681012138
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_positive_all",
+      "group": "derived",
+      "x": "",
+      "note": "how many of the 80 runs reported a positive net force",
+      "mode": "derived",
+      "expr": "hpp_size32.attraction_detected.true_count + hpp_size48.attraction_detected.true_count + hpp_size64.attraction_detected.true_count + hpp_size96.attraction_detected.true_count",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "runs",
+          "n": 1,
+          "mean": 46.0,
+          "sd": 0.0,
+          "min": 46.0,
+          "max": 46.0,
+          "values": [
+            46.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hpp_all_n",
+      "group": "derived",
+      "x": "",
+      "note": "denominator of hpp_positive_all",
+      "mode": "derived",
+      "expr": "hpp_size32.attraction_detected.n + hpp_size48.attraction_detected.n + hpp_size64.attraction_detected.n + hpp_size96.attraction_detected.n",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "runs",
+          "n": 1,
+          "mean": 80.0,
+          "sd": 0.0,
+          "min": 80.0,
+          "max": 80.0,
+          "values": [
+            80.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topo_accept16",
+      "group": "derived",
+      "x": "",
+      "note": "acceptance rate of the chi-preserving sampler, size 16",
+      "mode": "derived",
+      "expr": "topo_size16.accepted_flips / (topo_size16.accepted_flips + topo_size16.rejected_flips)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "fraction",
+          "n": 1,
+          "mean": 0.382,
+          "sd": 0.0,
+          "min": 0.382,
+          "max": 0.382,
+          "values": [
+            0.382
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topo_accept32",
+      "group": "derived",
+      "x": "",
+      "note": "acceptance rate, size 32",
+      "mode": "derived",
+      "expr": "topo_size32.accepted_flips / (topo_size32.accepted_flips + topo_size32.rejected_flips)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "fraction",
+          "n": 1,
+          "mean": 0.17550000000000002,
+          "sd": 0.0,
+          "min": 0.17550000000000002,
+          "max": 0.17550000000000002,
+          "values": [
+            0.17550000000000002
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topo_accept64",
+      "group": "derived",
+      "x": "",
+      "note": "acceptance rate, size 64: the freeze the invariant imposes on the dynamics",
+      "mode": "derived",
+      "expr": "topo_size64.accepted_flips / (topo_size64.accepted_flips + topo_size64.rejected_flips)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "fraction",
+          "n": 1,
+          "mean": 0.0365,
+          "sd": 0.0,
+          "min": 0.0365,
+          "max": 0.0365,
+          "values": [
+            0.0365
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mem_depth_delta_mb",
+      "group": "derived",
+      "x": "",
+      "note": "peak working set difference between depth 2 and depth 48: the O(1)-in-depth test",
+      "mode": "derived",
+      "expr": "(train_depth48.peak_ws_bytes.mean - train_depth2.peak_ws_bytes.mean) / 1048576",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "MB",
+          "n": 1,
+          "mean": -0.02499999999999858,
+          "sd": 0.0,
+          "min": -0.02499999999999858,
+          "max": -0.02499999999999858,
+          "values": [
+            -0.02499999999999858
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mem_batch_delta_mb",
+      "group": "derived",
+      "x": "",
+      "note": "peak working set difference between a 100-sample and a 6400-sample batch: memory is linear in n",
+      "mode": "derived",
+      "expr": "(train_batch6400.peak_ws_bytes.mean - train_batch100.peak_ws_bytes.mean) / 1048576",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "MB",
+          "n": 1,
+          "mean": 2.446093750000003,
+          "sd": 0.0,
+          "min": 2.446093750000003,
+          "max": 2.446093750000003,
+          "values": [
+            2.446093750000003
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mem_depth_ratio",
+      "group": "derived",
+      "x": "",
+      "note": "24x the depth for this factor of peak memory",
+      "mode": "derived",
+      "expr": "train_depth48.peak_ws_bytes.mean / train_depth2.peak_ws_bytes.mean",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "ratio",
+          "n": 1,
+          "mean": 0.999254044477598,
+          "sd": 0.0,
+          "min": 0.999254044477598,
+          "max": 0.999254044477598,
+          "values": [
+            0.999254044477598
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mem_depth_abs_mb",
+      "group": "derived",
+      "x": "",
+      "note": "absolute value of the depth-2 to depth-48 peak difference: the size of the effect, without its sign",
+      "mode": "derived",
+      "expr": "sqrt((train_depth48.peak_ws_bytes.mean - train_depth2.peak_ws_bytes.mean) * (train_depth48.peak_ws_bytes.mean - train_depth2.peak_ws_bytes.mean)) / 1048576",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "MB",
+          "n": 1,
+          "mean": 0.02499999999999858,
+          "sd": 0.0,
+          "min": 0.02499999999999858,
+          "max": 0.02499999999999858,
+          "values": [
+            0.02499999999999858
+          ]
+        }
+      ]
+    }
+  ],
+  "derives_refreshed_utc": "2026-11-17T06:50:28Z"
+}

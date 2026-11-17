@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using the metadata below."
+title: "Memory Operations in MCP Agent Ecosystems: an Operation Taxonomy, an Evaluation Protocol, and a Reference Implementation"
+abstract: >-
+  Proposes a taxonomy of six agent-memory operations defined by pre/postconditions and
+  observable evidence, an evaluation protocol with ten task families and a machine-validated
+  report format, and a reference implementation as public MCP servers. This release adds the
+  first two protocol runs: two memory servers measured on ten task families with three
+  repetitions per family, per-operation profiles that are read side by side rather than ranked,
+  and comparison tables generated from the two validated report files. Token and cost metrics
+  are null by construction, because no model is in the loop; the claim ledger states explicitly
+  what is not confirmed.
+type: article
+authors:
+  - family-names: Parashchuk
+    given-names: Konstantin
+    affiliation: "Independent researcher, Saint Petersburg, Russia"
+version: "1.0"
+date-released: "2026-10-16"
+license: CC-BY-4.0
+repository-code: "https://github.com/kostyk348/papers"
+url: "https://github.com/kostyk348/papers/tree/main/agent-memory-mcp"
+keywords:
+  - agent memory
+  - Model Context Protocol
+  - evaluation protocol
+  - belief revision
+  - prospective memory
+  - confidence calibration
+  - reproducibility
+identifiers:
+  - type: other
+    value: "no DOI yet - version 1.0 is prepared for deposit; deposit to Zenodo before citing as published"
+preferred-citation:
+  type: article
+  title: "Memory Operations in MCP Agent Ecosystems: an Operation Taxonomy, an Evaluation Protocol, and a Reference Implementation"
+  authors:
+    - family-names: Parashchuk
+      given-names: Konstantin
+  year: 2026
+  notes: >-
+    Version 1.0 (16 October 2026). AI assistance in preparing this work is disclosed in the
+    paper's Acknowledgements; the human author is solely responsible for all claims.

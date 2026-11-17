@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this reproduction study or its harness, cite it as below."
+type: software
+title: "Parity holonomy in Boolean constraint networks: a reproduction study of five claims, one refutation, and a checksum that is not a memory"
+abstract: >-
+  An independent reproduction of the five verdicts published by the kostyk348/paradox-logic
+  repository: paradox as Mermin/GHZ contextuality, defect thermodynamics, topological parity
+  memory, novelty as a change of topological class, and the cohomological diagonal lemma. Six
+  experiments are re-run from a pinned commit and compared byte for byte against the result files
+  committed with the code; four verdicts are checked against numbers, and the parity invariant is
+  sharpened into a measurable statement about minimum distance.
+authors:
+  - family-names: Parashchuk
+    given-names: Konstantin
+    affiliation: "Independent researcher, Saint Petersburg, Russia"
+    website: "https://github.com/kostyk348"
+version: 0.1.0
+date-released: "2026-11-17"
+license: CC-BY-4.0
+keywords:
+  - parity holonomy
+  - contextuality
+  - Boolean constraint networks
+  - error detecting codes
+  - frustration
+  - reproducibility
+references:
+  - type: software
+    title: "papertool: one utility with subcommands for the paper packages in this repository"
+    authors:
+      - family-names: Parashchuk
+        given-names: Konstantin
+    version: 0.1.0
+    license: Apache-2.0

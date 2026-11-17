@@ -1,0 +1,38 @@
+{
+  "title": "Memory Operations in MCP Agent Ecosystems: an Operation Taxonomy, an Evaluation Protocol, and a Reference Implementation",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "publication_date": "2026-10-16",
+  "version": "1.0",
+  "language": "eng",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "creators": [
+    {
+      "name": "Parashchuk, Konstantin",
+      "affiliation": "Independent researcher, Saint Petersburg, Russia"
+    }
+  ],
+  "keywords": [
+    "agent memory",
+    "Model Context Protocol",
+    "MCP servers",
+    "agent memory evaluation",
+    "operation-level benchmarking",
+    "belief revision",
+    "prospective memory",
+    "confidence calibration",
+    "reproducibility",
+    "LLM agents"
+  ],
+  "description": "<p><strong>Version 1.0.</strong> This deposit contains the taxonomy, the evaluation protocol, the verified reference base and the first two validated protocol runs of a paper on agent memory in the Model Context Protocol (MCP) ecosystem.</p><p>Contents: (1) a taxonomy of six memory operations - WRITE, READ, CONSOLIDATE, REVISE, INTEND, ASSERT - defined by preconditions, postconditions and externally checkable evidence, plus two mandatory record axes, PROVENANCE and LIFECYCLE, and a mapping of seven existing systems onto them; (2) an evaluation protocol with ten task families, per-metric definitions that name the program that computes them, a run procedure with budgets and repetitions, and a JSON-Schema-validated report format with a mandatory reproducibility disclosure block; (3) a reference implementation of five of the six operations as public MCP servers, with commit-pinned facts and its gaps stated before any measurement; (4) two validated reports of two memory servers measured over MCP stdio in a store-only configuration - ten task families, three repetitions per family, per-family metrics with percentile bootstrap confidence intervals, per-operation profiles read side by side rather than ranked, and the raw request/response logs (33 JSONL files per run) beside which every number can be recomputed; (5) a table generator that produces every comparison table and every inline number of the paper from those two report files, with a check that fails when they drift; (6) a machine-generated verification table for all 135 cited sources (arXiv API, Crossref, direct HTTP probes), a report validator with negative tests, and the raw API responses.</p><p>Every citation was resolved programmatically and the build refuses to emit a bibliography containing an unresolved source. Token and cost metrics are null by construction, because no model is in the loop; the sample is two servers from one author's reference set and the confidence intervals rest on three repetitions. What is not confirmed is stated explicitly in the paper and in the claim ledger (claims.md). AI assistance in preparing the manuscript is disclosed in the paper and in the repository README; the human author is solely responsible for all claims.</p>",
+  "notes": "Version 1.0, prepared for deposit. The DOI applies to this version only; later revisions are deposited as new versions. Measured systems: sint-liquid-mcp@bfffce2cdec3 and sint-memory-mcp (sint monorepo @7554f7eef853). The controlled subjects field is left empty on purpose: the term list could not be verified against Zenodo's vocabulary API from the authoring host, and an invented subject term would be worse than none.",
+  "related_identifiers": [
+    {"relation": "isSupplementedBy", "identifier": "https://github.com/kostyk348/sint", "resource_type": "software"},
+    {"relation": "isSupplementedBy", "identifier": "https://github.com/kostyk348/sint-liquid-mcp", "resource_type": "software"},
+    {"relation": "isSupplementedBy", "identifier": "https://github.com/kostyk348/sint-epistemic-mcp", "resource_type": "software"},
+    {"relation": "isSupplementedBy", "identifier": "https://github.com/kostyk348/sint-dream-mcp", "resource_type": "software"},
+    {"relation": "isSupplementedBy", "identifier": "https://github.com/kostyk348/sint-prospective-mcp", "resource_type": "software"},
+    {"relation": "isSupplementedBy", "identifier": "https://github.com/kostyk348/sint-llm-swarm", "resource_type": "software"}
+  ]
+}

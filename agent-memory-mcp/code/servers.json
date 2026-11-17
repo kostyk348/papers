@@ -1,0 +1,85 @@
+{
+  "_comment": "Reference MCP servers used by the protocol run (protocol.md sections 4.1-4.2). Each entry is a candidate: `included` says whether this pass executed it and `reason` gives the ground for the decision, so the report disclosure block can carry the full candidate list instead of a convenience sample. launch.argv is relative to --server-root; {python} is the interpreter used for the server process; {data_dir} is the per-repetition data directory. env adds variables the server itself reads (data-directory isolation); the harness additionally points USERPROFILE/HOME at a fresh directory per repetition, which isolates servers whose storage path is derived from the home directory.",
+  "mcp_spec_revision": "2025-03-26",
+  "servers": [
+    {
+      "name": "sint-liquid-mcp",
+      "kind": "mcp_server",
+      "repo_url": "https://github.com/kostyk348/sint-liquid-mcp",
+      "commit_sha": "bfffce2cdec35c11aa0d90ae02689d69df596b11",
+      "included": true,
+      "reason": "memory-oriented MCP server from the SINT reference set; executable on this host with the pinned dependency set (mcp 1.9.4); exposes the write/read/revise operations needed by T1/T2/T5",
+      "launch": {"cwd": "sint-liquid-mcp", "argv": ["{python}", "server.py"], "env": {}},
+      "storage": {"kind": "home_relative", "paths": [".config/opencode/liquid"]},
+      "adapter": "liquid",
+      "runtime": "Python {py_version}, mcp 1.9.4 (mcp.server.fastmcp)"
+    },
+    {
+      "name": "sint-memory-mcp",
+      "kind": "mcp_server",
+      "repo_url": "https://github.com/kostyk348/sint",
+      "commit_sha": "7554f7eef853cebafae34e6654acc9871fb01163",
+      "included": true,
+      "reason": "hash-chained block memory inside the SINT core repository; executable on this host with the same pinned dependency set; a different storage design from sint-liquid-mcp (append-only chain with registers and provenance), so the two profiles are comparable but not duplicated",
+      "launch": {"cwd": "sint", "argv": ["{python}", "core/mcp/sint-memory/server.py"], "env": {"SINT_MEMORY_DIR": "{data_dir}/memory"}},
+      "storage": {"kind": "env_dir", "paths": ["memory"]},
+      "adapter": "sint_memory",
+      "runtime": "Python {py_version}, mcp 1.9.4 (mcp.server.fastmcp)"
+    },
+    {
+      "name": "sint-epistemic-mcp",
+      "kind": "mcp_server",
+      "repo_url": "https://github.com/kostyk348/sint-epistemic-mcp",
+      "commit_sha": "5d339df2cbb074b5e9528c171ba49f269685b582",
+      "included": false,
+      "reason": "imports the standalone fastmcp distribution, which could not be installed on this host in this pass (pip aborted with Errno 28, disk full: 0.12 GB free of 237 GB). Excluded for a host-capability reason, not a quality judgement",
+      "launch": {"cwd": "sint-epistemic-mcp", "argv": ["{python}", "server.py"], "env": {}},
+      "storage": {"kind": "home_relative", "paths": [".config/opencode/epistemic"]},
+      "adapter": "epistemic_not_implemented"
+    },
+    {
+      "name": "sint-dream-mcp",
+      "kind": "mcp_server",
+      "repo_url": "https://github.com/kostyk348/sint-dream-mcp",
+      "commit_sha": "4ab0c130eabd60892da1a6f6c4eb5871c6f5be47",
+      "included": false,
+      "reason": "same blocking dependency as sint-epistemic-mcp (standalone fastmcp not installable here); would be the natural subject for T6 consolidation once installable, because it exposes dream_consolidate",
+      "launch": {"cwd": "sint-dream-mcp", "argv": ["{python}", "server.py"], "env": {}},
+      "storage": {"kind": "home_relative", "paths": [".config/opencode/dream"]},
+      "adapter": "dream_not_implemented"
+    },
+    {
+      "name": "sint-prospective-mcp",
+      "kind": "mcp_server",
+      "repo_url": "https://github.com/kostyk348/sint-prospective-mcp",
+      "commit_sha": "b16b7172ec334b857eef8c7b64f67721acca6943",
+      "included": false,
+      "reason": "executable on this host and the right subject for T7 (intention stack), but it has no fact store, so T1/T2/T5 cannot be exercised on it; deferred to a follow-up card that measures O5_INTEND against it",
+      "launch": {"cwd": "sint-prospective-mcp", "argv": ["{python}", "server.py"], "env": {}},
+      "storage": {"kind": "home_relative", "paths": [".config/opencode/prospective"]},
+      "adapter": "prospective_not_implemented"
+    },
+    {
+      "name": "sint-llm-swarm",
+      "kind": "mcp_server",
+      "repo_url": "https://github.com/kostyk348/sint-llm-swarm",
+      "commit_sha": "fc705f8d7a3c28c326592a38133a4e9ad8ca59f9",
+      "included": false,
+      "reason": "not a memory store (multi-agent orchestration over a cache directory) and blocked by the same fastmcp dependency",
+      "launch": {"cwd": "sint-llm-swarm", "argv": ["{python}", "server.py"], "env": {}},
+      "storage": {"kind": "home_relative", "paths": [".config/opencode/llm-swarm"]},
+      "adapter": "swarm_not_implemented"
+    },
+    {
+      "name": "sint-memory-mcp (mcp/working)",
+      "kind": "mcp_server",
+      "repo_url": "https://github.com/kostyk348/sint",
+      "commit_sha": "7554f7eef853cebafae34e6654acc9871fb01163",
+      "included": false,
+      "reason": "second memory server inside the same repository (mcp/working); excluded to keep the per-repository sample at one server and to avoid two subjects sharing a commit",
+      "launch": {"cwd": "sint", "argv": ["{python}", "mcp/working/server.py"], "env": {}},
+      "storage": {"kind": "home_relative", "paths": [".config/opencode/working"]},
+      "adapter": "working_not_implemented"
+    }
+  ]
+}

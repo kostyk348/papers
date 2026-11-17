@@ -1,0 +1,3 @@
+run,x,mermin_contextual_fraction_mean,mermin_contextual_fraction_mean_sd,mermin_holonomy_mean,mermin_holonomy_mean_sd,mermin_maxsat_mean,mermin_maxsat_mean_sd
+e01_contextuality,1,0.333000,0.000000,1.000000,0.000000,2.000000,0.000000
+e01_contextuality_repeat,1,nan,nan,nan,nan,nan,nan

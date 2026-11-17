@@ -1,0 +1,20 @@
+# Numerals allowed to appear in tex/main.tex as literals.
+#
+# Format: <token><TAB><reason>. `papertool numbers` fails the build on a decimal or a
+# three-digit integer that is neither a \val{...} lookup nor listed here, so every number in
+# the paper is either produced by the harness from a raw log or explained below.
+348	GitHub handle in the byline and in the audited repository URL; an identifier, not a quantity
+2026	Year of writing, in the paper's own date line
+0.05	Noise level of the first row of the audited experiment's loop; a constant of the audited script, not a measurement here
+0.10	Noise level of the second row of the audited experiment's loop; a constant of the audited script
+0.20	Noise level of the third row of the audited experiment's loop; a constant of the audited script
+0.30	Noise level of the fourth row of the audited experiment's loop; a constant of the audited script
+0.40	Noise level of the fifth row of the audited experiment's loop; a constant of the audited script
+4000	Number of Monte Carlo trials per row in the audited experiment; a constant of the audited script, used here to compute a binomial standard error
+0.2	Edge probability of the random labelled graph in the holonomy-code experiment; a constant of the audited script
+0.45	Upper x-axis limit of the noise figure, set past the largest noise level measured; layout constant
+1.1	Upper y-axis limit of the noise figure (error rate can reach 1.0); layout constant
+0.74	TikZ figure width as a fraction of \textwidth; layout constant
+5.2	TikZ figure height in centimetres; layout constant
+3.14.6	CPython version of the measurement environment; an identifier
+2.5.1	NumPy version of the measurement environment; an identifier

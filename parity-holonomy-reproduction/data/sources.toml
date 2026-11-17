@@ -1,0 +1,128 @@
+# Curated source list for this paper. `papertool bib` resolves every entry against
+# data/refmeta.json and refuses to emit a bibliography if one does not resolve.
+
+[[ref]]
+key = "paradoxlogic"
+kind = "url"
+id = "https://github.com/kostyk348/paradox-logic"
+category = "subject"
+supports = "The audited artifact: the repository whose five verdicts, experiments and committed result files are reproduced here."
+
+[[ref]]
+key = "mermin1990"
+kind = "doi"
+id = "10.1103/PhysRevLett.65.3373"
+category = "contextuality"
+supports = "The Mermin-Peres magic square / GHZ parity argument: the canonical parity proof of contextuality against which the audited invariant is compared."
+
+[[ref]]
+key = "mermin1993"
+kind = "doi"
+id = "10.1103/RevModPhys.65.803"
+category = "contextuality"
+supports = "Review of hidden variables and the two theorems of Bell; the reference statement that a parity constraint system with no global assignment is contextual rather than merely inconsistent."
+
+[[ref]]
+key = "abramsky2011"
+kind = "doi"
+id = "10.1088/1367-2630/13/11/113036"
+category = "cohomology"
+supports = "Sheaf-theoretic structure of non-locality and contextuality: the framework in which contextuality is a cohomological obstruction, which is exactly the claim the audited repository makes in GF(2) form."
+
+[[ref]]
+key = "abramsky2012"
+kind = "doi"
+id = "10.4204/EPTCS.95.1"
+category = "cohomology"
+supports = "The cohomology of non-locality and contextuality: the Cech cohomology class that the audited parity invariant is a Z/2 shadow of."
+
+[[ref]]
+key = "hopfield1982"
+kind = "doi"
+id = "10.1073/pnas.79.8.2554"
+category = "associative-memory"
+supports = "The associative memory the audited experiment uses as its baseline: attractor dynamics that stores patterns in values and therefore degrades under value noise, in contrast to an invariant stored in structure."
+
+[[ref]]
+key = "goles1980"
+kind = "doi"
+id = "10.1016/0012-365x(80)90121-1"
+category = "dynamics"
+supports = "Periodic behaviour of symmetric threshold networks (Goles-Olivos): the bisection argument behind the period-at-most-two result quoted for symmetric coupling."
+
+[[ref]]
+key = "krohn1965"
+kind = "doi"
+id = "10.1090/s0002-9947-1965-0188316-1"
+category = "algebra"
+supports = "Algebraic theory of machines: the semigroup/automaton decomposition the audited library uses to treat programs as monoids and to verify process networks by cohomology."
+
+[[ref]]
+key = "angluin1987"
+kind = "doi"
+id = "10.1016/0890-5401(87)90052-6"
+category = "learning"
+supports = "Learning regular sets from queries and counterexamples: the L* procedure the audited library uses to discover a finite automaton from a language, including the parity example."
+
+[[ref]]
+key = "karp1972"
+kind = "doi"
+id = "10.1007/978-1-4684-2001-2_9"
+category = "hardness"
+supports = "Reducibility among combinatorial problems: the NP-completeness of MAX-CUT, which is what minimum repair of a frustrated Z/2 constraint system reduces to."
+
+[[ref]]
+key = "vannimenus1977"
+kind = "doi"
+id = "10.1088/0022-3719/10/18/009"
+category = "frustration"
+supports = "Frustration in spin systems: the origin of the frustration index that the audited experiment counts by brute force."
+
+[[ref]]
+key = "binder1986"
+kind = "doi"
+id = "10.1103/RevModPhys.58.801"
+category = "frustration"
+supports = "Spin glasses: experimental facts and theoretical concepts; the reference for what a spin-glass transition would look like, used to interpret the control experiment on frustration."
+
+[[ref]]
+key = "hamming1950"
+kind = "doi"
+id = "10.1002/j.1538-7305.1950.tb00463.x"
+category = "coding"
+supports = "Error-detecting and error-correcting codes: minimum distance as the quantity that separates a checksum from a correctable code, the distinction applied to the audited parity invariant."
+
+[[ref]]
+key = "kitaev2003"
+kind = "doi"
+id = "10.1016/S0003-4916(02)00018-0"
+category = "topological-memory"
+supports = "Fault-tolerant quantum computation by anyons: what a topological memory is when the invariant has a distance, used to argue that a distance-one parity is not one."
+
+[[ref]]
+key = "dennis2002"
+kind = "doi"
+id = "10.1063/1.1499754"
+category = "topological-memory"
+supports = "Topological quantum memory: the error model and threshold analysis that make an invariant protective rather than merely conserved."
+
+[[ref]]
+key = "ioannidis2005"
+kind = "doi"
+id = "10.1371/journal.pmed.0020124"
+category = "replication"
+supports = "Why most published research findings are false: the frame for treating a repository's own negative verdicts as evidence rather than as modesty."
+
+[[ref]]
+key = "osc2015"
+kind = "doi"
+id = "10.1126/science.aac4716"
+category = "replication"
+supports = "Large-scale replication study; the template for reporting a claim-by-claim verdict rather than an overall impression."
+
+[[ref]]
+key = "sandve2013"
+kind = "doi"
+id = "10.1371/journal.pcbi.1003285"
+category = "reproducibility"
+supports = "Ten simple rules for reproducible computational research; the justification for shipping the plan, the pinned commit, the raw logs and the byte-identity check."

@@ -1,0 +1,236 @@
+# Experiment plan -- dataflow-benchmark-units
+#
+# The subject is kostyk348/tensor-broth at the SHA in experiments/subjects.lock. Its
+# benchmark compares two engines and prints one table; `--json` gives the same numbers in a
+# form the harness can aggregate. The point of the plan is to separate two things the table
+# mixes: the *paradigm* (dataflow vs fetch-decode) and the *implementation* (a vectorised
+# torch kernel vs a Python interpreter loop). Hence three axes -- cube size, backend, and a
+# repeat count -- rather than the single README row.
+
+[meta]
+subject = "kostyk348/tensor-broth"
+subject_sha = "b05e7ba6fe76ea9a282c704fa2c1e0cd313f1954"
+python = "C:/Users/Lab/AppData/Local/Python/bin/python.exe"
+python_version = "3.14.6"
+numpy = "2.5.1"
+torch = "2.12.1+cpu"
+host_os = "Windows 11 (x86_64), CPython 3.14.6, torch CPU build, no GPU"
+
+# ---------------------------------------------------------------- torch backend (vectorised)
+[[run]]
+id = "bench_torch_c16"
+group = "bench_torch"
+x = "16"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "16", "--steps", "60", "--vm-steps", "200000", "--backend", "torch", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+note = "16^3 = 4096 voxels per tick"
+
+[[run]]
+id = "bench_torch_c24"
+group = "bench_torch"
+x = "24"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "24", "--steps", "60", "--vm-steps", "200000", "--backend", "torch", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+note = "the README's configuration (24^3 = 13824 voxels)"
+
+[[run]]
+id = "bench_torch_c32"
+group = "bench_torch"
+x = "32"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "32", "--steps", "60", "--vm-steps", "200000", "--backend", "torch", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+note = "32^3 = 32768 voxels: one tick already updates more cells than the VM's whole data memory"
+
+# ---------------------------------------------------------------- numpy backend (fallback)
+[[run]]
+id = "bench_numpy_c16"
+group = "bench_numpy"
+x = "16"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "16", "--steps", "60", "--vm-steps", "200000", "--backend", "numpy", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+timeout_s = 1200
+note = "same paradigm, different implementation: the control for the implementation confound"
+
+[[run]]
+id = "bench_numpy_c24"
+group = "bench_numpy"
+x = "24"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "24", "--steps", "60", "--vm-steps", "200000", "--backend", "numpy", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+timeout_s = 1200
+note = "the README configuration on the dependency-free backend"
+
+[[run]]
+id = "bench_numpy_c32"
+group = "bench_numpy"
+x = "32"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "32", "--steps", "60", "--vm-steps", "200000", "--backend", "numpy", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+timeout_s = 1200
+note = "32^3 on the fallback backend"
+
+# ------------------------------------------------ the VM alone, at three instruction counts
+# The VM's cost per instruction is a Python interpreter cost. Doubling the instruction count
+# cannot change that, so this axis is the sanity check that the baseline is stable.
+[[run]]
+id = "vm_100k"
+group = "bench_vm"
+x = "100000"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "16", "--steps", "1", "--vm-steps", "100000", "--backend", "torch", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+note = "100k instructions"
+
+[[run]]
+id = "vm_200k"
+group = "bench_vm"
+x = "200000"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "16", "--steps", "1", "--vm-steps", "200000", "--backend", "torch", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+note = "200k instructions"
+
+[[run]]
+id = "vm_400k"
+group = "bench_vm"
+x = "400000"
+cwd = "subjects/tensor-broth"
+cmd = ["C:/Users/Lab/AppData/Local/Python/bin/python.exe", "-m", "tensor_broth.cli", "bench", "--cube", "16", "--steps", "1", "--vm-steps", "400000", "--backend", "torch", "--json"]
+env_PYTHONPATH = "src"
+seeds = [0, 1, 2, 3, 4]
+seed_flag = ""
+mode = "json"
+note = "400k instructions"
+
+# ---------------------------------------------------------------- derived comparisons
+# "Effective GOPS" counts 27 taps x 3 input channels per voxel; "Mops" counts instructions.
+# Neither number can be compared with the other, so the matched unit used in the paper is a
+# *state update*: one VM instruction writes one cell, one broth tick rewrites the whole cube.
+
+[[derive]]
+id = "vm_c16_updates_per_s"
+group = "derived"
+expr = "bench_torch_c16.vm.steps / bench_torch_c16.vm.seconds"
+unit = "cell updates/s"
+note = "the VM's state updates per second at cube 16 (the VM is cube-independent; reported for the same run)"
+
+[[derive]]
+id = "broth_c16_updates_per_s"
+group = "derived"
+expr = "bench_torch_c16.broth[0].cube * bench_torch_c16.broth[0].cube * bench_torch_c16.broth[0].cube * bench_torch_c16.broth[0].steps / bench_torch_c16.broth[0].seconds"
+unit = "voxel updates/s"
+note = "torch broth voxel updates per second at cube 16"
+
+[[derive]]
+id = "ratio_c16_updates"
+group = "derived"
+expr = "broth_c16_updates_per_s.value / vm_c16_updates_per_s.value"
+unit = "ratio"
+note = "matched-unit advantage at cube 16"
+
+[[derive]]
+id = "vm_c24_updates_per_s"
+group = "derived"
+expr = "bench_torch_c24.vm.steps / bench_torch_c24.vm.seconds"
+unit = "cell updates/s"
+note = "the VM at the README's run"
+
+[[derive]]
+id = "broth_c24_updates_per_s"
+group = "derived"
+expr = "bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].steps / bench_torch_c24.broth[0].seconds"
+unit = "voxel updates/s"
+note = "torch broth voxel updates per second at cube 24"
+
+[[derive]]
+id = "ratio_c24_updates"
+group = "derived"
+expr = "broth_c24_updates_per_s.value / vm_c24_updates_per_s.value"
+unit = "ratio"
+note = "matched-unit advantage at the README's cube 24: the number to compare with the table's 1000x"
+
+[[derive]]
+id = "ratio_c24_ops"
+group = "derived"
+expr = "bench_torch_c24.broth[0].gops_effective * 1000 / bench_torch_c24.vm.mops_per_sec"
+unit = "ratio"
+note = "the ratio the README table implies (Gops/s over Mops/s): a units artifact"
+
+[[derive]]
+id = "numpy_c24_updates_per_s"
+group = "derived"
+expr = "bench_numpy_c24.broth[0].cube * bench_numpy_c24.broth[0].cube * bench_numpy_c24.broth[0].cube * bench_numpy_c24.broth[0].steps / bench_numpy_c24.broth[0].seconds"
+unit = "voxel updates/s"
+note = "the same paradigm and the same cube on the NumPy fallback"
+
+[[derive]]
+id = "backend_spread_c24"
+group = "derived"
+expr = "broth_c24_updates_per_s.value / numpy_c24_updates_per_s.value"
+unit = "ratio"
+note = "how much of the headline is implementation rather than paradigm, at one fixed cube"
+
+[[derive]]
+id = "broth_c32_updates_per_s"
+group = "derived"
+expr = "bench_torch_c32.broth[0].cube * bench_torch_c32.broth[0].cube * bench_torch_c32.broth[0].cube * bench_torch_c32.broth[0].steps / bench_torch_c32.broth[0].seconds"
+unit = "voxel updates/s"
+note = "torch broth at cube 32"
+
+[[derive]]
+id = "vm_c32_updates_per_s"
+group = "derived"
+expr = "bench_torch_c32.vm.steps / bench_torch_c32.vm.seconds"
+unit = "cell updates/s"
+note = "the VM at cube 32"
+
+[[derive]]
+id = "ratio_c32_updates"
+group = "derived"
+expr = "broth_c32_updates_per_s.value / vm_c32_updates_per_s.value"
+unit = "ratio"
+note = "matched-unit advantage at cube 32"
+
+[[derive]]
+id = "c24_voxels"
+group = "derived"
+expr = "bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].cube"
+unit = "voxels"
+note = "volume of the README cube: one broth tick writes this many cells"
+
+[[derive]]
+id = "backend_advantage_c24"
+group = "derived"
+expr = "numpy_c24_updates_per_s.value / broth_c24_updates_per_s.value"
+unit = "ratio"
+note = "how many times faster the NumPy fallback is than the torch path at the same cube: the implementation factor, oriented so the number is above one"

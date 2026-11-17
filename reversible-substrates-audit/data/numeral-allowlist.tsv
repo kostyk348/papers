@@ -1,0 +1,31 @@
+# Numerals that are allowed to appear in tex/main.tex as literals.
+#
+# Format: <token><TAB><reason>. `papertool numbers` fails the build on a decimal or a
+# three-digit integer that is not listed here and is not a \val{...} lookup, so every number
+# in the paper is either generated from data/measurements.json or explained below.
+#
+# The reasons group into four kinds: layout constants of the LaTeX source, constants of the
+# *audited* code (not measurements of this paper), constants of the experiment plan that the
+# prose quotes in passing, and verbatim claims of the audited repository.
+348	GitHub handle in the byline and in the audited repository URL; an identifier, not a quantity
+2026	Year of writing, in the paper's own date line
+3.14.6	CPython version of the measurement environment; an identifier
+2.5.1	NumPy version of the measurement environment; an identifier
+0.3313	Loss quoted verbatim from the audited repository's README; the repository's claim, not a measurement here
+0.0848	Loss quoted verbatim from the audited repository's README; the repository's claim, not a measurement here
+94.75	Accuracy quoted verbatim from the audited repository's README; the repository's claim, not a measurement here
+0.0917	Mean net force quoted verbatim from the audited repository's README; the repository's claim, not a measurement here
+200	Number of flip proposals per run in the topo command, a protocol constant set in experiments/plan.toml
+300	Number of lattice-gas steps in the hpp command, a protocol constant set in experiments/plan.toml
+400	Training batch size of the depth sweep, a protocol constant set in experiments/plan.toml
+120	Number of training epochs, a protocol constant set in experiments/plan.toml
+0.78	TikZ figure width as a fraction of \textwidth; layout constant
+0.62	TikZ figure width as a fraction of \textwidth; layout constant
+5.4	TikZ figure height in centimetres; layout constant
+0.10	Lower y-axis limit of the lattice-gas figure; layout constant
+0.12	Upper y-axis limit of the lattice-gas figure; layout constant
+104	Upper x-axis limit of the lattice-gas figure, set past the largest measured lattice; layout constant
+100	Upper y-axis limit of the depth figure (percent); layout constant
+0.4	Target orbit radius for class 0 in the audited loss function; a constant of the audited code
+1.6	Target orbit radius for class 1 in the audited loss function; a constant of the audited code
+1.0	Radius threshold of the audited readout; a constant of the audited code

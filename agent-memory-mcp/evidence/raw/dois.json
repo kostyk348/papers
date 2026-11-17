@@ -1,0 +1,284 @@
+{
+ "10.2307/2274239": {
+  "doi": "10.2307/2274239",
+  "title": "On the logic of theory change: Partial meet contraction and revision functions",
+  "container": "Journal of Symbolic Logic",
+  "publisher": "Cambridge University Press (CUP)",
+  "type": "journal-article",
+  "year": 1985,
+  "authors": [
+   "Carlos E. Alchourrón",
+   "Peter Gärdenfors",
+   "David Makinson"
+  ],
+  "volume": "50",
+  "issue": "2",
+  "page": "510-530",
+  "url": "https://doi.org/10.2307/2274239"
+ },
+ "10.1016/0004-3702(79)90008-0": {
+  "doi": "10.1016/0004-3702(79)90008-0",
+  "title": "A truth maintenance system",
+  "container": "Artificial Intelligence",
+  "publisher": "Elsevier BV",
+  "type": "journal-article",
+  "year": 1979,
+  "authors": [
+   "Jon Doyle"
+  ],
+  "volume": "12",
+  "issue": "3",
+  "page": "231-272",
+  "url": "https://doi.org/10.1016/0004-3702(79)90008-0"
+ },
+ "10.1037/0033-295X.111.4.1036": {
+  "doi": "10.1037/0033-295x.111.4.1036",
+  "title": "An Integrated Theory of the Mind.",
+  "container": "Psychological Review",
+  "publisher": "American Psychological Association (APA)",
+  "type": "journal-article",
+  "year": 2004,
+  "authors": [
+   "John R. Anderson",
+   "Daniel Bothell",
+   "Michael D. Byrne",
+   "Scott Douglass",
+   "Christian Lebiere",
+   "Yulin Qin"
+  ],
+  "volume": "111",
+  "issue": "4",
+  "page": "1036-1060",
+  "url": "https://doi.org/10.1037/0033-295x.111.4.1036"
+ },
+ "10.1037/h0043158": {
+  "doi": "10.1037/h0043158",
+  "title": "The magical number seven, plus or minus two: Some limits on our capacity for processing information.",
+  "container": "Psychological Review",
+  "publisher": "American Psychological Association (APA)",
+  "type": "journal-article",
+  "year": 1956,
+  "authors": [
+   "George A. Miller"
+  ],
+  "volume": "63",
+  "issue": "2",
+  "page": "81-97",
+  "url": "https://doi.org/10.1037/h0043158"
+ },
+ "10.1037/0278-7393.16.4.717": {
+  "doi": "10.1037/0278-7393.16.4.717",
+  "title": "Normal aging and prospective memory.",
+  "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+  "publisher": "American Psychological Association (APA)",
+  "type": "journal-article",
+  "year": 1990,
+  "authors": [
+   "Gilles O. Einstein",
+   "Mark A. McDaniel"
+  ],
+  "volume": "16",
+  "issue": "4",
+  "page": "717-726",
+  "url": "https://doi.org/10.1037/0278-7393.16.4.717"
+ },
+ "10.7551/mitpress/7688.001.0001": {
+  "doi": "10.7551/mitpress/7688.001.0001",
+  "title": "The Soar Cognitive Architecture",
+  "container": "",
+  "publisher": "The MIT Press",
+  "type": "monograph",
+  "year": 2012,
+  "authors": [
+   "John E. Laird"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": null,
+  "url": "https://doi.org/10.7551/mitpress/7688.001.0001"
+ },
+ "10.7551/mitpress/5803.001.0001": {
+  "doi": "10.7551/mitpress/5803.001.0001",
+  "title": "Reasoning About Knowledge",
+  "container": "",
+  "publisher": "The MIT Press",
+  "type": "monograph",
+  "year": 1995,
+  "authors": [
+   "Ronald Fagin",
+   "Joseph Y. Halpern",
+   "Yoram Moses",
+   "Moshe Vardi"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": null,
+  "url": "https://doi.org/10.7551/mitpress/5803.001.0001"
+ },
+ "10.1007/BF00288683": {
+  "doi": "10.1007/bf00288683",
+  "title": "Organization and maintenance of large ordered indexes",
+  "container": "Acta Informatica",
+  "publisher": "Springer Science and Business Media LLC",
+  "type": "journal-article",
+  "year": 1972,
+  "authors": [
+   "R. Bayer",
+   "E. M. McCreight"
+  ],
+  "volume": "1",
+  "issue": "3",
+  "page": "173-189",
+  "url": "https://doi.org/10.1007/bf00288683"
+ },
+ "10.1115/1.3662552": {
+  "doi": "10.1115/1.3662552",
+  "title": "A New Approach to Linear Filtering and Prediction Problems",
+  "container": "Journal of Basic Engineering",
+  "publisher": "ASME International",
+  "type": "journal-article",
+  "year": 1960,
+  "authors": [
+   "R. E. Kalman"
+  ],
+  "volume": "82",
+  "issue": "1",
+  "page": "35-45",
+  "url": "https://doi.org/10.1115/1.3662552"
+ },
+ "10.1002/j.1538-7305.1948.tb01338.x": {
+  "doi": "10.1002/j.1538-7305.1948.tb01338.x",
+  "title": "A Mathematical Theory of Communication",
+  "container": "Bell System Technical Journal",
+  "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+  "type": "journal-article",
+  "year": 1948,
+  "authors": [
+   "C. E. Shannon"
+  ],
+  "volume": "27",
+  "issue": "3",
+  "page": "379-423",
+  "url": "https://doi.org/10.1002/j.1538-7305.1948.tb01338.x"
+ },
+ "10.1016/j.neuron.2004.08.031": {
+  "doi": "10.1016/j.neuron.2004.08.031",
+  "title": "Sleep-Dependent Learning and Memory Consolidation",
+  "container": "Neuron",
+  "publisher": "Elsevier BV",
+  "type": "journal-article",
+  "year": 2004,
+  "authors": [
+   "Matthew P. Walker",
+   "Robert Stickgold"
+  ],
+  "volume": "44",
+  "issue": "1",
+  "page": "121-133",
+  "url": "https://doi.org/10.1016/j.neuron.2004.08.031"
+ },
+ "10.1037/h0034747": {
+  "doi": "10.1037/h0034747",
+  "title": "On the psychology of prediction.",
+  "container": "Psychological Review",
+  "publisher": "American Psychological Association (APA)",
+  "type": "journal-article",
+  "year": 1973,
+  "authors": [
+   "Daniel Kahneman",
+   "Amos Tversky"
+  ],
+  "volume": "80",
+  "issue": "4",
+  "page": "237-251",
+  "url": "https://doi.org/10.1037/h0034747"
+ },
+ "10.1037/h0020412": {
+  "doi": "10.1037/h0020412",
+  "title": "The test of significance in psychological research.",
+  "container": "Psychological Bulletin",
+  "publisher": "American Psychological Association (APA)",
+  "type": "journal-article",
+  "year": 1966,
+  "authors": [
+   "David Bakan"
+  ],
+  "volume": "66",
+  "issue": "6",
+  "page": "423-437",
+  "url": "https://doi.org/10.1037/h0020412"
+ },
+ "10.1016/j.cogsci.2004.02.001": {
+  "doi": "10.1016/j.cogsci.2004.02.001",
+  "title": "Mapping relational structure in spatial reasoning",
+  "container": "Cognitive Science",
+  "publisher": "Wiley",
+  "type": "journal-article",
+  "year": 2004,
+  "authors": [
+   "M GATTIS"
+  ],
+  "volume": "28",
+  "issue": "4",
+  "page": "589-610",
+  "url": "https://doi.org/10.1016/j.cogsci.2004.02.001"
+ },
+ "10.1145/800257.808789": {
+  "doi": "10.1145/800257.808789",
+  "error": "HTTP Error 404: Not Found"
+ },
+ "10.1109/ICSE.2004.1317465": {
+  "doi": "10.1109/icse.2004.1317465",
+  "title": "Extending the Representational State Transfer (REST) architectural style for decentralized systems",
+  "container": "Proceedings. 26th International Conference on Software Engineering",
+  "publisher": "IEEE Comput. Soc",
+  "type": "proceedings-article",
+  "year": null,
+  "authors": [
+   "R. Khare",
+   "R.N. Taylor"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "428-437",
+  "url": "https://doi.org/10.1109/icse.2004.1317465"
+ },
+ "10.1145/3292500.3330701": {
+  "doi": "10.1145/3292500.3330701",
+  "title": "Optuna",
+  "container": "Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining",
+  "publisher": "ACM",
+  "type": "proceedings-article",
+  "year": 2019,
+  "authors": [
+   "Takuya Akiba",
+   "Shotaro Sano",
+   "Toshihiko Yanase",
+   "Takeru Ohta",
+   "Masanori Koyama"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "2623-2631",
+  "url": "https://doi.org/10.1145/3292500.3330701"
+ },
+ "10.1145/3626772.3657843": {
+  "doi": "10.1145/3626772.3657843",
+  "title": "Towards Human-centered Proactive Conversational Agents",
+  "container": "Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+  "publisher": "ACM",
+  "type": "proceedings-article",
+  "year": 2024,
+  "authors": [
+   "Yang Deng",
+   "Lizi Liao",
+   "Zhonghua Zheng",
+   "Grace Hui Yang",
+   "Tat-Seng Chua"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "807-818",
+  "url": "https://doi.org/10.1145/3626772.3657843"
+ }
+}

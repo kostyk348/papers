@@ -1,0 +1,249 @@
+{
+ "10.1109/85.238389": {
+  "doi": "10.1109/85.238389",
+  "title": "First draft of a report on the EDVAC",
+  "container": "IEEE Annals of the History of Computing",
+  "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+  "type": "journal-article",
+  "year": 1993,
+  "authors": [
+   "J. von Neumann"
+  ],
+  "volume": "15",
+  "issue": "4",
+  "page": "27-75",
+  "url": "https://doi.org/10.1109/85.238389"
+ },
+ "10.1145/359576.359579": {
+  "doi": "10.1145/359576.359579",
+  "title": "Can programming be liberated from the von Neumann style?",
+  "container": "Communications of the ACM",
+  "publisher": "Association for Computing Machinery (ACM)",
+  "type": "journal-article",
+  "year": 1978,
+  "authors": [
+   "John Backus"
+  ],
+  "volume": "21",
+  "issue": "8",
+  "page": "613-641",
+  "url": "https://doi.org/10.1145/359576.359579"
+ },
+ "10.1145/642089.642102": {
+  "doi": "10.1145/642089.642102",
+  "title": "Reference concepts in a tree structured address space",
+  "container": "Proceedings of the 2nd annual symposium on Computer architecture  - ISCA '75",
+  "publisher": "ACM Press",
+  "type": "proceedings-article",
+  "year": 1975,
+  "authors": [
+   "Lennart Löfgren"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "71-79",
+  "url": "https://doi.org/10.1145/642089.642102"
+ },
+ "10.1016/0167-2789(84)90252-5": {
+  "doi": "10.1016/0167-2789(84)90252-5",
+  "title": "Physics-like models of computation",
+  "container": "Physica D: Nonlinear Phenomena",
+  "publisher": "Elsevier BV",
+  "type": "journal-article",
+  "year": 1984,
+  "authors": [
+   "Norman Margolus"
+  ],
+  "volume": "10",
+  "issue": "1-2",
+  "page": "81-95",
+  "url": "https://doi.org/10.1016/0167-2789(84)90252-5"
+ },
+ "10.1126/science.1091277": {
+  "doi": "10.1126/science.1091277",
+  "title": "Harnessing Nonlinearity: Predicting Chaotic Systems and Saving Energy in Wireless Communication",
+  "container": "Science",
+  "publisher": "American Association for the Advancement of Science (AAAS)",
+  "type": "journal-article",
+  "year": 2004,
+  "authors": [
+   "Herbert Jaeger",
+   "Harald Haas"
+  ],
+  "volume": "304",
+  "issue": "5667",
+  "page": "78-80",
+  "url": "https://doi.org/10.1126/science.1091277"
+ },
+ "10.1145/2491956.2462176": {
+  "doi": "10.1145/2491956.2462176",
+  "title": "Halide",
+  "container": "Proceedings of the 34th ACM SIGPLAN Conference on Programming Language Design and Implementation",
+  "publisher": "ACM",
+  "type": "proceedings-article",
+  "year": 2013,
+  "authors": [
+   "Jonathan Ragan-Kelley",
+   "Connelly Barnes",
+   "Andrew Adams",
+   "Sylvain Paris",
+   "Frédo Durand",
+   "Saman Amarasinghe"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "519-530",
+  "url": "https://doi.org/10.1145/2491956.2462176"
+ },
+ "10.1145/2807591.2807644": {
+  "doi": "10.1145/2807591.2807644",
+  "title": "Scientific benchmarking of parallel computing systems",
+  "container": "Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+  "publisher": "ACM",
+  "type": "proceedings-article",
+  "year": 2015,
+  "authors": [
+   "Torsten Hoefler",
+   "Roberto Belli"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "1-12",
+  "url": "https://doi.org/10.1145/2807591.2807644"
+ },
+ "10.1145/1297027.1297033": {
+  "doi": "10.1145/1297027.1297033",
+  "title": "Statistically rigorous java performance evaluation",
+  "container": "Proceedings of the 22nd annual ACM SIGPLAN conference on Object-oriented programming systems, languages and applications",
+  "publisher": "ACM",
+  "type": "proceedings-article",
+  "year": 2007,
+  "authors": [
+   "Andy Georges",
+   "Dries Buytaert",
+   "Lieven Eeckhout"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "57-76",
+  "url": "https://doi.org/10.1145/1297027.1297033"
+ },
+ "10.1145/1508244.1508275": {
+  "doi": "10.1145/1508244.1508275",
+  "title": "Producing wrong data without doing anything obviously wrong!",
+  "container": "Proceedings of the 14th international conference on Architectural support for programming languages and operating systems",
+  "publisher": "ACM",
+  "type": "proceedings-article",
+  "year": 2009,
+  "authors": [
+   "Todd Mytkowicz",
+   "Amer Diwan",
+   "Matthias Hauswirth",
+   "Peter F. Sweeney"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "265-276",
+  "url": "https://doi.org/10.1145/1508244.1508275"
+ },
+ "10.1145/2451116.2451141": {
+  "doi": "10.1145/2451116.2451141",
+  "title": "STABILIZER",
+  "container": "Proceedings of the eighteenth international conference on Architectural support for programming languages and operating systems",
+  "publisher": "ACM",
+  "type": "proceedings-article",
+  "year": 2013,
+  "authors": [
+   "Charlie Curtsinger",
+   "Emery D. Berger"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "219-228",
+  "url": "https://doi.org/10.1145/2451116.2451141"
+ },
+ "10.1145/1498765.1498785": {
+  "doi": "10.1145/1498765.1498785",
+  "title": "Roofline",
+  "container": "Communications of the ACM",
+  "publisher": "Association for Computing Machinery (ACM)",
+  "type": "journal-article",
+  "year": 2009,
+  "authors": [
+   "Samuel Williams",
+   "Andrew Waterman",
+   "David Patterson"
+  ],
+  "volume": "52",
+  "issue": "4",
+  "page": "65-76",
+  "url": "https://doi.org/10.1145/1498765.1498785"
+ },
+ "10.1109/ISPASS.2014.6844463": {
+  "doi": "10.1109/ispass.2014.6844463",
+  "title": "Applying the roofline model",
+  "container": "2014 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)",
+  "publisher": "IEEE",
+  "type": "proceedings-article",
+  "year": 2014,
+  "authors": [
+   "Georg Ofenbeck",
+   "Ruedi Steinmann",
+   "Victoria Caparros",
+   "Daniele G. Spampinato",
+   "Markus Puschel"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "76-85",
+  "url": "https://doi.org/10.1109/ispass.2014.6844463"
+ },
+ "10.1145/1465482.1465560": {
+  "doi": "10.1145/1465482.1465560",
+  "title": "Validity of the single processor approach to achieving large scale computing capabilities",
+  "container": "Proceedings of the April 18-20, 1967, spring joint computer conference on - AFIPS '67 (Spring)",
+  "publisher": "ACM Press",
+  "type": "proceedings-article",
+  "year": 1967,
+  "authors": [
+   "Gene M. Amdahl"
+  ],
+  "volume": null,
+  "issue": null,
+  "page": "483",
+  "url": "https://doi.org/10.1145/1465482.1465560"
+ },
+ "10.1371/journal.pmed.0020124": {
+  "doi": "10.1371/journal.pmed.0020124",
+  "title": "Why Most Published Research Findings Are False",
+  "container": "PLoS Medicine",
+  "publisher": "Public Library of Science (PLoS)",
+  "type": "journal-article",
+  "year": 2005,
+  "authors": [
+   "John P. A. Ioannidis"
+  ],
+  "volume": "2",
+  "issue": "8",
+  "page": "e124",
+  "url": "https://doi.org/10.1371/journal.pmed.0020124"
+ },
+ "10.1371/journal.pcbi.1003285": {
+  "doi": "10.1371/journal.pcbi.1003285",
+  "title": "Ten Simple Rules for Reproducible Computational Research",
+  "container": "PLoS Computational Biology",
+  "publisher": "Public Library of Science (PLoS)",
+  "type": "journal-article",
+  "year": 2013,
+  "authors": [
+   "Geir Kjetil Sandve",
+   "Anton Nekrutenko",
+   "James Taylor",
+   "Eivind Hovig"
+  ],
+  "volume": "9",
+  "issue": "10",
+  "page": "e1003285",
+  "url": "https://doi.org/10.1371/journal.pcbi.1003285"
+ }
+}

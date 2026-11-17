@@ -1,0 +1,284 @@
+{
+ "arxiv": {},
+ "doi": {
+  "10.1016/0167-2789(84)90252-5": {
+   "authors": [
+    "Norman Margolus"
+   ],
+   "container": "Physica D: Nonlinear Phenomena",
+   "doi": "10.1016/0167-2789(84)90252-5",
+   "issue": "1-2",
+   "page": "81-95",
+   "published": "1984",
+   "publisher": "Elsevier BV",
+   "source": "dois.json",
+   "title": "Physics-like models of computation",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1016/0167-2789(84)90252-5",
+   "volume": "10"
+  },
+  "10.1109/85.238389": {
+   "authors": [
+    "J. von Neumann"
+   ],
+   "container": "IEEE Annals of the History of Computing",
+   "doi": "10.1109/85.238389",
+   "issue": "4",
+   "page": "27-75",
+   "published": "1993",
+   "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+   "source": "dois.json",
+   "title": "First draft of a report on the EDVAC",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1109/85.238389",
+   "volume": "15"
+  },
+  "10.1109/ispass.2014.6844463": {
+   "authors": [
+    "Georg Ofenbeck",
+    "Ruedi Steinmann",
+    "Victoria Caparros",
+    "Daniele G. Spampinato",
+    "Markus Puschel"
+   ],
+   "container": "2014 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)",
+   "doi": "10.1109/ispass.2014.6844463",
+   "issue": null,
+   "page": "76-85",
+   "published": "2014",
+   "publisher": "IEEE",
+   "source": "dois.json",
+   "title": "Applying the roofline model",
+   "type": "proceedings-article",
+   "url": "https://doi.org/10.1109/ispass.2014.6844463",
+   "volume": null
+  },
+  "10.1126/science.1091277": {
+   "authors": [
+    "Herbert Jaeger",
+    "Harald Haas"
+   ],
+   "container": "Science",
+   "doi": "10.1126/science.1091277",
+   "issue": "5667",
+   "page": "78-80",
+   "published": "2004",
+   "publisher": "American Association for the Advancement of Science (AAAS)",
+   "source": "dois.json",
+   "title": "Harnessing Nonlinearity: Predicting Chaotic Systems and Saving Energy in Wireless Communication",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1126/science.1091277",
+   "volume": "304"
+  },
+  "10.1145/1297027.1297033": {
+   "authors": [
+    "Andy Georges",
+    "Dries Buytaert",
+    "Lieven Eeckhout"
+   ],
+   "container": "Proceedings of the 22nd annual ACM SIGPLAN conference on Object-oriented programming systems, languages and applications",
+   "doi": "10.1145/1297027.1297033",
+   "issue": null,
+   "page": "57-76",
+   "published": "2007",
+   "publisher": "ACM",
+   "source": "dois.json",
+   "title": "Statistically rigorous java performance evaluation",
+   "type": "proceedings-article",
+   "url": "https://doi.org/10.1145/1297027.1297033",
+   "volume": null
+  },
+  "10.1145/1465482.1465560": {
+   "authors": [
+    "Gene M. Amdahl"
+   ],
+   "container": "Proceedings of the April 18-20, 1967, spring joint computer conference on - AFIPS '67 (Spring)",
+   "doi": "10.1145/1465482.1465560",
+   "issue": null,
+   "page": "483",
+   "published": "1967",
+   "publisher": "ACM Press",
+   "source": "dois.json",
+   "title": "Validity of the single processor approach to achieving large scale computing capabilities",
+   "type": "proceedings-article",
+   "url": "https://doi.org/10.1145/1465482.1465560",
+   "volume": null
+  },
+  "10.1145/1498765.1498785": {
+   "authors": [
+    "Samuel Williams",
+    "Andrew Waterman",
+    "David Patterson"
+   ],
+   "container": "Communications of the ACM",
+   "doi": "10.1145/1498765.1498785",
+   "issue": "4",
+   "page": "65-76",
+   "published": "2009",
+   "publisher": "Association for Computing Machinery (ACM)",
+   "source": "dois.json",
+   "title": "Roofline",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1145/1498765.1498785",
+   "volume": "52"
+  },
+  "10.1145/1508244.1508275": {
+   "authors": [
+    "Todd Mytkowicz",
+    "Amer Diwan",
+    "Matthias Hauswirth",
+    "Peter F. Sweeney"
+   ],
+   "container": "Proceedings of the 14th international conference on Architectural support for programming languages and operating systems",
+   "doi": "10.1145/1508244.1508275",
+   "issue": null,
+   "page": "265-276",
+   "published": "2009",
+   "publisher": "ACM",
+   "source": "dois.json",
+   "title": "Producing wrong data without doing anything obviously wrong!",
+   "type": "proceedings-article",
+   "url": "https://doi.org/10.1145/1508244.1508275",
+   "volume": null
+  },
+  "10.1145/2451116.2451141": {
+   "authors": [
+    "Charlie Curtsinger",
+    "Emery D. Berger"
+   ],
+   "container": "Proceedings of the eighteenth international conference on Architectural support for programming languages and operating systems",
+   "doi": "10.1145/2451116.2451141",
+   "issue": null,
+   "page": "219-228",
+   "published": "2013",
+   "publisher": "ACM",
+   "source": "dois.json",
+   "title": "STABILIZER",
+   "type": "proceedings-article",
+   "url": "https://doi.org/10.1145/2451116.2451141",
+   "volume": null
+  },
+  "10.1145/2491956.2462176": {
+   "authors": [
+    "Jonathan Ragan-Kelley",
+    "Connelly Barnes",
+    "Andrew Adams",
+    "Sylvain Paris",
+    "Frédo Durand",
+    "Saman Amarasinghe"
+   ],
+   "container": "Proceedings of the 34th ACM SIGPLAN Conference on Programming Language Design and Implementation",
+   "doi": "10.1145/2491956.2462176",
+   "issue": null,
+   "page": "519-530",
+   "published": "2013",
+   "publisher": "ACM",
+   "source": "dois.json",
+   "title": "Halide",
+   "type": "proceedings-article",
+   "url": "https://doi.org/10.1145/2491956.2462176",
+   "volume": null
+  },
+  "10.1145/2807591.2807644": {
+   "authors": [
+    "Torsten Hoefler",
+    "Roberto Belli"
+   ],
+   "container": "Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+   "doi": "10.1145/2807591.2807644",
+   "issue": null,
+   "page": "1-12",
+   "published": "2015",
+   "publisher": "ACM",
+   "source": "dois.json",
+   "title": "Scientific benchmarking of parallel computing systems",
+   "type": "proceedings-article",
+   "url": "https://doi.org/10.1145/2807591.2807644",
+   "volume": null
+  },
+  "10.1145/359576.359579": {
+   "authors": [
+    "John Backus"
+   ],
+   "container": "Communications of the ACM",
+   "doi": "10.1145/359576.359579",
+   "issue": "8",
+   "page": "613-641",
+   "published": "1978",
+   "publisher": "Association for Computing Machinery (ACM)",
+   "source": "dois.json",
+   "title": "Can programming be liberated from the von Neumann style?",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1145/359576.359579",
+   "volume": "21"
+  },
+  "10.1145/642089.642102": {
+   "authors": [
+    "Lennart Löfgren"
+   ],
+   "container": "Proceedings of the 2nd annual symposium on Computer architecture  - ISCA '75",
+   "doi": "10.1145/642089.642102",
+   "issue": null,
+   "page": "71-79",
+   "published": "1975",
+   "publisher": "ACM Press",
+   "source": "dois.json",
+   "title": "Reference concepts in a tree structured address space",
+   "type": "proceedings-article",
+   "url": "https://doi.org/10.1145/642089.642102",
+   "volume": null
+  },
+  "10.1371/journal.pcbi.1003285": {
+   "authors": [
+    "Geir Kjetil Sandve",
+    "Anton Nekrutenko",
+    "James Taylor",
+    "Eivind Hovig"
+   ],
+   "container": "PLoS Computational Biology",
+   "doi": "10.1371/journal.pcbi.1003285",
+   "issue": "10",
+   "page": "e1003285",
+   "published": "2013",
+   "publisher": "Public Library of Science (PLoS)",
+   "source": "dois.json",
+   "title": "Ten Simple Rules for Reproducible Computational Research",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1371/journal.pcbi.1003285",
+   "volume": "9"
+  },
+  "10.1371/journal.pmed.0020124": {
+   "authors": [
+    "John P. A. Ioannidis"
+   ],
+   "container": "PLoS Medicine",
+   "doi": "10.1371/journal.pmed.0020124",
+   "issue": "8",
+   "page": "e124",
+   "published": "2005",
+   "publisher": "Public Library of Science (PLoS)",
+   "source": "dois.json",
+   "title": "Why Most Published Research Findings Are False",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1371/journal.pmed.0020124",
+   "volume": "2"
+  }
+ },
+ "meta": {
+  "arxiv_records": 0,
+  "collector": "papertool merge",
+  "doi_records": 15,
+  "generated": "2026-11-17T10:05:52",
+  "url_records": 1
+ },
+ "url": {
+  "https://github.com/kostyk348/tensor-broth": {
+   "bytes": 259696,
+   "final_url": "https://github.com/kostyk348/tensor-broth",
+   "source": "urls.json",
+   "status": 200,
+   "title": "GitHub - kostyk348/tensor-broth · GitHub",
+   "url": "https://github.com/kostyk348/tensor-broth"
+  }
+ }
+}

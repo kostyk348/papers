@@ -1,0 +1,548 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+\setlength{\emergencystretch}{2em}
+
+% tex/numbers.tex is written by `papertool ledger` from data/measurements.json. Every
+% quantitative claim below goes through one of these lookups; `papertool numbers` fails the
+% build on an unknown key, so a number that no experiment produced cannot be printed. An
+% undefined key expands to a visible marker rather than to nothing.
+\input{numbers.tex}
+\newcommand{\val}[1]{\ifcsname pv@#1\endcsname\csname pv@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valci}[1]{\ifcsname pvci@#1\endcsname\csname pvci@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valsd}[1]{\ifcsname pvsd@#1\endcsname\csname pvsd@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valn}[1]{\ifcsname pvn@#1\endcsname\csname pvn@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valfrac}[1]{\ifcsname pvfrac@#1\endcsname\csname pvfrac@#1\endcsname\else\textbf{??#1??}\fi}
+\newcommand{\valtrue}[1]{\ifcsname pvtrue@#1\endcsname\csname pvtrue@#1\endcsname\else\textbf{??#1??}\fi}
+
+\title{\bfseries Four reversibility claims, re-measured\\[2pt]
+\large An independent audit of a reversible-computing suite, with the numbers it did not report}
+\author{Konstantin Parashchuk\\\small Independent researcher, Saint Petersburg, Russia\\
+\small \texttt{github.com/kostyk348}}
+\date{17 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+A public repository presents four laboratories of reversible, non-floating-point computing: a
+Margolus block cellular automaton that walks backwards in time, a lattice whose Euler
+characteristic is held fixed by rejecting moves, a bitwise lattice gas said to show an emergent
+attraction, and a symplectic network trained with no stored activations. Each laboratory ships a
+command that prints a verdict, and each verdict reproduces exactly on this machine, down to the
+last digit of the repository's example. Reproducing an example is a weak test, so this paper
+replaces each with a predeclared sweep over seeds, sizes, step counts, batch sizes and depths,
+sampling peak working set while every process runs. Two claims hold: the block automaton's
+inverse is bit-exact for every lattice size and step count tried, including the odd-step phase
+case, and the training peak memory is flat in depth (depth 2 and depth 48 differ by
+\val{mem_depth_abs_mb.value}\,MB, inside the resolution of the measurement) while it grows with
+batch size (\val{mem_batch_delta_mb.value}\,MB from \val{train_batch100.x} to
+\val{train_batch6400.x} samples). One claim
+weakens: the reported XOR accuracy is the low end of a distribution, not its centre. One claim
+fails: across \val{hpp_all_n.value} lattice-gas runs the net force has the wrong sign about half
+the time, and no size shows a mean force more than \val{hpp_t32.value} standard errors from
+zero. The paper closes with what it did not test, because the gap between an example that runs
+and a claim that survives is the point.
+\end{abstract}
+
+\noindent\textbf{Keywords:} reversible computing; block cellular automata; lattice gas; adjoint
+training; reproducibility; negative results; measurement methodology
+
+\section{Introduction}
+
+Reversible computing has a 60-year argument behind it. Landauer put a floor under bit erasure
+\citep{landauer1961}, Bennett showed computation can be arranged so that no information needs to
+be destroyed \citep{bennett1973}, Toffoli turned that into a machine model \citep{toffoli1980},
+and Fredkin and Toffoli gave the primitive a conservation law to obey \citep{fredkin1982}. The
+argument is old enough that a modern demonstration has a low bar to clear: it only has to run.
+That is also the trouble. A demonstration that runs is not a measurement, and the distance
+between the two is what a reader cannot check from a README.
+
+This paper takes one such suite, the \texttt{timelock-ca} repository \citep{timelockca}, and
+treats its four laboratories as four claims to be tested independently. The repository is a fair
+target because it is competent: every claim comes with a command, every command prints
+machine-readable output, and every printed number reproduced here on the first try. Nothing that
+follows is a complaint about broken code. It is a complaint about the size of the evidence.
+
+Two things are being audited and they should be kept apart.
+
+The first is whether a claim is true as stated. A block cellular automaton whose update is a
+permutation can be inverted exactly; that is a property of the rule rather than of the test, and
+it should hold for any lattice and any number of steps. The same goes for a training scheme that
+stores no activations: memory should be flat in depth. These are checkable, and they check out,
+which is worth saying plainly.
+
+The second is whether the reported evidence supports the inference the text draws. Here the
+audit finds two different failures. A lattice gas sampled with one seed at one size is not
+evidence of an emergent force, and when the sweep is run the force turns out to sit inside its
+own noise. A topological invariant conserved by rejecting every move that would change it is
+conserved by definition, so the interesting quantity becomes the acceptance rate, which the
+repository does not report and which collapses as the lattice grows.
+
+\paragraph{Contributions.}
+Section~\ref{sec:method} describes a reproducible measurement harness: a Rust binary, an
+experiment plan fixed before running, and a ledger mapping every number in this text to a raw
+log. Section~\ref{sec:results} reports the four sweeps. Bit-exact reversal holds over five
+lattice sizes and seven step counts, including single ticks and an odd midpoint. The
+Euler-characteristic lock conserves its charge, but its acceptance rate falls from
+\val{topo_accept16.value} at $16\times16$ to \val{topo_accept64.value} at $64\times64$, so at the
+larger size the dynamics is nearly frozen and the conservation is nearly vacuous. The
+lattice-gas attraction does not survive replication, with \val{hpp_positive_all.value} positive
+runs out of \val{hpp_all_n.value}. Activation memory is flat in depth and linear in batch size,
+and the reported XOR accuracy is below the mean of the same configuration over ten seeds.
+Section~\ref{sec:not-confirmed} lists what this audit did not test.
+
+\section{Subject and provenance}
+\label{sec:subject}
+
+The subject is \texttt{kostyk348/timelock-ca} at commit \texttt{c5c94bb}. It is a Python package
+with a four-subcommand command-line interface; each subcommand prints a JSON object with a
+verdict field. The four laboratories are:
+
+\begin{enumerate}
+\item \texttt{margolus}: a partitioned block cellular automaton on a binary lattice, with the
+  16-entry billiard-ball permutation table and alternating block offsets, following
+  \citet{margolus1984} and \citet{margolus1987book}. It runs $N$ ticks forward and $N$ backward
+  and reports whether the lattice returns bit for bit.
+\item \texttt{topo}: two rings stamped on a lattice; random single-bit flips are proposed and
+  rejected when they would change the Euler characteristic $\chi = V - E + F$, computed in
+  integer arithmetic \citep{kong1989}. The verdict is that $\chi$ is unchanged.
+\item \texttt{hpp}: an HPP lattice gas after \citet{hardy1976}, with four boolean channels, a
+  head-on collision and two obstacle disks. The verdict is that the mean pressure imbalance is
+  positive, read as an attractive force between the disks.
+\item \texttt{train}: a leapfrog (symplectic) flow trained by walking the adjoint backwards, so
+  that no activation is stored, in the spirit of \citet{chen2018neuralode}. The task is XOR of
+  the two input signs, and the verdict is an accuracy above 90\%.
+\end{enumerate}
+
+The repository's own numbers reproduce here exactly: seed 0 gives a Hamming weight of 51 at
+$16\times16$ over 100 ticks; seed 42 gives a loss of 0.3313 falling to 0.0848 with an accuracy of
+94.75\% at depth 12; the topological lock accepts 33 of 200 flips with $\chi$ unchanged; the
+lattice gas reports a mean net force of 0.0917 at $64\times64$ \citep{timelockca}. Those four
+numbers are the repository's claims and are quoted here as claims. Everything else in this paper
+is a measurement made for it.
+
+The environment was a single Windows 11 machine with CPython 3.14.6 and NumPy 2.5.1, one process
+at a time, no GPU. That is a limitation and Section~\ref{sec:not-confirmed} says so.
+
+\section{Method}
+\label{sec:method}
+
+\paragraph{The plan comes first.} Every run is declared in \texttt{experiments/plan.toml} with its
+command line, its seeds, its group and a note saying what the run is for. The plan is the
+preregistration of this audit: it was written before the numbers were read, and the prose cannot
+cite a run that is not in it. Fixing the plan first is the same argument
+\citet{nosek2018} make for preregistration, applied to an audit rather than a trial. Runs are spawned directly, with no shell, so a command line in the
+plan is the command line that ran.
+
+\paragraph{Peak memory is measured, not asserted.} An O(1)-memory claim is a memory claim, so the
+harness polls the child process's peak working set every 12\,ms through
+\texttt{K32GetProcessMemoryInfo} and records it per run. Python's interpreter footprint (about
+\val{train_depth2.peak_ws_mb}\,MB here) is common to every run, so differences between depths
+are the quantity of interest, and Section~\ref{sec:train} reads the table that way.
+
+\paragraph{Statistics.} Numeric metrics are reported as a mean over seeds with the sample standard
+deviation, and where a mean is being compared with zero the ratio of the mean to its standard
+error is shown instead of a significance verdict, in the spirit of \citet{wasserstein2016}.
+That is a normal-approximation interval; for the two-state counts reported below a resampling
+interval would be the better instrument \citep{efron1993bootstrap}, and it is named here as the
+obvious extension rather than done.
+Boolean verdicts are reported as a count out of $n$; a verdict that is true in every run is
+written \val{margolus_size16.bit_exact_reversal}, not as ``passes''.
+
+\paragraph{No typed numbers.} The paper contains no numeric literal that a program did not write.
+\texttt{papertool ledger} turns \texttt{data/measurements.json} into TeX macros and one ledger row
+per value; \texttt{papertool numbers} fails the build if a lookup has no macro or if a decimal
+appears in the prose without an allowlist entry saying why it is not a measurement. The allowlist
+ships with the artifact, so the exceptions are auditable too. This matters more than it sounds: a
+table typed by hand is where an audit quietly becomes a restatement. The practice follows the
+reproducibility rules set out by \citet{sandve2013}.
+
+\paragraph{What replication can and cannot show.} A single repository audited on a single machine
+is a case study, not a population estimate \citep{baker2016,osc2015}. The claim here is narrow on
+purpose: for these four laboratories, on this machine, with these sweeps, here is which sentences
+survive. A different machine would shift the timings and the memory baseline, and
+Section~\ref{sec:not-confirmed} marks which conclusions depend on that.
+
+\section{Results}
+\label{sec:results}
+
+%%NUMBERS-STRICT-BEGIN
+\subsection{Block automaton: the inverse is exact}
+\label{sec:margolus}
+
+The Margolus step is a permutation of the 16 block states, applied to a checkerboard of
+$2\times2$ blocks with the offset alternating between ticks. A permutation has an inverse, so
+forward $N$ ticks followed by backward $N$ ticks must return the starting lattice exactly, and
+this is a property of the rule rather than of the lattice size. The sweep confirms the property
+and, more usefully, it confirms the phase bookkeeping, which is the part that can be wrong: the
+backward pass has to start with the opposite offset.
+
+At the largest size, bit-exact reversal held \val{margolus_size64.bit_exact_reversal} runs, and
+Hamming weight was conserved in the same runs, as a permutation must conserve it.
+Table~\ref{tab:margolus-size} lists all five sizes.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+lattice & seeds & bit-exact & Hamming weight & $\sigma$ \\
+\midrule
+$8\times8$   & \valn{margolus_size8.bit_exact_reversal}  & \val{margolus_size8.bit_exact_reversal}  & \val{margolus_size8.hamming_weight}  & \valsd{margolus_size8.hamming_weight} \\
+$16\times16$ & \valn{margolus_size16.bit_exact_reversal} & \val{margolus_size16.bit_exact_reversal} & \val{margolus_size16.hamming_weight} & \valsd{margolus_size16.hamming_weight} \\
+$32\times32$ & \valn{margolus_size32.bit_exact_reversal} & \val{margolus_size32.bit_exact_reversal} & \val{margolus_size32.hamming_weight} & \valsd{margolus_size32.hamming_weight} \\
+$48\times48$ & \valn{margolus_size48.bit_exact_reversal} & \val{margolus_size48.bit_exact_reversal} & \val{margolus_size48.hamming_weight} & \valsd{margolus_size48.hamming_weight} \\
+$64\times64$ & \valn{margolus_size64.bit_exact_reversal} & \val{margolus_size64.bit_exact_reversal} & \val{margolus_size64.hamming_weight} & \valsd{margolus_size64.hamming_weight} \\
+\bottomrule
+\end{tabular}
+\caption{Bit-exact reversal by lattice size, 100 ticks forward and back, ten seeds per size.
+``Bit-exact'' counts runs in which the final lattice equalled the initial one, bit for bit.
+Hamming weight is the initial particle count; the spread is across seeds, not across ticks.}
+\label{tab:margolus-size}
+\end{table}
+
+The step-count sweep is the one that could have failed and did not. An odd number of ticks leaves
+the lattice on the opposite block offset, so the backward pass must invert the phases in the
+reverse order; getting that wrong produces a lattice that looks plausible and is wrong. Single
+ticks, three ticks, seven ticks with an odd midpoint, and \val{margolus_steps500.x} ticks all returned to the start,
+\val{margolus_steps500.bit_exact_reversal} of the runs at the longest step count
+(Table~\ref{tab:margolus-steps}). Integer arithmetic is why this is unconditional: no rounding
+enters, so no drift accumulates with $N$.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+ticks forward & seeds & bit-exact & Hamming weight \\
+\midrule
+\val{margolus_steps1.x}   & \valn{margolus_steps1.bit_exact_reversal}   & \val{margolus_steps1.bit_exact_reversal}   & \val{margolus_steps1.hamming_weight} \\
+\val{margolus_steps2.x}   & \valn{margolus_steps2.bit_exact_reversal}   & \val{margolus_steps2.bit_exact_reversal}   & \val{margolus_steps2.hamming_weight} \\
+\val{margolus_steps3.x}   & \valn{margolus_steps3.bit_exact_reversal}   & \val{margolus_steps3.bit_exact_reversal}   & \val{margolus_steps3.hamming_weight} \\
+\val{margolus_steps7.x}   & \valn{margolus_steps7.bit_exact_reversal}   & \val{margolus_steps7.bit_exact_reversal}   & \val{margolus_steps7.hamming_weight} \\
+\val{margolus_steps16.x}  & \valn{margolus_steps16.bit_exact_reversal}  & \val{margolus_steps16.bit_exact_reversal}  & \val{margolus_steps16.hamming_weight} \\
+\val{margolus_steps100.x} & \valn{margolus_steps100.bit_exact_reversal} & \val{margolus_steps100.bit_exact_reversal} & \val{margolus_steps100.hamming_weight} \\
+\val{margolus_steps500.x} & \valn{margolus_steps500.bit_exact_reversal} & \val{margolus_steps500.bit_exact_reversal} & \val{margolus_steps500.hamming_weight} \\
+\bottomrule
+\end{tabular}
+\caption{Reversal as a function of the number of ticks, $32\times32$ lattice, five seeds per row.
+The midpoint, where the forward run stops and the backward run starts, is half the tick count
+rounded down, so the odd tick counts exercise the case where the two block phases are not in
+their starting order.}
+\label{tab:margolus-steps}
+\end{table}
+
+\subsection{Topological lock: conserved, and increasingly frozen}
+\label{sec:topo}
+
+The second laboratory stamps two rings on a lattice and proposes single-bit flips, rejecting any
+flip that would change the Euler characteristic. The published verdict is that $\chi$ is
+conserved, and it is: $\chi$ ended at \val{topo_size32.chi_final} in every run at every size, and
+the initial value was \val{topo_size32.chi_initial}.
+
+The problem is that this cannot fail. Rejecting every move that changes a quantity conserves it
+by construction; the mechanism is the rejection sampler of \citet{metropolis1953}, and what a
+sampler does is spend accepted moves. Reporting the conserved value without the acceptance rate
+reports the definition and hides the dynamics. When the rate is measured, it falls steeply with
+lattice area: \val{topo_accept16.value} of proposals accepted at $16\times16$,
+\val{topo_accept32.value} at $32\times32$, and \val{topo_accept64.value} at $64\times64$
+(Table~\ref{tab:topo}). At the largest size the lattice is barely moving while a conserved charge
+certifies that nothing has changed.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+lattice & accepted & rejected & acceptance rate & locked \\
+\midrule
+$16\times16$ & \val{topo_size16.accepted_flips} & \val{topo_size16.rejected_flips} & \val{topo_accept16.value} & \val{topo_size16.topology_locked} \\
+$32\times32$ & \val{topo_size32.accepted_flips} & \val{topo_size32.rejected_flips} & \val{topo_accept32.value} & \val{topo_size32.topology_locked} \\
+$64\times64$ & \val{topo_size64.accepted_flips} & \val{topo_size64.rejected_flips} & \val{topo_accept64.value} & \val{topo_size64.topology_locked} \\
+\midrule
+$32\times32$, \val{topo_steps2000.x} proposals & \val{topo_steps2000.accepted_flips} & \val{topo_steps2000.rejected_flips} & held & \val{topo_steps2000.topology_locked} \\
+\bottomrule
+\end{tabular}
+\caption{The Euler-characteristic lock at three sizes with 200 proposals each, ten seeds, plus a
+ten-times-longer run at the middle size. Accepted and rejected are means over seeds; ``locked''
+counts runs whose final $\chi$ equalled the initial one.}
+\label{tab:topo}
+\end{table}
+
+The longer run separates two explanations. If the lock froze completely the sampler would stop,
+and the configuration would never change; instead \val{topo_steps2000.accepted_flips} flips are
+accepted out of \val{topo_steps2000.x} proposals, at the same rate as the short run. The lattice
+keeps moving at a rate the flip proposal distribution dictates and the invariant then filters.
+Whether that motion explores anything is a separate question this audit did not answer.
+
+Nothing here contradicts the repository's sentence, which says the value is locked. What the
+audit adds is that the sentence is weaker than it sounds. A checksum recomputed correctly after
+every accepted move is not a memory in the sense topological quantum memories use the term, where
+the invariant protects a stored state against a local error model \citep{kitaev2003,dennis2002}.
+In digital topology the Euler characteristic fixes some global properties of a binary picture and
+leaves the shape free \citep{kong1989}: the rings can wander, reach the border and reform while
+$\chi$ stays at \val{topo_size64.chi_final}. The repository's README says as much in a
+parenthesis, and the measurement agrees with the parenthesis rather than with the headline.
+
+\subsection{Lattice gas: the attraction that was not there}
+\label{sec:hpp}
+
+The third laboratory makes a physical claim, and it is the one that did not survive. The HPP
+lattice gas \citep{hardy1976} runs for 300 steps with two obstacle disks; the mean pressure
+imbalance on the disks is reported as a net force, and a positive mean is read as attraction
+between the disks.
+
+At the repository's configuration the single reported seed does give a positive number: the
+seed-42 run at $64\times64$ returns a mean net force of 0.0917 and prints a detected attraction
+\citep{timelockca}. Repeating that configuration with twenty seeds instead of one gives a mean of
+\val{hpp_size64.mean_net_force} with a standard deviation of \valsd{hpp_size64.mean_net_force},
+so the standard error is \val{hpp_se64.value} and the mean sits \val{hpp_t64.value} standard
+errors from zero. The sign is decided by the seed: \val{hpp_size64.attraction_detected} runs
+report a positive force at $64\times64$, and pooled over four sizes the count is
+\val{hpp_positive_all.value} out of \val{hpp_all_n.value} (Table~\ref{tab:hpp},
+Figure~\ref{fig:hpp}).
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+lattice & seeds & mean net force & SD & SE & mean/SE \\
+\midrule
+$32\times32$ & \valn{hpp_size32.mean_net_force} & \val{hpp_size32.mean_net_force} & \valsd{hpp_size32.mean_net_force} & \val{hpp_se32.value} & \val{hpp_t32.value} \\
+$48\times48$ & \valn{hpp_size48.mean_net_force} & \val{hpp_size48.mean_net_force} & \valsd{hpp_size48.mean_net_force} & \val{hpp_se48.value} & \val{hpp_t48.value} \\
+$64\times64$ & \valn{hpp_size64.mean_net_force} & \val{hpp_size64.mean_net_force} & \valsd{hpp_size64.mean_net_force} & \val{hpp_se64.value} & \val{hpp_t64.value} \\
+$96\times96$ & \valn{hpp_size96.mean_net_force} & \val{hpp_size96.mean_net_force} & \valsd{hpp_size96.mean_net_force} & \val{hpp_se96.value} & \val{hpp_t96.value} \\
+\bottomrule
+\end{tabular}
+\caption{Mean net force between the two obstacle disks, 300 steps, twenty seeds per size. SE is
+the standard error of the mean; mean/SE expresses the mean in its own standard errors. The
+fraction of runs reporting a detected attraction is in the text, since a sign count is not a
+force.}
+\label{tab:hpp}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.78\textwidth, height=5.4cm,
+  xlabel={lattice edge (cells)}, ylabel={mean net force (lattice units)},
+  xmin=24, xmax=104, ymin=-0.10, ymax=0.12,
+  grid=major, grid style={gray!25},
+  legend pos=north east, legend style={font=\footnotesize},
+]
+\addplot+[mark=*, thick, error bars/.cd, y dir=both, y explicit]
+  table[x=x, y=mean_net_force_mean, y error=mean_net_force_mean_sd, col sep=comma]
+  {../data/figures/hpp_size.csv};
+\addlegendentry{mean $\pm$ 1 SD over twenty seeds}
+\addplot[dashed, black!60] coordinates {(24,0) (104,0)};
+\addlegendentry{zero}
+\end{axis}
+\end{tikzpicture}
+\caption{Net force between the obstacle disks against lattice size. Every interval crosses zero
+and the four means are small compared with their own spread. The repository's single seed sits
+inside this cloud, in either direction; that is what a sample of one buys.}
+\label{fig:hpp}
+\end{figure}
+
+A force that changes sign with the seed and does not grow with system size is what one expects
+from the residual fluctuation of a finite lattice gas rather than from a hydrodynamic
+interaction, and picking the seed that produced it is the mechanism \citet{ioannidis2005}
+describes for findings that do not replicate. Reproducing the Navier--Stokes limit from a lattice gas requires a specific symmetry
+set and collision rule \citep{frisch1986}, and the statistical care with which a lattice
+automaton's macroscopic claim has to be established is exactly the subject of \citet{wolfram1986}.
+The audited code is a straightforward HPP implementation. The inference from its one printed
+number to gravity from pure bits is not supported by \val{hpp_all_n.value} runs, and that is the
+finding.
+
+\subsection{Adjoint training: memory flat in depth, linear in batch}
+\label{sec:train}
+
+The fourth laboratory makes two claims that are easy to conflate: that the network trains without
+storing activations, and that it learns XOR. The first is about memory and is measured directly.
+Peak working set was \val{train_depth2.peak_ws_mb}\,MB for a depth-2 flow and
+\val{train_depth48.peak_ws_mb}\,MB for a depth-48 flow. The two differ by
+\val{mem_depth_abs_mb.value}\,MB in absolute value, and the sign of that difference
+(\val{mem_depth_delta_mb.value}\,MB) is the sign of noise: 24 times the depth moves the peak by
+less than one part in a thousand (ratio \val{mem_depth_ratio.value}). That is consistent with no per-layer storage at all: stored activations for those shapes
+would be megabytes, and checkpointing trades a square-root memory term for recomputation
+\citep{griewank2008}, whereas here the depth term is absent.
+
+The batch term is present, as it must be. Going from \val{train_batch100.x} to \val{train_batch6400.x} samples raised the peak by
+\val{mem_batch_delta_mb.value}\,MB (Table~\ref{tab:train}), the linear term in the number of
+samples that every method pays. The claim that survives is therefore narrower and more useful
+than O(1) memory: the method is linear in batch and flat in depth, which is what one wants when
+depth is the large number.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+depth & seeds & loss (first) & loss (last) & XOR accuracy (\%) & peak WS (MB) \\
+\midrule
+2  & \valn{train_depth2.xor_accuracy_pct}  & \val{train_depth2.loss_first}  & \val{train_depth2.loss_last}  & \val{train_depth2.xor_accuracy_pct}  & \val{train_depth2.peak_ws_mb} \\
+4  & \valn{train_depth4.xor_accuracy_pct}  & \val{train_depth4.loss_first}  & \val{train_depth4.loss_last}  & \val{train_depth4.xor_accuracy_pct}  & \val{train_depth4.peak_ws_mb} \\
+8  & \valn{train_depth8.xor_accuracy_pct}  & \val{train_depth8.loss_first}  & \val{train_depth8.loss_last}  & \val{train_depth8.xor_accuracy_pct}  & \val{train_depth8.peak_ws_mb} \\
+12 & \valn{train_depth12.xor_accuracy_pct} & \val{train_depth12.loss_first} & \val{train_depth12.loss_last} & \val{train_depth12.xor_accuracy_pct} & \val{train_depth12.peak_ws_mb} \\
+24 & \valn{train_depth24.xor_accuracy_pct} & \val{train_depth24.loss_first} & \val{train_depth24.loss_last} & \val{train_depth24.xor_accuracy_pct} & \val{train_depth24.peak_ws_mb} \\
+48 & \valn{train_depth48.xor_accuracy_pct} & \val{train_depth48.loss_first} & \val{train_depth48.loss_last} & \val{train_depth48.xor_accuracy_pct} & \val{train_depth48.peak_ws_mb} \\
+\bottomrule
+\end{tabular}
+\caption{Adjoint training against depth, 400 samples, 120 epochs, ten seeds per row. Accuracy is
+measured on the training set, because the repository defines no held-out split. Peak working set
+is the sampled maximum over the run and includes the Python interpreter (about
+\val{train_depth2.peak_ws_mb}\,MB of it), which is why the column is read as differences.}
+\label{tab:train}
+\end{table}
+
+The accuracy claim behaves differently. The reported 94.75\% at depth 12 with seed 42 is one draw
+from a distribution whose mean here is \val{train_depth12.xor_accuracy_pct} with a standard
+deviation of \valsd{train_depth12.xor_accuracy_pct}: the reported value sits below the mean and
+well inside one standard deviation. The shape of the curve matters more than the level
+(Figure~\ref{fig:depth}). Depth 2 settles at \val{train_depth2.xor_accuracy_pct}\% and depth 4 at
+\val{train_depth4.xor_accuracy_pct}\%, so the task is not learnable without enough leapfrog
+steps, while everything from depth 8 upward lands between
+\val{train_depth8.xor_accuracy_pct}\% and \val{train_depth48.xor_accuracy_pct}\%. A capacity story
+in which more depth always helps is not what the sweep shows; a threshold near depth 8 is.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.62\textwidth, height=5.4cm,
+  xlabel={leapfrog depth}, ylabel={XOR accuracy (\%)},
+  xmin=0, xmax=52, ymin=50, ymax=100,
+  grid=major, grid style={gray!25},
+]
+\addplot+[mark=*, thick] table[x=x, y=xor_accuracy_pct_mean, col sep=comma]
+  {../data/figures/train_depth.csv};
+\addplot[dashed, black!60] coordinates {(0,90) (52,90)};
+\end{axis}
+\end{tikzpicture}
+\caption{Training accuracy against depth, mean over ten seeds. The jump happens between depth 4
+and depth 8; beyond that the curve is flat within its own spread. The dashed line is the 90\%
+threshold the audited command itself uses as its pass condition.}
+\label{fig:depth}
+\end{figure}
+
+One caveat about the task. The loss pushes orbits toward a target radius of 0.4 or 1.6 depending
+on the label, and the readout thresholds the final radius at 1.0. The labels are the XOR of the
+two input signs, which is not linearly separable, so the flow has to bend the input square rather
+than draw a line through it; that much is real nonlinear work. But the objective and the readout
+are two halves of one construction, and a model can score well by learning the radius map without
+representing parity at all. The audit measured accuracy, not parity representation, and
+Section~\ref{sec:not-confirmed} says so.
+%%NUMBERS-STRICT-END
+
+\section{What this paper does not establish}
+\label{sec:not-confirmed}
+
+\paragraph{Single machine, one interpreter.} All timings and all memory figures come from one
+Windows 11 machine with CPython 3.14.6 and NumPy 2.5.1. The memory conclusions are about
+differences between Python processes, in which the interpreter is a large constant term. They do
+not establish what a C or Rust implementation of the same scheme would use, and they say nothing
+about a GPU.
+
+\paragraph{One repository, one commit.} The subject is a single commit, read as a case study. The
+audit says nothing about reversible computing in general, and nothing about other implementations
+of the same ideas.
+
+\paragraph{The lattice gas was not characterised exhaustively.} Three hundred steps at four sizes
+with twenty seeds each is enough to show that a single-seed positive result is not evidence of a
+force. It is not enough to say the force is exactly zero, and it does not identify the mechanism
+of the fluctuation, which would need time-averaged pressure profiles and much longer runs.
+
+\paragraph{The topological lock was not tested for ergodicity.} Acceptance rates are reported.
+Whether the accepted moves mix, and whether the invariant lets any configuration reach any other
+with the same $\chi$, were not measured. The claim that the invariant is a checksum rather than a
+memory rests on the acceptance-rate collapse and on the freedom the Euler characteristic leaves in
+a binary picture, not on a mixing proof.
+
+\paragraph{The XOR task is not a parity test.} Training accuracy with a radius-based objective is
+what the repository computes, and what was measured. Whether the trained flow represents parity
+was not tested: that would need a held-out set, a probe for parity structure, and a comparison
+against a model allowed to store activations.
+
+\paragraph{No energy measurement.} The motivation for reversible computing is dissipation, and
+nothing in this paper measures power. Peak working set is not energy. The repository does not
+claim otherwise, and neither does the audit.
+
+\section{Reproducibility statement}
+
+The paper is a package, not a document. \texttt{experiments/plan.toml} declares every run;
+\texttt{subjects.lock} pins the audited commit; \texttt{data/measurements.json} holds every
+aggregate with the raw value list; \texttt{evidence/raw/} holds one stdout and stderr file per
+process; \texttt{data/numbers.tsv} maps every number in this text to the JSON path it came from,
+and \texttt{tex/numbers.tex} is generated from that ledger. \texttt{verify\_all.sh} re-runs the
+citation checks, the number checks, the ledger freshness check and the PDF build, and refuses to
+pass if any of them drifts. The measurement harness is one Rust binary (\texttt{tools/papertool},
+standard library only). The audited code is Python, invoked as a black box through its own
+command line, so the harness cannot share a bug with the subject.
+
+The one thing the package cannot reproduce on its own is the numbers: they are measurements of a
+machine. Re-running the plan on different hardware will shift timings and the memory baseline, so
+the paper should be re-read with that in mind. What should survive is the shape of each result,
+and the reversal result should survive exactly, because it is integer arithmetic.
+
+\section{Conclusion}
+
+Four claims, three verdicts. Bit-exact reversal is real and unconditional, and the phase
+bookkeeping is correct at odd step counts, the case most likely to be wrong. Activation memory is
+flat in depth, and the paper's own phrasing should be flat in depth and linear in batch. The
+Euler characteristic is conserved by a sampler whose acceptance rate falls to
+\val{topo_accept64.value} as the lattice grows, so the conserved quantity is a checksum and the
+interesting number is the one the repository does not print. The lattice-gas attraction is not
+there: \val{hpp_positive_all.value} positive runs out of \val{hpp_all_n.value}, means inside their
+own standard errors, and no size dependence.
+
+That last one is the reason to write this down. A single seed selected a number that reads as
+physics; twenty seeds turn it back into a fluctuation. Nothing in the code needed changing for
+that to happen, which suggests the fix belongs upstream of the code, in what a demonstration is
+allowed to claim before somebody sweeps it.
+
+\section*{Acknowledgements and disclosure}
+
+The author thanks the maintainers of \texttt{timelock-ca} for publishing code whose claims are
+checkable; an audit of a repository that hides its numbers would have been impossible. AI
+assistance: the measurement harness, the experiment plan, the number ledger, the reference
+verification and the drafting were produced in a session with a Hermes Agent instance acting as a
+research assistant. Every number in this paper is generated by the artifact from raw logs, and
+every reference was resolved by a machine query before it was cited. The checks that enforce both
+are in \texttt{verify\_all.sh} and were run by the human author on the published version.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\section{Commands}
+
+\begin{verbatim}
+bash scripts/fetch_subjects.sh        # clone the subject at the pinned commit
+papertool measure --root .            # run the plan, keep logs, aggregate
+papertool measure --root . --derive-only
+papertool ledger --root .             # measurements -> macros, ledger, figures
+papertool bib --root .                # curated sources -> references.bib
+papertool cites --root . --check
+papertool numbers --root .            # lookups resolve; no unlisted numerals
+bash build.sh                         # all of the above, then the PDF
+bash verify_all.sh                    # everything, plus the freshness checks\end{verbatim}
+
+\end{document}

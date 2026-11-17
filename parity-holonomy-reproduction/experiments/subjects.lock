@@ -1,0 +1,5 @@
+# The audited artifact, pinned. `scripts/fetch_subjects.sh` reads this file; the plan's
+# [meta] records the same SHA in data/measurements.json.
+repo=kostyk348/paradox-logic
+sha=02c66ff3bdad5dc945817b1841eddf56a48fb276
+dir=subjects/paradox-logic

@@ -1,0 +1,114 @@
+# Curated sources for this note. Every entry is resolved by `papertool bib` against
+# data/refmeta.json before it can reach tex/references.bib.
+
+[[ref]]
+key = "tensorbroth"
+kind = "url"
+id = "https://github.com/kostyk348/tensor-broth"
+category = "subject"
+supports = "The audited artifact: the repository whose benchmark table, its two engines and its README claim of a thousand-fold paradigm advantage are the subject of this note."
+
+[[ref]]
+key = "vonneumann1945"
+kind = "doi"
+id = "10.1109/85.238389"
+category = "architecture"
+supports = "The EDVAC draft: the stored-program machine the benchmark's baseline is named after, and the reason 'von Neumann VM' is a defensible label for a fetch-decode loop over a data memory."
+
+[[ref]]
+key = "backus1978"
+kind = "doi"
+id = "10.1145/359576.359579"
+category = "architecture"
+supports = "Can programming be liberated from the von Neumann style: the classic statement of the bottleneck the audited repository claims to abolish, cited to pin down what 'the von Neumann trip' means."
+
+[[ref]]
+key = "dennis1975"
+kind = "doi"
+id = "10.1145/642089.642102"
+category = "architecture"
+supports = "A preliminary architecture for a basic data-flow processor: dataflow as a real machine model, so the audited 'spatial dataflow engine' is placed in an existing tradition rather than treated as new."
+
+[[ref]]
+key = "margolus1984"
+kind = "doi"
+id = "10.1016/0167-2789(84)90252-5"
+category = "lattice"
+supports = "Physics-like models of computation: synchronous local update on a lattice as computing, the family the audited 3D convolution tick belongs to."
+
+[[ref]]
+key = "jaeger2004"
+kind = "doi"
+id = "10.1126/science.1091277"
+category = "lattice"
+supports = "Harvesting information from a physical reservoir: the reservoir-computing reading of a driven lattice with random coupling, which is what the audited kernel and state initialisation produce."
+
+[[ref]]
+key = "ragankelley2013"
+kind = "doi"
+id = "10.1145/2491956.2462176"
+category = "compilers"
+supports = "Halide: a DSL whose point is exactly the fusion the audited engine performs by hand (one fused convolution over the whole volume). Used to state what the audited implementation does well."
+
+[[ref]]
+key = "hoefler2015"
+kind = "doi"
+id = "10.1145/2807591.2807644"
+category = "benchmarking"
+supports = "Scientific benchmarking of parallel computing systems: the standard argument for fixed units, repeated runs, reported variance and refutable claims, which the audited table does not follow."
+
+[[ref]]
+key = "georges2007"
+kind = "doi"
+id = "10.1145/1297027.1297033"
+category = "benchmarking"
+supports = "Statistically rigorous performance evaluation: why a single timing is not a measurement and what to report instead."
+
+[[ref]]
+key = "mytkowicz2009"
+kind = "doi"
+id = "10.1145/1508244.1508275"
+category = "benchmarking"
+supports = "Producing wrong data without doing anything obviously wrong: measurement bias from incidental implementation choices, the mechanism behind the backend spread measured here."
+
+[[ref]]
+key = "curtsinger2013"
+kind = "doi"
+id = "10.1145/2451116.2451141"
+category = "benchmarking"
+supports = "STABILIZER: statistically sound performance evaluation with layout and alignment randomisation; the tool one would reach for to make the audited comparison defensible."
+
+[[ref]]
+key = "williams2009"
+kind = "doi"
+id = "10.1145/1498765.1498785"
+category = "benchmarking"
+supports = "The roofline model: the right way to state how far a kernel is from hardware limits, as an alternative to a cross-paradigm operation-count ratio."
+
+[[ref]]
+key = "ofenbeck2014"
+kind = "doi"
+id = "10.1109/ISPASS.2014.6844463"
+category = "benchmarking"
+supports = "Applying the roofline model: counting operations is not measuring performance, the specific methodological point this note makes about 'effective GOPS'."
+
+[[ref]]
+key = "amdahl1967"
+kind = "doi"
+id = "10.1145/1465482.1465560"
+category = "benchmarking"
+supports = "Validity of the single processor approach: the oldest reminder that a throughput ratio computed on one component does not transfer to a system."
+
+[[ref]]
+key = "ioannidis2005"
+kind = "doi"
+id = "10.1371/journal.pmed.0020124"
+category = "replication"
+supports = "Why most published research findings are false: the reason a single run of a benchmark, like a single-seed experiment, is a hypothesis rather than a result."
+
+[[ref]]
+key = "sandve2013"
+kind = "doi"
+id = "10.1371/journal.pcbi.1003285"
+category = "reproducibility"
+supports = "Ten simple rules for reproducible computational research; the justification for shipping the plan, the pinned commit, the raw logs and the derived quantities with the note."

@@ -1,0 +1,2292 @@
+{
+  "tool": "papertool measure",
+  "version": "0.1.0",
+  "generated_utc": "2026-11-17T06:26:18Z",
+  "plan": "experiments/plan.toml",
+  "environment": [
+    {
+      "key": "subject",
+      "value": "kostyk348/tensor-broth"
+    },
+    {
+      "key": "subject_sha",
+      "value": "b05e7ba6fe76ea9a282c704fa2c1e0cd313f1954"
+    },
+    {
+      "key": "python",
+      "value": "C:/Users/Lab/AppData/Local/Python/bin/python.exe"
+    },
+    {
+      "key": "python_version",
+      "value": "3.14.6"
+    },
+    {
+      "key": "numpy",
+      "value": "2.5.1"
+    },
+    {
+      "key": "torch",
+      "value": "2.12.1+cpu"
+    },
+    {
+      "key": "host_os",
+      "value": "Windows 11 (x86_64), CPython 3.14.6, torch CPU build, no GPU"
+    }
+  ],
+  "runs": [
+    {
+      "id": "bench_torch_c16",
+      "group": "bench_torch",
+      "x": "16",
+      "note": "16^3 = 4096 voxels per tick",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "16",
+        "--steps",
+        "60",
+        "--vm-steps",
+        "200000",
+        "--backend",
+        "torch",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 10.97092902,
+        "sd": 2.928119212422301,
+        "min": 6.0744694,
+        "max": 13.7475704
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 216498995.2,
+        "sd": 308662.88487474486,
+        "min": 216182784.0,
+        "max": 216969216.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.20939999999999998,
+          "sd": 3.1031676915590914e-17,
+          "min": 0.2094,
+          "max": 0.2094,
+          "values": [
+            0.2094,
+            0.2094,
+            0.2094,
+            0.2094,
+            0.2094
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 16.0,
+          "sd": 0.0,
+          "min": 16.0,
+          "max": 16.0,
+          "values": [
+            16.0,
+            16.0,
+            16.0,
+            16.0,
+            16.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.07799999999999999,
+          "sd": 0.07463243262818116,
+          "min": 0.03,
+          "max": 0.21,
+          "values": [
+            0.21,
+            0.03,
+            0.04,
+            0.05,
+            0.06
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.37622,
+          "sd": 0.1892012077128473,
+          "min": 0.0927,
+          "max": 0.6042,
+          "values": [
+            0.0927,
+            0.6042,
+            0.4663,
+            0.3915,
+            0.3264
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 60.0,
+          "sd": 0.0,
+          "min": 60.0,
+          "max": 60.0,
+          "values": [
+            60.0,
+            60.0,
+            60.0,
+            60.0,
+            60.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.16399999999999998,
+          "sd": 0.04560701700396553,
+          "min": 0.12,
+          "max": 0.23,
+          "values": [
+            0.23,
+            0.12,
+            0.13,
+            0.19,
+            0.15
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.2752,
+          "sd": 0.3056953876001403,
+          "min": 0.8657,
+          "max": 1.6045,
+          "values": [
+            0.8657,
+            1.6045,
+            1.5157,
+            1.0789,
+            1.3112
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 200000.0,
+          "sd": 0.0,
+          "min": 200000.0,
+          "max": 200000.0,
+          "values": [
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bench_torch_c24",
+      "group": "bench_torch",
+      "x": "24",
+      "note": "the README's configuration (24^3 = 13824 voxels)",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "24",
+        "--steps",
+        "60",
+        "--vm-steps",
+        "200000",
+        "--backend",
+        "torch",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 13.9636472,
+        "sd": 12.11133130177474,
+        "min": 5.4812115,
+        "max": 35.3308731
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 223721062.4,
+        "sd": 1896374.1290148417,
+        "min": 220467200.0,
+        "max": 225095680.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.2682,
+          "sd": 0.0,
+          "min": 0.2682,
+          "max": 0.2682,
+          "values": [
+            0.2682,
+            0.2682,
+            0.2682,
+            0.2682,
+            0.2682
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 24.0,
+          "sd": 0.0,
+          "min": 24.0,
+          "max": 24.0,
+          "values": [
+            24.0,
+            24.0,
+            24.0,
+            24.0,
+            24.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.198,
+          "sd": 0.20547505931377658,
+          "min": 0.02,
+          "max": 0.52,
+          "values": [
+            0.14,
+            0.02,
+            0.04,
+            0.27,
+            0.52
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.13226,
+          "sd": 1.2164243392007579,
+          "min": 0.1299,
+          "max": 2.9024,
+          "values": [
+            0.4838,
+            2.9024,
+            1.8951,
+            0.2501,
+            0.1299
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 60.0,
+          "sd": 0.0,
+          "min": 60.0,
+          "max": 60.0,
+          "values": [
+            60.0,
+            60.0,
+            60.0,
+            60.0,
+            60.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.174,
+          "sd": 0.0746993975879324,
+          "min": 0.06,
+          "max": 0.26,
+          "values": [
+            0.15,
+            0.2,
+            0.06,
+            0.2,
+            0.26
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.45156,
+          "sd": 0.9702534220501363,
+          "min": 0.7568,
+          "max": 3.1439,
+          "values": [
+            1.3596,
+            0.9859,
+            3.1439,
+            1.0116,
+            0.7568
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 200000.0,
+          "sd": 0.0,
+          "min": 200000.0,
+          "max": 200000.0,
+          "values": [
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bench_torch_c32",
+      "group": "bench_torch",
+      "x": "32",
+      "note": "32^3 = 32768 voxels: one tick already updates more cells than the VM's whole data memory",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "32",
+        "--steps",
+        "60",
+        "--vm-steps",
+        "200000",
+        "--backend",
+        "torch",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 7.7682075799999994,
+        "sd": 2.3738671181002458,
+        "min": 4.4095977,
+        "max": 10.0466783
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 238063616.0,
+        "sd": 349206.5212678595,
+        "min": 237613056.0,
+        "max": 238428160.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.2989,
+          "sd": 0.0,
+          "min": 0.2989,
+          "max": 0.2989,
+          "values": [
+            0.2989,
+            0.2989,
+            0.2989,
+            0.2989,
+            0.2989
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 32.0,
+          "sd": 0.0,
+          "min": 32.0,
+          "max": 32.0,
+          "values": [
+            32.0,
+            32.0,
+            32.0,
+            32.0,
+            32.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.288,
+          "sd": 0.09731392500562291,
+          "min": 0.15,
+          "max": 0.4,
+          "values": [
+            0.27,
+            0.26,
+            0.36,
+            0.4,
+            0.15
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.6283399999999999,
+          "sd": 0.27331632406426076,
+          "min": 0.4027,
+          "max": 1.0905,
+          "values": [
+            0.5887,
+            0.6116,
+            0.4482,
+            0.4027,
+            1.0905
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 60.0,
+          "sd": 0.0,
+          "min": 60.0,
+          "max": 60.0,
+          "values": [
+            60.0,
+            60.0,
+            60.0,
+            60.0,
+            60.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.23399999999999999,
+          "sd": 0.06503845016603639,
+          "min": 0.17,
+          "max": 0.3,
+          "values": [
+            0.23,
+            0.17,
+            0.3,
+            0.3,
+            0.17
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.9179999999999999,
+          "sd": 0.26943805410520616,
+          "min": 0.6596,
+          "max": 1.2059,
+          "values": [
+            0.8712,
+            1.2059,
+            0.6596,
+            0.6636,
+            1.1897
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 200000.0,
+          "sd": 0.0,
+          "min": 200000.0,
+          "max": 200000.0,
+          "values": [
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bench_numpy_c16",
+      "group": "bench_numpy",
+      "x": "16",
+      "note": "same paradigm, different implementation: the control for the implementation confound",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "16",
+        "--steps",
+        "60",
+        "--vm-steps",
+        "200000",
+        "--backend",
+        "numpy",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 6.0832042799999995,
+        "sd": 2.062565285488377,
+        "min": 3.7519704000000003,
+        "max": 9.3307974
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 216009932.8,
+        "sd": 555082.8111941497,
+        "min": 215564288.0,
+        "max": 216621056.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.24299999999999997,
+          "sd": 3.1031676915590914e-17,
+          "min": 0.243,
+          "max": 0.243,
+          "values": [
+            0.243,
+            0.243,
+            0.243,
+            0.243,
+            0.243
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 16.0,
+          "sd": 0.0,
+          "min": 16.0,
+          "max": 16.0,
+          "values": [
+            16.0,
+            16.0,
+            16.0,
+            16.0,
+            16.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.156,
+          "sd": 0.06767569726275453,
+          "min": 0.05,
+          "max": 0.23,
+          "values": [
+            0.14,
+            0.05,
+            0.19,
+            0.23,
+            0.17
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.16268,
+          "sd": 0.1167671914537641,
+          "min": 0.0852,
+          "max": 0.3687,
+          "values": [
+            0.1386,
+            0.3687,
+            0.1052,
+            0.0852,
+            0.1157
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 60.0,
+          "sd": 0.0,
+          "min": 60.0,
+          "max": 60.0,
+          "values": [
+            60.0,
+            60.0,
+            60.0,
+            60.0,
+            60.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.32199999999999995,
+          "sd": 0.13386560424545207,
+          "min": 0.1,
+          "max": 0.44,
+          "values": [
+            0.3,
+            0.1,
+            0.39,
+            0.38,
+            0.44
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.82796,
+          "sd": 0.6475131295966129,
+          "min": 0.4573,
+          "max": 1.9786,
+          "values": [
+            0.6608,
+            1.9786,
+            0.5188,
+            0.5243,
+            0.4573
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 200000.0,
+          "sd": 0.0,
+          "min": 200000.0,
+          "max": 200000.0,
+          "values": [
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bench_numpy_c24",
+      "group": "bench_numpy",
+      "x": "24",
+      "note": "the README configuration on the dependency-free backend",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "24",
+        "--steps",
+        "60",
+        "--vm-steps",
+        "200000",
+        "--backend",
+        "numpy",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 3.8223458,
+        "sd": 0.74147337001507,
+        "min": 2.8309727000000002,
+        "max": 4.6591046
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 222963302.4,
+        "sd": 182113.153255881,
+        "min": 222793728.0,
+        "max": 223203328.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.2354,
+          "sd": 0.0,
+          "min": 0.2354,
+          "max": 0.2354,
+          "values": [
+            0.2354,
+            0.2354,
+            0.2354,
+            0.2354,
+            0.2354
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 24.0,
+          "sd": 0.0,
+          "min": 24.0,
+          "max": 24.0,
+          "values": [
+            24.0,
+            24.0,
+            24.0,
+            24.0,
+            24.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.22400000000000003,
+          "sd": 0.0658027355054484,
+          "min": 0.16,
+          "max": 0.33,
+          "values": [
+            0.2,
+            0.16,
+            0.19,
+            0.24,
+            0.33
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.321,
+          "sd": 0.08580390434007068,
+          "min": 0.2034,
+          "max": 0.4303,
+          "values": [
+            0.3439,
+            0.4303,
+            0.3527,
+            0.2747,
+            0.2034
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 60.0,
+          "sd": 0.0,
+          "min": 60.0,
+          "max": 60.0,
+          "values": [
+            60.0,
+            60.0,
+            60.0,
+            60.0,
+            60.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.484,
+          "sd": 0.1657709262808168,
+          "min": 0.27,
+          "max": 0.72,
+          "values": [
+            0.45,
+            0.55,
+            0.27,
+            0.43,
+            0.72
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.45526,
+          "sd": 0.17079870608409187,
+          "min": 0.279,
+          "max": 0.7315,
+          "values": [
+            0.4396,
+            0.3606,
+            0.7315,
+            0.4656,
+            0.279
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 200000.0,
+          "sd": 0.0,
+          "min": 200000.0,
+          "max": 200000.0,
+          "values": [
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bench_numpy_c32",
+      "group": "bench_numpy",
+      "x": "32",
+      "note": "32^3 on the fallback backend",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "32",
+        "--steps",
+        "60",
+        "--vm-steps",
+        "200000",
+        "--backend",
+        "numpy",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 371
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 4.636705139999999,
+        "sd": 1.0072503132267687,
+        "min": 3.4205786,
+        "max": 6.1753109
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 236624281.6,
+        "sd": 378005.5465582483,
+        "min": 236085248.0,
+        "max": 237084672.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.1813,
+          "sd": 0.0,
+          "min": 0.1813,
+          "max": 0.1813,
+          "values": [
+            0.1813,
+            0.1813,
+            0.1813,
+            0.1813,
+            0.1813
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 32.0,
+          "sd": 0.0,
+          "min": 32.0,
+          "max": 32.0,
+          "values": [
+            32.0,
+            32.0,
+            32.0,
+            32.0,
+            32.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.22400000000000003,
+          "sd": 0.06913754406977442,
+          "min": 0.16,
+          "max": 0.33,
+          "values": [
+            0.16,
+            0.25,
+            0.33,
+            0.17,
+            0.21
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.76066,
+          "sd": 0.2099921498532743,
+          "min": 0.4839,
+          "max": 0.9915,
+          "values": [
+            0.9915,
+            0.6367,
+            0.4839,
+            0.937,
+            0.7542
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 60.0,
+          "sd": 0.0,
+          "min": 60.0,
+          "max": 60.0,
+          "values": [
+            60.0,
+            60.0,
+            60.0,
+            60.0,
+            60.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.41200000000000003,
+          "sd": 0.11388590782006351,
+          "min": 0.32,
+          "max": 0.56,
+          "values": [
+            0.33,
+            0.56,
+            0.51,
+            0.32,
+            0.34
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.5161199999999999,
+          "sd": 0.1308133670539827,
+          "min": 0.3586,
+          "max": 0.6259,
+          "values": [
+            0.614,
+            0.3586,
+            0.3892,
+            0.6259,
+            0.5929
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 200000.0,
+          "sd": 0.0,
+          "min": 200000.0,
+          "max": 200000.0,
+          "values": [
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vm_100k",
+      "group": "bench_vm",
+      "x": "100000",
+      "note": "100k instructions",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "16",
+        "--steps",
+        "1",
+        "--vm-steps",
+        "100000",
+        "--backend",
+        "torch",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 6.487969380000001,
+        "sd": 6.202932197879447,
+        "min": 2.9101787,
+        "max": 17.471125
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 216504729.6,
+        "sd": 195336.6897149637,
+        "min": 216293376.0,
+        "max": 216739840.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.4293,
+          "sd": 0.0,
+          "min": 0.4293,
+          "max": 0.4293,
+          "values": [
+            0.4293,
+            0.4293,
+            0.4293,
+            0.4293,
+            0.4293
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 16.0,
+          "sd": 0.0,
+          "min": 16.0,
+          "max": 16.0,
+          "values": [
+            16.0,
+            16.0,
+            16.0,
+            16.0,
+            16.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.086,
+          "sd": 0.05770615218501403,
+          "min": 0.02,
+          "max": 0.15,
+          "values": [
+            0.03,
+            0.15,
+            0.02,
+            0.11,
+            0.12
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.0070599999999999994,
+          "sd": 0.006422849834769608,
+          "min": 0.0022,
+          "max": 0.0168,
+          "values": [
+            0.0105,
+            0.0022,
+            0.0168,
+            0.0031,
+            0.0027
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.39,
+          "sd": 0.17277152543170995,
+          "min": 0.16,
+          "max": 0.57,
+          "values": [
+            0.37,
+            0.55,
+            0.16,
+            0.3,
+            0.57
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.31638,
+          "sd": 0.1827756603051949,
+          "min": 0.176,
+          "max": 0.6223,
+          "values": [
+            0.268,
+            0.1832,
+            0.6223,
+            0.3324,
+            0.176
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 100000.0,
+          "sd": 0.0,
+          "min": 100000.0,
+          "max": 100000.0,
+          "values": [
+            100000.0,
+            100000.0,
+            100000.0,
+            100000.0,
+            100000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vm_200k",
+      "group": "bench_vm",
+      "x": "200000",
+      "note": "200k instructions",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "16",
+        "--steps",
+        "1",
+        "--vm-steps",
+        "200000",
+        "--backend",
+        "torch",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 368
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 4.473470399999999,
+        "sd": 1.8862636246082385,
+        "min": 2.3901619,
+        "max": 6.9099715
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 216508006.4,
+        "sd": 94944.18442853676,
+        "min": 216408064.0,
+        "max": 216616960.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.4293,
+          "sd": 0.0,
+          "min": 0.4293,
+          "max": 0.4293,
+          "values": [
+            0.4293,
+            0.4293,
+            0.4293,
+            0.4293,
+            0.4293
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 16.0,
+          "sd": 0.0,
+          "min": 16.0,
+          "max": 16.0,
+          "values": [
+            16.0,
+            16.0,
+            16.0,
+            16.0,
+            16.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.09,
+          "sd": 0.057879184513951125,
+          "min": 0.03,
+          "max": 0.16,
+          "values": [
+            0.03,
+            0.03,
+            0.11,
+            0.16,
+            0.12
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.0061200000000000004,
+          "sd": 0.004854585461190276,
+          "min": 0.0021,
+          "max": 0.0125,
+          "values": [
+            0.0125,
+            0.0102,
+            0.003,
+            0.0021,
+            0.0028
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.41200000000000003,
+          "sd": 0.247325696198353,
+          "min": 0.1,
+          "max": 0.76,
+          "values": [
+            0.1,
+            0.32,
+            0.53,
+            0.76,
+            0.35
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.75522,
+          "sd": 0.6738047395202855,
+          "min": 0.2648,
+          "max": 1.9319,
+          "values": [
+            1.9319,
+            0.6221,
+            0.378,
+            0.2648,
+            0.5793
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 200000.0,
+          "sd": 0.0,
+          "min": 200000.0,
+          "max": 200000.0,
+          "values": [
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0,
+            200000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vm_400k",
+      "group": "bench_vm",
+      "x": "400000",
+      "note": "400k instructions",
+      "mode": "json",
+      "cwd": "subjects/tensor-broth",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "-m",
+        "tensor_broth.cli",
+        "bench",
+        "--cube",
+        "16",
+        "--steps",
+        "1",
+        "--vm-steps",
+        "400000",
+        "--backend",
+        "torch",
+        "--json"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 369
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 370
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 3.3527712800000002,
+        "sd": 0.8933643579685598,
+        "min": 2.7843394,
+        "max": 4.8777095
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 217115033.6,
+        "sd": 365676.69420514075,
+        "min": 216596480.0,
+        "max": 217485312.0
+      },
+      "metrics": [
+        {
+          "name": "broth[0].activity",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.4293,
+          "sd": 0.0,
+          "min": 0.4293,
+          "max": 0.4293,
+          "values": [
+            0.4293,
+            0.4293,
+            0.4293,
+            0.4293,
+            0.4293
+          ]
+        },
+        {
+          "name": "broth[0].cube",
+          "kind": "num",
+          "n": 5,
+          "mean": 16.0,
+          "sd": 0.0,
+          "min": 16.0,
+          "max": 16.0,
+          "values": [
+            16.0,
+            16.0,
+            16.0,
+            16.0,
+            16.0
+          ]
+        },
+        {
+          "name": "broth[0].gops_effective",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.128,
+          "sd": 0.03563705936241092,
+          "min": 0.07,
+          "max": 0.16,
+          "values": [
+            0.07,
+            0.16,
+            0.15,
+            0.14,
+            0.12
+          ]
+        },
+        {
+          "name": "broth[0].seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.00288,
+          "sd": 0.001063954886261631,
+          "min": 0.0021,
+          "max": 0.0047,
+          "values": [
+            0.0047,
+            0.0021,
+            0.0022,
+            0.0025,
+            0.0029
+          ]
+        },
+        {
+          "name": "broth[0].steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "vm.mops_per_sec",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.59,
+          "sd": 0.18152134860671343,
+          "min": 0.28,
+          "max": 0.73,
+          "values": [
+            0.28,
+            0.73,
+            0.71,
+            0.6,
+            0.63
+          ]
+        },
+        {
+          "name": "vm.seconds",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.76906,
+          "sd": 0.37669401110184914,
+          "min": 0.5456,
+          "max": 1.437,
+          "values": [
+            1.437,
+            0.5456,
+            0.5633,
+            0.6682,
+            0.6312
+          ]
+        },
+        {
+          "name": "vm.steps",
+          "kind": "num",
+          "n": 5,
+          "mean": 400000.0,
+          "sd": 0.0,
+          "min": 400000.0,
+          "max": 400000.0,
+          "values": [
+            400000.0,
+            400000.0,
+            400000.0,
+            400000.0,
+            400000.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vm_c16_updates_per_s",
+      "group": "derived",
+      "x": "",
+      "note": "the VM's state updates per second at cube 16 (the VM is cube-independent; reported for the same run)",
+      "mode": "derived",
+      "expr": "bench_torch_c16.vm.steps / bench_torch_c16.vm.seconds",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "cell updates/s",
+          "n": 1,
+          "mean": 156838.14303638646,
+          "sd": 0.0,
+          "min": 156838.14303638646,
+          "max": 156838.14303638646,
+          "values": [
+            156838.14303638646
+          ]
+        }
+      ]
+    },
+    {
+      "id": "broth_c16_updates_per_s",
+      "group": "derived",
+      "x": "",
+      "note": "torch broth voxel updates per second at cube 16",
+      "mode": "derived",
+      "expr": "bench_torch_c16.broth[0].cube * bench_torch_c16.broth[0].cube * bench_torch_c16.broth[0].cube * bench_torch_c16.broth[0].steps / bench_torch_c16.broth[0].seconds",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "voxel updates/s",
+          "n": 1,
+          "mean": 653234.8094200202,
+          "sd": 0.0,
+          "min": 653234.8094200202,
+          "max": 653234.8094200202,
+          "values": [
+            653234.8094200202
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ratio_c16_updates",
+      "group": "derived",
+      "x": "",
+      "note": "matched-unit advantage at cube 16",
+      "mode": "derived",
+      "expr": "broth_c16_updates_per_s.value / vm_c16_updates_per_s.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "ratio",
+          "n": 1,
+          "mean": 4.165025144862049,
+          "sd": 0.0,
+          "min": 4.165025144862049,
+          "max": 4.165025144862049,
+          "values": [
+            4.165025144862049
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vm_c24_updates_per_s",
+      "group": "derived",
+      "x": "",
+      "note": "the VM at the README's run",
+      "mode": "derived",
+      "expr": "bench_torch_c24.vm.steps / bench_torch_c24.vm.seconds",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "cell updates/s",
+          "n": 1,
+          "mean": 137782.79919534846,
+          "sd": 0.0,
+          "min": 137782.79919534846,
+          "max": 137782.79919534846,
+          "values": [
+            137782.79919534846
+          ]
+        }
+      ]
+    },
+    {
+      "id": "broth_c24_updates_per_s",
+      "group": "derived",
+      "x": "",
+      "note": "torch broth voxel updates per second at cube 24",
+      "mode": "derived",
+      "expr": "bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].steps / bench_torch_c24.broth[0].seconds",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "voxel updates/s",
+          "n": 1,
+          "mean": 732552.5939271898,
+          "sd": 0.0,
+          "min": 732552.5939271898,
+          "max": 732552.5939271898,
+          "values": [
+            732552.5939271898
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ratio_c24_updates",
+      "group": "derived",
+      "x": "",
+      "note": "matched-unit advantage at the README's cube 24: the number to compare with the table's 1000x",
+      "mode": "derived",
+      "expr": "broth_c24_updates_per_s.value / vm_c24_updates_per_s.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "ratio",
+          "n": 1,
+          "mean": 5.316720216204758,
+          "sd": 0.0,
+          "min": 5.316720216204758,
+          "max": 5.316720216204758,
+          "values": [
+            5.316720216204758
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ratio_c24_ops",
+      "group": "derived",
+      "x": "",
+      "note": "the ratio the README table implies (Gops/s over Mops/s): a units artifact",
+      "mode": "derived",
+      "expr": "bench_torch_c24.broth[0].gops_effective * 1000 / bench_torch_c24.vm.mops_per_sec",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "ratio",
+          "n": 1,
+          "mean": 1137.9310344827586,
+          "sd": 0.0,
+          "min": 1137.9310344827586,
+          "max": 1137.9310344827586,
+          "values": [
+            1137.9310344827586
+          ]
+        }
+      ]
+    },
+    {
+      "id": "numpy_c24_updates_per_s",
+      "group": "derived",
+      "x": "",
+      "note": "the same paradigm and the same cube on the NumPy fallback",
+      "mode": "derived",
+      "expr": "bench_numpy_c24.broth[0].cube * bench_numpy_c24.broth[0].cube * bench_numpy_c24.broth[0].cube * bench_numpy_c24.broth[0].steps / bench_numpy_c24.broth[0].seconds",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "voxel updates/s",
+          "n": 1,
+          "mean": 2583925.23364486,
+          "sd": 0.0,
+          "min": 2583925.23364486,
+          "max": 2583925.23364486,
+          "values": [
+            2583925.23364486
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backend_spread_c24",
+      "group": "derived",
+      "x": "",
+      "note": "how much of the headline is implementation rather than paradigm, at one fixed cube",
+      "mode": "derived",
+      "expr": "broth_c24_updates_per_s.value / numpy_c24_updates_per_s.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "ratio",
+          "n": 1,
+          "mean": 0.2835037888824121,
+          "sd": 0.0,
+          "min": 0.2835037888824121,
+          "max": 0.2835037888824121,
+          "values": [
+            0.2835037888824121
+          ]
+        }
+      ]
+    },
+    {
+      "id": "broth_c32_updates_per_s",
+      "group": "derived",
+      "x": "",
+      "note": "torch broth at cube 32",
+      "mode": "derived",
+      "expr": "bench_torch_c32.broth[0].cube * bench_torch_c32.broth[0].cube * bench_torch_c32.broth[0].cube * bench_torch_c32.broth[0].steps / bench_torch_c32.broth[0].seconds",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "voxel updates/s",
+          "n": 1,
+          "mean": 3129006.588789509,
+          "sd": 0.0,
+          "min": 3129006.588789509,
+          "max": 3129006.588789509,
+          "values": [
+            3129006.588789509
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vm_c32_updates_per_s",
+      "group": "derived",
+      "x": "",
+      "note": "the VM at cube 32",
+      "mode": "derived",
+      "expr": "bench_torch_c32.vm.steps / bench_torch_c32.vm.seconds",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "cell updates/s",
+          "n": 1,
+          "mean": 217864.9237472767,
+          "sd": 0.0,
+          "min": 217864.9237472767,
+          "max": 217864.9237472767,
+          "values": [
+            217864.9237472767
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ratio_c32_updates",
+      "group": "derived",
+      "x": "",
+      "note": "matched-unit advantage at cube 32",
+      "mode": "derived",
+      "expr": "broth_c32_updates_per_s.value / vm_c32_updates_per_s.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "ratio",
+          "n": 1,
+          "mean": 14.362140242543845,
+          "sd": 0.0,
+          "min": 14.362140242543845,
+          "max": 14.362140242543845,
+          "values": [
+            14.362140242543845
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c24_voxels",
+      "group": "derived",
+      "x": "",
+      "note": "volume of the README cube: one broth tick writes this many cells",
+      "mode": "derived",
+      "expr": "bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].cube * bench_torch_c24.broth[0].cube",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "voxels",
+          "n": 1,
+          "mean": 13824.0,
+          "sd": 0.0,
+          "min": 13824.0,
+          "max": 13824.0,
+          "values": [
+            13824.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backend_advantage_c24",
+      "group": "derived",
+      "x": "",
+      "note": "how many times faster the NumPy fallback is than the torch path at the same cube: the implementation factor, oriented so the number is above one",
+      "mode": "derived",
+      "expr": "numpy_c24_updates_per_s.value / broth_c24_updates_per_s.value",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "ratio",
+          "n": 1,
+          "mean": 3.5272897196261686,
+          "sd": 0.0,
+          "min": 3.5272897196261686,
+          "max": 3.5272897196261686,
+          "values": [
+            3.5272897196261686
+          ]
+        }
+      ]
+    }
+  ],
+  "derives_refreshed_utc": "2026-11-17T07:06:57Z"
+}

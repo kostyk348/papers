@@ -1,0 +1,15 @@
+run,x,value_mean,value_mean_sd
+backend_advantage_c24,nan,3.527290,0.000000
+backend_spread_c24,nan,0.283504,0.000000
+broth_c16_updates_per_s,nan,653234.809420,0.000000
+broth_c24_updates_per_s,nan,732552.593927,0.000000
+broth_c32_updates_per_s,nan,3129006.588790,0.000000
+c24_voxels,nan,13824.000000,0.000000
+numpy_c24_updates_per_s,nan,2583925.233645,0.000000
+ratio_c16_updates,nan,4.165025,0.000000
+ratio_c24_ops,nan,1137.931034,0.000000
+ratio_c24_updates,nan,5.316720,0.000000
+ratio_c32_updates,nan,14.362140,0.000000
+vm_c16_updates_per_s,nan,156838.143036,0.000000
+vm_c24_updates_per_s,nan,137782.799195,0.000000
+vm_c32_updates_per_s,nan,217864.923747,0.000000

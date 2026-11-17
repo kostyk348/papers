@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this audit or its harness, cite it as below."
+type: software
+title: "Four reversibility claims, re-measured: an independent audit of a reversible-computing suite"
+abstract: >-
+  An independent, plan-first audit of the four reversible-computing laboratories in the
+  kostyk348/timelock-ca repository: bit-exact reversal of a Margolus block automaton, an
+  Euler-characteristic lock, an HPP lattice gas claimed to show an emergent attraction, and a
+  symplectic network trained with no stored activations. The package contains the experiment
+  plan, the measurement harness, the raw logs, the number ledger and the paper source; every
+  number in the paper is generated from the measurements.
+authors:
+  - family-names: Parashchuk
+    given-names: Konstantin
+    affiliation: "Independent researcher, Saint Petersburg, Russia"
+    website: "https://github.com/kostyk348"
+version: 0.1.0
+date-released: "2026-11-17"
+license: CC-BY-4.0
+repository-code: "https://github.com/kostyk348/timelock-ca"
+keywords:
+  - reversible computing
+  - cellular automata
+  - lattice gas
+  - adjoint training
+  - reproducibility
+  - negative results
+references:
+  - type: software
+    title: "papertool: one utility with subcommands for the paper packages in this repository"
+    authors:
+      - family-names: Parashchuk
+        given-names: Konstantin
+    version: 0.1.0
+    license: Apache-2.0

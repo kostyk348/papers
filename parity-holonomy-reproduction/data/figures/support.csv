@@ -1,0 +1,4 @@
+run,x,code_detect_v7_p02_mean,code_detect_v7_p02_mean_sd,code_localise_v7_p02_mean,code_localise_v7_p02_mean_sd,code_rank_v7_mean,code_rank_v7_mean_sd,code_undetectable_v7_p02_mean,code_undetectable_v7_p02_mean_sd,frustration_v8_index_mean,frustration_v8_index_mean_sd,frustration_v8_maxsat_mean,frustration_v8_maxsat_mean_sd
+e06_frustration,6,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan
+e11_repair_hardness,11,nan,nan,nan,nan,nan,nan,nan,nan,3.000000,0.000000,13.000000,0.000000
+e12_holonomy_code,12,87.000000,0.000000,64.000000,0.000000,4.300000,0.000000,40.000000,0.000000,nan,nan,nan,nan

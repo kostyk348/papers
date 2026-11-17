@@ -1,0 +1,855 @@
+{
+  "tool": "papertool measure",
+  "version": "0.1.0",
+  "generated_utc": "2026-11-17T07:00:37Z",
+  "plan": "experiments/plan.toml",
+  "environment": [
+    {
+      "key": "subject",
+      "value": "kostyk348/paradox-logic"
+    },
+    {
+      "key": "subject_sha",
+      "value": "02c66ff3bdad5dc945817b1841eddf56a48fb276"
+    },
+    {
+      "key": "python",
+      "value": "C:/Users/Lab/AppData/Local/Python/bin/python.exe"
+    },
+    {
+      "key": "python_version",
+      "value": "3.14.6"
+    },
+    {
+      "key": "numpy",
+      "value": "2.5.1"
+    },
+    {
+      "key": "host_os",
+      "value": "Windows 11 (x86_64), CPython 3.14.6, single process"
+    },
+    {
+      "key": "tool_commit",
+      "value": "papertool 0.1.0"
+    }
+  ],
+  "runs": [
+    {
+      "id": "e01_contextuality",
+      "group": "claim1",
+      "x": "1",
+      "note": "exhaustive over cycles L=3..6 and label counts: parity of the number of negation labels decides satisfiability",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "experiments/01_contextuality.py"
+      ],
+      "seeds": [
+        0
+      ],
+      "repeats": 1,
+      "n": 1,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 1261
+        }
+      ],
+      "elapsed_s": {
+        "n": 1,
+        "mean": 0.4168714,
+        "sd": 0.0,
+        "min": 0.4168714,
+        "max": 0.4168714
+      },
+      "peak_ws_bytes": {
+        "n": 1,
+        "mean": 28327936.0,
+        "sd": 0.0,
+        "min": 28327936.0,
+        "max": 28327936.0
+      },
+      "metrics": [
+        {
+          "name": "mermin_contextual_fraction",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.333,
+          "sd": 0.0,
+          "min": 0.333,
+          "max": 0.333,
+          "values": [
+            0.333
+          ]
+        },
+        {
+          "name": "mermin_holonomy",
+          "kind": "num",
+          "n": 1,
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "values": [
+            1.0
+          ]
+        },
+        {
+          "name": "mermin_maxsat",
+          "kind": "num",
+          "n": 1,
+          "mean": 2.0,
+          "sd": 0.0,
+          "min": 2.0,
+          "max": 2.0,
+          "values": [
+            2.0
+          ]
+        },
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 1,
+          "unique": 1,
+          "values": [
+            "99c6e74aa724c6986fa99f9a4e91476a387e9ba2605ab5709b989945b810f741"
+          ]
+        }
+      ],
+      "reference": {
+        "path": "subjects/paradox-logic/results/01_contextuality.txt",
+        "runs_identical": true
+      }
+    },
+    {
+      "id": "e01_contextuality_repeat",
+      "group": "claim1",
+      "x": "1",
+      "note": "same script again: an exhaustive enumeration must be bit-identical every time",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "experiments/01_contextuality.py"
+      ],
+      "seeds": [
+        1,
+        2
+      ],
+      "repeats": 1,
+      "n": 2,
+      "exit_codes": [
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 1261
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 1261
+        }
+      ],
+      "elapsed_s": {
+        "n": 2,
+        "mean": 0.30434925,
+        "sd": 0.0004144352844534202,
+        "min": 0.3040562,
+        "max": 0.3046423
+      },
+      "peak_ws_bytes": {
+        "n": 2,
+        "mean": 28522496.0,
+        "sd": 66615.11564202227,
+        "min": 28475392.0,
+        "max": 28569600.0
+      },
+      "metrics": [
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 2,
+          "unique": 1,
+          "values": [
+            "99c6e74aa724c6986fa99f9a4e91476a387e9ba2605ab5709b989945b810f741"
+          ]
+        }
+      ],
+      "reference": {
+        "path": "subjects/paradox-logic/results/01_contextuality.txt",
+        "runs_identical": true
+      }
+    },
+    {
+      "id": "e05_diagonal_lemma",
+      "group": "claim5",
+      "x": "5",
+      "note": "exhaustive over L=3..6: about half the base vectors admit a trivial-class fixed point",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "experiments/05_diagonal_lemma.py"
+      ],
+      "seeds": [
+        0
+      ],
+      "repeats": 1,
+      "n": 1,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 420
+        }
+      ],
+      "elapsed_s": {
+        "n": 1,
+        "mean": 1.3471762,
+        "sd": 0.0,
+        "min": 1.3471762,
+        "max": 1.3471762
+      },
+      "peak_ws_bytes": {
+        "n": 1,
+        "mean": 28512256.0,
+        "sd": 0.0,
+        "min": 28512256.0,
+        "max": 28512256.0
+      },
+      "metrics": [
+        {
+          "name": "selfgauge_total",
+          "kind": "num",
+          "n": 1,
+          "mean": 120.0,
+          "sd": 0.0,
+          "min": 120.0,
+          "max": 120.0,
+          "values": [
+            120.0
+          ]
+        },
+        {
+          "name": "selfgauge_trivial_fixed",
+          "kind": "num",
+          "n": 1,
+          "mean": 60.0,
+          "sd": 0.0,
+          "min": 60.0,
+          "max": 60.0,
+          "values": [
+            60.0
+          ]
+        },
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 1,
+          "unique": 1,
+          "values": [
+            "03573f7eb327a3d7961c525a3732f1729de3846671fdddacdfe810bf1c2b8f36"
+          ]
+        }
+      ],
+      "reference": {
+        "path": "subjects/paradox-logic/results/05_diagonal_lemma.txt",
+        "runs_identical": true
+      }
+    },
+    {
+      "id": "e06_frustration",
+      "group": "support",
+      "x": "6",
+      "note": "the spin-glass control: a real transition where the defect gas had none",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "experiments/06_frustration.py"
+      ],
+      "seeds": [
+        0
+      ],
+      "repeats": 1,
+      "n": 1,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 496
+        }
+      ],
+      "elapsed_s": {
+        "n": 1,
+        "mean": 10.3347245,
+        "sd": 0.0,
+        "min": 10.3347245,
+        "max": 10.3347245
+      },
+      "peak_ws_bytes": {
+        "n": 1,
+        "mean": 35983360.0,
+        "sd": 0.0,
+        "min": 35983360.0,
+        "max": 35983360.0
+      },
+      "metrics": [
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 1,
+          "unique": 1,
+          "values": [
+            "e3d5fda89af87d6f2e607e917f7d0389fe86362a1f4dffa1548fde102de173a9"
+          ]
+        }
+      ],
+      "reference": {
+        "path": "subjects/paradox-logic/results/06_frustration.txt",
+        "runs_identical": true
+      }
+    },
+    {
+      "id": "e11_repair_hardness",
+      "group": "support",
+      "x": "11",
+      "note": "minimum repair is MAX-CUT already at Z/2: polynomial detection, NP-hard repair",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "experiments/11_repair_hardness.py"
+      ],
+      "seeds": [
+        0
+      ],
+      "repeats": 1,
+      "n": 1,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 559
+        }
+      ],
+      "elapsed_s": {
+        "n": 1,
+        "mean": 0.4128446,
+        "sd": 0.0,
+        "min": 0.4128446,
+        "max": 0.4128446
+      },
+      "peak_ws_bytes": {
+        "n": 1,
+        "mean": 32944128.0,
+        "sd": 0.0,
+        "min": 32944128.0,
+        "max": 32944128.0
+      },
+      "metrics": [
+        {
+          "name": "frustration_v8_index",
+          "kind": "num",
+          "n": 1,
+          "mean": 3.0,
+          "sd": 0.0,
+          "min": 3.0,
+          "max": 3.0,
+          "values": [
+            3.0
+          ]
+        },
+        {
+          "name": "frustration_v8_maxsat",
+          "kind": "num",
+          "n": 1,
+          "mean": 13.0,
+          "sd": 0.0,
+          "min": 13.0,
+          "max": 13.0,
+          "values": [
+            13.0
+          ]
+        },
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 1,
+          "unique": 1,
+          "values": [
+            "07c52c6f0a586897bd0efe25f483140e15cb147b25da0601f749dda0687b8e00"
+          ]
+        }
+      ],
+      "reference": {
+        "path": "subjects/paradox-logic/results/11_repair_hardness.txt",
+        "runs_identical": true
+      }
+    },
+    {
+      "id": "e03_topological_memory",
+      "group": "claim3",
+      "x": "3",
+      "note": "unseeded RNG: five runs give the spread of the printed error rates",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "experiments/03_topological_memory.py"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "repeats": 1,
+      "n": 5,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 598
+        },
+        {
+          "seed": 1,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 598
+        },
+        {
+          "seed": 2,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 598
+        },
+        {
+          "seed": 3,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 598
+        },
+        {
+          "seed": 4,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 598
+        }
+      ],
+      "elapsed_s": {
+        "n": 5,
+        "mean": 0.41493821999999997,
+        "sd": 0.02127410376389566,
+        "min": 0.389419,
+        "max": 0.4403687
+      },
+      "peak_ws_bytes": {
+        "n": 5,
+        "mean": 32972800.0,
+        "sd": 147484.44170148933,
+        "min": 32845824.0,
+        "max": 33210368.0
+      },
+      "metrics": [
+        {
+          "name": "noise05_hopfield",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.377,
+          "sd": 0.0,
+          "min": 0.377,
+          "max": 0.377,
+          "values": [
+            0.377,
+            0.377,
+            0.377,
+            0.377,
+            0.377
+          ]
+        },
+        {
+          "name": "noise05_parity_struct",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.138,
+          "sd": 0.0,
+          "min": 0.138,
+          "max": 0.138,
+          "values": [
+            0.138,
+            0.138,
+            0.138,
+            0.138,
+            0.138
+          ]
+        },
+        {
+          "name": "noise05_parity_value",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "noise10_hopfield",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.897,
+          "sd": 0.0,
+          "min": 0.897,
+          "max": 0.897,
+          "values": [
+            0.897,
+            0.897,
+            0.897,
+            0.897,
+            0.897
+          ]
+        },
+        {
+          "name": "noise10_parity_struct",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.246,
+          "sd": 0.0,
+          "min": 0.246,
+          "max": 0.246,
+          "values": [
+            0.246,
+            0.246,
+            0.246,
+            0.246,
+            0.246
+          ]
+        },
+        {
+          "name": "noise10_parity_value",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "noise20_hopfield",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "noise20_parity_struct",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.385,
+          "sd": 0.0,
+          "min": 0.385,
+          "max": 0.385,
+          "values": [
+            0.385,
+            0.385,
+            0.385,
+            0.385,
+            0.385
+          ]
+        },
+        {
+          "name": "noise30_hopfield",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "noise30_parity_struct",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.46299999999999997,
+          "sd": 6.206335383118183e-17,
+          "min": 0.463,
+          "max": 0.463,
+          "values": [
+            0.463,
+            0.463,
+            0.463,
+            0.463,
+            0.463
+          ]
+        },
+        {
+          "name": "noise40_hopfield",
+          "kind": "num",
+          "n": 5,
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "noise40_parity_struct",
+          "kind": "num",
+          "n": 5,
+          "mean": 0.497,
+          "sd": 0.0,
+          "min": 0.497,
+          "max": 0.497,
+          "values": [
+            0.497,
+            0.497,
+            0.497,
+            0.497,
+            0.497
+          ]
+        },
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 5,
+          "unique": 1,
+          "values": [
+            "9bef752b39ae15d0fa31fbb094fbdc79bef00853a79724c4606518f5de6fce05"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e12_holonomy_code",
+      "group": "support",
+      "x": "12",
+      "note": "detection, localisation and the undetectable-error column: the code's distance",
+      "mode": "capture",
+      "cwd": "subjects/paradox-logic",
+      "argv": [
+        "C:/Users/Lab/AppData/Local/Python/bin/python.exe",
+        "experiments/12_holonomy_code.py"
+      ],
+      "seeds": [
+        0
+      ],
+      "repeats": 1,
+      "n": 1,
+      "exit_codes": [
+        {
+          "seed": 0,
+          "rep": 0,
+          "code": 0,
+          "timed_out": false,
+          "stdout_bytes": 761
+        }
+      ],
+      "elapsed_s": {
+        "n": 1,
+        "mean": 1.101663,
+        "sd": 0.0,
+        "min": 1.101663,
+        "max": 1.101663
+      },
+      "peak_ws_bytes": {
+        "n": 1,
+        "mean": 33132544.0,
+        "sd": 0.0,
+        "min": 33132544.0,
+        "max": 33132544.0
+      },
+      "metrics": [
+        {
+          "name": "code_detect_v7_p02",
+          "kind": "num",
+          "n": 1,
+          "mean": 87.0,
+          "sd": 0.0,
+          "min": 87.0,
+          "max": 87.0,
+          "values": [
+            87.0
+          ]
+        },
+        {
+          "name": "code_localise_v7_p02",
+          "kind": "num",
+          "n": 1,
+          "mean": 64.0,
+          "sd": 0.0,
+          "min": 64.0,
+          "max": 64.0,
+          "values": [
+            64.0
+          ]
+        },
+        {
+          "name": "code_rank_v7",
+          "kind": "num",
+          "n": 1,
+          "mean": 4.3,
+          "sd": 0.0,
+          "min": 4.3,
+          "max": 4.3,
+          "values": [
+            4.3
+          ]
+        },
+        {
+          "name": "code_undetectable_v7_p02",
+          "kind": "num",
+          "n": 1,
+          "mean": 40.0,
+          "sd": 0.0,
+          "min": 40.0,
+          "max": 40.0,
+          "values": [
+            40.0
+          ]
+        },
+        {
+          "name": "stdout_sha256",
+          "kind": "text",
+          "n": 1,
+          "unique": 1,
+          "values": [
+            "357851df89327aa0460a0e41809519f31d98c32a91688c3eb7e5ca57777682dd"
+          ]
+        }
+      ],
+      "reference": {
+        "path": "subjects/paradox-logic/results/12_holonomy_code.txt",
+        "runs_identical": true
+      }
+    },
+    {
+      "id": "selfgauge_fraction",
+      "group": "derived",
+      "x": "",
+      "note": "the fraction of self-gauge systems that are consistent: the diagonal lemma's counterexample rate",
+      "mode": "derived",
+      "expr": "e05_diagonal_lemma.selfgauge_trivial_fixed / e05_diagonal_lemma.selfgauge_total",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "fraction",
+          "n": 1,
+          "mean": 0.5,
+          "sd": 0.0,
+          "min": 0.5,
+          "max": 0.5,
+          "values": [
+            0.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "noise10_hopfield_over_parity",
+      "group": "derived",
+      "x": "",
+      "note": "at 10% structural noise, how many times worse the associative memory is than the parity invariant",
+      "mode": "derived",
+      "expr": "e03_topological_memory.noise10_hopfield / e03_topological_memory.noise10_parity_struct",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "ratio",
+          "n": 1,
+          "mean": 3.6463414634146343,
+          "sd": 0.0,
+          "min": 3.6463414634146343,
+          "max": 3.6463414634146343,
+          "values": [
+            3.6463414634146343
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcerr_parity_struct",
+      "group": "derived",
+      "x": "",
+      "note": "binomial standard error of the printed structural-noise rate: 4000 trials per row, one fixed RNG stream, so this is the Monte Carlo resolution the printed digits do not show",
+      "mode": "derived",
+      "expr": "sqrt(e03_topological_memory.noise10_parity_struct * (1 - e03_topological_memory.noise10_parity_struct) / 4000)",
+      "n": 1,
+      "metrics": [
+        {
+          "name": "value",
+          "kind": "num",
+          "unit": "fraction",
+          "n": 1,
+          "mean": 0.006809625540365637,
+          "sd": 0.0,
+          "min": 0.006809625540365637,
+          "max": 0.006809625540365637,
+          "values": [
+            0.006809625540365637
+          ]
+        }
+      ]
+    }
+  ]
+}

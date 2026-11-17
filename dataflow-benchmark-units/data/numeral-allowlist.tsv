@@ -1,0 +1,11 @@
+# Numerals allowed in tex/main.tex as literals.
+#
+# Format: <token><TAB><reason>. `papertool numbers` fails the build on a decimal or a
+# three-digit integer that is neither a \val{...} lookup nor listed here.
+348	GitHub handle in the byline and in the audited repository URL; an identifier
+2026	Year of writing, in the paper's own date line
+1.15	Effective Gops/s quoted verbatim from the audited repository's README; the repository's claim for its own hardware, not a measurement here
+256	Size of the von Neumann engine's data memory in the audited code; a constant of the audited code
+2.12.1	torch version of the measurement environment; an identifier
+3.14.6	CPython version of the measurement environment; an identifier
+2.5.1	NumPy version of the measurement environment; an identifier

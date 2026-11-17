@@ -1,0 +1,173 @@
+# Curated source list -- the single source of truth for every citation in this paper.
+#
+# `papertool bib` resolves each entry against data/refmeta.json (the machine-collected
+# Crossref/arXiv snapshot in evidence/raw/) and REFUSES to emit anything if an entry cannot
+# be resolved, so a reference nobody verified cannot reach the paper.
+#
+# key       BibTeX key, used verbatim in the deliverable (\cite{key}).
+# kind      "doi" | "arxiv" | "url"
+# id        DOI | arXiv id (no version) | absolute URL
+# category  grouping used in the reference's role in the argument
+# supports  the specific claim the source is cited for; a source that cannot be tied to a
+#           claim does not belong here.
+
+[[ref]]
+key = "landauer1961"
+kind = "doi"
+id = "10.1147/rd.53.0183"
+category = "reversible-computing"
+supports = "Establishes that erasing a bit dissipates at least kT ln 2, the reason a reversible substrate is interesting at all; the paper's framing of 'information is not destroyed' in the audited repositories descends from this."
+
+[[ref]]
+key = "bennett1973"
+kind = "doi"
+id = "10.1147/rd.176.0525"
+category = "reversible-computing"
+supports = "Shows computation can be made logically reversible, so the bit-exact reversal audited here is not a curiosity but a known design goal."
+
+[[ref]]
+key = "toffoli1980"
+kind = "doi"
+id = "10.1007/3-540-10003-2_104"
+category = "reversible-computing"
+supports = "Introduces reversible cellular automata as a computing substrate; the Margolus/BBM rule audited here is an instance of this programme."
+
+[[ref]]
+key = "fredkin1982"
+kind = "doi"
+id = "10.1007/BF01857727"
+category = "reversible-computing"
+supports = "Conservative logic: a primitive whose transitions preserve a conserved quantity. Used to state precisely what the billiard-ball block rule conserves (Hamming weight) and what the topological lock claims to conserve (Euler characteristic)."
+
+[[ref]]
+key = "margolus1984"
+kind = "doi"
+id = "10.1016/0167-2789(84)90252-5"
+category = "reversible-ca"
+supports = "Physics-like models of computation: the partitioned block scheme with alternating offsets, which is exactly the two-phase structure the audited implementation uses."
+
+[[ref]]
+key = "margolus1987book"
+kind = "doi"
+id = "10.7551/mitpress/1763.001.0001"
+category = "reversible-ca"
+supports = "Reference treatment of reversible block cellular automata and the billiard-ball model; the 16-state block permutation table audited here is the textbook construction."
+
+[[ref]]
+key = "hardy1976"
+kind = "doi"
+id = "10.1103/PhysRevA.13.1949"
+category = "lattice-gas"
+supports = "The HPP lattice gas the second laboratory implements: four boolean channels, head-on collision, streaming. Also the origin of the known limitations of the model that the paper uses to interpret the measured forces."
+
+[[ref]]
+key = "frisch1986"
+kind = "doi"
+id = "10.1103/PhysRevLett.56.1505"
+category = "lattice-gas"
+supports = "Lattice-gas automata reproducing the Navier-Stokes equation: the reference point for what a lattice gas must reproduce if a measured force is to be called hydrodynamic rather than a fluctuation."
+
+[[ref]]
+key = "wolfram1986"
+kind = "doi"
+id = "10.1007/BF01021083"
+category = "lattice-gas"
+supports = "Basic theory of cellular-automaton fluids, including the statistical care needed before a lattice simulation's macroscopic claim is accepted."
+
+[[ref]]
+key = "metropolis1953"
+kind = "doi"
+id = "10.1063/1.1699114"
+category = "sampling"
+supports = "The rejection-sampling scheme that the topological-charge laboratory implements: an invariant that is conserved by rejecting every move that would change it is a definition, not a measurement."
+
+[[ref]]
+key = "kong1989"
+kind = "doi"
+id = "10.1016/0734-189x(89)90127-8"
+category = "digital-topology"
+supports = "Digital topology survey: what the Euler characteristic does and does not determine about a binary lattice, used to argue that the conserved chi is a checksum of the picture rather than a memory of its shape."
+
+[[ref]]
+key = "chen2018neuralode"
+kind = "url"
+id = "https://arxiv.org/abs/1806.07366"
+category = "adjoint-memory"
+supports = "Neural ODEs: the continuous-time adjoint used to train with O(1) activation memory, the same trade the audited symplectic network makes in discrete time."
+
+[[ref]]
+key = "griewank2008"
+kind = "doi"
+id = "10.1137/1.9780898717761"
+category = "adjoint-memory"
+supports = "Reference on algorithmic differentiation, including checkpointing and the memory/time trade-off curve against which an O(1)-activation method should be placed."
+
+[[ref]]
+key = "ioannidis2005"
+kind = "doi"
+id = "10.1371/journal.pmed.0020124"
+category = "replication"
+supports = "Why most published research findings are false: the statistical frame for treating a single-seed positive result as a hypothesis rather than a finding."
+
+[[ref]]
+key = "osc2015"
+kind = "doi"
+id = "10.1126/science.aac4716"
+category = "replication"
+supports = "Large-scale replication study; the template for reporting a claim-by-claim reproduction verdict instead of an overall impression."
+
+[[ref]]
+key = "sandve2013"
+kind = "doi"
+id = "10.1371/journal.pcbi.1003285"
+category = "reproducibility"
+supports = "Ten simple rules for reproducible computational research; rule-level justification for shipping the experiment plan, the pinned subject commit and the raw logs with the paper."
+
+[[ref]]
+key = "baker2016"
+kind = "doi"
+id = "10.1038/533452a"
+category = "reproducibility"
+supports = "Survey of reproducibility practice across fields; motivates the audit format (what was re-run, what was not, and why)."
+
+[[ref]]
+key = "wasserstein2016"
+kind = "doi"
+id = "10.1080/00031305.2016.1154108"
+category = "statistics"
+supports = "The ASA statement on p-values: the reason the paper reports a mean, a standard error and its ratio to zero instead of a dichotomous significance verdict."
+
+[[ref]]
+key = "nosek2018"
+kind = "doi"
+id = "10.1073/pnas.1708274114"
+category = "replication"
+supports = "The preregistration argument, transposed here to experiment plans fixed before the numbers are read."
+
+[[ref]]
+key = "efron1993bootstrap"
+kind = "doi"
+id = "10.1201/9780429246593"
+category = "statistics"
+supports = "Bootstrap and resampling reference for the interval reporting used when a metric is not normally distributed."
+
+[[ref]]
+key = "timelockca"
+kind = "url"
+id = "https://github.com/kostyk348/timelock-ca"
+category = "subject"
+supports = "The audited artifact itself: the repository whose four laboratories, printed verdicts and README claims are the subject of this paper. Cited as an artifact, not as an authority."
+
+[[ref]]
+key = "kitaev2003"
+kind = "doi"
+id = "10.1016/S0003-4916(02)00018-0"
+category = "topological-memory"
+supports = "Fault-tolerant quantum computation by anyons: the sense in which a topological invariant stores a logical state and protects it locally, against which the audited Euler-characteristic lock is being contrasted."
+
+[[ref]]
+key = "dennis2002"
+kind = "doi"
+id = "10.1063/1.1499754"
+category = "topological-memory"
+supports = "Topological quantum memory: the error model and threshold argument that make an invariant a memory rather than a checksum; the reference point for saying the audited lock is the latter."

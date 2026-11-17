@@ -1,0 +1,389 @@
+{
+ "arxiv": {},
+ "doi": {
+  "10.1007/3-540-10003-2_104": {
+   "authors": [
+    "Tommaso Toffoli"
+   ],
+   "container": "Lecture Notes in Computer Science",
+   "doi": "10.1007/3-540-10003-2_104",
+   "issue": null,
+   "page": "632-644",
+   "published": "1980",
+   "publisher": "Springer Berlin Heidelberg",
+   "source": "dois.json",
+   "title": "Reversible computing",
+   "type": "book-chapter",
+   "url": "https://doi.org/10.1007/3-540-10003-2_104",
+   "volume": null
+  },
+  "10.1007/bf01021083": {
+   "authors": [
+    "Stephen Wolfram"
+   ],
+   "container": "Journal of Statistical Physics",
+   "doi": "10.1007/bf01021083",
+   "issue": "3-4",
+   "page": "471-526",
+   "published": "1986",
+   "publisher": "Springer Science and Business Media LLC",
+   "source": "dois.json",
+   "title": "Cellular automaton fluids 1: Basic theory",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1007/bf01021083",
+   "volume": "45"
+  },
+  "10.1007/bf01857727": {
+   "authors": [
+    "Edward Fredkin",
+    "Tommaso Toffoli"
+   ],
+   "container": "International Journal of Theoretical Physics",
+   "doi": "10.1007/bf01857727",
+   "issue": "3-4",
+   "page": "219-253",
+   "published": "1982",
+   "publisher": "Springer Science and Business Media LLC",
+   "source": "dois.json",
+   "title": "Conservative logic",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1007/bf01857727",
+   "volume": "21"
+  },
+  "10.1016/0167-2789(84)90252-5": {
+   "authors": [
+    "Norman Margolus"
+   ],
+   "container": "Physica D: Nonlinear Phenomena",
+   "doi": "10.1016/0167-2789(84)90252-5",
+   "issue": "1-2",
+   "page": "81-95",
+   "published": "1984",
+   "publisher": "Elsevier BV",
+   "source": "dois.json",
+   "title": "Physics-like models of computation",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1016/0167-2789(84)90252-5",
+   "volume": "10"
+  },
+  "10.1016/0734-189x(89)90127-8": {
+   "authors": [
+    "T.Y Kong",
+    "A Rosenfeld"
+   ],
+   "container": "Computer Vision, Graphics, and Image Processing",
+   "doi": "10.1016/0734-189x(89)90127-8",
+   "issue": "3",
+   "page": "397",
+   "published": "1989",
+   "publisher": "Elsevier BV",
+   "source": "dois.json",
+   "title": "Digital topology: Introduction and survey",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1016/0734-189x(89)90127-8",
+   "volume": "47"
+  },
+  "10.1016/s0003-4916(02)00018-0": {
+   "authors": [
+    "A.Yu. Kitaev"
+   ],
+   "container": "Annals of Physics",
+   "doi": "10.1016/s0003-4916(02)00018-0",
+   "issue": "1",
+   "page": "2-30",
+   "published": "2003",
+   "publisher": "Elsevier BV",
+   "source": "dois.json",
+   "title": "Fault-tolerant quantum computation by anyons",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1016/s0003-4916(02)00018-0",
+   "volume": "303"
+  },
+  "10.1038/533452a": {
+   "authors": [
+    "Monya Baker"
+   ],
+   "container": "Nature",
+   "doi": "10.1038/533452a",
+   "issue": "7604",
+   "page": "452-454",
+   "published": "2016",
+   "publisher": "Springer Science and Business Media LLC",
+   "source": "dois.json",
+   "title": "1,500 scientists lift the lid on reproducibility",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1038/533452a",
+   "volume": "533"
+  },
+  "10.1063/1.1499754": {
+   "authors": [
+    "Eric Dennis",
+    "Alexei Kitaev",
+    "Andrew Landahl",
+    "John Preskill"
+   ],
+   "container": "Journal of Mathematical Physics",
+   "doi": "10.1063/1.1499754",
+   "issue": "9",
+   "page": "4452-4505",
+   "published": "2002",
+   "publisher": "AIP Publishing",
+   "source": "dois.json",
+   "title": "Topological quantum memory",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1063/1.1499754",
+   "volume": "43"
+  },
+  "10.1063/1.1699114": {
+   "authors": [
+    "Nicholas Metropolis",
+    "Arianna W. Rosenbluth",
+    "Marshall N. Rosenbluth",
+    "Augusta H. Teller",
+    "Edward Teller"
+   ],
+   "container": "The Journal of Chemical Physics",
+   "doi": "10.1063/1.1699114",
+   "issue": "6",
+   "page": "1087-1092",
+   "published": "1953",
+   "publisher": "AIP Publishing",
+   "source": "dois.json",
+   "title": "Equation of State Calculations by Fast Computing Machines",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1063/1.1699114",
+   "volume": "21"
+  },
+  "10.1073/pnas.1708274114": {
+   "authors": [
+    "Brian A. Nosek",
+    "Charles R. Ebersole",
+    "Alexander C. DeHaven",
+    "David T. Mellor"
+   ],
+   "container": "Proceedings of the National Academy of Sciences",
+   "doi": "10.1073/pnas.1708274114",
+   "issue": "11",
+   "page": "2600-2606",
+   "published": "2018",
+   "publisher": "National Academy of Sciences",
+   "source": "dois.json",
+   "title": "The preregistration revolution",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1073/pnas.1708274114",
+   "volume": "115"
+  },
+  "10.1080/00031305.2016.1154108": {
+   "authors": [
+    "Ronald L. Wasserstein",
+    "Nicole A. Lazar"
+   ],
+   "container": "The American Statistician",
+   "doi": "10.1080/00031305.2016.1154108",
+   "issue": "2",
+   "page": "129-133",
+   "published": "2016",
+   "publisher": "Informa UK Limited",
+   "source": "dois.json",
+   "title": "The ASA Statement on\n                    <i>p</i>\n                    -Values: Context, Process, and Purpose",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1080/00031305.2016.1154108",
+   "volume": "70"
+  },
+  "10.1103/physreva.13.1949": {
+   "authors": [
+    "J. Hardy",
+    "O. de Pazzis",
+    "Y. Pomeau"
+   ],
+   "container": "Physical Review A",
+   "doi": "10.1103/physreva.13.1949",
+   "issue": "5",
+   "page": "1949-1961",
+   "published": "1976",
+   "publisher": "American Physical Society (APS)",
+   "source": "dois.json",
+   "title": "Molecular dynamics of a classical lattice gas: Transport properties and time correlation functions",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1103/physreva.13.1949",
+   "volume": "13"
+  },
+  "10.1103/physrevlett.56.1505": {
+   "authors": [
+    "U. Frisch",
+    "B. Hasslacher",
+    "Y. Pomeau"
+   ],
+   "container": "Physical Review Letters",
+   "doi": "10.1103/physrevlett.56.1505",
+   "issue": "14",
+   "page": "1505-1508",
+   "published": "1986",
+   "publisher": "American Physical Society (APS)",
+   "source": "dois.json",
+   "title": "Lattice-Gas Automata for the Navier-Stokes Equation",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1103/physrevlett.56.1505",
+   "volume": "56"
+  },
+  "10.1126/science.aac4716": {
+   "authors": [
+    "Open Science Collaboration"
+   ],
+   "container": "Science",
+   "doi": "10.1126/science.aac4716",
+   "issue": "6251",
+   "page": null,
+   "published": "2015",
+   "publisher": "American Association for the Advancement of Science (AAAS)",
+   "source": "dois.json",
+   "title": "Estimating the reproducibility of psychological science",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1126/science.aac4716",
+   "volume": "349"
+  },
+  "10.1137/1.9780898717761": {
+   "authors": [
+    "Andreas Griewank",
+    "Andrea Walther"
+   ],
+   "container": "",
+   "doi": "10.1137/1.9780898717761",
+   "issue": null,
+   "page": null,
+   "published": "2008",
+   "publisher": "Society for Industrial and Applied Mathematics",
+   "source": "dois.json",
+   "title": "Evaluating Derivatives",
+   "type": "monograph",
+   "url": "https://doi.org/10.1137/1.9780898717761",
+   "volume": null
+  },
+  "10.1147/rd.176.0525": {
+   "authors": [
+    "C. H. Bennett"
+   ],
+   "container": "IBM Journal of Research and Development",
+   "doi": "10.1147/rd.176.0525",
+   "issue": "6",
+   "page": "525-532",
+   "published": "1973",
+   "publisher": "IBM",
+   "source": "dois.json",
+   "title": "Logical Reversibility of Computation",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1147/rd.176.0525",
+   "volume": "17"
+  },
+  "10.1147/rd.53.0183": {
+   "authors": [
+    "R. Landauer"
+   ],
+   "container": "IBM Journal of Research and Development",
+   "doi": "10.1147/rd.53.0183",
+   "issue": "3",
+   "page": "183-191",
+   "published": "1961",
+   "publisher": "IBM",
+   "source": "dois.json",
+   "title": "Irreversibility and Heat Generation in the Computing Process",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1147/rd.53.0183",
+   "volume": "5"
+  },
+  "10.1201/9780429246593": {
+   "authors": [
+    "Bradley Efron",
+    "R.J. Tibshirani"
+   ],
+   "container": "",
+   "doi": "10.1201/9780429246593",
+   "issue": null,
+   "page": null,
+   "published": "1994",
+   "publisher": "Chapman and Hall/CRC",
+   "source": "dois.json",
+   "title": "An Introduction to the Bootstrap",
+   "type": "book",
+   "url": "https://doi.org/10.1201/9780429246593",
+   "volume": null
+  },
+  "10.1371/journal.pcbi.1003285": {
+   "authors": [
+    "Geir Kjetil Sandve",
+    "Anton Nekrutenko",
+    "James Taylor",
+    "Eivind Hovig"
+   ],
+   "container": "PLoS Computational Biology",
+   "doi": "10.1371/journal.pcbi.1003285",
+   "issue": "10",
+   "page": "e1003285",
+   "published": "2013",
+   "publisher": "Public Library of Science (PLoS)",
+   "source": "dois.json",
+   "title": "Ten Simple Rules for Reproducible Computational Research",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1371/journal.pcbi.1003285",
+   "volume": "9"
+  },
+  "10.1371/journal.pmed.0020124": {
+   "authors": [
+    "John P. A. Ioannidis"
+   ],
+   "container": "PLoS Medicine",
+   "doi": "10.1371/journal.pmed.0020124",
+   "issue": "8",
+   "page": "e124",
+   "published": "2005",
+   "publisher": "Public Library of Science (PLoS)",
+   "source": "dois.json",
+   "title": "Why Most Published Research Findings Are False",
+   "type": "journal-article",
+   "url": "https://doi.org/10.1371/journal.pmed.0020124",
+   "volume": "2"
+  },
+  "10.7551/mitpress/1763.001.0001": {
+   "authors": [
+    "Tommaso Toffoli",
+    "Norman Margolus"
+   ],
+   "container": "",
+   "doi": "10.7551/mitpress/1763.001.0001",
+   "issue": null,
+   "page": null,
+   "published": "1987",
+   "publisher": "The MIT Press",
+   "source": "dois.json",
+   "title": "Cellular Automata Machines",
+   "type": "monograph",
+   "url": "https://doi.org/10.7551/mitpress/1763.001.0001",
+   "volume": null
+  }
+ },
+ "meta": {
+  "arxiv_records": 0,
+  "collector": "papertool merge",
+  "doi_records": 21,
+  "generated": "2026-11-17T09:37:01",
+  "url_records": 2
+ },
+ "url": {
+  "https://arxiv.org/abs/1806.07366": {
+   "bytes": 42768,
+   "final_url": "https://arxiv.org/abs/1806.07366",
+   "source": "urls.json",
+   "status": 200,
+   "title": "[1806.07366] Neural Ordinary Differential Equations",
+   "url": "https://arxiv.org/abs/1806.07366"
+  },
+  "https://github.com/kostyk348/timelock-ca": {
+   "bytes": 269502,
+   "final_url": "https://github.com/kostyk348/timelock-ca",
+   "source": "urls.json",
+   "status": 200,
+   "title": "GitHub - kostyk348/timelock-ca · GitHub",
+   "url": "https://github.com/kostyk348/timelock-ca"
+  }
+ }
+}

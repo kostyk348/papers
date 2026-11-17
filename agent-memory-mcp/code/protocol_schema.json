@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kostyk348/agent-memory-mcp/schema/protocol-v0.1.json",
+  "title": "Agent-memory evaluation protocol - task & report schema",
+  "description": "Schema for the task stream definition and for the report produced by a protocol run. See protocol.md for the metric definitions. Fields marked x-required-anywhere must be present for a report to be valid.",
+  "version": "0.1",
+  "$defs": {
+    "semverish": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$"
+    },
+    "metric": {
+      "type": "object",
+      "description": "One aggregate metric entry. Every metric is reported with its dispersion, never as a single number.",
+      "required": ["name", "unit", "value", "computer"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "minLength": 3},
+        "unit": {"enum": ["ratio", "ms", "tokens", "usd", "count", "score_1_5"]},
+        "value": {"type": ["number", "null"]},
+        "ci_low": {"type": ["number", "null"]},
+        "ci_high": {"type": ["number", "null"]},
+        "n": {"type": "integer", "minimum": 0},
+        "computer": {
+          "enum": ["harness", "programmatic_check", "rubric_two_graders"],
+          "description": "harness = computed by the runner from raw responses; programmatic_check = computed by an independent checker over the returned records/state; rubric_two_graders = human/AI rubric, requires grader_info and kappa."
+        },
+        "kappa": {"type": ["number", "null"], "minimum": -1, "maximum": 1},
+        "notes": {"type": "string"}
+      }
+    },
+    "failure": {
+      "type": "object",
+      "required": ["code", "count"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": ["server_error", "protocol_error", "timeout", "budget_exhausted", "not_implemented",
+                   "nondeterministic", "leakage", "stale_read", "lost_intention", "harness_fault"]
+        },
+        "count": {"type": "integer", "minimum": 0},
+        "examples": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "family_result": {
+      "type": "object",
+      "required": ["id", "tasks", "metrics", "raw_log_paths"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"enum": ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10"]},
+        "tasks": {"type": "integer", "minimum": 0},
+        "repetitions": {"type": "integer", "minimum": 1},
+        "seed": {"type": "integer"},
+        "metrics": {"type": "array", "items": {"$ref": "#/$defs/metric"}, "minItems": 1},
+        "failures": {"type": "array", "items": {"$ref": "#/$defs/failure"}},
+        "raw_log_paths": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Every number in this family must be recomputable from these raw responses."
+        },
+        "skipped": {"type": "boolean"},
+        "skip_reason": {"type": "string"}
+      }
+    }
+  },
+  "type": "object",
+  "required": ["protocol", "subject", "runner", "budgets", "families", "statistics", "disclosure"],
+  "additionalProperties": false,
+  "properties": {
+    "protocol": {
+      "type": "object",
+      "required": ["version", "taxonomy_version", "mcp_spec_revision"],
+      "additionalProperties": false,
+      "properties": {
+        "version": {"$ref": "#/$defs/semverish"},
+        "taxonomy_version": {"type": "string"},
+        "mcp_spec_revision": {"enum": ["2025-03-26", "2025-06-18", "other"]},
+        "mcp_spec_revision_other": {"type": "string"},
+        "schema_uri": {"type": "string"}
+      }
+    },
+    "subject": {
+      "type": "object",
+      "description": "The system under test. commit_sha is mandatory for anything built from source: a version string alone is not reproducible.",
+      "required": ["name", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "minLength": 2},
+        "kind": {"enum": ["mcp_server", "hosted_api", "library", "reference_implementation"]},
+        "repo_url": {"type": "string"},
+        "commit_sha": {"type": "string", "pattern": "^(none|[0-9a-f]{7,40})$"},
+        "version": {"type": "string"},
+        "transport": {"enum": ["stdio", "http_sse", "http_streamable", "n/a"]},
+        "runtime": {"type": "string"},
+        "deployment": {"type": "string"},
+        "storage_dir": {"type": "string"}
+      }
+    },
+    "runner": {
+      "type": "object",
+      "required": ["harness_commit", "model", "repetitions", "seeds"],
+      "additionalProperties": false,
+      "properties": {
+        "harness_commit": {"type": "string"},
+        "model": {"type": "string", "description": "'none (store-only)' when the store is exercised without a model in the loop"},
+        "model_params": {"type": "object"},
+        "prompt_templates_hash": {"type": "string"},
+        "repetitions": {"type": "integer", "minimum": 1},
+        "seeds": {"type": "array", "items": {"type": "integer"}, "minItems": 1},
+        "hardware_class": {"type": "string"}
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "required": ["max_calls", "max_tokens", "wall_clock_s", "price_table"],
+      "additionalProperties": false,
+      "properties": {
+        "max_calls": {"type": "integer", "minimum": 0},
+        "max_tokens": {"type": "integer", "minimum": 0},
+        "wall_clock_s": {"type": "integer", "minimum": 0},
+        "price_table": {
+          "type": "object",
+          "required": ["date", "source"],
+          "additionalProperties": false,
+          "properties": {
+            "date": {"type": "string"},
+            "source": {"type": "string"},
+            "usd_per_1k_input": {"type": ["number", "null"]},
+            "usd_per_1k_output": {"type": ["number", "null"]}
+          }
+        }
+      }
+    },
+    "families": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/family_result"}
+    },
+    "operations": {
+      "type": "object",
+      "description": "Per-operation aggregate (taxonomy O1..O6 + provenance/lifecycle).",
+      "propertyNames": {"enum": ["O1_WRITE", "O2_READ", "O3_CONSOLIDATE", "O4_REVISE", "O5_INTEND", "O6_ASSERT", "PROVENANCE", "LIFECYCLE"]},
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "supported": {"enum": ["yes", "partial", "no", "unknown"]},
+          "metrics": {"type": "array", "items": {"$ref": "#/$defs/metric"}},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "statistics": {
+      "type": "object",
+      "required": ["ci_method", "n_resamples"],
+      "additionalProperties": false,
+      "properties": {
+        "ci_method": {"enum": ["bootstrap_percentile", "none"]},
+        "n_resamples": {"type": "integer", "minimum": 0},
+        "notes": {"type": "string"}
+      }
+    },
+    "failures": {
+      "type": "object",
+      "properties": {
+        "counts_by_code": {"type": "object"},
+        "examples": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "disclosure": {
+      "type": "object",
+      "description": "Mandatory reproducibility block. Missing fields make the report incomparable and the validator fails.",
+      "required": ["server_selection_rule", "candidate_servers", "mcp_spec_revision", "mcp_servers_sha",
+                   "transport", "model_under_test", "model_params", "embedding_model", "seeds",
+                   "repetitions", "n_tasks_per_family", "budgets", "price_table", "grader_info",
+                   "prompt_templates_hash", "environment", "known_deviations"],
+      "properties": {
+        "server_selection_rule": {"type": "string", "minLength": 10},
+        "candidate_servers": {"type": "array", "minItems": 1, "items": {
+          "type": "object",
+          "required": ["name", "included", "reason"],
+          "properties": {
+            "name": {"type": "string"},
+            "included": {"type": "boolean"},
+            "reason": {"type": "string"}
+          }
+        }},
+        "mcp_spec_revision": {"type": "string"},
+        "mcp_servers_sha": {"type": "string"},
+        "transport": {"type": "string"},
+        "model_under_test": {"type": "string"},
+        "model_params": {"type": "object"},
+        "embedding_model": {"type": "string"},
+        "seeds": {"type": "array", "items": {"type": "integer"}, "minItems": 1},
+        "repetitions": {"type": "integer", "minimum": 1},
+        "n_tasks_per_family": {"type": "object"},
+        "budgets": {"type": "object"},
+        "price_table": {"type": "object"},
+        "grader_info": {"type": ["object", "string"]},
+        "prompt_templates_hash": {"type": "string"},
+        "environment": {"type": "string"},
+        "known_deviations": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

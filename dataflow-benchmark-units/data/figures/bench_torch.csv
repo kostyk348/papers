@@ -1,0 +1,4 @@
+run,x,broth[0].activity_mean,broth[0].activity_mean_sd,broth[0].cube_mean,broth[0].cube_mean_sd,broth[0].gops_effective_mean,broth[0].gops_effective_mean_sd,broth[0].seconds_mean,broth[0].seconds_mean_sd,broth[0].steps_mean,broth[0].steps_mean_sd,vm.mops_per_sec_mean,vm.mops_per_sec_mean_sd,vm.seconds_mean,vm.seconds_mean_sd,vm.steps_mean,vm.steps_mean_sd
+bench_torch_c16,16,0.209400,0.000000,16.000000,0.000000,0.078000,0.074632,0.376220,0.189201,60.000000,0.000000,0.164000,0.045607,1.275200,0.305695,200000.000000,0.000000
+bench_torch_c24,24,0.268200,0.000000,24.000000,0.000000,0.198000,0.205475,1.132260,1.216424,60.000000,0.000000,0.174000,0.074699,1.451560,0.970253,200000.000000,0.000000
+bench_torch_c32,32,0.298900,0.000000,32.000000,0.000000,0.288000,0.097314,0.628340,0.273316,60.000000,0.000000,0.234000,0.065038,0.918000,0.269438,200000.000000,0.000000
