@@ -42,10 +42,10 @@
 A repository sets out to test whether computation can be founded on paradox rather than on
 state and rule, formalises the question over GF(2), turns every assertion into an experiment, and
 reports its own results including the ones that failed. This paper reproduces that study
-independently. Seven of its experiments are re-run from a pinned commit and compared against the
-result files committed with the code: all seven reproduce byte for byte, including the one that
-draws four thousand random trials, which turns out to be deterministically seeded. Five of the
-five claims are checked, four of them against numbers. The identification of paradox with contextuality holds: on a
+independently. All eight of its experiments are re-run from a pinned commit and compared against the
+result files committed with the code: every one reproduces byte for byte, including the one that
+draws four thousand random trials, which turns out to be deterministically seeded. Each of the five claims
+is checked against numbers. The identification of paradox with contextuality holds: on a
 negation-labelled cycle the invariant is non-trivial exactly when no global assignment exists,
 and the Mermin triangle returns the expected obstruction. The refutation of the author's own
 diagonal lemma holds as well: \val{e05_diagonal_lemma.selfgauge_trivial_fixed} of \val{e05_diagonal_lemma.selfgauge_total} self-gauge
@@ -110,15 +110,15 @@ audited they are quoted here rather than paraphrased
 direction as stated in the repository & its verdict & this paper \\
 \midrule
 Paradox is Mermin/GHZ contextuality & confirmed & reproduced, \S\ref{sec:claims} \\
-Defect thermodynamics: criticality from paradox birth and death & not found & not reproduced here, \S\ref{sec:not} \\
+Defect thermodynamics: criticality from paradox birth and death & not found & reproduced: \S\ref{sec:defects} \\
 Topological (parity) memory & confirmed, "it is a checksum, not a memory" & reproduced and sharpened, \S\ref{sec:code} \\
 Novelty as a change of topological class & core yes, criticality signal no & reproduced, \S\ref{sec:novelty} \\
 Cohomological diagonal lemma: self-reference implies paradox & refuted & reproduced, \S\ref{sec:claims} \\
 \bottomrule
 \end{tabular}
 \caption{The five verdicts the audited repository states for itself, and what this paper did with
-each. The two that were not re-run are excluded for the reason given in \S\ref{sec:not}, not
-because their verdicts look wrong.}
+each. Every verdict is now checked; the two the repository itself marks as negative or partial are
+reproduced as such.}
 \label{tab:verdicts}
 \end{table}
 
@@ -157,9 +157,9 @@ resolution of the three printed digits and is quoted with it in \S\ref{sec:code}
 \section{Reproduction}
 \label{sec:repro}
 
-Seven experiments were re-run from the pinned commit: the contextuality enumeration, the
+Eight experiments were re-run from the pinned commit: the contextuality enumeration, the
 topological-memory comparison, the novelty scan, the diagonal-lemma enumeration, the frustration
-control, the repair-hardness measurement and the holonomy-code measurement. All seven produced output identical
+control, the repair-hardness measurement and the holonomy-code measurement. All eight produced output identical
 to the \texttt{results/\allowbreak{}} file committed with the repository, and the two exhaustive experiments
 were run three times and once more respectively with the same result each time
 (Table~\ref{tab:repro}).
@@ -218,6 +218,26 @@ $L=3\ldots6$ vertices, apply the self-gauge map and look for a fixed point with 
 The fixed point exists for \val{e05_diagonal_lemma.selfgauge_trivial_fixed} of \val{e05_diagonal_lemma.selfgauge_total} vectors, a
 fraction of \val{selfgauge_fraction.value}. Self-reference does not force paradox; it forces it
 about as often as a fair coin would.
+
+\subsection{A negative result, reproduced: defects do not go critical}
+\label{sec:defects}
+
+The second claim is the one the repository reports as a failure, and the re-run reproduces both the
+numbers and the failure. A structure-noise scan at sixteen vertices, four thousand steps and thirty
+seeds reports the stationary defect density at five noise rates: \val{e02_defect_thermodynamics.defect_rho_mu0} at zero noise,
+then \val{e02_defect_thermodynamics.defect_rho_mu002}, \val{e02_defect_thermodynamics.defect_rho_mu01}, \val{e02_defect_thermodynamics.defect_rho_mu05} and \val{e02_defect_thermodynamics.defect_rho_mu02} as the rate rises. The density does not
+move. What moves is the count of class-change events: \val{e02_defect_thermodynamics.defect_events_mu0} at zero noise, then
+\val{e02_defect_thermodynamics.defect_events_mu002}, \val{e02_defect_thermodynamics.defect_events_mu01}, \val{e02_defect_thermodynamics.defect_events_mu05} and \val{e02_defect_thermodynamics.defect_events_mu02}. The counts grow with the noise rate, which
+is what Poisson counting does, not what an avalanche does. The Hurst exponent at zero noise is
+\val{e02_defect_thermodynamics.defect_hurst_mu0}, far from the 0.5 of an uncorrelated series and nowhere near the range above it that
+a critical process would need.
+
+The audited script prints its own verdict in one line: the density is stationary, events scale with
+the noise rate, there is no avalanche and no critical point. This audit confirms that negative
+result rather than overturning it. A construction built on defects does not, at this size, drive
+the defects into a critical state, and the repository's summary of its own data is the correct
+reading of that data. Publishing the failure is the part of the audited work that deserves the
+most credit, and reproducing it is the cheapest way to say so.
 
 \subsection{Topological memory: what the numbers actually show}
 \label{sec:memory}
@@ -365,12 +385,11 @@ transition.
 \section{What this paper does not establish}
 \label{sec:not}
 
-\paragraph{One of the five claims was not re-run.} The defect-thermodynamics experiment is a
-long scan (a structure-noise sweep at sixteen vertices, four thousand steps and thirty seeds). It
-is in the plan with a generous timeout, and whether it completes is recorded in the measurements
-rather than assumed: the paper does not report its numbers, and its verdict is the repository's
-own. The novelty scan was originally left out for the same runtime reason and then included,
-because "too slow" was not true for it; that is the difference between a limit and an omission.
+\paragraph{Nothing was left out, and one exclusion was a mistake.} The first pass of this audit
+excluded two experiments as too slow. The novelty scan turned out to run in minutes and the defect
+scan in about five, so both are now in the plan and in the results; the one that stayed excluded
+longest is the one whose numbers this paper quotes most carefully, because "runtime budget" was a
+guess rather than a measurement. The CHANGELOG records the correction.
 
 \paragraph{A claim-verdict format borrowed from replication practice.} The way this paper reports
 results, \citep{osc2015} one verdict per claim with the number behind it and a separate list of

@@ -188,11 +188,39 @@ fn resolve(root: &str, rel: &str) -> PathBuf {
     }
 }
 
+/// `${VAR}` in a command word is replaced from the environment, so a plan can name an
+/// interpreter without embedding a machine-local absolute path. A missing variable is an error
+/// rather than an empty string: a plan that silently runs nothing is worse than one that stops.
+fn expand_env(word: &str) -> Result<String, String> {
+    if !word.contains("${") {
+        return Ok(word.to_string());
+    }
+    let mut out = String::new();
+    let mut rest = word;
+    while let Some(start) = rest.find("${") {
+        out.push_str(&rest[..start]);
+        let after = &rest[start + 2..];
+        let end = after
+            .find('}')
+            .ok_or_else(|| format!("unterminated ${{...}} in '{word}'"))?;
+        let name = &after[..end];
+        let value = std::env::var(name)
+            .map_err(|_| format!("environment variable '{name}' is not set (needed by '{word}')"))?;
+        out.push_str(&value);
+        rest = &after[end + 1..];
+    }
+    out.push_str(rest);
+    Ok(out)
+}
+
 fn execute(root: &str, run: &Run, seed: i64, rep: u32, log_dir: &Path) -> Result<Record, String> {
     let mut argv: Vec<String> = run.cmd.clone();
     if let Some(flag) = &run.seed_flag {
         argv.push(flag.clone());
         argv.push(seed.to_string());
+    }
+    for word in argv.iter_mut() {
+        *word = expand_env(word)?;
     }
     let cwd = resolve(root, &run.cwd);
     let out_file = log_dir.join(format!("seed{seed}_rep{rep}.out"));

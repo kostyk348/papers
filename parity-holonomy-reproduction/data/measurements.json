@@ -1,7 +1,7 @@
 {
   "tool": "papertool measure",
   "version": "0.1.0",
-  "generated_utc": "2026-11-17T07:26:13Z",
+  "generated_utc": "2026-11-17T07:43:13Z",
   "plan": "experiments/plan.toml",
   "environment": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "key": "python",
-      "value": "python"
+      "value": "set PYTHON to an interpreter with numpy (2.5.1); the published runs used CPython 3.14.6"
     },
     {
       "key": "python_version",
@@ -42,7 +42,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/01_contextuality.py"
       ],
       "seeds": [
@@ -133,7 +133,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/01_contextuality.py"
       ],
       "seeds": [
@@ -196,7 +196,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/05_diagonal_lemma.py"
       ],
       "seeds": [
@@ -275,7 +275,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/06_frustration.py"
       ],
       "seeds": [
@@ -330,7 +330,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/11_repair_hardness.py"
       ],
       "seeds": [
@@ -409,7 +409,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/03_topological_memory.py"
       ],
       "seeds": [
@@ -684,7 +684,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/12_holonomy_code.py"
       ],
       "seeds": [
@@ -787,7 +787,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/04_novelty.py"
       ],
       "seeds": [
@@ -890,7 +890,7 @@
       "mode": "capture",
       "cwd": "subjects/paradox-logic",
       "argv": [
-        "python",
+        "${PYTHON}",
         "experiments/02_defect_thermodynamics.py"
       ],
       "seeds": [
@@ -909,17 +909,17 @@
       ],
       "elapsed_s": {
         "n": 1,
-        "mean": 250.8534747,
+        "mean": 241.7388581,
         "sd": 0.0,
-        "min": 250.8534747,
-        "max": 250.8534747
+        "min": 241.7388581,
+        "max": 241.7388581
       },
       "peak_ws_bytes": {
         "n": 1,
-        "mean": 34299904.0,
+        "mean": 34168832.0,
         "sd": 0.0,
-        "min": 34299904.0,
-        "max": 34299904.0
+        "min": 34168832.0,
+        "max": 34168832.0
       },
       "metrics": [
         {
@@ -938,48 +938,48 @@
           "name": "defect_events_mu002",
           "kind": "num",
           "n": 1,
-          "mean": 0.69,
+          "mean": 14.0,
           "sd": 0.0,
-          "min": 0.69,
-          "max": 0.69,
+          "min": 14.0,
+          "max": 14.0,
           "values": [
-            0.69
+            14.0
           ]
         },
         {
           "name": "defect_events_mu01",
           "kind": "num",
           "n": 1,
-          "mean": 0.71,
+          "mean": 76.0,
           "sd": 0.0,
-          "min": 0.71,
-          "max": 0.71,
+          "min": 76.0,
+          "max": 76.0,
           "values": [
-            0.71
+            76.0
           ]
         },
         {
           "name": "defect_events_mu02",
           "kind": "num",
           "n": 1,
-          "mean": 0.72,
+          "mean": 471.0,
           "sd": 0.0,
-          "min": 0.72,
-          "max": 0.72,
+          "min": 471.0,
+          "max": 471.0,
           "values": [
-            0.72
+            471.0
           ]
         },
         {
           "name": "defect_events_mu05",
           "kind": "num",
           "n": 1,
-          "mean": 0.73,
+          "mean": 357.0,
           "sd": 0.0,
-          "min": 0.73,
-          "max": 0.73,
+          "min": 357.0,
+          "max": 357.0,
           "values": [
-            0.73
+            357.0
           ]
         },
         {
@@ -1007,6 +1007,30 @@
           ]
         },
         {
+          "name": "defect_rho_mu002",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.69,
+          "sd": 0.0,
+          "min": 0.69,
+          "max": 0.69,
+          "values": [
+            0.69
+          ]
+        },
+        {
+          "name": "defect_rho_mu01",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.71,
+          "sd": 0.0,
+          "min": 0.71,
+          "max": 0.71,
+          "values": [
+            0.71
+          ]
+        },
+        {
           "name": "defect_rho_mu02",
           "kind": "num",
           "n": 1,
@@ -1016,6 +1040,18 @@
           "max": 0.72,
           "values": [
             0.72
+          ]
+        },
+        {
+          "name": "defect_rho_mu05",
+          "kind": "num",
+          "n": 1,
+          "mean": 0.73,
+          "sd": 0.0,
+          "min": 0.73,
+          "max": 0.73,
+          "values": [
+            0.73
           ]
         },
         {

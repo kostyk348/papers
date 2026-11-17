@@ -13,9 +13,13 @@ First complete package.
 - Claim 4 (novelty) was first excluded for a runtime reason that turned out to be wrong: the
   experiment finishes in minutes and now reproduces byte-identically (0 / 14 / 66 / 314 class
   changes). Included in §5.4 and in the verdict table.
-- Claim 2 (defect thermodynamics) stays in the plan with a 45-minute budget but is not reported as
-  a result; its verdict remains the repository's own. The paper states which of the two is a limit
-  and which was an omission.
+- Claim 2 (defect thermodynamics) turned out to run in about five minutes as well, so it is now
+  reproduced too: stationary density (0.70-0.72), Poisson-like event counts, Hurst 0.092. The
+  repository's negative verdict is confirmed rather than overturned. No claim is left unchecked.
+- Plans invoke `${PYTHON}` instead of an absolute interpreter path; `papertool measure` expands it
+  from the environment and fails loudly if it is unset. This replaces the first attempt at path
+  anonymisation, which replaced the interpreter with a bare `python` that had no NumPy and silently
+  produced an empty run.
 - Paper: `tex/main.tex`, eight sections, three tables, one figure, 18 verified references.
 - The paper's own correction to the audited text: the third verdict ("a checksum, not a
   memory") is turned into a measured statement about minimum distance, using the audited

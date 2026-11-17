@@ -1,4 +1,4 @@
-verify_all.sh -- 2026-11-17T07:10:11Z
+verify_all.sh -- 2026-11-17T07:45:35Z
 papertool: /c/Users/Lab/AppData/Local/hermes/profiles/libraressa/workspace/papers/dataflow-benchmark-units/../tooling/papertool/target/release/papertool.exe
 papertool -- pipeline utility for the paper packages in papers/.
 
@@ -76,6 +76,6 @@ numbers: 46 lookups resolve, no unlisted bare numerals in 2 tex file(s)
     ok
 === PDF build
     ok (57544 bytes)
-    sha256 85fc809cd750ecefb84d71602c5bfcb12198f838adc1bd2c0b41e5d863032abc
+    sha256 96cc0c1c5835bbdedbede522f17f1bedfb284625259670dabce68b7510e52955
 
 ALL CHECKS PASSED

@@ -13,8 +13,8 @@
       "value": "c5c94bb38bae1ac6dec1f8b794112b6331f5625e"
     },
     {
-      "key": "python",
-      "value": "python"
+      "key": "${PYTHON}",
+      "value": "${PYTHON}"
     },
     {
       "key": "python_version",
@@ -46,7 +46,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -257,7 +257,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -468,7 +468,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -679,7 +679,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -890,7 +890,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -1101,7 +1101,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -1251,7 +1251,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -1401,7 +1401,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -1551,7 +1551,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -1701,7 +1701,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -1851,7 +1851,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -2001,7 +2001,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "margolus",
@@ -2151,7 +2151,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "topo",
@@ -2371,7 +2371,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "topo",
@@ -2591,7 +2591,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "topo",
@@ -2811,7 +2811,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "topo",
@@ -2968,7 +2968,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "hpp",
@@ -3288,7 +3288,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "hpp",
@@ -3608,7 +3608,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "hpp",
@@ -3928,7 +3928,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "hpp",
@@ -4248,7 +4248,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -4469,7 +4469,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -4690,7 +4690,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -4911,7 +4911,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -5132,7 +5132,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -5353,7 +5353,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -5574,7 +5574,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -5730,7 +5730,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -5886,7 +5886,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",
@@ -6042,7 +6042,7 @@
       "mode": "json",
       "cwd": "subjects/timelock-ca",
       "argv": [
-        "python",
+        "${PYTHON}",
         "-m",
         "timelock_ca.cli",
         "train",

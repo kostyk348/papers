@@ -1,4 +1,4 @@
-verify_all.sh -- 2026-11-17T07:28:04Z
+verify_all.sh -- 2026-11-17T07:44:20Z
 papertool: /c/Users/Lab/AppData/Local/hermes/profiles/libraressa/workspace/papers/parity-holonomy-reproduction/../tooling/papertool/target/release/papertool.exe
 papertool -- pipeline utility for the paper packages in papers/.
 
@@ -80,10 +80,10 @@ citation keys used: 18 unique
 curated keys never cited: 0
     ok
 === every number macro resolves and no bare numeral is unlisted
-numbers: 57 lookups resolve, no unlisted bare numerals in 2 tex file(s)
+numbers: 68 lookups resolve, no unlisted bare numerals in 2 tex file(s)
     ok
 === PDF build
-    ok (79357 bytes)
-    sha256 7604da2024b455afafb809c7cad14e73e2a7855a868bee12b3ecc8944859de55
+    ok (80865 bytes)
+    sha256 245ee48d38ef8844f372168b09a5991170103028ab18a75e23a288ea42ca2003
 
 ALL CHECKS PASSED
